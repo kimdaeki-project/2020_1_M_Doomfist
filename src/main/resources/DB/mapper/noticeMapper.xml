@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.doom.s1.notice.NoticeDAO">
+	
+	<resultMap type="NoticeVO" id="selectResult">
+		<id column="no_num" property="no_num" />
+		<result column="title" property="title"/>
+		<result column="contents" property="contents"/>
+		<result column="regDate" property="regDate"/>
+		<result column="likes" property="likes"/>
+		
+	</resultMap>
+	<sql id="search">
+		like '%'||#{search}||'%'
+	</sql>
+	
+	<!-- 전체 글의 갯수       notice2 쓸거면 교체 -->
+	<select id="boardCount" parameterType="Pager" resultType="Long">
+		select count(no_num) from notice 
+		<where>
+			<if test="kind == 'bt'">
+				title <include refid="search"></include>
+			</if>
+			
+		
+			<if test="kind == 'bc'">
+				contents <include refid="search"></include>
+			</if>
+		</where>
+		
+	</select>
+	
+	<select id="boardList" parameterType="Pager" resultType="NoticeVO">
+		select * from
+			(select N.*, rownum R from
+				(select * from notice where 
+				<choose>
+					<when test="kind == 'bc'">
+						contents
+					</when>
+				
+					<otherwise>
+						title
+					</otherwise>
+				
+				</choose>
+				<include refid="search"></include> and no_num>=1 order by no_num desc) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="boardSelect" parameterType="Long" resultMap="selectResult">
+		select *from notice 
+		where no_num=#{no_num} <!-- null발생 and f.board=1 -->
+	</select>
+	
+	<!-- 시퀀스 테이블은 가상으로 검색  -->
+	<select id="boardNum" resultType="Long">
+		select board_seq.nextval from dual 
+	</select>
+	
+	<!--시퀀스테이블을 따로 생성했기떄문에 seq.nextval 대신 #{num} 추가  -->
+	<insert id="boardWrite" parameterType="NoticeVO">
+		insert into notice values(#{no_num},#{title},sysdate,#{contents},0)
+	</insert>
+	
+	<delete id="boardDelete" parameterType="Long">
+		delete notice where no_num=#{no_num}
+	</delete>
+	
+	<update id="boardUpdate" parameterType="NoticeVO">
+		update notice set title=#{title}, contents=#{contents} where no_num=#{no_num}
+	</update>
+	
+	<update id="likesUpdate" parameterType="Long">
+		update notice set likes = likes+1 where no_num=#{no_num}
+	</update>
+	
+
+
+</mapper>  

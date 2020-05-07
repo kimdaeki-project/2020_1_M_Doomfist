@@ -1,5 +1,10 @@
 package com.doom.s1.notice;
 
-public class NoticeVO {
+import java.sql.Date;
 
+import com.doom.s1.board.BoardVO;
+
+public class NoticeVO extends BoardVO {
+
+	
 }
