@@ -30,62 +30,62 @@ $("#add")
 // --------------------------------------------------------------------------------------------
 
 // summernote에 이미지 올리기
-$('#contents').summernote({
-	height : 400,
-	callbacks : {
-		onImageUpload : function(files, editor) {
-			var formData = new FormData();// <form></form>
-			formData.append('files', files[0]); // <input type = "file" name
-												// ="">
-			$.ajax({
-				type : "post",
-				url : "../boardFile/fileInsert",
-				data : formData,
-				enctype : "multipart/form-data",
-				cache : false,
-				contentType : false,
-				processData : false,
-				success : function(imageName) {
-					imageName = imageName.trim();
-					$("#contents").summernote('editor.insertImage', imageName);
-
-				}
-			});
-		}, // onImageUpload
-		
-		onMediaDelete:function(files){	
-			
-			var fileName = $(files[0]).attr("src");
-			fileName = fileName.substring(fileName.lastIndexOf("/")+1);
-			console.log(fileName);
-	
-			$.ajax({
-				type:"post",
-				url:"../boardFile/summerDelete",
-				data:{
-					fileName:fileName
-				},
-				success:function(data){
-					console.log(data)
-				}
-				
-			});
-		}//OnMediaDelete
-		
-		
-		
-	}//callBack
-});
+//$('#contents').summernote({
+//	height : 400,
+//	callbacks : {
+//		onImageUpload : function(files, editor) {
+//			var formData = new FormData();// <form></form>
+//			formData.append('files', files[0]); // <input type = "file" name
+//												// ="">
+//			$.ajax({
+//				type : "post",
+//				url : "../boardFile/fileInsert",
+//				data : formData,
+//				enctype : "multipart/form-data",
+//				cache : false,
+//				contentType : false,
+//				processData : false,
+//				success : function(imageName) {
+//					imageName = imageName.trim();
+//					$("#contents").summernote('editor.insertImage', imageName);
+//
+//				}
+//			});
+//		}, // onImageUpload
+//		
+//		onMediaDelete:function(files){	
+//			
+//			var fileName = $(files[0]).attr("src");
+//			fileName = fileName.substring(fileName.lastIndexOf("/")+1);
+//			console.log(fileName);
+//	
+//			$.ajax({
+//				type:"post",
+//				url:"../boardFile/summerDelete",
+//				data:{
+//					fileName:fileName
+//				},
+//				success:function(data){
+//					console.log(data)
+//				}
+//				
+//			});
+//		}//OnMediaDelete
+//		
+//		
+//		
+//	}//callBack
+//});
 
 // --------------------------------------------------------------------------------------------
 
 $("#btn").click(function() {
 
 	// title, contents 데이터 유무 검증
-	var title = $("#title").val();
+	var title = $("#qna_title").val();
 
-	var contents = $("#contents").summernote('code');
-	console.log($("#contents").summernote('isEmpty'));
+	var contents = $("#qna_contents").summernote('code');
+	console.log($("#qna_contents").summernote('isEmpty'));
 
 	var ch3 = true;
 
@@ -96,7 +96,7 @@ $("#btn").click(function() {
 	});
 
 	var ch1 = title != "";
-	var ch2 = $("#contents").summernote('isEmpty');
+	var ch2 = $("#qna_contents").summernote('isEmpty');
 
 	if (ch1 && !ch2 && ch3) {
 		// form 전송(submit event 강제 발생)
@@ -115,13 +115,13 @@ $("#btn").click(function() {
 });
 
 // $("선택자 ").action();
-// $('#contents').summernote({
-// height : 400,
+ $('#qna_contents').summernote({
+ height : 400,
 // callbacks:{
 // onImageUpload : function(file){
 // console.log("upload");
 //				 
 // }
 // }
-// });
+ });
 
