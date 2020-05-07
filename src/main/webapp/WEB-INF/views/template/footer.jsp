@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-    
+ 
 <div class="footerArea">
 		<div class="footer">
 			<div class="footer_nav" style="padding-top: 10px;">
@@ -21,7 +20,7 @@
 						<li><a href="#" style="text-decoration: none; color: black;">사이트맵</a> |</li>
 					</ul>
 				</div>
-				<div class="footer_nav_sub ft_copyright" style="padding-top: 15px; padding-left: 30px;">서울특별시 강남구 논현로 508 GS타워 | 고객센터 : 1544-5151 | Copyright ©
+				<div class="footer_nav_sub ft_copyright" style="padding-top: 15px; padding-left: 40px;">서울특별시 강남구 논현로 508 GS타워 | 고객센터 : 1544-5151 | Copyright ©
 					2016 GS Caltex Corporation. All Right Reserved</div>
 			</div>
 			<div class="footer_nav" style="width: 200px; float: right;">
