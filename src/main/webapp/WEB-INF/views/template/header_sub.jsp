@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+
 <body>
 
 	<div class="jumbotron">
@@ -24,7 +25,7 @@
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Products</a></li>
+					<li><a href="#">Notice</a></li>
 					<li><a href="#">Deals</a></li>
 					<li><a href="#">Stores</a></li>
 					<li><a href="#">Contact</a></li>

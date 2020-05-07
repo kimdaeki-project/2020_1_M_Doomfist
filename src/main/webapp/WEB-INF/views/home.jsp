@@ -12,60 +12,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 	
 <c:import url="./template/boot.jsp"></c:import>
-<style type="text/css">
-body{
-	background-color:#cce6ff;
-}
-
-.navbar {
-	margin-bottom: 50px;
-	border-radius: 0;
-}
-
-.jumbotron {
-	margin-bottom: 0;
-}
-
-
-.botnavi li {
-	list-style: none;
-	float: left;
-}
-
-.footer_nav {
-	float: left;
-	margin-right: 10px;
-}
-.footer_nav li{
-	list-style: none;
-	float: left;
-	
-}
-
-.footer_nav_sub{
-	float: left;
-}
-
-.ft_copyright{
-	font-size: x-small;
-}
-
-#sns li{
-	margin-right: 10px;
-	
-}
-</style>
-
-
+<c:import url="./template/style.jsp"></c:import>
 </head>
 <body>
-	<c:import url="./template/header_sub.jsp"></c:import>
+<c:import url="./template/header.jsp"></c:import>
 
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">BLACKKKKK FRIDAY DEAL</div>
+					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="https://placehold.it/150x80?text=IMAGE"
 							class="img-responsive" style="width: 100%" alt="Image">
