@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.doom.s1.qna.QnaDAO">
+
+	<select id="qnaNum" resultType="Long">
+		select qna_seq.nextval from dual
+	</select>
+
+  <insert id="qnaJoin" parameterType="com.doom.s1.qna.QnaVO">
+  	insert into qna values(#{qna_num}, #{qna_title}, #{id} ,#{qna_contents}, sysdate)
+  </insert>  
+  
+  <select id="qnaList" parameterType="com.doom.s1.util.Pager" resultType="com.doom.s1.qna.QnaVO">
+  		select * from 
+			(select N.*,rownum R from 
+				(select * from qna where
+				<choose>
+					<when test="kind =='bc'">
+						qna_contents
+					</when>
+					<when test="kind =='bt'">
+						qna_title
+					</when>
+					<otherwise>
+						id
+					</otherwise>
+				</choose>
+				<include refid="search"></include>) N)
+		where R between #{startRow} and #{lastRow}
+	</select>
+	
+	<sql id="search">
+		like '%'||#{search}||'%' and qna_num>=1 order by qna_num desc
+	</sql>
+	
+	
+	<select id="qnaCount" resultType="Long" parameterType="com.doom.s1.util.Pager">
+		select count(qna_num) from qna
+				<where>
+					<if test="kind == 'bt'">
+						qna_title <include refid="search"></include>
+					</if>
+					
+					<if test="kind == 'bw'">
+						id <include refid="search"></include>
+					</if>
+					
+					<if test="kind == 'bc'">
+						qna_contents <include refid="search"></include>
+					</if>
+				</where>
+				
+				
+	</select>
+	
+   	
+  
+</mapper>

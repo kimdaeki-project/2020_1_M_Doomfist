@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
- 
+
 <div class="footerArea">
 		<div class="footer">
 			<div class="footer_nav" style="padding-top: 10px;">
