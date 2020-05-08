@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.doom.s1.storeList.StoreListDAO">
+
+	<select id="storeListSelect" parameterType="java.lang.Long" resultType="com.doom.s1.storeList.StoreListVO">
+		SELECT * FROM storelist WHERE st_key=#{st_key}
+	</select>
+	
+</mapper>
