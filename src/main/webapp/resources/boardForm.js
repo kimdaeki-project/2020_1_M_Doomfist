@@ -27,6 +27,19 @@ $("#add")
 
 				});
 
+
+$('#qna_contents').summernote({
+	 height : 400,
+	  toolbar: [
+	    // [groupName, [list of button]]
+	    ['style', ['bold', 'italic', 'underline', 'clear']],
+	    ['font', ['strikethrough', 'superscript', 'subscript']],
+	    ['fontsize', ['fontsize']],
+	    ['color', ['color']],
+	    ['para', ['ul', 'ol', 'paragraph']],
+	    ['height', ['height']]
+	  ]
+	});
 // --------------------------------------------------------------------------------------------
 
 // summernote에 이미지 올리기
@@ -105,7 +118,7 @@ $("#btn").click(function() {
 
 	} else {
 		// submit event 종료
-		alert("필수 요소는 다 입력하세요");
+		alert("필수 요소는 다 입력하세요요");
 		/*
 		 * console.log(title==''); console.log(contents=="");
 		 * console.log(title.length); console.log(contents.length);
@@ -115,13 +128,13 @@ $("#btn").click(function() {
 });
 
 // $("선택자 ").action();
- $('#qna_contents').summernote({
- height : 400,
+// $('#qna_contents').summernote({
+// height : 400,
 // callbacks:{
 // onImageUpload : function(file){
 // console.log("upload");
 //				 
 // }
 // }
- });
+ //});
 

@@ -8,9 +8,7 @@ public class QnaVO {
 	private String qna_title;
 	private String id;
 	private String qna_contents;
-	private Date qna_Date;
-	
-	
+	private Date qna_date;
 	public long getQna_num() {
 		return qna_num;
 	}
@@ -35,13 +33,13 @@ public class QnaVO {
 	public void setQna_contents(String qna_contents) {
 		this.qna_contents = qna_contents;
 	}
-	public Date getQna_Date() {
-		return qna_Date;
+	public Date getQna_date() {
+		return qna_date;
 	}
-	public void setQna_Date(Date qna_Date) {
-		this.qna_Date = qna_Date;
+	public void setQna_date(Date qna_date) {
+		this.qna_date = qna_date;
 	}
 	
-	
+
 	
 }

@@ -14,7 +14,7 @@
 <c:import url="../template/header_sub.jsp"></c:import>
 <div class="container">
 		<h2>맛집 등록 신청</h2>
-		<form action="./qnaJoin" id="frm"  method="POST" enctype = multipart/form-data>
+		<form action="./qnaJoin" id="frm"  method="POST" enctype="multipart/form-data">
 
 			<div class="form-group">
 				<label for="qna_title">식당이름:</label> <input type="text" class="form-control"
@@ -23,7 +23,7 @@
 
 			<div class="form-group">
 				<label for="id">id:</label> <input type="text"
-					class="form-control" id="id" readonly="readonly" value="iu"  placeholder="Enter writer"
+					class="form-control" id="id" readonly="readonly" value="iu0516"  placeholder="Enter writer"
 					name="id" >
 			</div>	
 
@@ -34,7 +34,7 @@
 			
 			<input type="button" id="add" class="btn btn-info" value="사진 추가 하기">
 			
-			<div id="file">
+			<div id="file" >
 				
 			</div>
 			
