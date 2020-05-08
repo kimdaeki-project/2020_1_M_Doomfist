@@ -48,7 +48,6 @@ public class NoticeController {
 	public String boardUpdate(long num, Model model)throws Exception{
 		 BoardVO boardVO = noticeService.boardSelect(num);
 		 model.addAttribute("vo", boardVO);
-		 //파일갯수확인
 		 NoticeVO noticeVO = (NoticeVO)boardVO;
 		 
 		return "board/boardUpdate";
@@ -56,11 +55,10 @@ public class NoticeController {
 	
 	@RequestMapping(value = "noticeUpdate", method = RequestMethod.POST)
 	public String boardUpdate(NoticeVO noticeVO)throws Exception{
-
-		
 		
 		int result = noticeService.boardUpdate(noticeVO);
 		String path="";
+		System.out.println("no컨트롤 확인용"+result);
 		
 		if(result>0) {
 			path= "redirect:./noticeList";
@@ -79,25 +77,8 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "noticeWrite", method = RequestMethod.POST)
-	public ModelAndView boardWrite(/* HttpServletRequest request,*/ NoticeVO noticeVO, ModelAndView mv)throws Exception{
-		
-	
-		
-		
-		//테스트: 파일 여러개 넘어오는거
-		/*
-		 * for (MultipartFile file:noticeVO.getFiles()) {
-		 * System.out.println(file.getOriginalFilename());
-		 * 
-		 * }
-		 */
-		// 파일완성하고 오류났을떄 확인 :  넘어오는 파라미너 이름들 리턴타입 :열거형 Enumeration<String>
-		/*
-		 * Enumeration<String> er = request.getParameterNames(); //다음거 가져오고 false 되면 긑
-		 * while (er.hasMoreElements()) { System.out.println(er.nextElement());
-		 * 
-		 * }
-		 */		
+	public ModelAndView boardWrite(NoticeVO noticeVO, ModelAndView mv)throws Exception{
+				
 		
 		  int result = noticeService.boardWrite(noticeVO);
 		  if(result>0) {

@@ -45,12 +45,6 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int boardWrite(BoardVO boardVO) throws Exception {
-		
-		//주소 가져와 
-		String path = servletContext.getRealPath("/resources/noticeUpload");
-		//파일저장 경로.
-		System.out.println(path);
-		
 		//시퀀스의 번호 받아오기.
 		boardVO.setNo_num(noticeDAO.boardNum());
 		
@@ -67,24 +61,14 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int boardUpdate(BoardVO boardVO) throws Exception {
-		
-		//HDD file save
-		String path = servletContext.getRealPath("/resources/noticeUpload");
-		System.out.println(path);
 		int result = noticeDAO.boardUpdate(boardVO);
-		
-	
-		
+		System.out.println("service uo:"+result);
 		return result;
 	}
 
 	@Override
 	public int boardDelete(long num) throws Exception {
 		//글번호로 파일번호
-		
-		String path = servletContext.getRealPath("/resources/noticeUpload");
-		System.out.println(path);
-		
 		return noticeDAO.boardDelete(num);
 	}
 		

@@ -12,6 +12,7 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
+<c:import url="../template/style.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -20,7 +21,7 @@
 
 			<!--enctype="mutipart/form-data" 파일여러개  -->
 		<form action="./${board}Update" id="frm" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="num" value="${vo.no_num}">
+			<input type="hidden" name="no_num" value="${vo.no_num}">
 			<div class="form-group">
 				<label for="title">Title:</label> <input type="text"
 					value="${vo.title}" class="form-control" id="title" name="title">
@@ -31,22 +32,12 @@
 				<textarea rows="5" cols="" class="form-control" id="contents"
 					name="contents">${vo.contents}</textarea>
 			</div>
-			<!--  -->
-		
-			
-			
-				
-
 
 			<input type="submit" id="btn" class="btn btn-default" value="Write">
 		</form>
 
 	</div>
 
-
-	<!-- 외부 자바 스크립트 파일  가져오기 -->
-	<script type="text/javascript" src="../resources/js/boardForm.js"></script>
-	
 	<script type="text/javascript">
 		//$("선택자").action();
 		//$("#contents").summernote("code",${vo.contents})
@@ -57,37 +48,12 @@
 			focus : true
 		// set focus to editable area after initializing summernote
 		});
-
-		//x버튼 클릭
-		$(".fileDelete").click(function() {
-
-			var check = confirm("정말지울꺼야?");
-
-			if (check) {
-
-				//notice qna 도 쓸꺼
-				var s = $(this);//변수로 담아서 
-				$.post("../boardFile/fileDelete", {
-					fileNum : $(this).attr("id"),board:$(this).attr("title")}, function(data) {
-					if (data/* .trim()  */> 0) {
-						//p태그도 삭제	test
-						alert("성공!");
-						s.parent().remove(); //<p> 태그 삭제 
-						count--;
-
-					} else {
-						alert("파일삭제실패");
-
-					}
-				});// post끝
-
-			}//if 끝
-		})
-		
 	
 	</script>
+<script type="text/javascript" src="../resources/boardForm.js">
+	</script> 
+	
 
-
-
+<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

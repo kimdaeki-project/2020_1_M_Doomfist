@@ -2,10 +2,12 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<title>공지사항</title>
+
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 </head>
@@ -14,7 +16,9 @@
 
 <div class="container">
 	<div class="row">
-		<h1>${board} List</h1>
+		   <div class="page-header text-center text-info">
+    <h1>N O T I C E</h1>      
+  </div>
 		  <form action="./${board}List" class="form-inline">
 		  <div class="input-group input-group-sm col-xs-2">
 		  	<select class="form-control" id="sel1" name="kind">
@@ -34,10 +38,10 @@
 		
 		<table class="table table-hover">
 			<tr>
-				<td>NUM</td>
-				<td>TITLE</td>
-				<td>DATE</td>
-				<td>like</td>
+				<td>번호</td>
+				<td>제목</td>
+				<td>작성날짜</td>
+				<td>조회수</td>
 			</tr>
 			<c:forEach items="${list}" var="vo">
 			<tr>
@@ -47,8 +51,7 @@
 				<c:catch>				
 				<!-- for(int i=0;i<=0;i++) -->
 				<c:forEach begin="1" end="${vo.depth}">
-					--
-					<!-- &nbsp;&nbsp; -->
+					
 				</c:forEach>
 				</c:catch>
 				<a href="./${board}Select?num=${vo.no_num}">${vo.title}</a></td>
@@ -75,21 +78,21 @@
 		</div>
 		
 		<!--완성되면 삭제  -->
-		<a href="./${board}Write" class="btn btn-danger">WRITE</a> 
+		<a href="./${board}Write" class="btn btn-default pull-right">공지쓰기</a> 
 		
 		<c:catch>
 		<c:choose>
 			<c:when test="${board eq 'notice'}">
 				<c:if test="${member.id eq 'admin'}">
 					<div>
-						<a href="./${board}Write" class="btn btn-danger">WRITE</a>
+						<a href="./${board}Write" class="btn btn-default pull-right">공지쓰기</a>
 					</div>
 				</c:if>
 			</c:when>
 			<c:otherwise>
 				<c:if test="${not empty member}">
 					<div>
-						<a href="./${board}Write" class="btn btn-danger">WRITE</a>
+						<a href="./${board}Write" class="btn btn-default pull-right">공지쓰기</a>
 					</div>
 				</c:if>
 			</c:otherwise>
@@ -98,7 +101,7 @@
 		
 	</div>
 
-	
 <c:import url="../template/footer.jsp"></c:import>
+	
 </body>
 </html>

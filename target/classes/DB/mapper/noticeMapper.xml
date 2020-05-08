@@ -24,8 +24,6 @@
 			<if test="kind == 'bt'">
 				title <include refid="search"></include>
 			</if>
-			
-		
 			<if test="kind == 'bc'">
 				contents <include refid="search"></include>
 			</if>
@@ -53,7 +51,7 @@
 	
 	<select id="boardSelect" parameterType="Long" resultMap="selectResult">
 		select *from notice 
-		where no_num=#{no_num} <!-- null발생 and f.board=1 -->
+		where no_num=#{no_num} 
 	</select>
 	
 	<!-- 시퀀스 테이블은 가상으로 검색  -->
@@ -71,7 +69,7 @@
 	</delete>
 	
 	<update id="boardUpdate" parameterType="NoticeVO">
-		update notice set title=#{title}, contents=#{contents} where no_num=#{no_num}
+		update notice set title=#{title}, contents=#{contents} where no_num = #{no_num}
 	</update>
 	
 	<update id="likesUpdate" parameterType="Long">

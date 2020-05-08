@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
+<c:import url="../template/style.jsp"></c:import>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -25,19 +26,15 @@
 		
 		<div>
 	
-		
-		
 		</div>
 
 		<div>
-			<a href="./${board}Update?num=${vo.no_num}" class="btn btn-primary">Update</a> 
-			<a href="./${board}Delete?num=${vo.no_num}" class="btn btn-danger">Delete</a>
-			<c:if test="${board ne 'notice'}">
-			<a href="./${board}Reply?num=${vo.no_num}" class="btn btn-info">Reply</a>
-			</c:if>
+			<a href="./${board}Update?num=${vo.no_num}" class="btn btn-primary ">Update</a> 
+			<a href="./${board}Delete?num=${vo.no_num}" class="btn btn-danger pull-right">Delete</a>
+			
 		</div>
 
 	</div>
-
+<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>
