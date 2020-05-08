@@ -42,10 +42,19 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<li><a href="#"><span class="glyphicon glyphicon-user"></span>
-							Your Account</a></li>
-					<li><a href="#"><span
-							class="glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
+					<c:if test="${empty member}">
+					<li><a href="${pageContext.request.contextPath}/member/memberJoin"><span class="glyphicon glyphicon-user"></span>
+							회원 가입</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/memberLogin"><span class="glyphicon glyphicon-user"></span>
+							로그인</a></li>
+				</c:if>
+				
+				<c:if test="${not empty member}">
+					<li><a href="${pageContext.request.contextPath}/member/memberPage"><span class="glyphicon glyphicon-user"></span>
+							회원 정보</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-user"></span>
+							로그아웃</a></li>
+				</c:if>
 				</ul>
 			</div>
 		</div>
