@@ -33,15 +33,15 @@ public class QnaService {
 	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files, QnaMenuVO qnaMenuVO) throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/qna_images");
-		qnaVO.setQna_storeKey(qnaDAO.qnaNum());
-		System.out.println(qnaVO.getQna_storeKey());
+		qnaVO.setQna_storekey(qnaDAO.qnaNum());
+		System.out.println(qnaVO.getQna_storekey());
 		int result = qnaDAO.qnaJoin(qnaVO);
 		
 		for(MultipartFile file : files) {
 			if(file.getSize()>0) {
 				QnaFileVO qnaFileVO = new QnaFileVO();
 				String fileName = fileSaver.saveByTransfer(file, path);
-				qnaFileVO.setQna_num(qnaVO.getQna_storeKey());
+				qnaFileVO.setQna_storekey(qnaVO.getQna_storekey());
 				qnaFileVO.setQf_filename(fileName);
 				qnaFileVO.setQf_oriname(file.getOriginalFilename());
 				qnaFileVO.setQf_key(1);
@@ -52,11 +52,10 @@ public class QnaService {
 			}
 		}
 		// qna 메뉴 연결
-//		qnaMenuVO.setQna_num(qnaVO.getQna_num());
+//		qnaMenuVO.setQna_storekey(qnaVO.getQna_storeKey());
+//		qnaMenuVO.setQm_price(qnaMenuVO.getQm_price());
 //		qnaMenuVO.setQm_menu(qnaMenuVO.getQm_menu());
-//		qnaMenuVO.getQm_price(qnaMenuVO.getQm_price());
-//		qnaMenuDAO.qnaMenuInsert(qnaMenuVO);
-		
+//	
 		
 		return result;
 	}

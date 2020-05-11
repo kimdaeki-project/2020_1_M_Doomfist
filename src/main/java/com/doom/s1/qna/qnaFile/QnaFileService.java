@@ -26,7 +26,7 @@ public class QnaFileService {
 		String path = servletContext.getRealPath("/resources/summer");
 		path = fileSaver.saveByTransfer(files, path);
 		path = servletContext.getContextPath()+"/resources/summer"+path;
-		qnaFileVO.setQna_num(qnaDAO.qnaNum());
+		qnaFileVO.setQna_storekey(qnaDAO.qnaNum());
 		
 		return path;
 	}

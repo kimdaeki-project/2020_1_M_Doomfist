@@ -6,7 +6,7 @@
 <mapper namespace="com.doom.s1.qna.QnaDAO">
 
 	<select id="qnaNum" resultType="Long">
-		select qna_seq.nextval from dual
+		select qna_storekey_seq.nextval from dual
 	</select>
 
   <insert id="qnaJoin" parameterType="com.doom.s1.qna.QnaVO">

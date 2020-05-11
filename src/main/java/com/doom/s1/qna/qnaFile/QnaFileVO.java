@@ -1,15 +1,16 @@
 package com.doom.s1.qna.qnaFile;
 
 public class QnaFileVO {
-	private long qna_num;
+	private long qna_storekey;
 	private long qf_key;
 	private String qf_filename;
 	private String qf_oriname;
-	public long getQna_num() {
-		return qna_num;
+	
+	public long getQna_storekey() {
+		return qna_storekey;
 	}
-	public void setQna_num(long qna_num) {
-		this.qna_num = qna_num;
+	public void setQna_storekey(long qna_storekey) {
+		this.qna_storekey = qna_storekey;
 	}
 	public long getQf_key() {
 		return qf_key;
@@ -30,8 +31,6 @@ public class QnaFileVO {
 		this.qf_oriname = qf_oriname;
 	}
 	
-	
-
 	
 	
 }

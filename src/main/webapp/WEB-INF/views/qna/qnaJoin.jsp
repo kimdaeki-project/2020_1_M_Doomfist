@@ -14,11 +14,11 @@
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
 		<h2>맛집 등록 신청</h2>
-		<form action="./qnaJoin" id="frm" method="POST"
+		<form action="./qnaJoin" id="form" name="form" method="POST"
 			enctype="multipart/form-data">
 
 			<div class="form-group">
-				<label for="qna_title">식당이ㄴ름:</label> <input type="text"
+				<label for="qna_title">식당이름:</label> <input type="text"
 					class="form-control" id="qna_title" placeholder="식당이름"
 					name="qna_title">
 			</div>
@@ -28,15 +28,16 @@
 					id="id" readonly="readonly" value="${sessionScope.member.id}"
 					placeholder="Enter writer" name="id">
 			</div>
-
+			
 			<div class="form-group">
-				<label for="qna_contents">식당을 소개해 주세요:</label>
-				<textarea class="form-control" row="20" id="qna_contents"
-					name="qna_contents"></textarea>
+				<label for="qna_phone">식당전화번호:</label> <input type="text"
+					class="form-control" id="qna_phone" placeholder="식당 전화번호"
+					name="qna_phone">
 			</div>
+			
 
-				<button type="button" class="btn btn-warning" onclick="goPopup()">주소검색</button>
-			<input type="text" id="userAddr" name="userAddr" class="form-control" placeholder="Enter Addr" required="true"/>
+				<button type="button" class="btn btn-warning" onClick="goPopup()">주소검색</button>
+			<input type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
 			
 			<input type="button" id="addmenu" class="btn btn-info" value="메뉴 추가">
 			<div id="menuu"></div>
@@ -117,7 +118,7 @@
 
 		function jusoCallBack(roadFullAddr){
 				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-				document.form.userAddr.value = roadFullAddr;	
+				document.form.qna_contents.value = roadFullAddr;	
 				
 		}
 		
