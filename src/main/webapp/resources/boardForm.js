@@ -27,7 +27,6 @@ $("#add")
 
 				});
 
-
 $('#qna_contents').summernote({
 	 height : 400,
 	  toolbar: [

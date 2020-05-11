@@ -45,16 +45,16 @@
 				<c:forEach items="${list}" var="vo">
 					<tr>
 						<td>${vo.qna_num}</td>
-						<td>
 						
+						<td>
 						<c:catch>
 						<!-- for(int i=0; i<1 i++ -->
 							<c:forEach begin="1" end="${vo.depth}" >
 								--
 							</c:forEach>
 						</c:catch>
-						<%-- <a href="./${board}Select?num=${vo.num}">${vo.title}</a></td> --%>
-						<td>${vo.qna_title}</td>
+						</td>
+						<td><a href="./qnaSelect?qna_num=${vo.qna_num}">${vo.qna_title}</a></td>
 						<td>${vo.id}</td>
 						<td>${vo.qna_contents}</td>
 						<td>${vo.qna_date}</td>
