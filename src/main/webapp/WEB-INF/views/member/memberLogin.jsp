@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
+<script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
 </head>
 <body>
 <c:import url="../template/header_sub.jsp"></c:import>
@@ -35,6 +36,7 @@
     <br></br>
 	<a href="${pageContext.request.contextPath}/member/memberJoin">아이디가 없으신가요? 지금 생성하세요.</a>
 	<br></br>
+	<div id="naverIdLogin"></div>
 	<a href="https://kauth.kakao.com/oauth/authorize?client_id=3d40af6959ca5229244f5399b989263c&redirect_uri=http://localhost:8080/s1/member/memberLogin&response_type=code">
 	<img src="${pageContext.request.contextPath}/resources/images/kakao_login_btn_medium_wide.png">
 	</a>
@@ -45,6 +47,22 @@
 <footer style="margin-top: 15%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
+
+<script type="text/javascript">
+	var naverLogin = new naver.LoginWithNaverId(
+		{
+			clientId: "LguKBDvqrA_EBm7awPdH",
+			callbackUrl: "http://localhost:8080/s1/member/callback",
+			isPopup: false, /* 팝업을 통한 연동처리 여부 */
+			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
+		}
+	);
+	
+	/* 설정정보를 초기화하고 연동을 준비 */
+	naverLogin.init();
+	
+</script>
+<!-- // 네이버아이디로로그인 초기화 Script -->
 	
 
 </body>

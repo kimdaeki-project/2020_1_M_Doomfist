@@ -1,11 +1,17 @@
 package com.doom.s1.member;
 
+import java.util.Enumeration;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,6 +25,7 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+
 	
 	@RequestMapping(value = "memberJoin")
 	public void memberJoin() {
@@ -33,11 +40,62 @@ public class MemberController {
 		}
 		
 		mv.addObject("result", msg);
-		mv.addObject("path", "../");
+		mv.addObject("path", "./memberLogin");
 		mv.setViewName("common/result");
 		
 		return mv;
 	}
+	
+	@PostMapping("memberIdCheck")
+	public ModelAndView memberIdCheck(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception{
+		memberVO = memberService.memberIdCheck(memberVO);
+		//null -> 가입 가능1
+		//null이 아니면 중복 
+		int result =0;
+		if (memberVO==null) {
+			result=1;
+			
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@PostMapping("memberNaverCheck")
+	public ModelAndView memberNaverCheck(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception{
+		memberVO = memberService.memberNaverCheck(memberVO);
+		//null -> 가입 가능1
+		//null이 아니면 중복 
+		int result =0;
+		if (memberVO==null) {
+			result=1;
+			
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+
+	
+	@GetMapping("callback")
+	public void callback() throws Exception {
+//		ModelAndView mv = new ModelAndView();
+//		MemberVO memberVO = new MemberVO();
+//	
+//		 memberVO = memberService.memberLogin(memberVO);
+//		 if(memberVO != null) {
+//			 session.setAttribute("member", memberVO);
+//			 mv.setViewName("redirect:../");
+//		 }else {
+//			 mv.addObject("result", "Login Fail");
+//			 mv.addObject("path", "./memberJoin");
+//			 mv.setViewName("common/result");
+//		 }
+	}
+	
+	
 	
 	
 	@RequestMapping(value= "memberLogin")
@@ -93,6 +151,24 @@ public class MemberController {
 	@RequestMapping(value= "memberPage")
 	public void memberPage() throws Exception {
 
+	}
+	
+	@RequestMapping(value = "memberDelete")
+	public ModelAndView memberDelete(ModelAndView mv, HttpSession session) throws Exception{
+		MemberVO memberVO = (MemberVO)session.getAttribute("member");
+		int result = memberService.memberDelete(memberVO);
+		if (result>0) {
+			session.invalidate();
+			mv.addObject("result", "탈퇴 성공");
+			mv.addObject("path", "../");
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "탈퇴 실패");
+			mv.addObject("path", "../");
+			mv.setViewName("common/result");
+		}
+		
+		return mv;
 	}
 	
 	

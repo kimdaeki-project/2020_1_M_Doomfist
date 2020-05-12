@@ -17,9 +17,11 @@
 <div class="container">
 	<div class="row">
 		   <div class="page-header text-center text-info">
-    <h1>N O T I C E</h1>      
+    <h1>N O T I C E</h1>   
+    <br></br>
+    <br></br>
   </div>
-		  <form action="./${board}List" class="form-inline">
+		  <form style="margin-left: 16px;" action="./${board}List" class="form-inline">
 		  <div class="input-group input-group-sm col-xs-2">
 		  	<select class="form-control" id="sel1" name="kind">
 				    <option value="bt">Title</option>
@@ -35,8 +37,7 @@
 		    </div>
 		  </form>
 		</div>
-		
-		<table class="table table-hover">
+		<table class="table">
 			<tr>
 				<td>번호</td>
 				<td>제목</td>
@@ -44,7 +45,7 @@
 				<td>조회수</td>
 			</tr>
 			<c:forEach items="${list}" var="vo">
-			<tr>
+			<tr style="border-style: solid; border-color: #cce6ff; background-color: white;" >
 				<td>${vo.no_num}</td>
 				<td>
 				

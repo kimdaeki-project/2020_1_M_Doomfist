@@ -37,5 +37,13 @@ public class MemberService {
 		memberPager.makePage(totalCount);
 		return memberDAO.memberList(memberPager);
 	}
+	
+	public MemberVO memberIdCheck(MemberVO memberVO) throws Exception {
+		return memberDAO.memberIdCheck(memberVO);
+	}
+	
+	public MemberVO memberNaverCheck(MemberVO memberVO) throws Exception {
+		return memberDAO.memberNaverCheck(memberVO);
+	}
 
 }

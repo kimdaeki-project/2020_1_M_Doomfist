@@ -65,7 +65,7 @@
 	});
 	
 	$("#del").click(function() {
-		var result = confirm("탈퇴 할거냐???");
+		var result = confirm("정말 탈퇴하시겠습니까?");
 		if(result){
 			location.href="./memberDelete";	
 		}
