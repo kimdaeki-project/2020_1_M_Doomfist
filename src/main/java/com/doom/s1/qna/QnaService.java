@@ -32,7 +32,7 @@ public class QnaService {
 		qnaVO.setQna_num(qnaDAO.qnaNum());
 		System.out.println(qnaVO.getQna_num());
 		int result = qnaDAO.qnaJoin(qnaVO);
-		
+		System.out.println(path);
 		for(MultipartFile file : files) {
 			if(file.getSize()>0) {
 				QnaFileVO qnaFileVO = new QnaFileVO();

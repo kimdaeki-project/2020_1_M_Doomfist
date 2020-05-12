@@ -97,20 +97,42 @@
   	<div class="panel-heading" align="center">
   	이 식당의 리뷰
   	</div>
+  	<form action="./storeReviewWrite" method="get">
   	<div class="panel-body" align="center">
-  		<ul class="list" style="list-style-type: none;">
-  			<li>여기는 가게 리뷰가 적히는 곳입니다</li>
-  			<li>글 번호 : </li>
-  			<li>날짜 : </li>
-  			<li>작성자 : </li>
-    		<li>내용 : </li>
-  		</ul>
+  			<table class="table table-striped">
+  		
+  			<c:forEach items="${vor}" var="vor">
+				<tr>
+  					<td>작성자 : ${vor.id} </td>
+  					<td align="right">날짜 : ${vor.re_date}</td>
+  				</tr>
+  				<tr>
+  					<td>내용 : <br>${vor.re_contents}</td>
+				 </tr>		
+  			</c:forEach>
+  			
+    		<tr>
+    			<td align="right">
+    				<a href="./storeReviewWrite?st_key=${vo.st_key}">
+    				<input type="button" class="btn btn-info" value="리뷰 작성 하기!">
+    				</a>
+    			</td>
+    		</tr>
+  		
+  			</table>
   	</div>
+  	</form>
   </div>
   
 
 <!-- container 끝 -->
 </div>
+<!-- 
+<script type="text/javascript">
+	$("#write").on("click", function() {
+		location.href="./storeReviewWrite?st_key=1";
+	});
+</script> -->
 
 
 <c:import url="../template/footer.jsp"></c:import>
