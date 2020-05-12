@@ -12,6 +12,7 @@ body{
 
 .jumbotron {
 	margin-bottom: 0;
+	background-color:#e6f7ff ; 
 }
 
 
@@ -55,6 +56,12 @@ body{
 
 #sns li{
 	margin-right: 10px;
+	}
+	
+.navbar-nav{
+	font-weight: bold;
+}	
+
 	
 </style>
     

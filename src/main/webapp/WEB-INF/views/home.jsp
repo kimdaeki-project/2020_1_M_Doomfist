@@ -22,7 +22,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="https://placehold.it/150x80?text=IMAGE"
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-danger">
+				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="https://placehold.it/150x80?text=IMAGE"
@@ -58,7 +58,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="https://placehold.it/150x80?text=IMAGE"
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="https://placehold.it/150x80?text=IMAGE"
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-primary">
+				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="https://placehold.it/150x80?text=IMAGE"
@@ -91,8 +91,8 @@
 	</div>
 	<br>
 	<br>
-
 	<c:import url="./template/footer.jsp"></c:import>
+
 
 </body>
 </html>

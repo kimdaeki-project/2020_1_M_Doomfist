@@ -5,7 +5,7 @@
 
 	<div class="jumbotron">
 		<div class="container text-center">
-			<h1>Online Store</h1>
+			<h1>다이닝코드</h1>
 			<p>Mission, Vission & Values</p>
 		</div>
 	</div>
@@ -18,15 +18,15 @@
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Logo</a>
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img alt="" src="${pageContext.request.contextPath}/resources/images/logo.png" width="40px",height="50px"></a>
 			</div>
 			<div class="collapse navbar-collapse" id="myNavbar">
 				<ul class="nav navbar-nav">
-					<li class="active"><a href="#">Home</a></li>
-					<li><a href="#">Notice</a></li>
-					<li><a href="#">Deals</a></li>
-					<li><a href="#">Stores</a></li>
-					<li><a href="#">Contact</a></li>
+					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
+					<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
+					<li><a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/memberJoin">공지사항</a></li>
+					<li><a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a></li>
 					<li>
 					<form class="form-inline" style="padding-top: 6.5px;">
 						<select class="form-control" id="sel1" name="kind">
@@ -37,7 +37,7 @@
 						<input type="email" class="form-control" size="100px"
 								placeholder="맛집을 검색하세요!"
 								style="padding-left: 100px; margin: 0px auto;">
-							<button type="button" class="btn btn-danger">Search</button>
+							<button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>
 						</form> 
 					</li>
 				</ul>

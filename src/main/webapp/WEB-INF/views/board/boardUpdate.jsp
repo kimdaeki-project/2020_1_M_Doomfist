@@ -33,10 +33,13 @@
 					name="contents">${vo.contents}</textarea>
 			</div>
 
-			<input type="button" id="btn" class="btn btn-default" value="Write">
+			<input type="button" id="btn" class="btn btn-info " value="Write">
+			
 		</form>
 
 	</div>
+	<br>
+	<br>
 
 	<script type="text/javascript">
 		$("#contents").summernote({
