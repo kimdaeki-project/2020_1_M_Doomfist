@@ -6,11 +6,11 @@
 <mapper namespace="com.doom.s1.qna.QnaDAO">
 
 	<select id="qnaNum" resultType="Long">
-		select qna_seq.nextval from dual
+		select qna_storekey_seq.nextval from dual
 	</select>
 
   <insert id="qnaJoin" parameterType="com.doom.s1.qna.QnaVO">
-  	insert into qna values(#{qna_num}, #{qna_title}, #{id} ,#{qna_contents}, sysdate)
+  	insert into qna values(#{qna_storekey}, #{qna_title}, #{id} ,#{qna_contents}, sysdate, #{qna_phone})
   </insert>  
   
   <select id="qnaList" parameterType="com.doom.s1.util.Pager" resultType="com.doom.s1.qna.QnaVO">
@@ -33,12 +33,12 @@
 	</select>
 	
 	<sql id="search">
-		like '%'||#{search}||'%' and qna_num>=1 order by qna_num desc
+		like '%'||#{search}||'%' and qna_storekey>=1 order by qna_storekey desc
 	</sql>
 	
 	
 	<select id="qnaCount" resultType="Long" parameterType="com.doom.s1.util.Pager">
-		select count(qna_num) from qna
+		select count(qna_storekey) from qna
 				<where>
 					<if test="kind == 'bt'">
 						qna_title <include refid="search"></include>
@@ -54,6 +54,10 @@
 				</where>
 				
 				
+	</select>
+	
+	<select id="qnaSelect" resultType="com.doom.s1.qna.QnaVO" parameterType="Long">
+		select * from qna where qna_storekey = #{qna_storekey}
 	</select>
 	
    	

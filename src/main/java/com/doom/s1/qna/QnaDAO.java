@@ -29,4 +29,8 @@ public class QnaDAO {
 	public long qnaCount(Pager pager) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"qnaCount",pager);
 	}
+	public QnaVO qnaSelect(long qna_storekey)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"qnaSelect",qna_storekey);
+	}
+	
 }

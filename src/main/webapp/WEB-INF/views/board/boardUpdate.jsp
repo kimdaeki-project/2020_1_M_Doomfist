@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>공지수정</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
@@ -33,14 +33,12 @@
 					name="contents">${vo.contents}</textarea>
 			</div>
 
-			<input type="submit" id="btn" class="btn btn-default" value="Write">
+			<input type="button" id="btn" class="btn btn-default" value="Write">
 		</form>
 
 	</div>
 
 	<script type="text/javascript">
-		//$("선택자").action();
-		//$("#contents").summernote("code",${vo.contents})
 		$("#contents").summernote({
 			height : 400, // set editor height
 			minHeight : 300, // set minimum height of editor
@@ -50,7 +48,7 @@
 		});
 	
 	</script>
-<script type="text/javascript" src="../resources/boardForm.js">
+<script type="text/javascript" src="../resources/noticeForm.js">
 	</script> 
 	
 

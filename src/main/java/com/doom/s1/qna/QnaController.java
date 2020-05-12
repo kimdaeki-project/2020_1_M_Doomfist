@@ -1,15 +1,19 @@
-package com.doom.s1.qna;
+ package com.doom.s1.qna;
 
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.doom.s1.qnamenu.QnaMenuVO;
 import com.doom.s1.util.Pager;
 
 @Controller
@@ -26,9 +30,9 @@ public class QnaController {
 		return mv;
 	}
 	@PostMapping("qnaJoin")
-	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files)throws Exception{
+	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files, HttpSession session, long [] qm_price, String [] qm_menu)throws Exception{
 		
-		int result = qnaService.qnaJoin(qnaVO,files);
+		int result = qnaService.qnaJoin(qnaVO,files,qm_price,qm_menu);
 		
 		if(result>0) {
 			mv.addObject("result","신청 완료");
@@ -54,5 +58,16 @@ public class QnaController {
 		return mv;
 	}
 	
-	
+	@GetMapping("qnaSelect")
+	public ModelAndView qnaSelect(long qna_storekey)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		QnaVO qnaVO = qnaService.qnaSelect(qna_storekey);
+		mv.addObject("vo",qnaVO);
+		mv.setViewName("qna/qnaSelect");
+		
+		return mv;
+
+		
+	}
+
 }
