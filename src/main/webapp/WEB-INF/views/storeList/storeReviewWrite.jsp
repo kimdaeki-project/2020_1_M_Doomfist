@@ -22,7 +22,7 @@
 			</div>	
 
 			<div class="form-group">
-				<label for="re_contents">식당을 소개해 주세요:</label> <textarea class="form-control"
+				<label for="re_contents"><h2>식당을 소개해 주세요:</h2></label> <textarea class="form-control"
 				row="20" id="re_contents" name="re_contents"></textarea>
 			</div>
 			

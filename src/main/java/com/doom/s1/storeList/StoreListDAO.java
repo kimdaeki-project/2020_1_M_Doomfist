@@ -15,6 +15,10 @@ public class StoreListDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.doom.s1.storeList.StoreListDAO.";
 	
+	public long reviewNum() throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"reviewNum");
+	}
+	
 	public StoreListVO storeListSelect(long st_key) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"storeListSelect", st_key);
 	}

@@ -99,16 +99,27 @@
   	</div>
   	<form action="./storeReviewWrite" method="get">
   	<div class="panel-body" align="center">
-  			<table class="table table-striped">
+  		<table class="table table-striped">
   		
   			<c:forEach items="${vor}" var="vor">
 				<tr>
   					<td>작성자 : ${vor.id} </td>
   					<td align="right">날짜 : ${vor.re_date}</td>
+  					
   				</tr>
   				<tr>
   					<td>내용 : <br>${vor.re_contents}</td>
-				 </tr>		
+  					
+  					<c:forEach items="${vof1}" var="vof11">
+  						<c:forEach items="${vof11}" var="vof2">
+  							<td><img alt="" src="../resources/uploadNotice/${vof2.refile_name}"></td>
+  						
+  						</c:forEach>
+  					
+  					
+  					</c:forEach>
+  					
+				 </tr>	
   			</c:forEach>
   			
     		<tr>

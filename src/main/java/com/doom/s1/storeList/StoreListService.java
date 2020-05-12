@@ -2,11 +2,17 @@ package com.doom.s1.storeList;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
+import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuDAO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
+import com.doom.s1.util.FileSaver;
 
 @Service
 public class StoreListService {
@@ -15,14 +21,41 @@ public class StoreListService {
 	private StoreListDAO storeListDAO;
 	@Autowired
 	private StoreMenuDAO storeMenuDAO;
+	@Autowired
+	private ServletContext servletContext;
+	@Autowired
+	private FileSaver fileSaver;
+	@Autowired
+	private ReviewFileDAO reviewFileDAO;
+	
 	
 	public List<StoreListVO> storeReviewSelect(long st_key)throws Exception{
 		return storeListDAO.storeReviewSelect(st_key);
 	}
 	
 	
-	public long storeReviewWrite(StoreListVO storeListVO)throws Exception{
-		return storeListDAO.storeReviewWrite(storeListVO);
+	public long storeReviewWrite(StoreListVO storeListVO, MultipartFile[] files)throws Exception{
+		
+		String path = servletContext.getRealPath("/resources/uploadNotice");
+		System.out.println(path);
+		
+		//sequence 번호받기
+		storeListVO.setRe_num(storeListDAO.reviewNum());
+		//storereview테이블 insert
+		long result = storeListDAO.storeReviewWrite(storeListVO);
+		
+		for (MultipartFile file : files) {
+			if(file.getSize()>0) {
+				ReviewFileVO reviewFileVO = new ReviewFileVO();
+				String refile_name = fileSaver.saveByTransfer(file, path);
+				reviewFileVO.setRe_num(storeListVO.getRe_num());
+				reviewFileVO.setRefile_name(refile_name);
+				reviewFileVO.setRefile_oriname(file.getOriginalFilename());
+				reviewFileDAO.fileInsert(reviewFileVO);
+			}
+		}
+		
+		return result;
 	}
 	
 
@@ -34,5 +67,8 @@ public class StoreListService {
 		return storeMenuDAO.storeMenuList(st_key);
 	}
 
+	public List<ReviewFileVO> reviewFileSelect(long re_num)throws Exception{
+		return reviewFileDAO.fileSelect(re_num);
+	}
 	
 }
