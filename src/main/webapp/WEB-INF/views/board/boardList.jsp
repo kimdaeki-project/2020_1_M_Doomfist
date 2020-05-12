@@ -76,23 +76,20 @@
 			</c:if>
 			</ul>
 		</div>
-		
-		<!--완성되면 삭제  -->
-		<a href="./${board}Write" class="btn btn-default pull-right">공지쓰기</a> 
-		
+				
 		<c:catch>
 		<c:choose>
 			<c:when test="${board eq 'notice'}">
 				<c:if test="${member.id eq 'admin'}">
 					<div>
-						<a href="./${board}Write" class="btn btn-default pull-right">공지쓰기</a>
+						<a href="./${board}Write" class="btn btn-info pull-right"><span class="glyphicon glyphicon-pencil"></span>공지쓰기</a>
 					</div>
 				</c:if>
 			</c:when>
 			<c:otherwise>
 				<c:if test="${not empty member}">
 					<div>
-						<a href="./${board}Write" class="btn btn-default pull-right">공지쓰기</a>
+						<a href="./${board}Write" class="btn btn-info pull-right"><span class="glyphicon glyphicon-pencil"></span>공지쓰기</a>
 					</div>
 				</c:if>
 			</c:otherwise>

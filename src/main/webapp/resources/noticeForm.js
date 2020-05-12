@@ -24,6 +24,7 @@ $("#btn").click(function() {
 				//form 전송(submit event 강제 발생하게 function() 안씀 )
 				$("#frm").submit();
 				alert("글쓰기완료");
+				
 				/*$("#con").val(contents)     content가 널일떄 위에서 수정하고 여기도 확인.*/
 			} else {
 				//submit event 종료

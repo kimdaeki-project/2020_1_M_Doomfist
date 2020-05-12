@@ -18,7 +18,7 @@
 			<div class="panel-heading">TITLE</div>
 			<div class="panel-body">${vo.title}</div>
 			<div class="panel-heading">Contents</div>
-			<div class="panel-body">${vo.contents}</div>
+			<div class="panel-body" style="height: 500px;">${vo.contents}</div>
 		</div>
 		<div class="panel panel-warning">
 			<div class="panel-heading">${vo.regDate}</div>
@@ -27,11 +27,11 @@
 		<div>
 	
 		</div>
-
+			<br>
+			<br>
 		<div>
-			<a href="./${board}Update?num=${vo.no_num}" class="btn btn-primary ">Update</a> 
-			<a href="./${board}Delete?num=${vo.no_num}" class="btn btn-danger pull-right">Delete</a>
-			
+			<a href="./${board}Update?num=${vo.no_num}" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span>Update</a> 
+			<a href="./${board}Delete?num=${vo.no_num}" class="btn btn-danger pull-right"><span class="	glyphicon glyphicon-remove-sign"></span>Delete</a>
 		</div>
 
 	</div>
