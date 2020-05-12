@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.doom.s1.qnacheck.QnaCheckDAO">
+  	<insert id="qnaCheckInsert">
+  		insert into qnacheck values(qckey_seq.nextval,#{id}, #{qc_check},#{qna_storekey})
+  	</insert>
+  	
+  	<insert id="qnaOK" parameterType="Long">
+  		insert into storelist values((select qna_phone from qna where qna_storekey=#{qna_storekey}) ,(select qna_title from qna where qna_storekey=#{qna_storekey}),#{qna_storekey},(select qna_contents from qna where qna_storekey=#{qna_storekey}))
+  	</insert>
+  
+  	<delete id="qnaOkDel" parameterType="Long">
+  		delete qna where qna_storekey=#{qna_storekey}
+  	</delete>
+  	
+
+  </mapper>

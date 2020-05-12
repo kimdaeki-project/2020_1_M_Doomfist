@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <style type="text/css">
 body{
-	background-color:#cce6ff;
+	background-color:white;
 }
 
 .navbar {

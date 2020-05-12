@@ -6,11 +6,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>지도 테스트</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	<c:import url="./template/boot.jsp"></c:import>
-	<c:import url="./template/style.jsp"></c:import>
+   <body class="home_page" onunload="">
+
+<main class="pg-main">
+  <div class="black_screen"></div>
+  <article class="contents main-padding">
+    <header class="main-header" style="background-image: url('https://mp-seoul-image-production-s3.mangoplate.com/a4283e5725fb56755b9bbeb8f285d0dc.jpg');">
+      <div>
+  <p class="title">솔직한 리뷰, 믿을 수 있는 평점!</p>
+  <h1 class="title">망고플레이트</h1>
+  <p class="options">
+    <a href="#">Download app</a>
+    <a href="#">add/Claim restaurant</a>
+    <a href="#">Become a holic</a>
+  </p>
+
+  <fieldset class="main-search">
+    <legend>전체 검색</legend>
+
+    <label class="search-word" for="main-search">
+      <span class="icon">검색 :</span>
+      <input id="main-search" class="HomeSearchInput" name="main-search" type="text" maxlength="50" placeholder="지역, 식당 또는 음식" autocomplete="off" onclick="trackEvent('CLICK_SEARCH_MAIN')"/>
+      <span class="clear_btn">CLEAR</span>
+    </label>
+
+    <input class="btn-search" type="submit" value="검색" onclick="trackEvent('CLICK_KEYWORD_SEARCH');"/>
+  </fieldset>
+
+  <aside class="shortcut-app type-main">
+      <a class="btn inbound only-desktop " href="https://www.mangoplate.com/eat_deals" onclick="common_ga(&#39;PG_MAIN&#39;, &#39;CLICK_SALES_LOCAL&#39;)" style=""><img src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/nf58dxcb-7ikpwam.png"></img></a>
+
+    <button class="btn android"
+            data-event_term="V1"
+            data-event_name="CLICK_DOWNLOAD_MAIN_ANDROID"
+            onclick="trackEvent('CLICK_DOWNLOAD_MAIN_ANDROID');go_to_app_or_market(this, 'android');">
+      <img src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/bzdlmp2toaxrdjqg.png" width="180" alt="android market button"/>
+    </button>
+
+    <button class="btn ios"
+            data-event_term="V1"
+            data-event_name="CLICK_DOWNLOAD_MAIN_IOS"
+            onclick="trackEvent('CLICK_DOWNLOAD_MAIN_IOS');go_to_app_or_market(this, 'ios');">
+      <img src="https://mp-seoul-image-production-s3.mangoplate.com/web/resources/f7eokfaszt4gpkh6.svg?v=1" width="180" alt="app store"/>
+    </button>
+  </aside>
+</div>
+
+    </header>
 
 </head>
 <body>
