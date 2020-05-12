@@ -30,9 +30,9 @@ public class QnaController {
 		return mv;
 	}
 	@PostMapping("qnaJoin")
-	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files, HttpSession session, QnaMenuVO qnaMenuVO)throws Exception{
+	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files, HttpSession session, long [] qm_price, String [] qm_menu)throws Exception{
 		
-		int result = qnaService.qnaJoin(qnaVO,files,qnaMenuVO);
+		int result = qnaService.qnaJoin(qnaVO,files,qm_price,qm_menu);
 		
 		if(result>0) {
 			mv.addObject("result","신청 완료");
@@ -59,9 +59,9 @@ public class QnaController {
 	}
 	
 	@GetMapping("qnaSelect")
-	public ModelAndView qnaSelect(long qna_num)throws Exception{
+	public ModelAndView qnaSelect(long qna_storekey)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		QnaVO qnaVO = qnaService.qnaSelect(qna_num);
+		QnaVO qnaVO = qnaService.qnaSelect(qna_storekey);
 		mv.addObject("vo",qnaVO);
 		mv.setViewName("qna/qnaSelect");
 		

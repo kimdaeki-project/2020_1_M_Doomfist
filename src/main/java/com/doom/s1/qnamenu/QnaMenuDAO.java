@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 public class QnaMenuDAO {
 	@Autowired
 	private SqlSession session;
-	private final String NAMEPACE="com.doom.s1.qnamenu.QnaMenuDAO";
+	private final String NAMEPACE="com.doom.s1.qnamenu.QnaMenuDAO.";
 	
 	
 	public int qnaMenuInsert(QnaMenuVO qnaMenuVO)throws Exception{

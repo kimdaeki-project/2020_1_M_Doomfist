@@ -30,7 +30,7 @@ public class QnaService {
 	@Autowired
 	private QnaMenuDAO qnaMenuDAO;
 	
-	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files, QnaMenuVO qnaMenuVO) throws Exception{
+	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files,long [] qm_price, String [] qm_menu) throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/qna_images");
 		qnaVO.setQna_storekey(qnaDAO.qnaNum());
@@ -41,6 +41,7 @@ public class QnaService {
 			if(file.getSize()>0) {
 				QnaFileVO qnaFileVO = new QnaFileVO();
 				String fileName = fileSaver.saveByTransfer(file, path);
+				System.out.println(path);
 				qnaFileVO.setQna_storekey(qnaVO.getQna_storekey());
 				qnaFileVO.setQf_filename(fileName);
 				qnaFileVO.setQf_oriname(file.getOriginalFilename());
@@ -51,11 +52,21 @@ public class QnaService {
 				
 			}
 		}
-		// qna 메뉴 연결
-//		qnaMenuVO.setQna_storekey(qnaVO.getQna_storeKey());
-//		qnaMenuVO.setQm_price(qnaMenuVO.getQm_price());
-//		qnaMenuVO.setQm_menu(qnaMenuVO.getQm_menu());
-//	
+		
+		QnaMenuVO qnaMenuVO = new QnaMenuVO();
+		for (String menu : qm_menu) {
+			qnaMenuVO.setQm_menu(menu);
+			qnaMenuVO.setQna_storekey(qnaVO.getQna_storekey());
+			
+			
+		}
+		for (long price : qm_price) {
+			qnaMenuVO.setQm_price(price);
+			qnaMenuVO.setQna_storekey(qnaVO.getQna_storekey());
+			
+			qnaMenuDAO.qnaMenuInsert(qnaMenuVO);	
+		}
+
 		
 		return result;
 	}
@@ -70,7 +81,7 @@ public class QnaService {
 		
 	}
 	
-	public QnaVO qnaSelect(long qna_num)throws Exception{
-		return qnaDAO.qnaSelect(qna_num);
+	public QnaVO qnaSelect(long qna_storekey)throws Exception{
+		return qnaDAO.qnaSelect(qna_storekey);
 	}
 }

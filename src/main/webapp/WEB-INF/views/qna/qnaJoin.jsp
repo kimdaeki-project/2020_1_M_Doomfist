@@ -36,7 +36,7 @@
 			</div>
 			
 
-				<button type="button" class="btn btn-warning" onClick="goPopup()">주소검색</button>
+			<button type="button" class="btn btn-warning" onClick="goPopup()">주소검색</button>
 			<input type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
 			
 			<input type="button" id="addmenu" class="btn btn-info" value="메뉴 추가">
@@ -57,18 +57,6 @@
 			countm = countm + cc;
 		}
 
-		function addCommas(x) {
-			return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-		}
-
-		//모든 콤마 제거
-		function removeCommas(x) {
-			if (!x || x.length == 0)
-				return "";
-			else
-				return x.split(",").join("");
-		}
-
 		$("#menuu").on("click", ".remove", function() {
 			$(this).parent().remove();
 			countm--;
@@ -81,7 +69,7 @@
 								console.log(countm);
 								$("#menuu")
 										.append(
-												'<div id="qm_menu" style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> <input type="text" id="qm_price" class="qm_price" placeholder="가격을 입력해주세요"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
+												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
 
 								countm++;
 							} else {
@@ -89,23 +77,6 @@
 							}
 
 						});
-
-		$(".qm_price").on("focus", function() {
-			var x = $(this).val();
-			x = removeCommas(x);
-			$(this).val(x);
-		}).on("focusout", function() {
-			var x = $(this).val();
-			if (x && x.length > 0) {
-				if (!$.isNumeric(x)) {
-					x = x.replace(/[^0-9]/g, "");
-				}
-				x = addCommas(x);
-				$(this).val(x);
-			}
-		}).on("keyup", function() {
-			$(this).val($(this).val().replace(/[^0-9]/g, ""));
-		});
 		
 		function goPopup(){
 			// 주소검색을 수행할 팝업 페이지를 호출합니다.

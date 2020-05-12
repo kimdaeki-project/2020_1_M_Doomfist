@@ -5,8 +5,8 @@
   
  <mapper namespace="com.doom.s1.qnamenu.QnaMenuDAO">
  
- <!-- 	<insert id="qnaMenuInsert" parameterType="com.doom.s1.qna.QnaMenuVO">
- 		insert into qnamenu values(#{qna_num}, #{qm_key}, #{qm_menu}, #{qm_price})
- 	</insert> -->
+ <insert id="qnaMenuInsert" parameterType="com.doom.s1.qnamenu.QnaMenuVO">
+ 		insert into qnamenu values(qkkey_seq.nextval, #{qna_storekey}, #{qm_menu}, #{qm_price})
+ 	</insert>
  
  </mapper>

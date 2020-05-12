@@ -33,12 +33,12 @@
 	</select>
 	
 	<sql id="search">
-		like '%'||#{search}||'%' and qna_num>=1 order by qna_num desc
+		like '%'||#{search}||'%' and qna_storekey>=1 order by qna_storekey desc
 	</sql>
 	
 	
 	<select id="qnaCount" resultType="Long" parameterType="com.doom.s1.util.Pager">
-		select count(qna_num) from qna
+		select count(qna_storekey) from qna
 				<where>
 					<if test="kind == 'bt'">
 						qna_title <include refid="search"></include>
@@ -57,7 +57,7 @@
 	</select>
 	
 	<select id="qnaSelect" resultType="com.doom.s1.qna.QnaVO" parameterType="Long">
-		select * from qna where qna_num = #{qna_num}
+		select * from qna where qna_storekey = #{qna_storekey}
 	</select>
 	
    	

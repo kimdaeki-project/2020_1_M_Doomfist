@@ -35,16 +35,16 @@
 
 			<table class="table table-hover">
 				<tr>
-					<td>신청번호<td> <!-- qna_num -->
+					<td>신청번호<td> <!-- qna_storekey -->
 					<td>식당이름</td> <!-- qna_title -->
 					<td>아이디</td>	<!-- id -->
-					<td>내용</td> <!-- qna contents -->
+					<td>식당주소</td> <!-- qna contents -->
 					<td>날짜</td> <!-- qna_date -->
 		
 				</tr>
 				<c:forEach items="${list}" var="vo">
 					<tr>
-						<td>${vo.qna_num}</td>
+						<td>${vo.qna_storekey}</td>
 						
 						<td>
 						<c:catch>
@@ -54,7 +54,7 @@
 							</c:forEach>
 						</c:catch>
 						</td>
-						<td><a href="./qnaSelect?qna_num=${vo.qna_num}">${vo.qna_title}</a></td>
+						<td><a href="./qnaSelect?qna_storekey=${vo.qna_storekey}">${vo.qna_title}</a></td>
 						<td>${vo.id}</td>
 						<td>${vo.qna_contents}</td>
 						<td>${vo.qna_date}</td>

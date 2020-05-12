@@ -23,9 +23,10 @@ public class QnaFileService {
 	
 	
 	public String fileInsert(QnaFileVO qnaFileVO,MultipartFile files)throws Exception{
-		String path = servletContext.getRealPath("/resources/summer");
+		String path = servletContext.getRealPath("/resources/qna_images");
+
 		path = fileSaver.saveByTransfer(files, path);
-		path = servletContext.getContextPath()+"/resources/summer"+path;
+		path = servletContext.getContextPath()+"/resources/qna_images"+path;
 		qnaFileVO.setQna_storekey(qnaDAO.qnaNum());
 		
 		return path;
