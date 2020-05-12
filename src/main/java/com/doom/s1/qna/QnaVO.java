@@ -4,16 +4,18 @@ import java.sql.Date;
 
 public class QnaVO {
 
-	private long qna_num;
+	private long qna_storekey;
 	private String qna_title;
 	private String id;
 	private String qna_contents;
 	private Date qna_date;
-	public long getQna_num() {
-		return qna_num;
+	private String qna_phone;
+	
+	public long getQna_storekey() {
+		return qna_storekey;
 	}
-	public void setQna_num(long qna_num) {
-		this.qna_num = qna_num;
+	public void setQna_storekey(long qna_storekey) {
+		this.qna_storekey = qna_storekey;
 	}
 	public String getQna_title() {
 		return qna_title;
@@ -39,7 +41,15 @@ public class QnaVO {
 	public void setQna_date(Date qna_date) {
 		this.qna_date = qna_date;
 	}
+	public String getQna_phone() {
+		return qna_phone;
+	}
+	public void setQna_phone(String qna_phone) {
+		this.qna_phone = qna_phone;
+	}
 	
-
+	
+	
+	
 	
 }

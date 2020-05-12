@@ -15,13 +15,24 @@ public class StoreListService {
 	private StoreListDAO storeListDAO;
 	@Autowired
 	private StoreMenuDAO storeMenuDAO;
+	
+	public List<StoreListVO> storeReviewSelect(long st_key)throws Exception{
+		return storeListDAO.storeReviewSelect(st_key);
+	}
+	
+	
+	public long storeReviewWrite(StoreListVO storeListVO)throws Exception{
+		return storeListDAO.storeReviewWrite(storeListVO);
+	}
+	
 
 	public StoreListVO storeListSelect(long st_key)throws Exception{
-		System.out.println("2");
 		return storeListDAO.storeListSelect(st_key);
 	}
 	
 	public List<StoreMenuVO> storeMenuSelect(long st_key)throws Exception{
 		return storeMenuDAO.storeMenuList(st_key);
 	}
+
+	
 }

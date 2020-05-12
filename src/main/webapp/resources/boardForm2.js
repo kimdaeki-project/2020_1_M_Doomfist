@@ -28,6 +28,18 @@ $("#add")
 				});
 
 
+$('#re_contents').summernote({
+	 height : 400,
+	  toolbar: [
+	    // [groupName, [list of button]]
+	    ['style', ['bold', 'italic', 'underline', 'clear']],
+	    ['font', ['strikethrough', 'superscript', 'subscript']],
+	    ['fontsize', ['fontsize']],
+	    ['color', ['color']],
+	    ['para', ['ul', 'ol', 'paragraph']],
+	    ['height', ['height']]
+	  ]
+	});
 // --------------------------------------------------------------------------------------------
 
 // summernote에 이미지 올리기
@@ -83,8 +95,10 @@ $("#add")
 $("#btn").click(function() {
 
 	// title, contents 데이터 유무 검증
-	var title = $("#qna_title").val();
-	var qna_contents = $("#qna_contents").val();
+	var title="a";
+
+	var contents = $("#re_contents").summernote('code');
+	console.log($("#re_contents").summernote('isEmpty'));
 
 	var ch3 = true;
 
@@ -95,12 +109,12 @@ $("#btn").click(function() {
 	});
 
 	var ch1 = title != "";
-	var ch2 = qna_contents != "";
+	var ch2 = $("#re_contents").summernote('isEmpty');
 
-	if (ch1 && ch2 && ch3) {
+	if (ch1 && !ch2 && ch3) {
 		// form 전송(submit event 강제 발생)
 		// $("#con").val(contents);// contents Server null일때
-		$("#form").submit();
+		$("#frm").submit();
 
 	} else {
 		// submit event 종료

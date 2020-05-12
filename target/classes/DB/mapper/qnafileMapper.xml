@@ -6,7 +6,7 @@
   <mapper namespace="com.doom.s1.qna.qnaFile.QnaFileDAO">
     	
   	<insert id="fileInsert" parameterType="com.doom.s1.qna.qnaFile.QnaFileVO">
-  		insert into qnafile values(#{qna_num},qkkey_seq.nextval,#{qf_filename},#{qf_oriname})
+  		insert into qnafile values(#{qna_storekey},qkkey_seq.nextval,#{qf_filename},#{qf_oriname})
   	</insert>
   	
   

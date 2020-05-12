@@ -9,4 +9,12 @@
 		SELECT * FROM storelist WHERE st_key=#{st_key}
 	</select>
 	
+	<insert id="storeReviewWrite" parameterType="com.doom.s1.storeList.StoreListVO">
+		INSERT INTO storeReview VALUES(str_seq.nextval,sysdate,#{re_contents},#{id},#{st_key})
+	</insert>
+	
+	<select id="storeReviewSelect" parameterType="java.lang.Long" resultType="com.doom.s1.storeList.StoreListVO">
+		SELECT re_num,re_date,re_contents,id FROM storeReview WHERE st_key=#{st_key}
+	</select>
+	
 </mapper>
