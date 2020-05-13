@@ -11,6 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.doom.s1.qna.qnaFile.QnaFileDAO;
 import com.doom.s1.qna.qnaFile.QnaFileVO;
+import com.doom.s1.qnacheck.QnaCheckDAO;
+import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.qnamenu.QnaMenuDAO;
 import com.doom.s1.qnamenu.QnaMenuVO;
 import com.doom.s1.util.FileSaver;
@@ -29,6 +31,8 @@ public class QnaService {
 	private ServletContext servletContext;
 	@Autowired
 	private QnaMenuDAO qnaMenuDAO;
+	@Autowired
+	private QnaCheckDAO qnaCheckDAO;
 	
 	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files,long [] qm_price, String [] qm_menu) throws Exception{
 		
@@ -66,6 +70,15 @@ public class QnaService {
 			
 			qnaMenuDAO.qnaMenuInsert(qnaMenuVO);	
 		}
+		
+		QnaCheckVO qnaCheckVO = new QnaCheckVO();
+		qnaCheckVO.setQna_storekey(qnaVO.getQna_storekey());
+		qnaCheckVO.setQc_check(qnaVO.getQna_storekey());
+		qnaCheckVO.setId(qnaVO.getId());
+		
+		qnaCheckDAO.qnaCheckInsert(qnaCheckVO);
+		
+		
 
 		
 		return result;

@@ -3,7 +3,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 
-	<div class="jumbotron">
+	<div class="jumbotron" style="background-image: url('${pageContext.request.contextPath}/resources/images/mainfood.jpg')">
 		<div class="container text-center">
 			<h1>다이닝코드</h1>
 			<p>Mission, Vission & Values</p>
@@ -25,8 +25,8 @@
 					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 					<li><a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/memberJoin">공지사항</a></li>
 					<li><a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a></li>
+					<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					<li>
 					<form class="form-inline" style="padding-top: 6.5px;">
 						<select class="form-control" id="sel1" name="kind">
@@ -34,7 +34,7 @@
 							<option value="bc">Contents</option>
 							<option value="bw">Writer</option>
 						</select>
-						<input type="email" class="form-control" size="100px"
+						<input type="text" class="form-control" size="100px"
 								placeholder="맛집을 검색하세요!"
 								style="padding-left: 100px; margin: 0px auto;">
 							<button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>
@@ -59,4 +59,12 @@
 			</div>
 		</div>
 	</nav>
+	
+	
+	<script type="text/javascript">
+	function openWin(){  
+	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	}  		
+
+	</script>
 	</div>

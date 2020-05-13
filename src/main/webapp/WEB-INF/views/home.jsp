@@ -23,10 +23,10 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="panel panel-success">
-					<div class="panel-heading">BLACK FRIDAY DEAL</div>
+					<div class="panel-heading">돈가스</div>
 					<div class="panel-body">
-						<img src="https://placehold.it/150x80?text=IMAGE"
-							class="img-responsive" style="width: 100%" alt="Image">
+						<img src="${pageContext.request.contextPath}/resources/images/sample1.jpg"
+							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
 					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
 				</div>
@@ -35,8 +35,8 @@
 				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
-						<img src="https://placehold.it/150x80?text=IMAGE"
-							class="img-responsive" style="width: 100%" alt="Image">
+						<img src="${pageContext.request.contextPath}/resources/images/sample2.jpg"
+							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
 					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
 				</div>
@@ -45,8 +45,8 @@
 				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
-						<img src="https://placehold.it/150x80?text=IMAGE"
-							class="img-responsive" style="width: 100%" alt="Image">
+						<img src="${pageContext.request.contextPath}/resources/images/sample3.jpg"
+							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
 					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
 				</div>
@@ -61,8 +61,8 @@
 				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
-						<img src="https://placehold.it/150x80?text=IMAGE"
-							class="img-responsive" style="width: 100%" alt="Image">
+						<img src="${pageContext.request.contextPath}/resources/images/sample4.jpg"
+							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
 					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
 				</div>
@@ -71,8 +71,8 @@
 				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
-						<img src="https://placehold.it/150x80?text=IMAGE"
-							class="img-responsive" style="width: 100%" alt="Image">
+						<img src="${pageContext.request.contextPath}/resources/images/sample5.jpg"
+							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
 					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
 				</div>
@@ -81,8 +81,8 @@
 				<div class="panel panel-success">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
-						<img src="https://placehold.it/150x80?text=IMAGE"
-							class="img-responsive" style="width: 100%" alt="Image">
+						<img src="${pageContext.request.contextPath}/resources/images/sample6.jpg"
+							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
 					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
 				</div>
