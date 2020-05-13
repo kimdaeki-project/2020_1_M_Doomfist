@@ -8,6 +8,7 @@ public class PaymentVO {
 	private long st_key;
 	private long sm_key;
 	private long pay_count;
+	private long pay_check;
 	public String getId() {
 		return id;
 	}
@@ -43,6 +44,12 @@ public class PaymentVO {
 	}
 	public void setPay_count(long pay_count) {
 		this.pay_count = pay_count;
+	}
+	public long getPay_check() {
+		return pay_check;
+	}
+	public void setPay_check(long pay_check) {
+		this.pay_check = pay_check;
 	}
 	
 	
