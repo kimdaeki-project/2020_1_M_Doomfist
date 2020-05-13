@@ -20,4 +20,14 @@ public class QnaCheckDAO {
 	public int qnaOkDel(long qna_storekey)throws Exception{
 		return session.delete(NAMESPACE+"qnaOkDel",qna_storekey);
 	}
+	
+	public int storeFileInsert(long qna_storekey)throws Exception{
+		return session.insert(NAMESPACE+"storeFileInsert",qna_storekey);
+	}
+	
+	public int storeMenuInsert(long qna_storekey)throws Exception{
+		return session.insert(NAMESPACE+"storeMenuInsert",qna_storekey);
+	}
+	
+
 }

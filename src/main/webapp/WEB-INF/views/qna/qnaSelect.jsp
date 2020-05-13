@@ -51,7 +51,7 @@
 	
 	<div class="container">
 		<a href="../qnacheck/qnaOk?qna_storekey=${vo.qna_storekey}" class="btn btn-primary">승인하기</a>
-		<a href="./qnaDelete?qna_storekey=${vo.qna_storekey}" class="btn btn-danger">거절하기</a>
+		<a href="../qnacheck/qnaNo?qna_storekey=${vo.qna_storekey}" class="btn btn-danger">거절하기</a>
 	</div>
 	
 	<c:import url="../template/footer.jsp"></c:import>

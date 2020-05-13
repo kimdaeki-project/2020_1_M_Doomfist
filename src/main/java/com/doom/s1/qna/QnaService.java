@@ -78,6 +78,7 @@ public class QnaService {
 		
 		qnaCheckDAO.qnaCheckInsert(qnaCheckVO);
 		
+		
 
 		
 		return result;

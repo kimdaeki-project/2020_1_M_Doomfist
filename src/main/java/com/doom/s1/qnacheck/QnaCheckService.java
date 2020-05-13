@@ -17,10 +17,22 @@ public class QnaCheckService {
 	public int qnaOK(long qna_storekey)throws Exception{
 		
 		int result =qnaCheckDAO.qnaOK(qna_storekey);
+		qnaCheckDAO.storeFileInsert(qna_storekey);
+		qnaCheckDAO.storeMenuInsert(qna_storekey);
 		
 		qnaCheckDAO.qnaOkDel(qna_storekey);
 		
+		
 		return result;
 	}
+	
+	public int qnaNo(long qna_storekey)throws Exception{
+		
+		int result = qnaCheckDAO.qnaOkDel(qna_storekey);
+		
+		return result;
+	}
+	
+
 
 }

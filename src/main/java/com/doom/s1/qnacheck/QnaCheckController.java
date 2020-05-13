@@ -33,4 +33,24 @@ public class QnaCheckController {
 		return mv;
 	}
 	
+	@GetMapping("qnaNo")
+	public ModelAndView qnaNo(HttpServletRequest request)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		long qna_storekey = Long.parseLong(request.getParameter("qna_storekey"));
+		int result = qnaCheckService.qnaNo(qna_storekey);
+		mv.setViewName("redirect:../qna/qnaList");
+		
+		return mv;
+	}
+	
+	@GetMapping("Statuscheck")
+	public String Statuscheck(HttpServletRequest request)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		String id = request.getParameter("id");
+		
+	
+		return "./qnacheck/Statuscheck";
+	}
+	
+	
 }

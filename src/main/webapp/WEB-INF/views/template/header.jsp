@@ -25,8 +25,8 @@
 					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 					<li><a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/memberJoin">공지사항</a></li>
 					<li><a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a></li>
+					<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					<li>
 					<form class="form-inline" style="padding-top: 6.5px;">
 						<select class="form-control" id="sel1" name="kind">
@@ -59,4 +59,12 @@
 			</div>
 		</div>
 	</nav>
+	
+	
+	<script type="text/javascript">
+	function openWin(){  
+	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
+	}  		
+
+	</script>
 	</div>

@@ -16,5 +16,14 @@
   		delete qna where qna_storekey=#{qna_storekey}
   	</delete>
   	
+  	<insert id="storeFileInsert" parameterType="Long">
+  		insert into storefile values(#{qna_storekey},stfile_seq.nextval,(select qf_filename from qnafile where qna_storekey=#{qna_storekey}), (select qf_oriname from qnafile where qna_storekey=#{qna_storekey}))
+  	</insert>
+  	
+  	<insert id="storeMenuInsert" parameterType="Long">
+  		insert into storemenu values((select qm_menu from qnamenu where qna_storekey = #{qna_storekey}),(select qm_price from qnamenu where qna_storekey = #{qna_storekey}), smkey_seq.nextval, #{qna_storekey})
+  	</insert>
 
+
+  	
   </mapper>
