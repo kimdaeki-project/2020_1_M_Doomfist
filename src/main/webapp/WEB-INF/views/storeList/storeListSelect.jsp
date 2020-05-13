@@ -22,33 +22,26 @@
   <h1 align="center">${vo.st_name}</h1>
   <p class="gap"><br></p>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-    </ol>
+    
+    <!-- Indicators //현재 사용 안함-->
+    <%-- <ol class="carousel-indicators">
+    <c:forEach items="${stfile}" var="stfile">
+      <li data-target="#myCarousel" data-slide-to="" class="active"></li>
+     
+    </c:forEach>
+    </ol> --%>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-
+	<c:forEach items="${stfile}" var="stfile">
+	
       <div class="item active">
-        <img src="${pageContext.request.contextPath}/resources/images/sub1.jpeg" alt="sub1" style="width:100%;">
+        <img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:100%;">${stfile.stfile_oriname}
         <div class="carousel-caption">
         </div>
       </div>
-
-      <div class="item">
-        <img src="${pageContext.request.contextPath}/resources/images/sub2.jpeg" alt="sub2" style="width:100%; ">
-        <div class="carousel-caption">
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="${pageContext.request.contextPath}/resources/images/sub3.jpg" alt="sub3" style="width:100%;">
-        <div class="carousel-caption">
-        </div>
-      </div>
+      
+	</c:forEach>
   
     </div>
 
@@ -103,32 +96,49 @@
   		
   			<c:forEach items="${vor}" var="vor">
 				<tr>
-  					<td>작성자 : ${vor.id} </td>
-  					<td align="right">날짜 : ${vor.re_date}</td>
+  					<td>작성자 : ${vor.id}<br>
+  					날짜 : ${vor.re_date}</td>
   					
   				</tr>
   				<tr>
-  					<td>내용 : <br>${vor.re_contents}</td>
-  					
-  					<c:forEach items="${vof1}" var="vof11">
-  						<c:forEach items="${vof11}" var="vof2">
-  							<td><img alt="" src="../resources/uploadNotice/${vof2.refile_name}"></td>
-  						
-  						</c:forEach>
-  					
-  					
+  					<td>
+  					<c:forEach items="${vof1}" var="vof11" varStatus="status">
+  						<c:forEach items="${vof11}" var="vof2" varStatus="status2">
+  							<c:if test="${vor.re_num eq vof2.re_num}">
+  							<img alt="" src="../resources/uploadNotice/${vof2.refile_name}" style="max-height: 250px; max-width: 250px;">${vof2.refile_oriname}
+  							</c:if>
+  						</c:forEach>  					
   					</c:forEach>
-  					
-				 </tr>	
+  					</td>
+  				</tr>
+  				
+  				<tr>
+					<td>내용  ${vor.re_contents} <br> </td>
+  				</tr>	
+				 
+				 <tr>
+    				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
+	    				<td align="right">
+	    				<a href="./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}">
+	    				<input type="button" class="btn btn-danger" value="리뷰삭제하기">
+	    				</a>
+    					</td>
+    				</c:if>
+				 </tr>
   			</c:forEach>
   			
     		<tr>
+    		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin'}">
     			<td align="right">
     				<a href="./storeReviewWrite?st_key=${vo.st_key}">
     				<input type="button" class="btn btn-info" value="리뷰 작성 하기!">
     				</a>
     			</td>
+    		</c:if>
+    		
+			
     		</tr>
+    	
   		
   			</table>
   	</div>

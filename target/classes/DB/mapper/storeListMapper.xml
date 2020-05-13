@@ -14,11 +14,15 @@
 	</insert>
 	
 	<select id="storeReviewSelect" parameterType="java.lang.Long" resultType="com.doom.s1.storeList.StoreListVO">
-		SELECT re_num,re_date,re_contents,id FROM storeReview WHERE st_key=#{st_key}
+		SELECT re_num,re_date,re_contents,id FROM storeReview WHERE st_key=#{st_key} ORDER BY re_num DESC
 	</select>
 	
 	<select id="reviewNum" resultType="Long">
 		SELECT review_seq.nextval FROM dual
 	</select>
+	
+	<delete id="storeReviewDelete" parameterType="Long">
+		DELETE storeReview WHERE re_num=#{re_num}
+	</delete>
 	
 </mapper>

@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="fileSelect" parameterType="Long" resultType="com.doom.s1.storeList.reviewFile.ReviewFileVO">
-		SELECT refile_name FROM storeReviewFile WHERE re_num=#{re_num}
+		SELECT * FROM storeReviewFile WHERE re_num=#{re_num}
 	</select>
 	
 	

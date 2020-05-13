@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.doom.s1.storeList.file.StoreFileDAO;
+import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuDAO;
@@ -27,13 +29,22 @@ public class StoreListService {
 	private FileSaver fileSaver;
 	@Autowired
 	private ReviewFileDAO reviewFileDAO;
+	@Autowired
+	private StoreFileDAO storeFileDAO;
+	
+	public List<StoreFileVO> storeFileSelect(long st_key)throws Exception{
+		return storeFileDAO.storeFileSelect(st_key);
+	}
 	
 	
 	public List<StoreListVO> storeReviewSelect(long st_key)throws Exception{
 		return storeListDAO.storeReviewSelect(st_key);
 	}
 	
-	
+	public long storeReviewDelete(long re_num)throws Exception{
+		return storeListDAO.storeReviewDelete(re_num);
+	}
+		
 	public long storeReviewWrite(StoreListVO storeListVO, MultipartFile[] files)throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/uploadNotice");
