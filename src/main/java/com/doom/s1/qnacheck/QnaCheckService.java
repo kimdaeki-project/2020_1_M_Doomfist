@@ -1,7 +1,11 @@
 package com.doom.s1.qnacheck;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.doom.s1.qna.QnaVO;
 
 @Service
 public class QnaCheckService {
@@ -31,6 +35,10 @@ public class QnaCheckService {
 		int result = qnaCheckDAO.qnaOkDel(qna_storekey);
 		
 		return result;
+	}
+	
+	public List<QnaVO> Statuscheck(String id)throws Exception{
+		return qnaCheckDAO.Statuscheck(id);
 	}
 	
 
