@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.doom.s1.qna.qnaFile.QnaFileVO;
 import com.doom.s1.qnamenu.QnaMenuVO;
 import com.doom.s1.util.Pager;
 
@@ -62,7 +63,11 @@ public class QnaController {
 	public ModelAndView qnaSelect(long qna_storekey)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		QnaVO qnaVO = qnaService.qnaSelect(qna_storekey);
+		List<QnaMenuVO> qnaMenuVOs = qnaService.qnaMenuSelect(qna_storekey);	//메뉴 출력
+		List<QnaFileVO> qnaFileVOs = qnaService.qnaFileSelect(qna_storekey);	//사진 출력
 		mv.addObject("vo",qnaVO);
+		mv.addObject("vo_me", qnaMenuVOs);										//메뉴 출력
+		mv.addObject("vo_fi", qnaFileVOs);
 		mv.setViewName("qna/qnaSelect");
 		
 		return mv;

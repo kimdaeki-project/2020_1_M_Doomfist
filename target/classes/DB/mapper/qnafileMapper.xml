@@ -9,5 +9,9 @@
   		insert into qnafile values(#{qna_storekey},qfkey_seq.nextval,#{qf_filename},#{qf_oriname})
   	</insert>
   	
+  	<select id="qnaFileSelect" parameterType="Long" resultType="com.doom.s1.qna.qnaFile.QnaFileVO">
+  		SELECT * FROM qnaFile WHERE qna_storekey=#{qna_storekey}
+  	</select>
+  	
   
   </mapper>

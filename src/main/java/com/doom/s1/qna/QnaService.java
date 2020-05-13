@@ -34,6 +34,14 @@ public class QnaService {
 	@Autowired
 	private QnaCheckDAO qnaCheckDAO;
 	
+	public List<QnaFileVO> qnaFileSelect(long qna_storekey)throws Exception{
+		return qnaFileDAO.qnaFileSelect(qna_storekey);
+	}
+	
+	public List<QnaMenuVO> qnaMenuSelect(long qna_storekey)throws Exception{
+		return qnaMenuDAO.qnaMenuSelect(qna_storekey);
+	}
+	
 	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files,long [] qm_price, String [] qm_menu) throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/qna_images");

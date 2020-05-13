@@ -1,5 +1,7 @@
 package com.doom.s1.qna.qnaFile;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -14,6 +16,8 @@ public class QnaFileDAO {
 		return sqlSession.insert(NAMESPACE+"fileInsert",qnaFileVO);
 	}
 
-	
+	public List<QnaFileVO> qnaFileSelect(long qna_storekey)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"qnaFileSelect", qna_storekey);
+	}
 
 }

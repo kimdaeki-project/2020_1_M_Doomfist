@@ -8,5 +8,9 @@
  <insert id="qnaMenuInsert" parameterType="com.doom.s1.qnamenu.QnaMenuVO">
  		insert into qnamenu values(qkkey_seq.nextval, #{qna_storekey}, #{qm_menu}, #{qm_price})
  	</insert>
+ 	
+ 	<select id="qnaMenuSelect" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
+ 		SELECT * FROM qnaMenu WHERE qna_storekey=#{qna_storekey}
+ 	</select>
  
  </mapper>
