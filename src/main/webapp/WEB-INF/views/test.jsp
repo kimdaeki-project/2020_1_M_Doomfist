@@ -75,7 +75,7 @@ var map = new kakao.maps.Map(mapContainer, mapOption);
 
 var ps = new kakao.maps.services.Places(); 
 
-ps.keywordSearch('진짜루 홍대입구', placesSearchCB); 
+ps.keywordSearch('${vo}', placesSearchCB); 
 
 function placesSearchCB (data, status, pagination) {
     if (status === kakao.maps.services.Status.OK) {

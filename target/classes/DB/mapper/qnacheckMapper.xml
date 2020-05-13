@@ -9,7 +9,12 @@
   	</insert>
   	
   	<insert id="qnaOK" parameterType="Long">
-  		insert into storelist values((select qna_phone from qna where qna_storekey=#{qna_storekey}) ,(select qna_title from qna where qna_storekey=#{qna_storekey}),#{qna_storekey},(select qna_contents from qna where qna_storekey=#{qna_storekey}))
+  		insert into storelist values(
+  		(select qna_phone from qna where qna_storekey=#{qna_storekey}),
+  		(select qna_title from qna where qna_storekey=#{qna_storekey}),
+  		#{qna_storekey},
+  		(select qna_contents from qna where qna_storekey=#{qna_storekey})
+  		)
   	</insert>
   
   	<delete id="qnaOkDel" parameterType="Long">

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>맛집 신청d</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
@@ -18,13 +18,13 @@
 			enctype="multipart/form-data">
 
 			<div class="form-group">
-				<label for="qna_title">식당이름:</label> <input type="text"
+				<label for="qna_title">식당이름</label> <input type="text"
 					class="form-control" id="qna_title" placeholder="식당이름"
 					name="qna_title">
 			</div>
 
 			<div class="form-group">
-				<label for="id">id:</label> <input type="text" class="form-control"
+				<label for="id">ID:</label> <input type="text" class="form-control"
 					id="id" readonly="readonly" value="${sessionScope.member.id}"
 					placeholder="Enter writer" name="id">
 			</div>
@@ -36,17 +36,21 @@
 			</div>
 			
 
-			<button type="button" class="btn btn-warning" onClick="goPopup()">주소검색</button>
+			<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>
+			
+			
 			<input type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
 			
-			<input type="button" id="addmenu" class="btn btn-info" value="메뉴 추가">
+			<br>
+			
+			<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 입력하기">
 			<div id="menuu"></div>
 
-			<input type="button" id="add" class="btn btn-info" value="사진 추가 하기">
+			<input type="button" id="add" class="btn btn-info active" value="음식사진 추가">
 			<div id="file"></div>
 
-
-			<button type="button" id="btn" class="btn btn-default">신청하기</button>
+			<br>
+			<button type="button" id="btn" class="btn btn-default active">신청하기</button>
 		</form>
 	</div>
 	<c:import url="../template/footer.jsp"></c:import>

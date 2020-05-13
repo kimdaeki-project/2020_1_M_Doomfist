@@ -55,7 +55,7 @@
 					
 				</c:forEach>
 				</c:catch>
-				<a href="./${board}Select?num=${vo.no_num}">${vo.title}</a></td>
+				<a href="./${board}Select?num=${vo.no_num}" style="font-weight: bold; font-size: large;">${vo.title}</a></td>
 				<td>${vo.regDate}</td>
 				<td>${vo.likes}</td>
 			</tr>
@@ -98,7 +98,6 @@
 		</c:catch>
 		
 	</div>
-
 <c:import url="../template/footer.jsp"></c:import>
 	
 </body>
