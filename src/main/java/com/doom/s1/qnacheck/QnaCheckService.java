@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.doom.s1.qna.QnaVO;
+import com.doom.s1.storeList.StoreListVO;
 
 @Service
 public class QnaCheckService {
@@ -40,6 +41,7 @@ public class QnaCheckService {
 	public List<QnaVO> Statuscheck(String id)throws Exception{
 		return qnaCheckDAO.Statuscheck(id);
 	}
+	
 	
 
 
