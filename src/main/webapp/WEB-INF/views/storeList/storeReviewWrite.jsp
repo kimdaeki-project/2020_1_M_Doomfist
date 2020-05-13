@@ -20,6 +20,14 @@
 				 <input type="hidden"class="form-control" id="id" value="${sessionScope.member.id}"  placeholder="Enter writer"
 					name="id" >
 			</div>	
+			
+			<div class="form-group">
+				<label for="re_rating" style="font-size: large;">${vo.st_name} 어떠셨나요?</label>
+				<p></p>
+				<img alt="" src="${pageContext.request.contextPath}/resources/images/5point.png" > 맛있다&nbsp;&nbsp;&nbsp;
+				<img alt="" src="${pageContext.request.contextPath}/resources/images/3point.png" > 괜찮다&nbsp;&nbsp;&nbsp;
+				<img alt="" src="${pageContext.request.contextPath}/resources/images/1point.png" > 별로..&nbsp;&nbsp;&nbsp;
+			</div>
 
 			<div class="form-group">
 				<label for="re_contents" style="font-size: large;">식당을 리뷰해 주세요!</label> <textarea class="form-control"
