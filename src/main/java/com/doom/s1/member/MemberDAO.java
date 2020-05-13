@@ -31,8 +31,8 @@ public class MemberDAO {
 		return sqlSession.delete(NAMESPACE+"memberDelete", memberVO);
 	}
 	
-	public MemberVO memberLogin(MemberVO memberVO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"memberLogin", memberVO);
+	public MemberVO memberLogin_HOME(MemberVO memberVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberLogin_HOME", memberVO);
 	}
 	
 	public int memberUpdate(MemberVO memberVO) throws Exception{

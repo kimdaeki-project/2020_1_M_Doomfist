@@ -38,7 +38,7 @@
 		insert into member values (#{id}, #{pw}, #{email}, #{name}, #{phone})
 	</insert>
 	
-	<select id="memberLogin" parameterType="MemberVO" resultType="MemberVO">
+	<select id="memberLogin_HOME" parameterType="MemberVO" resultType="MemberVO">
 		select * from member where id=#{id} and pw=#{pw}
 	</select>
   
