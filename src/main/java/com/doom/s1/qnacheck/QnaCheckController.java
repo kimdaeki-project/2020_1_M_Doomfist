@@ -1,5 +1,7 @@
 package com.doom.s1.qnacheck;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.doom.s1.qna.QnaVO;
 
 @Controller
 @RequestMapping("/qnacheck/**")
@@ -44,12 +48,15 @@ public class QnaCheckController {
 	}
 	
 	@GetMapping("Statuscheck")
-	public String Statuscheck(HttpServletRequest request)throws Exception{
+	public ModelAndView Statuscheck(HttpServletRequest request)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		String id = request.getParameter("id");
 		
-	
-		return "./qnacheck/Statuscheck";
+		List<QnaVO> ar = qnaCheckService.Statuscheck(id);
+		mv.addObject("list",ar);
+		mv.setViewName("qnacheck/Statuscheck");
+		
+		return mv;
 	}
 	
 	

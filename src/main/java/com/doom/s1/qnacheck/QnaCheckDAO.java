@@ -1,8 +1,12 @@
 package com.doom.s1.qnacheck;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.doom.s1.qna.QnaVO;
 
 @Repository
 public class QnaCheckDAO {
@@ -28,6 +32,9 @@ public class QnaCheckDAO {
 	public int storeMenuInsert(long qna_storekey)throws Exception{
 		return session.insert(NAMESPACE+"storeMenuInsert",qna_storekey);
 	}
-	
+
+	public List<QnaVO> Statuscheck(String id)throws Exception{
+		return session.selectList(NAMESPACE+"Statuscheck",id);
+	}
 
 }

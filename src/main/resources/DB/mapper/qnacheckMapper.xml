@@ -24,6 +24,9 @@
   		insert into storemenu values((select qm_menu from qnamenu where qna_storekey = #{qna_storekey}),(select qm_price from qnamenu where qna_storekey = #{qna_storekey}), smkey_seq.nextval, #{qna_storekey})
   	</insert>
 
+	<select id="Statuscheck" parameterType="String" resultType="com.doom.s1.qna.QnaVO">
+		select * from qna where id=#{id}
+	</select>
 
   	
   </mapper>
