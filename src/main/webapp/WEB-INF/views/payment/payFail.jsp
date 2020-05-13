@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> 수량 확인 페이지 </h1>
-	
-	
+		<a href="../">HOME으로 </a>
 </body>
 </html>

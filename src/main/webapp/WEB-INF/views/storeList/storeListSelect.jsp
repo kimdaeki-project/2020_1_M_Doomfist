@@ -78,7 +78,7 @@
   			<li>${vo.sm_menu} : ${vo.sm_price}</li>
   			</c:forEach>
 	  		<li align="right" style="margin-right: 40px;a">
-	  		<a href="../payment/paymentInsert" >
+	  		<a href="../payment/paymentReady" >
 	  		<img src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png" alt="kpay">
 	  		</a>
 	  		</li>

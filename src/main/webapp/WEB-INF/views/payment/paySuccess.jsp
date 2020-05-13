@@ -7,8 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> 수량 확인 페이지 </h1>
-	
-	
+
+	<h1>결제 성공</h1>
 </body>
 </html>
