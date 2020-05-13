@@ -26,6 +26,9 @@
 		<beans:property name="order" value="0"></beans:property>
 	</beans:bean>
 	
+
+
+	
 	
 	
 	<!-- <interceptors>
@@ -57,6 +60,9 @@
 	</interceptors> -->
 	
 	<context:component-scan base-package="com.doom.s1" />
+	
+		<!-- NaverLoginBO Class에 대한 Bean설정 추가 -->
+<beans:bean id="naverLoginBO" class="com.doom.s1.member.NaverLoginBO" />
 	
 	
 	

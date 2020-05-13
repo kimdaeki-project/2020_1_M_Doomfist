@@ -13,8 +13,46 @@
 <body>
 <c:import url="../template/header_sub.jsp"></c:import>
 
-
+<c:choose>
+<c:when test="${sessionId != null}">
+<h2> 네이버 아이디 로그인 성공하셨습니다!! </h2>
+<h3>'${sessionId}' 님 환영합니다! </h3>
+<h3><a href="http://localhost:8080/s1/">홈페이지 이용하기</a></h3>
+<h3><a href="logout">로그아웃</a></h3>
+</c:when>
+<c:otherwise>
+<!-- 폼넣기 -->
 <div class="container">
+  <form class="form-horizontal" action="./memberLogin_HOME" method="post">
+    <div class="form-group">
+      <label for="inputlg">아이디:</label>
+      <input type="text" class="form-control input-lg" value="${cookie.cId.value}" id="id" placeholder="Enter ID" name="id">
+    </div>
+    <div class="form-group">
+      <label for="inputlg">비밀번호:</label>
+      <input type="password" class="form-control input-lg" id="pw" placeholder="Enter PW" name="pw">
+    </div>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember">아이디 저장</label>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary">로그인</button>
+    <hr></hr>
+    <a href="#">아이디 또는 비밀번호를 잊으셨습니까?</a>
+    <br></br>
+	<a href="${pageContext.request.contextPath}/member/memberJoin">아이디가 없으신가요? 지금 생성하세요.</a>
+	<br></br>
+	<div id="naverIdLogin"></div>
+<br>
+</form>
+</div>
+
+<!-- 네이버 로그인 창으로 이동 -->
+<div class="container" id="naver_id_login" style="text-align:left;"><a href="${url}">
+<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
+</c:otherwise>
+</c:choose>
+<!-- <div class="container">
   <h1>로그인</h1>
   <br></br>
   <form class="form-horizontal" action="./memberLogin" method="post">
@@ -37,18 +75,21 @@
 	<a href="${pageContext.request.contextPath}/member/memberJoin">아이디가 없으신가요? 지금 생성하세요.</a>
 	<br></br>
 	<div id="naverIdLogin"></div>
-	<a href="https://kauth.kakao.com/oauth/authorize?client_id=3d40af6959ca5229244f5399b989263c&redirect_uri=http://localhost:8080/s1/member/memberLogin&response_type=code">
-	<img src="${pageContext.request.contextPath}/resources/images/kakao_login_btn_medium_wide.png">
-	</a>
 	
     <hr></hr>
   </form>
-</div>
+</div>-->
+
+	<!-- 네이버 로그인 창으로 이동 -->
+<!--<div id="naver_id_login" style="text-align:center"><a href="${url}">
+<img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>-->
+
+
 <footer style="margin-top: 15%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "LguKBDvqrA_EBm7awPdH",
@@ -59,10 +100,8 @@
 	);
 	
 	/* 설정정보를 초기화하고 연동을 준비 */
-	naverLogin.init();
-	
-</script>
-<!-- // 네이버아이디로로그인 초기화 Script -->
+	naverLogin.init();-->
+
 	
 
 </body>

@@ -42,7 +42,7 @@
 					</li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
-					<c:if test="${empty member}">
+					<c:if test="${empty member and empty sessionId}">
 					<li><a href="${pageContext.request.contextPath}/member/memberJoin"><span class="glyphicon glyphicon-user"></span>
 							회원 가입</a></li>
 					<li><a href="${pageContext.request.contextPath}/member/memberLogin"><span class="glyphicon glyphicon-user"></span>
@@ -53,6 +53,13 @@
 					<li><a href="${pageContext.request.contextPath}/member/memberPage"><span class="glyphicon glyphicon-user"></span>
 							회원 정보</a></li>
 					<li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-user"></span>
+							로그아웃</a></li>
+				</c:if>
+				<!-- 성민 추가 -->
+				<c:if test="${not empty sessionId}">
+					<li><a><img src="${pageContext.request.contextPath}/resources/images/naver.png">
+							로그인 중</a></li>
+					<li><a href="${pageContext.request.contextPath}/member/logout"><span class="glyphicon glyphicon-user"></span>
 							로그아웃</a></li>
 				</c:if>
 				</ul>

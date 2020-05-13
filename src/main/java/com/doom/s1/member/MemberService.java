@@ -19,8 +19,8 @@ public class MemberService {
 		return memberDAO.memberJoin(memberVO);
 	}
 	
-	public MemberVO memberLogin(MemberVO memberVO) throws Exception{
-		return memberDAO.memberLogin(memberVO);
+	public MemberVO memberLogin_HOME(MemberVO memberVO) throws Exception{
+		return memberDAO.memberLogin_HOME(memberVO);
 	}
 	
 	public int memberDelete(MemberVO memberVO) throws Exception{
