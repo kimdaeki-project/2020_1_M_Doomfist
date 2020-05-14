@@ -13,7 +13,11 @@
 <body>
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
-		<h2>맛집 등록 신청</h2>
+		  <div class="page-header text-center text-info">
+		   <div><img src="${pageContext.request.contextPath}/resources/images/apply.png"> </div> 
+    <br></br>
+    <br></br>
+  </div>
 		<form action="./qnaJoin" id="form" name="form" method="POST"
 			enctype="multipart/form-data">
 

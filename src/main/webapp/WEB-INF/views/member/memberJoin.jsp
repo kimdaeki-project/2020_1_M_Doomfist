@@ -13,8 +13,11 @@
 <c:import url="../template/header_sub.jsp"></c:import>
 
 <div class="container">
-  <h1 class="text-info" style="text-align: center;">회 원 가 입</h1>
-  <br></br>
+  <div class="page-header text-center text-info">
+		   <div><img src="${pageContext.request.contextPath}/resources/images/sign_up.png"> </div> 
+    <br></br>
+    <br></br>
+  </div>
   <form class="form-horizontal Shadow" id="frm" action="./memberJoin" method="post" enctype="multipart/form-data" >
  <table class="text-info Shadow" style="width: 100%; border-top: 3px white solid;">
    <tbody>
@@ -39,12 +42,12 @@
 
 	<tr>
       	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;E-Mail : </th>
-      	<td style="border-bottom: 2px white solid; height: 50px;"><input type="email"  id="email"  name="email"><td>
+      	<td style="border-bottom: 2px white solid; height: 50px;"><input value="${sessionId}" type="email"  id="email"  name="email"><td>
     </tr>
 
 	<tr>
      	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;이름 : </th>
-     	<td style="border-bottom: 2px white solid; height: 50px;"><input type="text"  id="name"  name="name"><td>
+     	<td style="border-bottom: 2px white solid; height: 50px;"><input value="${sessionName}" type="text"  id="name"  name="name"><td>
     </tr>
 
 	<tr>

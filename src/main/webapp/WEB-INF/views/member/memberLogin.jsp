@@ -23,6 +23,10 @@
 <c:otherwise>
 <!-- 폼넣기 -->
 <div class="container">
+
+		   <div><img src="${pageContext.request.contextPath}/resources/images/login.png"> </div> 
+<br>
+<br>
   <form class="form-horizontal" action="./memberLogin_HOME" method="post">
     <div class="form-group">
       <label for="inputlg">아이디:</label>
