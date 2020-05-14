@@ -3,23 +3,11 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.doom.s1.payment.PaymentDAO">
-<!--storeList에 있는 순으로 -->
-	<insert id="paymentReady" parameterType="com.doom.s1.payment.PaymentVO">
-		insert into payment values(
-		#{id},
-		1000,
-		pay_seq.nextval,
-		#{st_key},
-		#{sm_key},
-		#{pay_count},
-		#{pay_check}
-		)
-	</insert>
+<mapper namespace="com.doom.s1.payment.PaymentDAO">	
 	
-	<select id="paymentInsert" parameterType="java.lang.Long" resultType="com.doom.s1.payment.PaymentVO">
-	SELECT * FROM payment WHERE st_key=#{st_key}
-	</select>
+	<select id="paymentSelect" parameterType="java.lang.Long" resultType="com.doom.s1.payment.PaymentVO">
+	SELECT * FROM payment WHERE pay_num=#{pay_num}
+	</select> 
 	
 	
 	
