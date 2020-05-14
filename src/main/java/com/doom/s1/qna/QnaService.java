@@ -57,7 +57,7 @@ public class QnaService {
 				qnaFileVO.setQna_storekey(qnaVO.getQna_storekey());
 				qnaFileVO.setQf_filename(fileName);
 				qnaFileVO.setQf_oriname(file.getOriginalFilename());
-				qnaFileVO.setQf_key(1);
+				
 			
 				qnaFileDAO.fileInsert(qnaFileVO);
 				
@@ -80,6 +80,8 @@ public class QnaService {
 		qnaCheckVO.setQna_storekey(qnaVO.getQna_storekey());
 		qnaCheckVO.setQc_check(qnaVO.getQna_storekey());
 		qnaCheckVO.setId(qnaVO.getId());
+		qnaCheckVO.setQc_title(qnaVO.getQna_title());
+	
 		
 		qnaCheckDAO.qnaCheckInsert(qnaCheckVO);
 		
