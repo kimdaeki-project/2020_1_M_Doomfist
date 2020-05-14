@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.doom.s1.qna.QnaVO;
+import com.doom.s1.storeList.StoreListVO;
 
 @Controller
 @RequestMapping("/qnacheck/**")
@@ -41,6 +42,7 @@ public class QnaCheckController {
 	public ModelAndView qnaNo(HttpServletRequest request)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		long qna_storekey = Long.parseLong(request.getParameter("qna_storekey"));
+		
 		int result = qnaCheckService.qnaNo(qna_storekey);
 		mv.setViewName("redirect:../qna/qnaList");
 		
@@ -53,6 +55,7 @@ public class QnaCheckController {
 		String id = request.getParameter("id");
 		
 		List<QnaVO> ar = qnaCheckService.Statuscheck(id);
+		
 		mv.addObject("list",ar);
 		mv.setViewName("qnacheck/Statuscheck");
 		
