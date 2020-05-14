@@ -5,7 +5,7 @@
   
   <mapper namespace="com.doom.s1.qnacheck.QnaCheckDAO">
   	<insert id="qnaCheckInsert" >
-  		insert into qnacheck values(qckey_seq.nextval,#{id}, #{qc_check},#{qna_storekey})
+  		insert into qnacheck values(qckey_seq.nextval,#{id}, #{qc_check},#{qna_storekey}, #{qc_title}, sysdate)
   	</insert>
   	
   	<insert id="qnaOK" parameterType="Long">
@@ -22,8 +22,8 @@
   		delete qna where qna_storekey=#{qna_storekey}
   	</delete>
   	
-  	<insert id="storeFileInsert" parameterType="com.doom.qna.qnaFile.QnaFileVO">
-  		insert into storefile values(#{qna_storekey},#{qf_key},#{qf_filename},#{qf,oriname})
+  	<insert id="storeFileInsert" parameterType="com.doom.s1.qna.qnaFile.QnaFileVO">
+  		insert into storefile values(#{qna_storekey},#{qf_key},#{qf_filename},#{qf_oriname})
   	</insert>
   	
   	<insert id="storeMenuInsert" parameterType="Long">
@@ -32,14 +32,22 @@
   		smkey_seq.nextval, #{qna_storekey})
   	</insert>
 
-	<select id="Statuscheck" parameterType="String" resultType="com.doom.s1.qna.QnaVO">
-		select * from qna where id=#{id}
+	<select id="Statuscheck" parameterType="String" resultType="com.doom.s1.qnacheck.QnaCheckVO">
+		select * from qnacheck where id=#{id}
 	</select>
 
 	<select id="selctFile" parameterType="Long" resultType="com.doom.s1.qna.qnaFile.QnaFileVO">
 		select * from qnafile where qna_storekey=#{qna_storekey}
 	</select>
-
 	
+	<select id="selectMenu" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
+	select * from qnamenu where qna_storekey=#{qna_storekey} 
+	</select>
+
+<select id="keycompare" resultType="com.doom.s1.storeList.StoreListVO">
+select st_key from storelist where id=#{id} order by st_key asc 
+</select>
+
+
   	
   </mapper>

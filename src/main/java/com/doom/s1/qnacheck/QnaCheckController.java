@@ -1,5 +1,6 @@
 package com.doom.s1.qnacheck;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -53,14 +54,35 @@ public class QnaCheckController {
 	public ModelAndView Statuscheck(HttpServletRequest request)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		String id = request.getParameter("id");
+		System.out.println(id);
+		List<QnaCheckVO> ar = qnaCheckService.Statuscheck(id);
+		List<StoreListVO> aar = qnaCheckService.keycompare(id);
+		List<String> result = new ArrayList<String>();
 		
-		List<QnaVO> ar = qnaCheckService.Statuscheck(id);
+		String str="";
+		for(int i=0;i<ar.size();i++) {
+			for(int j=0;j<aar.size();j++) {
+				if(ar.get(i).getQc_check()==aar.get(j).getSt_key()) {
+					str="승인됨";
+					break;
+				}else {
+					str="거절됨";
+					
+				}
+				
+			}
+			result.add(str);		
+		}
 		
+
+		mv.addObject("llist",aar);
 		mv.addObject("list",ar);
+		mv.addObject("result",result);
 		mv.setViewName("qnacheck/Statuscheck");
 		
 		return mv;
 	}
+	
 	
 	
 }
