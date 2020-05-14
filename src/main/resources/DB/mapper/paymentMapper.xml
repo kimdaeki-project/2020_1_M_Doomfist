@@ -5,7 +5,7 @@
   
 <mapper namespace="com.doom.s1.payment.PaymentDAO">
 <!--storeList에 있는 순으로 -->
-	<insert id="paymentInsert">
+	<insert id="paymentReady" parameterType="com.doom.s1.payment.PaymentVO">
 		insert into payment values(
 		#{id},
 		1000,
@@ -16,5 +16,12 @@
 		#{pay_check}
 		)
 	</insert>
+	
+	<select id="paymentInsert" parameterType="java.lang.Long" resultType="com.doom.s1.payment.PaymentVO">
+	SELECT * FROM payment WHERE st_key=#{st_key}
+	</select>
+	
+	
+	
 
 </mapper>

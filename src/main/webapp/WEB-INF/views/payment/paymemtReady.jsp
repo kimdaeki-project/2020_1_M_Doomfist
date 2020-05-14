@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> 수량 확인 페이지 </h1>
+	<h1> 필요없는 페이지 삭제  </h1>
 	
 	
 </body>

@@ -2,12 +2,12 @@
     pageEncoding="UTF-8"%>
     
     <%
-    String name = "name";
+    String name = "name";//EL태그로 사용 받아와
     String email = "email";
     String phone ="phone";
     String address = "address";
     int totalPrice = 100;    
-%>
+	%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,7 +27,7 @@
             pg : 'kakaopay',
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
-            name : '다이닝코드',
+            name : 'DOOM FOOD',
             amount : <%=totalPrice%>,
             buyer_email : '<%=email%>',
             buyer_name : '<%=name%>',
