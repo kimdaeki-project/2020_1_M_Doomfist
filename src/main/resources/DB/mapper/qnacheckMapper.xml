@@ -5,7 +5,8 @@
   
   <mapper namespace="com.doom.s1.qnacheck.QnaCheckDAO">
   	<insert id="qnaCheckInsert" >
-  		insert into qnacheck values(qckey_seq.nextval,#{id}, #{qc_check},#{qna_storekey}, #{qc_title}, sysdate)
+
+  		insert into qnacheck values(qckey_seq.nextval,#{id}, #{qc_check},#{qna_storekey},#{qc_title},sysdate)
   	</insert>
   	
   	<insert id="qnaOK" parameterType="Long">
@@ -22,32 +23,32 @@
   		delete qna where qna_storekey=#{qna_storekey}
   	</delete>
   	
-  	<insert id="storeFileInsert" parameterType="com.doom.s1.qna.qnaFile.QnaFileVO">
-  		insert into storefile values(#{qna_storekey},#{qf_key},#{qf_filename},#{qf_oriname})
+
+  	<insert id="storeFileInsert" parameterType="com.doom.s1.storeList.file.StoreFileVO">
+  		insert into storefile values(#{st_key},stfile_seq.nextval,#{stfile_name},#{stfile_oriname})
   	</insert>
   	
-  	<insert id="storeMenuInsert" parameterType="Long">
-  		insert into storemenu values((select qm_menu from qnamenu where qna_storekey = #{qna_storekey}),
-  		(select qm_price from qnamenu where qna_storekey = #{qna_storekey}), 
-  		smkey_seq.nextval, #{qna_storekey})
+  	<insert id="storeMenuInsert" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">
+  		insert into storemenu values(#{sm_menu},#{sm_price},smkey_seq.nextval,#{st_key})
   	</insert>
 
 	<select id="Statuscheck" parameterType="String" resultType="com.doom.s1.qnacheck.QnaCheckVO">
-		select * from qnacheck where id=#{id}
+		select * from qnacheck where id=#{id} order by qna_storekey asc
 	</select>
 
 	<select id="selctFile" parameterType="Long" resultType="com.doom.s1.qna.qnaFile.QnaFileVO">
 		select * from qnafile where qna_storekey=#{qna_storekey}
 	</select>
+
 	
 	<select id="selectMenu" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
-	select * from qnamenu where qna_storekey=#{qna_storekey} 
+		select * from qnamenu where qna_storekey=#{qna_storekey}
 	</select>
 
-<select id="keycompare" resultType="com.doom.s1.storeList.StoreListVO">
-select st_key from storelist where id=#{id} order by st_key asc 
-</select>
+	<select id="keycompare" resultType="com.doom.s1.storeList.StoreListVO">
+		select st_key from storelist where id=#{id} order by st_key asc
+	</select>
+	
 
 
-  	
   </mapper>
