@@ -7,6 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.doom.s1.qna.QnaVO;
+import com.doom.s1.qna.qnaFile.QnaFileVO;
+import com.doom.s1.qnamenu.QnaMenuVO;
+import com.doom.s1.storeList.StoreListVO;
+import com.doom.s1.storeList.file.StoreFileVO;
+import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 
 @Repository
 public class QnaCheckDAO {
@@ -25,16 +30,29 @@ public class QnaCheckDAO {
 		return session.delete(NAMESPACE+"qnaOkDel",qna_storekey);
 	}
 	
-	public int storeFileInsert(long qna_storekey)throws Exception{
-		return session.insert(NAMESPACE+"storeFileInsert",qna_storekey);
+	public int storeFileInsert(StoreFileVO storeFileVO)throws Exception{
+		return session.insert(NAMESPACE+"storeFileInsert",storeFileVO);
 	}
 	
-	public int storeMenuInsert(long qna_storekey)throws Exception{
-		return session.insert(NAMESPACE+"storeMenuInsert",qna_storekey);
+	public int storeMenuInsert(StoreMenuVO menuVO)throws Exception{
+		return session.insert(NAMESPACE+"storeMenuInsert",menuVO);
 	}
 
-	public List<QnaVO> Statuscheck(String id)throws Exception{
+	public List<QnaCheckVO> Statuscheck(String id)throws Exception{
 		return session.selectList(NAMESPACE+"Statuscheck",id);
 	}
+	
+	public List<QnaFileVO> selctFile(long qna_storekey)throws Exception{
+		return session.selectList(NAMESPACE+"selctFile",qna_storekey);
+	}
+	
+	public List<QnaMenuVO> selectMenu(long qna_storekey)throws Exception{
+		return session.selectList(NAMESPACE+"selectMenu",qna_storekey);
+	}
+	
+	public List<StoreListVO> keycompare(String id)throws Exception{
+		return session.selectList(NAMESPACE+"keycompare",id);
+	}
+
 
 }

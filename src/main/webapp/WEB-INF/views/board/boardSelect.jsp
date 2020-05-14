@@ -11,9 +11,14 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<h1>${board}page</h1>
-	
 	<div class="container">
+	
+		   <div class="page-header text-center text-info">
+		   <div><img src="${pageContext.request.contextPath}/resources/images/notice.png"> </div> 
+    <br></br>
+    <br></br>
+  </div>
+	
 		<div class="panel panel-info">
 			<div class="panel-heading">TITLE</div>
 			<div class="panel-body">${vo.title}</div>

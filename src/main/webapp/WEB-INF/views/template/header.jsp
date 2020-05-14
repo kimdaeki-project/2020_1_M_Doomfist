@@ -2,14 +2,12 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
+	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_2_2.jpg')">
 
-	<div class="jumbotron" style="background-image: url('${pageContext.request.contextPath}/resources/images/mainfood.jpg')">
 		<div class="container text-center">
-			<h1>다이닝코드</h1>
-			<p>Mission, Vission & Values</p>
 		</div>
 	</div>
-	<div style="width: 1910px; align="center">
+	<div style=" width: 1910px; align="center">
 	<nav class="navbar">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -36,7 +34,7 @@
 							<option value="bc">Contents</option>
 							<option value="bw">Writer</option>
 						</select>
-						<input type="text" class="form-control" size="100px"
+						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
 								style="padding-left: 100px; margin: 0px auto;">
 							<button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>

@@ -5,10 +5,8 @@
 
 <body>
 
-	<div class="jumbotron">
+	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_2_2.jpg')">
 		<div class="container text-center">
-			<h1>다이닝 코드</h1>
-			<p>Mission, Vission & Values</p>
 		</div>
 	</div>	
 	<div style="width: 1910px; align="center">
@@ -27,7 +25,6 @@
 					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
 					<li><a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a></li>
-					<li><a href="${pageContext.request.contextPath}/member/memberJoin">공지사항</a></li>
 					<li><a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

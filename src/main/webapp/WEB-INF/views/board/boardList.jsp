@@ -17,7 +17,7 @@
 <div class="container">
 	<div class="row">
 		   <div class="page-header text-center text-info">
-    <h1>N O T I C E</h1>   
+		   <div><img src="${pageContext.request.contextPath}/resources/images/notice.png"> </div> 
     <br></br>
     <br></br>
   </div>
@@ -38,21 +38,20 @@
 		  </form>
 		</div>
 		<table class="table">
-			<tr>
+			<tr style="background-color: #e6f5ff;">
 				<td>번호</td>
 				<td>제목</td>
 				<td>작성날짜</td>
 				<td>조회수</td>
 			</tr>
+			<br>
 			<c:forEach items="${list}" var="vo">
-			<tr style="border-style: solid; border-color: #cce6ff; background-color: white;" >
+			<tr style="border-bottom:1px; background-color: white;" >
 				<td>${vo.no_num}</td>
 				<td>
-				
 				<c:catch>				
 				<!-- for(int i=0;i<=0;i++) -->
 				<c:forEach begin="1" end="${vo.depth}">
-					
 				</c:forEach>
 				</c:catch>
 				<a href="./${board}Select?num=${vo.no_num}" style="font-weight: bold; font-size: large;">${vo.title}</a></td>
