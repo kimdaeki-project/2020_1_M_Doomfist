@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.doom.s1.qna.QnaVO;
+import com.doom.s1.qna.qnaFile.QnaFileVO;
 
 @Repository
 public class QnaCheckDAO {
@@ -25,8 +26,8 @@ public class QnaCheckDAO {
 		return session.delete(NAMESPACE+"qnaOkDel",qna_storekey);
 	}
 	
-	public int storeFileInsert(long qna_storekey)throws Exception{
-		return session.insert(NAMESPACE+"storeFileInsert",qna_storekey);
+	public int storeFileInsert(QnaFileVO qnaFileVO)throws Exception{
+		return session.insert(NAMESPACE+"storeFileInsert",qnaFileVO);
 	}
 	
 	public int storeMenuInsert(long qna_storekey)throws Exception{
@@ -35,6 +36,10 @@ public class QnaCheckDAO {
 
 	public List<QnaVO> Statuscheck(String id)throws Exception{
 		return session.selectList(NAMESPACE+"Statuscheck",id);
+	}
+	
+	public List<QnaFileVO> selctFile(long qna_storekey)throws Exception{
+		return session.selectList(NAMESPACE+"selctFile",qna_storekey);
 	}
 
 }

@@ -36,7 +36,7 @@
 							<option value="bc">Contents</option>
 							<option value="bw">Writer</option>
 						</select>
-						<input type="text" class="form-control" size="50%"
+						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
 								style="padding-left: 100px; margin: 0px auto;">
 							<button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>

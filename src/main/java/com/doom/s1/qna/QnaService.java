@@ -66,18 +66,15 @@ public class QnaService {
 		}
 		
 		QnaMenuVO qnaMenuVO = new QnaMenuVO();
-		for (String menu : qm_menu) {
-			qnaMenuVO.setQm_menu(menu);
+		for (int i=0; i<qm_menu.length; i++) {
+			qnaMenuVO.setQm_menu(qm_menu[i]);
+			qnaMenuVO.setQm_price(qm_price[i]);
 			qnaMenuVO.setQna_storekey(qnaVO.getQna_storekey());
 			
-			
-		}
-		for (long price : qm_price) {
-			qnaMenuVO.setQm_price(price);
-			qnaMenuVO.setQna_storekey(qnaVO.getQna_storekey());
-			
+		
 			qnaMenuDAO.qnaMenuInsert(qnaMenuVO);	
 		}
+	
 		
 		QnaCheckVO qnaCheckVO = new QnaCheckVO();
 		qnaCheckVO.setQna_storekey(qnaVO.getQna_storekey());

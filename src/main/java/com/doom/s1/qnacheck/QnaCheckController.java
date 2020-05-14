@@ -42,6 +42,7 @@ public class QnaCheckController {
 	public ModelAndView qnaNo(HttpServletRequest request)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		long qna_storekey = Long.parseLong(request.getParameter("qna_storekey"));
+		
 		int result = qnaCheckService.qnaNo(qna_storekey);
 		mv.setViewName("redirect:../qna/qnaList");
 		
