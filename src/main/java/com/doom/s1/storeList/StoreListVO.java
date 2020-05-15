@@ -41,6 +41,7 @@ public class StoreListVO {
 	private String re_contents;
 	private String id;
 //	private long st_key;
+	private long re_rating;
 	
 	
 	public long getRe_num() {
@@ -74,6 +75,12 @@ public class StoreListVO {
 //		this.st_key = st_key;
 //	}
 //	
+	public long getRe_rating() {
+		return re_rating;
+	}
+	public void setRe_rating(long re_rating) {
+		this.re_rating = re_rating;
+	}
 	
 
 }

@@ -10,11 +10,11 @@
 	</select>
 	
 	<insert id="storeReviewWrite" parameterType="com.doom.s1.storeList.StoreListVO">
-		INSERT INTO storeReview VALUES(#{re_num},sysdate,#{re_contents},#{id},#{st_key})
+		INSERT INTO storeReview VALUES(#{re_num},sysdate,#{re_contents},#{id},#{st_key},#{re_rating})
 	</insert>
 	
 	<select id="storeReviewSelect" parameterType="java.lang.Long" resultType="com.doom.s1.storeList.StoreListVO">
-		SELECT re_num,re_date,re_contents,id FROM storeReview WHERE st_key=#{st_key} ORDER BY re_num DESC
+		SELECT re_num,re_date,re_contents,id,re_rating FROM storeReview WHERE st_key=#{st_key} ORDER BY re_num DESC
 	</select>
 	
 	<select id="reviewNum" resultType="Long">

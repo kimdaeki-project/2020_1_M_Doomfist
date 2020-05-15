@@ -49,12 +49,26 @@ public class StoreListController {
 		
 		//store 사진 출력
 		List<StoreFileVO> storeFileVOs = storeListService.storeFileSelect(st_key);
+		
+		//리뷰 평점 평균 계산
+		double sum=0.0;
+		double avg=0.0;
+		int check=0;
+		for (StoreListVO storeListVO2 : storeListVOs) {
+			check++;
+			sum = sum+storeListVO2.getRe_rating();
+		}
+		avg = sum/check;
+		avg = Math.round(avg*10);
+		avg = avg/10.0;
+		
 	
 		mv.addObject("vo",storeListVO);		//store 소개
 		mv.addObject("vo_sm", storeMenuVOs);//메뉴 소개
 		mv.addObject("vor",storeListVOs);	//리뷰글 출력
 		mv.addObject("vof1", sList);		//리뷰 글 안 사진들 출력
-		mv.addObject("stfile", storeFileVOs);
+		mv.addObject("stfile", storeFileVOs);//store 사진 출력
+		mv.addObject("avg", avg);			//평점 평균출력
 		mv.setViewName("storeList/storeListSelect");
 		return mv;
 	}

@@ -90,7 +90,12 @@
   
   <div class="panel panel-success">
   	<div class="panel-heading" align="center">
-  	이 식당의 리뷰
+		<h2>
+	  		이 식당의 평점 : 
+  			<font color="red">
+  				${avg}
+  			</font>
+		</h2>
   	</div>
   	<form action="./storeReviewWrite" method="get">
   	<div class="panel-body" align="center">
@@ -98,11 +103,26 @@
   		
   			<c:forEach items="${vor}" var="vor">
 				<tr>
-  					<td>작성자 : ${vor.id}<br>
-  					날짜 : ${vor.re_date}</td>
+  					<td>
+  					작성자 : ${vor.id}<br><br>
+  					날짜 : ${vor.re_date}
+  					</td>
+  					
+  					<td align="right">
+  					<span><img alt="" src="${pageContext.request.contextPath}/resources/images/${vor.re_rating}point.png"> 
+  					<br>
+  					<c:if test="${vor.re_rating eq 5}">	맛있다</c:if>
+  					<c:if test="${vor.re_rating eq 3}">	괜찮다</c:if>
+  					<c:if test="${vor.re_rating eq 1}">	별로..</c:if>
+  					</span>
+  					</td>
+  					
   					
   				</tr>
   				<tr>
+  					<td>
+  					</td>
+  					
   					<td>
   					<c:forEach items="${vof1}" var="vof11" varStatus="status">
   						<c:forEach items="${vof11}" var="vof2" varStatus="status2">
@@ -116,20 +136,26 @@
   				
   				<tr>
 					<td>내용  ${vor.re_contents} <br> </td>
+					<td>
+					</td>
   				</tr>	
 				 
 				 <tr>
+				 	<td>
+				 	</td>
     				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
 	    				<td align="right">
 	    				<a href="./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}">
 	    				<input type="button" class="btn btn-danger" value="리뷰삭제하기">
 	    				</a>
     					</td>
+    					
     				</c:if>
 				 </tr>
   			</c:forEach>
   			
     		<tr>
+    		<td></td>
     		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin'}">
     			<td align="right">
     				<a href="./storeReviewWrite?st_key=${vo.st_key}">
