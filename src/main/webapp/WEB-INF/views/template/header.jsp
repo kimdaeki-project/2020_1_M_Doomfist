@@ -22,7 +22,9 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
-					<li><a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a></li>
+					<c:if test="${sessionScope.member.id eq 'admin'}">											<!-- 어드민만 접근가능 -->
+						<li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집리스트</a></li>
+					</c:if>
 					<li><a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a></li>
 					<!-- 영호 추가 -->
 					<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
@@ -50,8 +52,27 @@
 				</c:if>
 				
 				<c:if test="${not empty member}">
-					<li><a href="${pageContext.request.contextPath}/member/memberPage"><span class="glyphicon glyphicon-user"></span>
-							회원 정보</a></li>
+				
+					<!-- <li><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user dro"></span>
+							회원 정보<b class="caret"></b></a></li>
+							<ul class="dropdown-menu">
+							<li><a href="${pageContext.request.contextPath}/member/memberPage">개인정보 수정</a> </li>
+							</ul>-->
+					<li>
+					<div style="margin-top: 8px;" class="dropdown">
+					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown">
+					  <span class="glyphicon glyphicon-user"></span><b>회원정보</b>
+					  <span class="caret"></span></button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">개인정보수정</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#">결제내역</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#">나의 신청 현황</a></li>
+					  </ul>
+					</div>	
+					</li>	
+												
 					<li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-user"></span>
 							로그아웃</a></li>
 				</c:if>

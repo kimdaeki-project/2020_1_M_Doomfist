@@ -5,6 +5,7 @@
   
   <mapper namespace="com.doom.s1.qnacheck.QnaCheckDAO">
   	<insert id="qnaCheckInsert" >
+
   		insert into qnacheck values(qckey_seq.nextval,#{id}, #{qc_check},#{qna_storekey},#{qc_title},sysdate)
   	</insert>
   	
@@ -22,6 +23,7 @@
   		delete qna where qna_storekey=#{qna_storekey}
   	</delete>
   	
+
   	<insert id="storeFileInsert" parameterType="com.doom.s1.storeList.file.StoreFileVO">
   		insert into storefile values(#{st_key},stfile_seq.nextval,#{stfile_name},#{stfile_oriname})
   	</insert>
@@ -37,6 +39,7 @@
 	<select id="selctFile" parameterType="Long" resultType="com.doom.s1.qna.qnaFile.QnaFileVO">
 		select * from qnafile where qna_storekey=#{qna_storekey}
 	</select>
+
 	
 	<select id="selectMenu" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
 		select * from qnamenu where qna_storekey=#{qna_storekey}
@@ -46,5 +49,6 @@
 		select st_key from storelist where id=#{id} order by st_key asc
 	</select>
 	
+
 
   </mapper>

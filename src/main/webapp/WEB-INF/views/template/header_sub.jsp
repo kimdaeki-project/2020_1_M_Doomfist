@@ -24,7 +24,9 @@
 				<ul class="nav navbar-nav">
 					<li class="active"><a href="${pageContext.request.contextPath}/">Home</a></li>
 					<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>
-					<li><a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a></li>
+					<c:if test="${sessionScope.member.id eq 'admin'}">					<!-- 어드민만 접근가능 -->
+					<li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집리스트</a></li>
+					</c:if>
 					<li><a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">

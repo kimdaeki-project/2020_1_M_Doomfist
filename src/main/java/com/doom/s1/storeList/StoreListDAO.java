@@ -6,6 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.doom.s1.util.Pager;
+
 
 
 @Repository
@@ -14,6 +16,18 @@ public class StoreListDAO {
 	@Autowired
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.doom.s1.storeList.StoreListDAO.";
+	
+	public int storeDelete(List<String> list)throws Exception{
+		return sqlSession.delete(NAMESPACE+"storeDelete", list);
+	}
+	
+	public long listCount(Pager pager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"listCount", pager);
+	}
+	
+	public List<StoreListVO> listCheck(Pager pager)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"listCheck", pager);
+	}
 	
 	public long reviewNum() throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"reviewNum");

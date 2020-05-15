@@ -24,22 +24,41 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
     <!-- Indicators //현재 사용 안함-->
-    <%-- <ol class="carousel-indicators">
-    <c:forEach items="${stfile}" var="stfile">
-      <li data-target="#myCarousel" data-slide-to="" class="active"></li>
-     
+    <ol class="carousel-indicators">
+	<c:forEach items="${stfile}" var="stfile" varStatus="status">
+		 
+		<c:if test="${status.index eq 0}">
+		<li data-target="#myCarousel" data-slide-to="${status.index}" class="active"></li>
+		</c:if>
+		<c:if test="${status.index ne 0}">
+		<li data-target="#myCarousel" data-slide-to="${status.index}" ></li>
+		</c:if>
     </c:forEach>
-    </ol> --%>
+    	
+    </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-	<c:forEach items="${stfile}" var="stfile">
+    
+	<c:forEach items="${stfile}" var="stfile" varStatus="status">
 	
-      <div class="item active">
-        <img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:100%;">${stfile.stfile_oriname}
-        <div class="carousel-caption">
-        </div>
-      </div>
+		<c:if test="${status.count eq 1}">
+			<div class="item active">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+				<div class="carousel-caption">
+				<p> </p>
+				</div>
+			</div>
+		</c:if>
+		
+		<c:if test="${status.count ne 1}">
+			<div class="item">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+				<div class="carousel-caption">
+				<p> </p>
+				</div>
+			</div>
+		</c:if>
       
 	</c:forEach>
   
@@ -90,7 +109,12 @@
   
   <div class="panel panel-success">
   	<div class="panel-heading" align="center">
-  	이 식당의 리뷰
+		<h2>
+	  		이 식당의 평점 : 
+  			<font color="red">
+  				${avg}
+  			</font>
+		</h2>
   	</div>
   	<form action="./storeReviewWrite" method="get">
   	<div class="panel-body" align="center">
@@ -98,11 +122,26 @@
   		
   			<c:forEach items="${vor}" var="vor">
 				<tr>
-  					<td>작성자 : ${vor.id}<br>
-  					날짜 : ${vor.re_date}</td>
+  					<td>
+  					작성자 : ${vor.id}<br><br>
+  					날짜 : ${vor.re_date}
+  					</td>
+  					
+  					<td align="right">
+  					<span><img alt="" src="${pageContext.request.contextPath}/resources/images/${vor.re_rating}point.png"> 
+  					<br>
+  					<c:if test="${vor.re_rating eq 5}">	맛있다</c:if>
+  					<c:if test="${vor.re_rating eq 3}">	괜찮다</c:if>
+  					<c:if test="${vor.re_rating eq 1}">	별로..</c:if>
+  					</span>
+  					</td>
+  					
   					
   				</tr>
   				<tr>
+  					<td>
+  					</td>
+  					
   					<td>
   					<c:forEach items="${vof1}" var="vof11" varStatus="status">
   						<c:forEach items="${vof11}" var="vof2" varStatus="status2">
@@ -116,20 +155,26 @@
   				
   				<tr>
 					<td>내용  ${vor.re_contents} <br> </td>
+					<td>
+					</td>
   				</tr>	
 				 
 				 <tr>
+				 	<td>
+				 	</td>
     				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
 	    				<td align="right">
 	    				<a href="./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}">
 	    				<input type="button" class="btn btn-danger" value="리뷰삭제하기">
 	    				</a>
     					</td>
+    					
     				</c:if>
 				 </tr>
   			</c:forEach>
   			
     		<tr>
+    		<td></td>
     		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin'}">
     			<td align="right">
     				<a href="./storeReviewWrite?st_key=${vo.st_key}">

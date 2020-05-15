@@ -8,6 +8,7 @@ public class StoreListVO {
 	private String st_name;
 	private long st_key;
 	private String st_address;
+	private String id;
 	
 	public String getSt_phone() {
 		return st_phone;
@@ -33,14 +34,21 @@ public class StoreListVO {
 	public void setSt_address(String st_address) {
 		this.st_address = st_address;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	
 	//==================================================================
 	
 	private long re_num;
 	private Date re_date;
 	private String re_contents;
-	private String id;
+//	private String id;
 //	private long st_key;
+	private long re_rating;
 	
 	
 	public long getRe_num() {
@@ -61,12 +69,12 @@ public class StoreListVO {
 	public void setRe_contents(String re_contents) {
 		this.re_contents = re_contents;
 	}
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 //	public long getSt_key() {
 //		return st_key;
 //	}
@@ -74,6 +82,12 @@ public class StoreListVO {
 //		this.st_key = st_key;
 //	}
 //	
+	public long getRe_rating() {
+		return re_rating;
+	}
+	public void setRe_rating(long re_rating) {
+		this.re_rating = re_rating;
+	}
 	
 
 }
