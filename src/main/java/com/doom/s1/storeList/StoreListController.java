@@ -1,6 +1,7 @@
 package com.doom.s1.storeList;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
+import com.doom.s1.util.Pager;
 @Controller
 @RequestMapping(value="/storeList/**")
 public class StoreListController {
@@ -23,11 +25,29 @@ public class StoreListController {
 	@Autowired
 	private StoreListService storeListService;
 	
+	@GetMapping("./storeDelete")
+	public ModelAndView storeDelete(String[] ids)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		//배열을 List로 변환
+		List<String> list = Arrays.asList(ids);
+		int result = storeListService.storeDelete(list);
+		
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
 	
-//	@RequestMapping(value="storeListSelect")
-//	public String storeListSelect()throws Exception{
-//		return "storeList/storeListSelect";
-//	}
+	
+	@RequestMapping(value="storeListCheck")
+	public ModelAndView storeListCheck(Pager pager, ModelAndView mv)throws Exception{
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager); 
+		mv.addObject("vo", storeListVOs);
+		mv.addObject("pager", pager);
+		mv.setViewName("storeList/storeListCheck");
+		
+		return mv;
+	}
 	
 	@RequestMapping(value = "storeListSelect", method = RequestMethod.GET)
 	public ModelAndView storeListSelect(long st_key) throws Exception{

@@ -24,22 +24,41 @@
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
     
     <!-- Indicators //현재 사용 안함-->
-    <%-- <ol class="carousel-indicators">
-    <c:forEach items="${stfile}" var="stfile">
-      <li data-target="#myCarousel" data-slide-to="" class="active"></li>
-     
+    <ol class="carousel-indicators">
+	<c:forEach items="${stfile}" var="stfile" varStatus="status">
+		 
+		<c:if test="${status.index eq 0}">
+		<li data-target="#myCarousel" data-slide-to="${status.index}" class="active"></li>
+		</c:if>
+		<c:if test="${status.index ne 0}">
+		<li data-target="#myCarousel" data-slide-to="${status.index}" ></li>
+		</c:if>
     </c:forEach>
-    </ol> --%>
+    	
+    </ol>
 
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
-	<c:forEach items="${stfile}" var="stfile">
+    
+	<c:forEach items="${stfile}" var="stfile" varStatus="status">
 	
-      <div class="item active">
-        <img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:100%;">${stfile.stfile_oriname}
-        <div class="carousel-caption">
-        </div>
-      </div>
+		<c:if test="${status.count eq 1}">
+			<div class="item active">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+				<div class="carousel-caption">
+				<p> </p>
+				</div>
+			</div>
+		</c:if>
+		
+		<c:if test="${status.count ne 1}">
+			<div class="item">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+				<div class="carousel-caption">
+				<p> </p>
+				</div>
+			</div>
+		</c:if>
       
 	</c:forEach>
   

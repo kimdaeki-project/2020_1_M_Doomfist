@@ -15,6 +15,7 @@ import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuDAO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 import com.doom.s1.util.FileSaver;
+import com.doom.s1.util.Pager;
 
 @Service
 public class StoreListService {
@@ -32,10 +33,21 @@ public class StoreListService {
 	@Autowired
 	private StoreFileDAO storeFileDAO;
 	
+	public int storeDelete(List<String> list) throws Exception{
+		return storeListDAO.storeDelete(list);
+	}
+	
+	public List<StoreListVO> listCheck(Pager pager)throws Exception{
+		pager.makeRow();
+		long totalCount = storeListDAO.listCount(pager);
+		pager.makePage(totalCount);
+		
+		return storeListDAO.listCheck(pager);		
+	}
+	
 	public List<StoreFileVO> storeFileSelect(long st_key)throws Exception{
 		return storeFileDAO.storeFileSelect(st_key);
 	}
-	
 	
 	public List<StoreListVO> storeReviewSelect(long st_key)throws Exception{
 		return storeListDAO.storeReviewSelect(st_key);

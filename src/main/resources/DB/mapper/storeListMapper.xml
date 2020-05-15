@@ -5,8 +5,53 @@
   
 <mapper namespace="com.doom.s1.storeList.StoreListDAO">
 
+	<delete id="storeDelete" parameterType="java.util.List">
+		DELETE storeList WHERE st_key IN
+		<foreach collection="list" item="id" open="(" close=")" separator=",">
+			#{st_key}
+		</foreach>
+	</delete>
+
+	<sql id="search">
+		like '%'||#{search}||'%' AND st_key>=1 ORDER BY st_key DESC
+	</sql>
+
+	<select id="listCheck" parameterType="com.doom.s1.util.Pager" resultType="com.doom.s1.storeList.StoreListVO">
+		SELECT * FROM
+			(SELECT N.*,rownum R FROM
+				(SELECT * FROM storeList WHERE
+				<choose>
+					<when test="kind =='ln'">
+						st_name
+					</when>
+					<when test="kind == 'lk'">
+						st_key
+					</when>
+					<otherwise>
+						id
+					</otherwise>
+				</choose>
+				<include refid="search"></include>) N)
+		WHERE R BETWEEN #{startRow} AND #{lastRow}
+	</select>
+	
+	<select id="listCount" parameterType="com.doom.s1.util.Pager" resultType="Long">
+		SELECT count(st_key) FROM storeList
+			<where>
+				<if test="kind =='ln'">
+					st_name <include refid="search"></include>
+				</if>
+				<if test="kind =='lk'">
+					st_key <include refid="search"></include>
+				</if>
+				<if test="kind == 'li'">
+					id <include refid="search"></include>
+				</if>
+			</where>
+	</select>
+
 	<select id="storeListSelect" parameterType="java.lang.Long" resultType="com.doom.s1.storeList.StoreListVO">
-		SELECT * FROM storelist WHERE st_key=#{st_key}
+		SELECT * FROM storeList WHERE st_key=#{st_key}
 	</select>
 	
 	<insert id="storeReviewWrite" parameterType="com.doom.s1.storeList.StoreListVO">
