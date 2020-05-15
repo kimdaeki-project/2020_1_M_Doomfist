@@ -2,7 +2,7 @@ package com.doom.s1.qna;
 
 import java.sql.Date;
 
-public class QnaVO {
+public class QnaVO{
 
 	private long qna_storekey;
 	private String qna_title;

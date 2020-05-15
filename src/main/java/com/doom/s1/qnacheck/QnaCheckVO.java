@@ -1,13 +1,29 @@
 package com.doom.s1.qnacheck;
 
+import java.sql.Date;
+
 public class QnaCheckVO {
 
 	private long qc_key;
 	private String id;
 	private long qc_check;
 	private long qna_storekey;
+	private String qc_title;
+	private Date qc_date;
 	
 	
+	public String getQc_title() {
+		return qc_title;
+	}
+	public void setQc_title(String qc_title) {
+		this.qc_title = qc_title;
+	}
+	public Date getQc_date() {
+		return qc_date;
+	}
+	public void setQc_date(Date qc_date) {
+		this.qc_date = qc_date;
+	}
 	public long getQc_key() {
 		return qc_key;
 	}

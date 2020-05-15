@@ -2,14 +2,12 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
+	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_2_2.jpg')">
 
-	<div class="jumbotron" style="background-image: url('${pageContext.request.contextPath}/resources/images/mainfood.jpg')">
 		<div class="container text-center">
-			<h1>다이닝코드</h1>
-			<p>Mission, Vission & Values</p>
 		</div>
 	</div>
-	<div style="width: 1910px; align="center">
+	<div style=" width: 1910px; align="center">
 	<nav class="navbar">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -36,7 +34,7 @@
 							<option value="bc">Contents</option>
 							<option value="bw">Writer</option>
 						</select>
-						<input type="text" class="form-control" size="100px"
+						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
 								style="padding-left: 100px; margin: 0px auto;">
 							<button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>
@@ -52,8 +50,27 @@
 				</c:if>
 				
 				<c:if test="${not empty member}">
-					<li><a href="${pageContext.request.contextPath}/member/memberPage"><span class="glyphicon glyphicon-user"></span>
-							회원 정보</a></li>
+				
+					<!-- <li><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user dro"></span>
+							회원 정보<b class="caret"></b></a></li>
+							<ul class="dropdown-menu">
+							<li><a href="${pageContext.request.contextPath}/member/memberPage">개인정보 수정</a> </li>
+							</ul>-->
+					<li>
+					<div style="margin-top: 8px;" class="dropdown">
+					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown">
+					  <span class="glyphicon glyphicon-user"></span><b>회원정보</b>
+					  <span class="caret"></span></button>
+					  <ul class="dropdown-menu">
+					    <li><a href="#">개인정보수정</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#">결제내역</a></li>
+					    <li class="divider"></li>
+					    <li><a href="#">나의 신청 현황</a></li>
+					  </ul>
+					</div>	
+					</li>	
+												
 					<li><a href="${pageContext.request.contextPath}/member/memberLogout"><span class="glyphicon glyphicon-user"></span>
 							로그아웃</a></li>
 				</c:if>

@@ -195,11 +195,13 @@ public class MemberController {
 	JSONObject response_obj = (JSONObject)jsonObj.get("response");
 	//response의 nickname값 파싱
 	String email = (String)response_obj.get("email");
+	String name = (String)response_obj.get("name");
 	System.out.println(email);
 	//4.파싱 닉네임 세션으로 저장
 	session.setAttribute("sessionId",email); //세션 생성
+	session.setAttribute("sessionName",name);
 	model.addAttribute("result", apiResult);
-	return "member/memberLogin";
+	return "redirect:../";
 	}
 	//로그아웃
 	@RequestMapping(value = "/member/logout", method = { RequestMethod.GET, RequestMethod.POST })
