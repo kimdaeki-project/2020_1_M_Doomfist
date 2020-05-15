@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+		<a href="../">HOME으로 </a>
 </body>
 </html>
