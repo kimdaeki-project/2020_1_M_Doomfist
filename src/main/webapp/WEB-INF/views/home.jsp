@@ -19,10 +19,10 @@
 <body>
 <c:import url="./template/header.jsp"></c:import>
 
-	<div class="container">
+	<div class="container ">
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="panel panel-success">
+				<div class="panel panel-info">
 					<div class="panel-heading">돈가스</div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample1.jpg"
@@ -32,7 +32,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-success">
+				<div class="panel panel-info">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample2.jpg"
@@ -42,7 +42,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-success">
+				<div class="panel panel-info">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample3.jpg"
@@ -58,7 +58,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="panel panel-success">
+				<div class="panel panel-info">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample4.jpg"
@@ -68,7 +68,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-success">
+				<div class="panel panel-info">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample5.jpg"
@@ -78,7 +78,7 @@
 				</div>
 			</div>
 			<div class="col-sm-4">
-				<div class="panel panel-success">
+				<div class="panel panel-info">
 					<div class="panel-heading">BLACK FRIDAY DEAL</div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample6.jpg"

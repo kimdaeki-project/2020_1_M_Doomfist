@@ -46,5 +46,9 @@ public class MemberDAO {
 	public List<MemberVO> memberList(Pager memberPager) throws Exception{
 		return sqlSession.selectList(NAMESPACE+"memberList", memberPager);
 	}
+	
+	public MemberVO memberIdFind(MemberVO memberVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberIdFind", memberVO);
+	}
 
 }

@@ -22,19 +22,19 @@
 			enctype="multipart/form-data">
 
 			<div class="form-group">
-				<label for="qna_title">식당이름</label> <input type="text"
+				<label for="qna_title">식당이름 :</label> <input type="text" style="width: 30%;"
 					class="form-control" id="qna_title" placeholder="식당이름"
 					name="qna_title">
 			</div>
 
 			<div class="form-group">
-				<label for="id">ID:</label> <input type="text" class="form-control"
+				<label for="id">ID :</label> <input type="text" class="form-control" style="width: 30%;"
 					id="id" readonly="readonly" value="${sessionScope.member.id}"
 					placeholder="Enter writer" name="id">
 			</div>
 			
 			<div class="form-group">
-				<label for="qna_phone">식당전화번호:</label> <input type="text"
+				<label for="qna_phone">식당전화번호 :</label> <input type="text" style="width: 30%;"
 					class="form-control" id="qna_phone" placeholder="식당 전화번호"
 					name="qna_phone">
 			</div>
@@ -42,14 +42,14 @@
 
 			<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>
 			
+			<br></br>
 			
-			<input type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
+			<input style="width: 30%;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
 			
 			<br>
 			
 			<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 입력하기">
-			<div id="menuu"></div>
-
+			<div id="menuu"></div><br></br>
 			<input type="button" id="add" class="btn btn-info active" value="음식사진 추가">
 			<div id="file"></div>
 

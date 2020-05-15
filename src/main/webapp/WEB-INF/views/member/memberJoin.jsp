@@ -126,7 +126,7 @@ o 계약 또는 청약철회 등에 관한 기록
     
   </form>
 </div>
-<footer style="margin-top: 15%">
+<footer style="margin-top: 5%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 
