@@ -7,6 +7,7 @@
     String phone ="phone";
     String address = "address";
     int totalPrice = 100;    
+    
 	%>
 <!DOCTYPE html>
 <html>

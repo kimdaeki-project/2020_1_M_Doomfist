@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="com.doom.s1.payFirst.PayFirstDAO">
+  
+  <insert id="payFirstInsert" parameterType="com.doom.s1.payFirst.PayFirstVO" >
+  	insert into payFirst values(
+  	pay_seq.nextval,
+  	#{id},
+  	sysdate,
+  	0,
+  	#{st_key},
+  	#{pf_stname}
+  	)
+  
+  </insert>
+  
+  <select id="payFirstSelect" parameterType="java.lang.Long" resultType="com.doom.s1.payFirst.PayFirstVO">
+  	SELECT * FROM (SELECT * FROM payfirst ORDER BY ROWNUM DESC) WHERE ROWNUM = 1
+  </select>
+  
+  
+  <delete id="payFirstDelete" parameterType="Long">
+  	delete payFirst where pf_check = 0
+  </delete>
+  
+  
+  </mapper>
