@@ -25,7 +25,7 @@ public class StoreListController {
 	@Autowired
 	private StoreListService storeListService;
 	
-	@GetMapping("./storeDelete")
+	@GetMapping("storeDelete")
 	public ModelAndView storeDelete(String[] ids)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//배열을 List로 변환
