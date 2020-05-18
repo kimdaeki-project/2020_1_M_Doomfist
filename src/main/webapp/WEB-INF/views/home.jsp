@@ -23,12 +23,12 @@
 		<div class="row">
 			<div class="col-sm-4">
 				<div class="panel panel-info">
-					<div class="panel-heading">돈가스</div>
+					<div class="panel-heading"></div>
 					<div class="panel-body">
 						<img src="${pageContext.request.contextPath}/resources/images/sample1.jpg"
 							class="img-responsive" style="width: 700px" height="500px" alt="Image">
 					</div>
-					<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+					<div class="panel-footer">B${memberVO.member_div}</div>
 				</div>
 			</div>
 			<div class="col-sm-4">

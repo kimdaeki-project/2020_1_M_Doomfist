@@ -18,43 +18,78 @@
     <br></br>
     <br></br>
   </div>
+  	<div>
 		<form action="./qnaJoin" id="form" name="form" method="POST"
 			enctype="multipart/form-data">
 
-			<div class="form-group">
-				<label for="qna_title">식당이름 :</label> <input type="text" style="width: 30%;"
+			<div class="form-group" align="center">
+				<label for="qna_title">식당이름 </label> <input type="text" style="width: 30%;"
 					class="form-control" id="qna_title" placeholder="식당이름"
 					name="qna_title">
 			</div>
 
 			<div class="form-group">
-				<label for="id">ID :</label> <input type="text" class="form-control" style="width: 30%;"
-					id="id" readonly="readonly" value="${sessionScope.member.id}"
+				<input type="hidden" class="form-control" style="width: 30%;"
+					id="id"  value="${sessionScope.member.id}"
 					placeholder="Enter writer" name="id">
 			</div>
 			
-			<div class="form-group">
-				<label for="qna_phone">식당전화번호 :</label> <input type="text" style="width: 30%;"
+			<div class="form-group" align="center">
+				<label for="qna_phone">식당전화번호 </label> <input type="text" style="width: 30%;"
 					class="form-control" id="qna_phone" placeholder="식당 전화번호"
 					name="qna_phone">
 			</div>
 			
+			<!-- <div align="center">
+				<label for="category">식당 카테고리</label>
+				<select id="qna_kind" name="qna_kind">
+					<option value="">선택없음</option>
+					<option>한식</option>
+					<option>분식</option>
+					<option>카페,디저트</option>
+					<option>돈까스,회,일식</option>
+					<option>치킨</option>
+					<option>피자</option>
+					<option>아시안,양식</option>
+					<option>중국집</option>
+					<option>족발,보쌈</option>
+					<option>야식</option>
+					<option>찜,탕</option>
+					<option>도시락</option>
+					<option>패스트 푸드</option>
+				</select>
+			</div> -->
+			
+		
+			<div align="center">
+				<label for="address">식당 주소 정보</label>
+				<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>			
+				<br></br>	
+				<input style="width: 30%;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
+				<br>
+			</div>
+			<div align="center">
+				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px"> 메뉴
+				<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기">
+			</div> 
+			<div style="margin-top: 15px; margin-bottom: 15px;" align="center">
+				<input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요">
+			</div>
+			<div id="menuu" align="center"></div><br></br>
+			
+			<div align="center">
+				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 50px" height="50px"> 음신 사진 추가 
+				<input type="button" id="add" class="btn btn-info active" value="음식사진 추가"> 
+			</div> 
+			<div align="center"> 
+				<input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block;"> 
+			</div>
+			<div id="file" align="center"></div>	
 
-			<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>
-			
-			<br></br>
-			
-			<input style="width: 30%;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
-			
 			<br>
-			
-			<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 입력하기">
-			<div id="menuu"></div><br></br>
-			<input type="button" id="add" class="btn btn-info active" value="음식사진 추가">
-			<div id="file"></div>
-
-			<br>
-			<button type="button" id="btn" class="btn btn-default active">신청하기</button>
+			<div align="center">
+				<button type="button" id="btn" class="btn btn-default active" >신청하기</button>
+			</div>
 		</form>
 	</div>
 	<c:import url="../template/footer.jsp"></c:import>
@@ -102,10 +137,8 @@
 		}
 		
 	</script>
-
-
-
-	<script type="text/javascript" src="../resources/boardForm.js">
+	
+	<script type="text/javascript" src="../resources/boardForm.js?v=<%=System.currentTimeMillis() %>">
 		
 	</script>
 

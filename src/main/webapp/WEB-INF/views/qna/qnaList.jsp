@@ -20,6 +20,7 @@
 						<option value="bt">식당이름</option>
 						<option value="bc">내용</option>
 						<option value="bw">아이디</option>
+						
 					</select>
 				<div class="input-group">
 					<input type="text" class="form-control" placeholder="Search"
