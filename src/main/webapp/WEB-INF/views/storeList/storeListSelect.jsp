@@ -162,20 +162,20 @@
 				 <tr>
 				 	<td>
 				 	</td>
-    				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
 	    				<td align="right">
+    				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
 	    				<a href="./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}">
 	    				<input type="button" class="btn btn-danger" value="리뷰삭제하기">
 	    				</a>
+    				</c:if>
     					</td>
     					
-    				</c:if>
 				 </tr>
   			</c:forEach>
   			
     		<tr>
+    		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin' and sessionScope.member.id ne vo.id}">
     		<td></td>
-    		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin'}">
     			<td align="right">
     				<a href="./storeReviewWrite?st_key=${vo.st_key}">
     				<input type="button" class="btn btn-info" value="리뷰 작성 하기!">
