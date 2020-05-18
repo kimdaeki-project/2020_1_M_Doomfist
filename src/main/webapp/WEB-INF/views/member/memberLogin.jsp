@@ -30,11 +30,11 @@
   <form class="form-horizontal" action="./memberLogin_HOME" method="post">
     <div class="form-group">
       <label for="inputlg">아이디:</label>
-      <input type="text" class="form-control input-lg" value="${cookie.cId.value}" id="id" placeholder="Enter ID" name="id">
+      <input type="text" style="width: 30%;"  class="form-control input-lg" value="${cookie.cId.value}" id="id" placeholder="Enter ID" name="id">
     </div>
     <div class="form-group">
       <label for="inputlg">비밀번호:</label>
-      <input type="password" class="form-control input-lg" id="pw" placeholder="Enter PW" name="pw">
+      <input type="password" style="width: 30%;"  class="form-control input-lg" id="pw" placeholder="Enter PW" name="pw">
     </div>
     <div class="checkbox">
       <label><input type="checkbox" name="remember">아이디 저장</label>
@@ -42,7 +42,7 @@
     <br>
     <button type="submit" class="btn btn-primary">로그인</button>
     <hr></hr>
-    <a href="#">아이디 또는 비밀번호를 잊으셨습니까?</a>
+    <a href="" onclick="javascript:openWin();">아이디를 잊으셨습니까?</a>
     <br></br>
 	<a href="${pageContext.request.contextPath}/member/memberJoin">아이디가 없으신가요? 지금 생성하세요.</a>
 	<br></br>
@@ -89,7 +89,7 @@
 <img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>-->
 
 
-<footer style="margin-top: 15%">
+<footer style="margin-top: 5%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 
@@ -105,6 +105,16 @@
 	
 	/* 설정정보를 초기화하고 연동을 준비 */
 	naverLogin.init();-->
+	<script type="text/javascript">
+	$("#naver_id_login").click(function() {
+		alert("네이버로 로그인시 서비스이용에 제한이 있을 수 있습니다.")
+	})
+	
+	function openWin() {
+		window.open("http://localhost:8080/s1/member/memberIdFind","아이디찾기","width=400, height=300, toolbar=no, menubar=no, scrollbars=no, resizable=yes") 
+
+	}
+	</script>
 
 	
 

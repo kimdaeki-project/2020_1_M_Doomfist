@@ -43,14 +43,16 @@
 	</select>
   
   	<update id="memberUpdate" parameterType="MemberVO">
-		update member set name=#{name}, email=#{email}, phone=#{phone} where id=#{id}
+		update member set  email=#{email}, name=#{name},phone=#{phone} where id=#{id}
 	</update>
 	
 	<delete id="memberDelete" parameterType="MemberVO">
 		delete member where id=#{id}
 	</delete>
-	
-	
+		
+	<select id="memberIdFind" parameterType="MemberVO" resultType="MemberVO">
+		select id from member where email=#{email} and name=#{name}
+	</select>
   
   
   
