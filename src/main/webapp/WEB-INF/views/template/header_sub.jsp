@@ -40,7 +40,7 @@
 					  </div>	
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
 					</li>
-					
+					<c:if test="${sessionScope.member.id eq 'admin' or not empty sessionId}">
 					<li>
 					<div style="margin-top: 7.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/storeList/storeListSelect">
@@ -49,6 +49,7 @@
 					  </div>
 					<!--<a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a>-->
 					</li>
+					</c:if>
 					
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">

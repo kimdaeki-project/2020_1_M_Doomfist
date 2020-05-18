@@ -7,7 +7,7 @@
 
 	<delete id="storeDelete" parameterType="java.util.List">
 		DELETE storeList WHERE st_key IN
-		<foreach collection="list" item="id" open="(" close=")" separator=",">
+		<foreach collection="list" item="st_key" open="(" close=")" separator=",">
 			#{st_key}
 		</foreach>
 	</delete>

@@ -25,13 +25,24 @@ public class StoreListController {
 	@Autowired
 	private StoreListService storeListService;
 	
+	@GetMapping("storeListChecks")
+	public ModelAndView storeListChecks(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+		mv.addObject("vo", storeListVOs);
+		mv.addObject("pager", pager);
+		mv.setViewName("storeList/storeListChecks");
+		
+		return mv;
+	}
+	
 	@GetMapping("storeDelete")
-	public ModelAndView storeDelete(String[] ids)throws Exception{
+	public ModelAndView storeDelete(String[] st_key)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//배열을 List로 변환
-		List<String> list = Arrays.asList(ids);
+		List<String> list = Arrays.asList(st_key);
 		int result = storeListService.storeDelete(list);
-		
+		System.out.println(result);
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
 		
