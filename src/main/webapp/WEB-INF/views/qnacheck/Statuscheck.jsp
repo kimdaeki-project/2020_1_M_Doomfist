@@ -33,7 +33,7 @@
 						처리중
 					</c:when>
 					<c:otherwise>
-					${result[i.index]}
+						${result[i.index]}
 					</c:otherwise>
 					</c:choose>
 				</td>
