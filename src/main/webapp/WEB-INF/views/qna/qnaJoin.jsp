@@ -40,25 +40,25 @@
 					name="qna_phone">
 			</div>
 			
-			<!-- <div align="center">
+			<div align="center">
 				<label for="category">식당 카테고리</label>
 				<select id="qna_kind" name="qna_kind">
 					<option value="">선택없음</option>
 					<option>한식</option>
 					<option>분식</option>
-					<option>카페,디저트</option>
-					<option>돈까스,회,일식</option>
+					<option>카페, 디저트</option>
+					<option>돈까스, 회,일식</option>
 					<option>치킨</option>
 					<option>피자</option>
-					<option>아시안,양식</option>
+					<option>아시안, 양식</option>
 					<option>중국집</option>
-					<option>족발,보쌈</option>
+					<option>족발, 보쌈</option>
 					<option>야식</option>
-					<option>찜,탕</option>
+					<option>찜, 탕</option>
 					<option>도시락</option>
 					<option>패스트 푸드</option>
 				</select>
-			</div> -->
+			</div> 
 			
 		
 			<div align="center">

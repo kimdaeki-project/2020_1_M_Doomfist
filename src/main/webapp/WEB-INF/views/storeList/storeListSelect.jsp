@@ -43,8 +43,8 @@
 	<c:forEach items="${stfile}" var="stfile" varStatus="status">
 	
 		<c:if test="${status.count eq 1}">
-			<div class="item active">
-				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+			<div class="item active" style="max-width:1000px;max-height: 600px;height: 1000px">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>
@@ -52,8 +52,8 @@
 		</c:if>
 		
 		<c:if test="${status.count ne 1}">
-			<div class="item">
-				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+			<div class="item"  style="max-width:1000px;max-height: 600px;height: 1000px">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>
@@ -83,6 +83,7 @@
   			<li>가게 상세정보</li>
   			<li>전화번호 : ${vo.st_phone}</li>
     		<li>식당 주소 : ${vo.st_address}</li> 
+    		<li>분류 : ${vo.st_kind}</li>
   		</ul>
   	</div>
   </div>

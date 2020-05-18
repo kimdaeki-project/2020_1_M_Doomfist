@@ -16,7 +16,7 @@
   		#{qna_storekey},
   		(select qna_contents from qna where qna_storekey=#{qna_storekey}),
   		(select id from qna where qna_storekey=#{qna_storekey}),
-  		(SELECT qna_kind FROM qna WHERE qna_storeKey=#{qna_storeKey)
+  		(SELECT qna_kind FROM qna WHERE qna_storeKey=#{qna_storeKey})
   		)
   	</insert>
   

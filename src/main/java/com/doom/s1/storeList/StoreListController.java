@@ -25,6 +25,18 @@ public class StoreListController {
 	@Autowired
 	private StoreListService storeListService;
 	
+	@GetMapping("searchStore")
+	public ModelAndView searchStore(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager); 
+		mv.addObject("vo", storeListVOs);
+		mv.addObject("pager", pager);
+		mv.setViewName("storeList/searchStore");
+		
+		return mv;
+		
+	}
+	
 	@GetMapping("storeListChecks")
 	public ModelAndView storeListChecks(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();

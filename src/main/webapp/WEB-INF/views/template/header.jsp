@@ -65,16 +65,16 @@
 					<!--<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					 영호 추가 -->
 					<li>
-					<form class="form-inline" style="padding-top: 6.5px;">
+					<form class="form-inline" style="padding-top: 6.5px;" action="./storeList/searchStore">
 						<select class="form-control" id="sel1" name="kind">
-							<option value="bt">Title</option>	
-							<option value="bc">Contents</option>
-							<option value="bw">Writer</option>
+							<option value="ln">식당이름</option>
+							<option value="lk">식당고유번호</option>
+							<option value="li">아이디</option>
 						</select>
 						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
-								style="padding-left: 100px; margin: 0px auto;">
-							<button type="button" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>
+								style="margin: 0px auto;" name="search">
+							<button type="submit" class="btn btn-info"> <span class="glyphicon glyphicon-search"></span>Search</button>
 						</form> 
 					</li>
 				</ul>
