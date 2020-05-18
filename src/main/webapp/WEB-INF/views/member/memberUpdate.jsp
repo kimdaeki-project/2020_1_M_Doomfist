@@ -15,37 +15,40 @@
 
 	<div class="container">
 		<div class="row">
+		  <div class="page-header text-center text-info">
+		   <div><img src="${pageContext.request.contextPath}/resources/images/memberupdate.png"> </div> 
+    <br></br>
+    <br></br>
+  </div>
 			<form class="form-horizontal" action="./memberUpdate" method="post">
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="id">ID:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" value="${member.id}" id="id" readonly="readonly" placeholder="Enter ID" name="id">
-					</div>
-				</div>
 				
+				<table class="text-info Shadow" style="width: 100%; border-top: 3px white solid; margin-left: 17%;">
+   <tbody>
+    <tr>
 
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="name">Name:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="name" value="${member.name}"; placeholder="Enter Name" name="name">
-					</div>
-				</div>
-				
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="email">Email:</label>
-					<div class="col-sm-10">
-						<input type="email" class="form-control" id="email" value="${member.email}" placeholder="Enter Email" name="email">
-					</div>
-				</div>				
-				
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="phone">Phone:</label>
-					<div class="col-sm-10">
-						<input type="text" class="form-control" id="phone" value="${member.phone}" placeholder="Enter Phone" name="phone">
-					</div>
-				</div>		
-						
-			
+     	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;아이디 : </th>
+      	<td style="border-bottom: 2px white solid; height: 50px;"><input style="background-color: #e6f5ff;" type="text" id="id" readonly="readonly" value="${member.id}" name="id"> 아이디는 변경불가합니다<td>
+		<hr></hr>
+    </tr>
+
+	<tr>
+      	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;E-Mail : </th>
+      	<td style="border-bottom: 2px white solid; height: 50px;"><input value="${member.email}" type="email"  id="email"  name="email"><td>
+    </tr>
+
+	<tr>
+     	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;이름 : </th>
+     	<td style="border-bottom: 2px white solid; height: 50px;"><input value="${member.name}" type="text"  id="name"  name="name"><td>
+    </tr>
+
+	<tr>
+     	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;연락처 : </th>
+     	<td style="border-bottom: 3px white solid; height: 50px;"><input value="${member.phone}" type="text"  id="phone"  name="phone"><td>
+    </tr>
+    </tbody>
+    </table>
+									
+			<hr>
 				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
@@ -53,12 +56,11 @@
 					</div>
 				</div>
 			</form>
-
 		</div>
 	</div>
 
 
-<footer style="margin-top: 15.2%">
+<footer style="margin-top: 5%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<div class="footerArea">
+<div class="footerArea" style="background-color: #e6f5ff;">
 		<div class="footer">
 			<div class="footer_nav" style="padding-top: 10px;">
 				<img alt="" src="${pageContext.request.contextPath}/resources/images/logo.png" width="70px",height="50px">
