@@ -10,9 +10,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.SessionScope;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.doom.s1.member.MemberVO;
 import com.doom.s1.qna.qnaFile.QnaFileVO;
 import com.doom.s1.qnamenu.QnaMenuVO;
 import com.doom.s1.util.Pager;
@@ -23,6 +25,7 @@ public class QnaController {
 	
 	@Autowired
 	private QnaService qnaService;
+	
 	
 	@GetMapping("qnaJoin")
 	public ModelAndView qnaJoin(QnaVO qnaVO)throws Exception{
@@ -35,6 +38,7 @@ public class QnaController {
 		
 		int result = qnaService.qnaJoin(qnaVO,files,qm_price,qm_menu);
 		
+		
 		if(result>0) {
 			mv.addObject("result","신청 완료");
 			mv.addObject("path","../");
@@ -44,6 +48,9 @@ public class QnaController {
 			mv.addObject("path","../");
 			mv.setViewName("common/result");
 		}
+		String id = ((MemberVO)session.getAttribute("member")).getId();
+		MemberVO memberVO = qnaService.selectMember(id);
+		session.setAttribute("member", memberVO);
 		
 		return mv;
 	}
@@ -52,6 +59,7 @@ public class QnaController {
 	public ModelAndView qnaList(Pager pager, ModelAndView mv)throws Exception{
 		
 		List<QnaVO> ar = qnaService.qnaList(pager);
+		System.out.println(ar.size());
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		mv.setViewName("qna/qnaList");

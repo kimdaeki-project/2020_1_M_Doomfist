@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.doom.s1.member.MemberDAO;
+import com.doom.s1.member.MemberVO;
 import com.doom.s1.qna.qnaFile.QnaFileDAO;
 import com.doom.s1.qna.qnaFile.QnaFileVO;
 import com.doom.s1.qnacheck.QnaCheckDAO;
@@ -33,6 +35,10 @@ public class QnaService {
 	private QnaMenuDAO qnaMenuDAO;
 	@Autowired
 	private QnaCheckDAO qnaCheckDAO;
+	
+	public MemberVO selectMember(String id) throws Exception{
+		return qnaDAO.selectMember(id);
+	}
 	
 	public List<QnaFileVO> qnaFileSelect(long qna_storekey)throws Exception{
 		return qnaFileDAO.qnaFileSelect(qna_storekey);
@@ -85,8 +91,8 @@ public class QnaService {
 		
 		qnaCheckDAO.qnaCheckInsert(qnaCheckVO);
 		
+		qnaDAO.memberUpdate();
 		
-
 		
 		return result;
 	}
