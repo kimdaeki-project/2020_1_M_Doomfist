@@ -51,7 +51,7 @@ public class QnaController {
 		String id = ((MemberVO)session.getAttribute("member")).getId();
 		MemberVO memberVO = qnaService.selectMember(id);
 		session.setAttribute("member", memberVO);
-		
+		//test
 		return mv;
 	}
 	
