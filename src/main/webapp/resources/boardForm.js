@@ -19,7 +19,7 @@ $("#add")
 					if (count < 6) {
 						$("#file")
 								.append(
-										'<div class="form-group"> <input type="file" class="form-control files" name="files" style="width: 400px; display: inline-block;"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
+										'<div class="form-group"> <input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block; margin-left: 16px;"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
 						count++;
 					} else {
 						alert("이미지는 최대 5개 까지입니다.")

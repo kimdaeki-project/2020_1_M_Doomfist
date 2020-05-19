@@ -82,7 +82,7 @@
 				<input type="button" id="add" class="btn btn-info active" value="음식사진 추가"> 
 			</div> 
 			<div align="center"> 
-				<input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block;"> 
+				<input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block; margin-bottom: 15px;"> 
 			</div>
 			<div id="file" align="center"></div>	
 
@@ -112,7 +112,7 @@
 								console.log(countm);
 								$("#menuu")
 										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
+												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
 
 								countm++;
 							} else {
