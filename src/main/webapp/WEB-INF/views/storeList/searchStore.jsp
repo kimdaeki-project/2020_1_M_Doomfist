@@ -10,19 +10,24 @@
 <c:import url="../template/style.jsp"></c:import>
 
 </head>
-<body>
+<body >
 	<c:import url="../template/header.jsp"></c:import>
-	<div class="container">
-	<div class="row" id="result">
-	
-	</div>	
+	<div class="container" id="result">
+		<div class="row" >
+		<!-- getList 들어가는공간 -->
+		</div>	
 	</div>
-		<div align="center" style="margin-top: 20px; margin-bottom: 20px; background-color:lightgray; display: flex; justify-content: center; height: 50px;">
-			<button id="more" >더보기</button>
-		</div>
-		
+
+	<div id="dv" align="center" style="margin-top: 20px; margin-bottom: 20px; display: flex; justify-content: center; height: 50px;">
+		<input class="btn btn-info" type="button" id="more" value="더보기" title="${last}" style="width: 1115px">
+	</div>		
+	
+	
+	
+	
 		<script type="text/javascript">
 		var count=1;
+		
 		function getList(curPage) {
 			$.get("getList?curPage="+curPage, function(result) {
 				$("#result").append(result);
@@ -32,8 +37,20 @@
 		getList(count);		
 		
 		$("#more").click(function() {
+			console.log($("#more").attr("title"));
+			
+			if(count>$("#more").attr("title")){
+				$("#more").attr("type", "hidden");
+				$("#dv").removeAttr("style");
+			}else if (count==$("#more").attr("title")){
 			count++;
 			getList(count);
+			$("#more").attr("type", "hidden");
+			$("#dv").removeAttr("style");
+			}else{
+				count++;
+				getList(count);
+			}
 		});	
 		
 		</script>

@@ -87,7 +87,16 @@
   			<li>가게 상세정보</li>
   			<li>전화번호 : ${vo.st_phone}</li>
     		<li>식당 주소 : ${vo.st_address}</li> 
-    		<li>분류 : ${vo.st_kind}</li>
+    		<li>음식 종류 : ${vo.st_kind}</li>
+
+    		<c:if test="${not empty vo_tag}">
+    		<li>태그 :
+    		<c:forEach items="${vo_tag}" var="vo_tag" varStatus="i">
+    			${vo_tag.tag_name}<c:if test="${!i.last}">,</c:if>
+    		</c:forEach>
+    		</li>
+    		</c:if>
+    		
   		</ul>
   	</div>
   </div>

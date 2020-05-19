@@ -14,6 +14,8 @@ import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuDAO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
+import com.doom.s1.storeList.tag.StoreTagDAO;
+import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.FileSaver;
 import com.doom.s1.util.Pager;
 
@@ -32,12 +34,16 @@ public class StoreListService {
 	private ReviewFileDAO reviewFileDAO;
 	@Autowired
 	private StoreFileDAO storeFileDAO;
+	@Autowired
+	private StoreTagDAO storeTagDAO;
+	
 	
 	public int storeDelete(List<String> list) throws Exception{
 		return storeListDAO.storeDelete(list);
 	}
 	
 	public List<StoreListVO> listCheck(Pager pager)throws Exception{
+		pager.setPerpage(9);
 		pager.makeRow();
 		long totalCount = storeListDAO.listCount(pager);
 		pager.makePage(totalCount);
@@ -92,6 +98,10 @@ public class StoreListService {
 
 	public List<ReviewFileVO> reviewFileSelect(long re_num)throws Exception{
 		return reviewFileDAO.fileSelect(re_num);
+	}
+	
+	public List<StoreTagVO> storeTagSelect(long st_key)throws Exception{
+		return storeTagDAO.storeTagSelect(st_key);
 	}
 	
 }

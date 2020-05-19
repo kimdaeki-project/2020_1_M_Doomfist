@@ -18,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
+import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.Pager;
 @Controller
 @RequestMapping(value="/storeList/**")
@@ -27,9 +28,13 @@ public class StoreListController {
 	private StoreListService storeListService;
 	
 	@GetMapping("searchStore")
-	public void searchStore(Pager pager)throws Exception{
+	public ModelAndView searchStore(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		storeListService.listCheck(pager); 	
+		long a = pager.getLastNum();
+		mv.addObject("last", a);
 		
-		storeListService.listCheck(pager); 		
+		return mv;
 	}
 	
 	@GetMapping("getList")
@@ -106,6 +111,9 @@ public class StoreListController {
 		avg = Math.round(avg*10);
 		avg = avg/10.0;
 		
+		//태그 출력
+		List<StoreTagVO> storeTagVOs = storeListService.storeTagSelect(st_key);
+		
 	
 		mv.addObject("vo",storeListVO);		//store 소개
 		mv.addObject("vo_sm", storeMenuVOs);//메뉴 소개
@@ -113,6 +121,7 @@ public class StoreListController {
 		mv.addObject("vof1", sList);		//리뷰 글 안 사진들 출력
 		mv.addObject("stfile", storeFileVOs);//store 사진 출력
 		mv.addObject("avg", avg);			//평점 평균출력
+		mv.addObject("vo_tag", storeTagVOs);//태그 출력
 		mv.setViewName("storeList/storeListSelect");
 		return mv;
 	}

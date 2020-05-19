@@ -9,7 +9,7 @@
 		<div class="panel panel-info" style="max-width: 1000px; max-height: 800px;">
 			<div class="panel-heading">${vo.st_name}</div>
 				<div class="panel-body" align="center">
-					<img src="${pageContext.request.contextPath}/resources/images/logo.png" 
+					<img src="${pageContext.request.contextPath}/resources/images/DOOM.png" 
 					class="img-responsive" style="overflow: hidden; display: flex; align-items: center;
 					justify-content: center; width: 348px; height: 340px;" alt="Image">
 				</div>
@@ -18,4 +18,3 @@
 		</div>
 	</div>					
 </c:forEach>
-		
