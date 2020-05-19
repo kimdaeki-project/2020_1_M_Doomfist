@@ -121,7 +121,7 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="#">결제내역 ${member.member_div}</a></li>
+					    <li><a href="#">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>

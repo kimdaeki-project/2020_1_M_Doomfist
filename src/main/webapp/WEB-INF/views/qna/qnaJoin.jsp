@@ -68,6 +68,14 @@
 				<input style="width: 30%;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
 				<br>
 			</div>
+			<!-- 태그 추가 -->
+			<div align="center">
+				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 50px" height="50px"> 태그 
+				<input type="button" id="addtag" class="btn btn-info active" value="태그 추가하기">
+			</div> 
+			<div id="tagg" align="center"></div><br></br>
+			
+			<!-- 메뉴 추가 -->
 			<div align="center">
 				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px"> 메뉴
 				<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기">
@@ -77,6 +85,7 @@
 			</div>
 			<div id="menuu" align="center"></div><br></br>
 			
+			<!-- 음신 사진 추가 -->
 			<div align="center">
 				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 50px" height="50px"> 음신 사진 추가 
 				<input type="button" id="add" class="btn btn-info active" value="음식사진 추가"> 
@@ -92,7 +101,7 @@
 			</div>
 		</form>
 	</div>
-	<c:import url="../template/footer.jsp"></c:import>
+
 
 	<script type="text/javascript">
 		var countm = 1;
@@ -121,6 +130,33 @@
 
 						});
 		
+		
+		var countt = 1;
+		function setCountt(tt) {
+			countt = countt + tt;
+		}
+
+		$("#tagg").on("click", ".removet", function() {
+			$(this).parent().remove();
+			countt--;
+		});
+
+		$("#addtag")
+				.click(
+						function() {
+							if (countt < 10) {
+								console.log(countt); 
+								$("#tagg")
+										.append(
+												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qm_menu" name="qm_menu" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
+
+								countt++;
+							} else {
+								alert("태그등록은 최대 10개 까지입니다.")
+							}
+
+						});
+		
 		function goPopup(){
 			// 주소검색을 수행할 팝업 페이지를 호출합니다.
 			// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
@@ -141,6 +177,6 @@
 	<script type="text/javascript" src="../resources/boardForm.js?v=<%=System.currentTimeMillis() %>">
 		
 	</script>
-
+	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

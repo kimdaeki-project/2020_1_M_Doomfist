@@ -18,7 +18,7 @@
 	</div>	
 	</div>
 		<div align="center" style="margin-top: 20px; margin-bottom: 20px; background-color:lightgray; display: flex; justify-content: center; height: 50px;">
-			<button id="more" >더보기</button>
+			<button id="more" title="${last}">더보기</button>
 		</div>
 		
 		<script type="text/javascript">
@@ -33,7 +33,12 @@
 		
 		$("#more").click(function() {
 			count++;
-			getList(count);
+			console.log($("#more").attr("title"));
+			if(count <= $("#more").attr("title")){
+				getList(count);
+			}else{
+				$("#more").remove
+			}
 		});	
 		
 		</script>

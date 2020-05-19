@@ -27,9 +27,14 @@ public class StoreListController {
 	private StoreListService storeListService;
 	
 	@GetMapping("searchStore")
-	public void searchStore(Pager pager)throws Exception{
+	public ModelAndView searchStore(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		storeListService.listCheck(pager); 	
+		long last =pager.getLastNum()+1;
+		System.out.println(last);
 		
-		storeListService.listCheck(pager); 		
+		mv.addObject("last", last);
+		return mv;
 	}
 	
 	@GetMapping("getList")
