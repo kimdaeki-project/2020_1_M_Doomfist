@@ -11,15 +11,15 @@
 
 </head>
 <body>
-	<c:import url="../template/header_sub.jsp"></c:import>
+	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">
-		<div class="row" id="result">
-			
-		</div>
+	<div class="row" id="result">
+	
+	</div>	
+	</div>
 		<div align="center" style="margin-top: 20px; margin-bottom: 20px; background-color:lightgray; display: flex; justify-content: center; height: 50px;">
 			<button id="more" >더보기</button>
 		</div>
-	</div>
 		
 		<script type="text/javascript">
 		var count=1;

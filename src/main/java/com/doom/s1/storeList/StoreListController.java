@@ -33,12 +33,9 @@ public class StoreListController {
 	}
 	
 	@GetMapping("getList")
-	@ResponseBody
-	public List<StoreListVO> getList(Pager pager, Model model)throws Exception{
+	public void getList(Pager pager, Model model)throws Exception{
 		List<StoreListVO> storeListVOs = storeListService.listCheck(pager); 
 		model.addAttribute("list", storeListVOs);
-		
-		return storeListVOs;
 	}
 	
 	@GetMapping("storeListChecks")
