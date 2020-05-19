@@ -33,6 +33,11 @@
       <div class="panel-body"><h2>${vo.qna_date}</h2></div>
    	 </div>
    	 
+   	 <div class="panel panel-primary">
+      <div class="panel-heading">카테고리</div>
+      <div class="panel-body"><h2>${vo.qna_kind}</h2></div>
+   	 </div>
+   	 
    	 
    	 <div class="panel panel-primary">
       <div class="panel-heading">메뉴</div>

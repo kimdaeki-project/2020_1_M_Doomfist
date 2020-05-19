@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -25,13 +26,39 @@ public class StoreListController {
 	@Autowired
 	private StoreListService storeListService;
 	
+	@GetMapping("searchStore")
+	public void searchStore(Pager pager)throws Exception{
+		
+		storeListService.listCheck(pager); 		
+	}
+	
+	@GetMapping("getList")
+	@ResponseBody
+	public List<StoreListVO> getList(Pager pager, Model model)throws Exception{
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager); 
+		model.addAttribute("list", storeListVOs);
+		
+		return storeListVOs;
+	}
+	
+	@GetMapping("storeListChecks")
+	public ModelAndView storeListChecks(Pager pager)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+		mv.addObject("vo", storeListVOs);
+		mv.addObject("pager", pager);
+		mv.setViewName("storeList/storeListChecks");
+		
+		return mv;
+	}
+	
 	@GetMapping("storeDelete")
-	public ModelAndView storeDelete(String[] ids)throws Exception{
+	public ModelAndView storeDelete(String[] st_key)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//배열을 List로 변환
-		List<String> list = Arrays.asList(ids);
+		List<String> list = Arrays.asList(st_key);
 		int result = storeListService.storeDelete(list);
-		
+		System.out.println(result);
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
 		

@@ -10,6 +10,8 @@ public class QnaVO{
 	private String qna_contents;
 	private Date qna_date;
 	private String qna_phone;
+	private String qna_kind;
+	
 	
 	public long getQna_storekey() {
 		return qna_storekey;
@@ -48,7 +50,12 @@ public class QnaVO{
 		this.qna_phone = qna_phone;
 	}
 	
-	
+	public String getQna_kind() {
+		return qna_kind;
+	}
+	public void setQna_kind(String qna_kind) {
+		this.qna_kind = qna_kind;
+	}
 	
 	
 	

@@ -31,18 +31,19 @@
 		
 		//버튼 누르면 ajax 이용해서 삭제
 		$("#result").on("click","#del", function() {
-			var ids = [];	// 빈 배열 생성
+			var st_key = [];	// 빈 배열 생성
 			$(".check").each(function() {
 				if($(this).prop("checked")){
-					ids.push($(this).attr("id"));	//배열에 체크된 식당고유번호(st_key) 넣기
+					st_key.push($(this).attr("id"));	//배열에 체크된 식당고유번호(st_key) 넣기
 				}
 			});
+			console.log(st_key);
 			$.ajax({
 				type:"get",
 				url: "./storeDelete",
 				traditional : true,
 				data: {
-					ids: ids
+					st_key: st_key
 				},
 				success: function(data) {
 					$.get("./storeListChecks", function(data) {

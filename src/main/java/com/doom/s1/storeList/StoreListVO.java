@@ -9,6 +9,7 @@ public class StoreListVO {
 	private long st_key;
 	private String st_address;
 	private String id;
+	private String st_kind;
 	
 	public String getSt_phone() {
 		return st_phone;
@@ -41,7 +42,15 @@ public class StoreListVO {
 		this.id = id;
 	}
 	
+	public String getSt_kind() {
+		return st_kind;
+	}
+	public void setSt_kind(String st_kind) {
+		this.st_kind = st_kind;
+	}
+	
 	//==================================================================
+	
 	
 	private long re_num;
 	private Date re_date;
