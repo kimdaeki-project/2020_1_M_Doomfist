@@ -31,6 +31,7 @@ public class StoreListController {
 	public ModelAndView searchStore(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		storeListService.listCheck(pager); 	
+		
 		long a = pager.getLastNum();
 		mv.addObject("last", a);
 		

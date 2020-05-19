@@ -18,12 +18,10 @@
 		</div>	
 	</div>
 
+
 	<div id="dv" align="center" style="margin-top: 20px; margin-bottom: 20px; display: flex; justify-content: center; height: 50px;">
 		<input class="btn btn-info" type="button" id="more" value="더보기" title="${last}" style="width: 1115px">
 	</div>		
-	
-	
-	
 	
 		<script type="text/javascript">
 		var count=1;
@@ -44,6 +42,7 @@
 				$("#dv").removeAttr("style");
 			}else if (count==$("#more").attr("title")){
 			count++;
+
 			getList(count);
 			$("#more").attr("type", "hidden");
 			$("#dv").removeAttr("style");

@@ -65,11 +65,11 @@
 					<!--<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					 영호 추가 -->
 					<li>
-					<form class="form-inline" style="padding-top: 6.5px;" action="/s1/storeList/searchStore">
+					<form class="form-inline" style="padding-top: 6.5px;" action="./storeList/searchStore">
 						<select class="form-control" id="sel1" name="kind">
-							<option value="ln">식당이름</option>
-							<option value="lk">식당고유번호</option>
-							<option value="li">아이디</option>
+							<option value="ln">식당이름 검색</option>
+							<option value="lk">카테고리 검색</option>
+							<option value="li">주소 검색</option>
 						</select>
 						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
@@ -121,7 +121,7 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="#">결제내역 ${member.member_div}</a></li>
+					    <li><a href="#">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
@@ -165,9 +165,11 @@
 		</div>
 	</nav>
 	
-	
+	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
+ 
+	
 	function openWin(){  
 	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}  		
