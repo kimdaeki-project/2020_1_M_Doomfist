@@ -24,35 +24,33 @@
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
 						<div class="panel-body">
-							<img id="num0" src="${pageContext.request.contextPath}/resources/images/sample1.jpg"
-								class="img-responsive" style="width: 700px" height="500px"
+							<img id="num0" 
+								class="img-responsive test1" style="width: 700px" height="500px"
 								alt="Image">
 						</div>
-						<div class="panel-footer"><input type="button" id="category0" value="test" style="border: 0px" class="panel-footer"></div><a id="" href=""></a>
+						<div class="panel-footer"><input type="button" id="category0" value="test" style="border: 0px" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="panel panel-info">
-						<div class="panel-heading">BLACK FRIDAY DEAL2</div>
+						<div class="panel-heading"></div>
 						<div class="panel-body">
-							<img  id="num1"
-								src="${pageContext.request.contextPath}/resources/images/sample2.jpg"
-								class="img-responsive" style="width: 700px" height="500px"
+							<img  id="num1" 
+								class="img-responsive test1" style="width: 700px" height="500px"
 								alt="Image">
 						</div>
-						<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+						<div class="panel-footer"><input type="button" id="category1" value="test" style="border: 0px" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="panel panel-info">
-						<div class="panel-heading">BLACK FRIDAY DEAL3</div>
+						<div class="panel-heading"></div>
 						<div class="panel-body">
-							<img  id="num2"
-								src="${pageContext.request.contextPath}/resources/images/sample3.jpg"
-								class="img-responsive" style="width: 700px" height="500px"
+							<img  id="num2" 
+								class="img-responsive test1" style="width: 700px" height="500px"
 								alt="Image">
 						</div>
-						<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+						<div class="panel-footer"><input type="button" id="category2" value="test" style="border: 0px" class="panel-footer test2"></div>
 					</div>
 				</div>
 			</div>
@@ -63,38 +61,35 @@
 			<div class="row">
 				<div class="col-sm-4">
 					<div class="panel panel-info">
-						<div class="panel-heading">BLACK FRIDAY DEAL4</div>
+						<div class="panel-heading"></div>
 						<div class="panel-body">
-							<img  id="num3"
-								src="${pageContext.request.contextPath}/resources/images/sample4.jpg"
-								class="img-responsive" style="width: 700px" height="500px"
+							<img  id="num3" 
+								class="img-responsive test1" style="width: 700px" height="500px"
 								alt="Image">
 						</div>
-						<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+						<div class="panel-footer"><input type="button" id="category3" value="test" style="border: 0px" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="panel panel-info">
-						<div class="panel-heading">BLACK FRIDAY DEAL5</div>
+						<div class="panel-heading"></div>
 						<div class="panel-body">
 							<img  id="num4"
-								src="${pageContext.request.contextPath}/resources/images/sample5.jpg"
-								class="img-responsive" style="width: 700px" height="500px"
+								class="img-responsive test1" style="width: 700px" height="500px"
 								alt="Image">
 						</div>
-						<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+						<div class="panel-footer"><input type="button" id="category4" value="test" style="border: 0px" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
 					<div class="panel panel-info">
-						<div class="panel-heading">BLACK FRIDAY DEAL6</div>
+						<div class="panel-heading"></div>
 						<div class="panel-body">
-							<img	 id="num5"
-								src="${pageContext.request.contextPath}/resources/images/sample6.jpg"
-								class="img-responsive" style="width: 700px" height="500px"
+							<img id="num5" 
+								class="img-responsive test1" style="width: 700px" height="500px"
 								alt="Image">
 						</div>
-						<div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+						<div class="panel-footer"><input type="button"  id="category5" value="test" style="border: 0px" class="panel-footer test2"></div>
 					</div>
 				</div>
 			</div>
@@ -124,12 +119,18 @@
 				}
 			}
 			
-			for (k = 0; k < 6; k++) {
-				var img = document.getElementById('num'+k);
-				img.src=imgs[random[k]];
-				$("#category0").val(text[random[k]]);		
+			var img = document.getElementsByClassName('test1');
+			var btn = document.getElementsByClassName('test2');
+			for (k =0; k <6; k++) {
+				img[k].src=imgs[random[k]];
+				btn[k].value=text[random[k]];
 			}
-		</script>
+		
+				$("#category0").click(function() {
+					location.href="storeList/searchStore?kind=lk&search="+btn[0].value;
+			});
 	
+		</script>
+
 	</body>
 	</html>
