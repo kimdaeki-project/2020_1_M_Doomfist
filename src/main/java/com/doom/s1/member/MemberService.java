@@ -45,5 +45,9 @@ public class MemberService {
 	public MemberVO memberNaverCheck(MemberVO memberVO) throws Exception {
 		return memberDAO.memberNaverCheck(memberVO);
 	}
+	
+	public MemberVO memberIdFind(MemberVO memberVO) throws Exception{
+		return memberDAO.memberIdFind(memberVO);
+	}
 
 }

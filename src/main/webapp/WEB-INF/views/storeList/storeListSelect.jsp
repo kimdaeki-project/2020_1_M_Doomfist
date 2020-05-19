@@ -44,7 +44,9 @@
 	
 		<c:if test="${status.count eq 1}">
 			<div class="item active">
-				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" 
+				style="overflow: hidden; display: flex; align-items: center; justify-content: center;
+				width: 800px; height: 600px;">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>
@@ -53,7 +55,9 @@
 		
 		<c:if test="${status.count ne 1}">
 			<div class="item">
-				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" style="width:1000px;max-height: 800px;height: 1000px">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}"
+				style="overflow: hidden; display: flex; align-items: center; justify-content: center;
+				width: 800px; height: 600px;">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>
@@ -83,6 +87,7 @@
   			<li>가게 상세정보</li>
   			<li>전화번호 : ${vo.st_phone}</li>
     		<li>식당 주소 : ${vo.st_address}</li> 
+    		<li>분류 : ${vo.st_kind}</li>
   		</ul>
   	</div>
   </div>
@@ -162,20 +167,20 @@
 				 <tr>
 				 	<td>
 				 	</td>
-    				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
 	    				<td align="right">
+    				<c:if test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
 	    				<a href="./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}">
 	    				<input type="button" class="btn btn-danger" value="리뷰삭제하기">
 	    				</a>
+    				</c:if>
     					</td>
     					
-    				</c:if>
 				 </tr>
   			</c:forEach>
   			
     		<tr>
+    		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin' and sessionScope.member.id ne vo.id}">
     		<td></td>
-    		<c:if test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin'}">
     			<td align="right">
     				<a href="./storeReviewWrite?st_key=${vo.st_key}">
     				<input type="button" class="btn btn-info" value="리뷰 작성 하기!">

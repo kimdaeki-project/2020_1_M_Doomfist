@@ -19,10 +19,10 @@ $("#add")
 					if (count < 6) {
 						$("#file")
 								.append(
-										'<div class="form-group"> <label for="file"> File :</label> <input type="file" class="form-control files" name="files"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
+										'<div class="form-group"> <input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block; margin-left: 16px;"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
 						count++;
 					} else {
-						alert("파일은 최대 5개 까지입니다.")
+						alert("이미지는 최대 5개 까지입니다.")
 					}
 
 				});
@@ -85,7 +85,8 @@ $("#btn").click(function() {
 	// title, contents 데이터 유무 검증
 	var title = $("#qna_title").val();
 	var qna_contents = $("#qna_contents").val();
-
+	var qna_kind = $("#qna_kind").val();
+	
 	var ch3 = true;
 
 	$(".files").each(function() {
@@ -96,8 +97,9 @@ $("#btn").click(function() {
 
 	var ch1 = title != "";
 	var ch2 = qna_contents != "";
-
-	if (ch1 && ch2 && ch3) {
+	var ch4 = qna_kind !="";
+	
+	if (ch1 && ch2 && ch3 && ch4) {
 		// form 전송(submit event 강제 발생)
 		// $("#con").val(contents);// contents Server null일때
 		$("#form").submit();

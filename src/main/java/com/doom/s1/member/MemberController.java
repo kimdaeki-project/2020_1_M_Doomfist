@@ -109,6 +109,26 @@ public class MemberController {
 		 return mv;
 	}
 	
+	@RequestMapping(value= "/member/memberIdFind")
+	public void memberIdFind() {
+	}
+	
+	@PostMapping(value = "/member/memberIdFind")
+	public ModelAndView memberIdFind(MemberVO memberVO, ModelAndView mv,HttpSession session) throws Exception{
+		memberVO = memberService.memberIdFind(memberVO);
+		if (memberVO !=null) {
+			session.setAttribute("member", memberVO);
+			mv.setViewName("redirect:./memberIdFindResult");
+		}else {
+			mv.addObject("result","등록된 아이디가 없습니다");
+			mv.addObject("path", "./memberLogin");
+			mv.setViewName("common/result");
+		}
+		
+		return mv;
+	}
+
+	
 	@RequestMapping(value = "/member/memberLogout")
 	public String memberLogout(HttpSession session)throws Exception{
 		session.invalidate();
@@ -140,6 +160,11 @@ public class MemberController {
 	
 	@RequestMapping(value= "/member/memberPage")
 	public void memberPage() throws Exception {
+
+	}
+	
+	@RequestMapping(value= "/member/memberIdFindResult")
+	public void memberIdFindResult() throws Exception {
 
 	}
 	
@@ -210,6 +235,7 @@ public class MemberController {
 	session.invalidate();
 	return "redirect:../";
 	}
+	
 
 
 	
