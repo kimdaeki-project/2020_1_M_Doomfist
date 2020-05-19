@@ -25,17 +25,14 @@ public class PayFirstController {
 		ModelAndView mv = new ModelAndView();
 		//1인설트 하고
 		int result = payFirstService.payFirstInsert(payFirstVO);
-		System.out.println("1");
 		//2셀렉트
 		PayFirstVO paFirstVO = payFirstService.payFirstSelect(st_key);
-		System.out.println("2");
 		List<StoreMenuVO> storeMenuVOs = payFirstService.storeMenuSelect(payFirstVO.getSt_key());
-		System.out.println("3");
 		mv.addObject("vo", paFirstVO);
 		mv.addObject("vo_sm", storeMenuVOs);
 		mv.setViewName("payment/payFirstSelect");
 		
-		//0인데이터 지우기
+		//0인데이터 지우기 는 paySecond에서
 		return mv;
 		
 //		long aa = payFirstService.payFirstDelete(pf_check);

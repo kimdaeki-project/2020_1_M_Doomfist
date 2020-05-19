@@ -21,9 +21,9 @@ public class PayFirstDAO {
 	}
 	
 	
-	public long payFirstDelete(long pf_check)throws Exception{
-		return session.delete(NAMESPACE+"payFirstDelete", pf_check);
-		
-	}
+//	public long payFirstDelete(long pf_check)throws Exception{
+//		return session.delete(NAMESPACE+"payFirstDelete", pf_check);
+//		
+//	}
 
 }

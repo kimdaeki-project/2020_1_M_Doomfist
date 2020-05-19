@@ -10,6 +10,12 @@ public class PaySecondDAO {
 	private SqlSession session;
 	private final String NAMESPACE="com.doom.s1.paySecond.PaySecondDAO.";
 	
+	public void payFirstUpdate() throws Exception {
+		
+	}
 	
+	public void payFirstDelete() throws Exception {
+		
+	}
 
 }

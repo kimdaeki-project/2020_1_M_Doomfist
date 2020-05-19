@@ -5,6 +5,7 @@
 
   <mapper namespace="com.doom.s1.payFirst.PayFirstDAO">
   
+  <!-- 첫결제 페이지에서 보여줄꺼 -->
   <insert id="payFirstInsert" parameterType="com.doom.s1.payFirst.PayFirstVO" >
   	insert into payFirst values(
   	pay_seq.nextval,
@@ -17,14 +18,11 @@
   
   </insert>
   
+  <!--  현재 들어와 있는 페이지 출력 -->
   <select id="payFirstSelect" parameterType="java.lang.Long" resultType="com.doom.s1.payFirst.PayFirstVO">
   	SELECT * FROM (SELECT * FROM payfirst ORDER BY ROWNUM DESC) WHERE ROWNUM = 1
   </select>
   
   
-  <delete id="payFirstDelete" parameterType="Long">
-  	delete payFirst where pf_check = 0
-  </delete>
-  
-  
+ 
   </mapper>

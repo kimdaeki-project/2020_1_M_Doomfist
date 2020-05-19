@@ -33,8 +33,8 @@ public class PayFirstService {
 		return storeMenuDAO.storeMenuList(st_key);
 	}
 	
-	public long payFirstDelete(long pf_check)throws Exception{
-		return payFirstDAO.payFirstDelete(pf_check);
-		
-	}
+//	public long payFirstDelete(long pf_check)throws Exception{
+//		return payFirstDAO.payFirstDelete(pf_check);
+//		
+//	}
 }
