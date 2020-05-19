@@ -163,9 +163,11 @@
 		</div>
 	</nav>
 	
-	
+	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
+ 
+	
 	function openWin(){  
 	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}  		
