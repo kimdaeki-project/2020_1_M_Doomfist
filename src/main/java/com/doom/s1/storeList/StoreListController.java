@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -26,15 +27,18 @@ public class StoreListController {
 	private StoreListService storeListService;
 	
 	@GetMapping("searchStore")
-	public ModelAndView searchStore(Pager pager)throws Exception{
-		ModelAndView mv = new ModelAndView();
+	public void searchStore(Pager pager)throws Exception{
+		
+		storeListService.listCheck(pager); 		
+	}
+	
+	@GetMapping("getList")
+	@ResponseBody
+	public List<StoreListVO> getList(Pager pager, Model model)throws Exception{
 		List<StoreListVO> storeListVOs = storeListService.listCheck(pager); 
-		mv.addObject("vo", storeListVOs);
-		mv.addObject("pager", pager);
-		mv.setViewName("storeList/searchStore");
+		model.addAttribute("list", storeListVOs);
 		
-		return mv;
-		
+		return storeListVOs;
 	}
 	
 	@GetMapping("storeListChecks")

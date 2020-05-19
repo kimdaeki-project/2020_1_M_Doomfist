@@ -43,8 +43,10 @@
 	<c:forEach items="${stfile}" var="stfile" varStatus="status">
 	
 		<c:if test="${status.count eq 1}">
-			<div class="item active" style="max-width:1000px;max-height: 600px;height: 1000px">
-				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}">
+			<div class="item active">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" 
+				style="overflow: hidden; display: flex; align-items: center; justify-content: center;
+				width: 800px; height: 600px;">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>
@@ -52,8 +54,10 @@
 		</c:if>
 		
 		<c:if test="${status.count ne 1}">
-			<div class="item"  style="max-width:1000px;max-height: 600px;height: 1000px">
-				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}">
+			<div class="item">
+				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}"
+				style="overflow: hidden; display: flex; align-items: center; justify-content: center;
+				width: 800px; height: 600px;">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>

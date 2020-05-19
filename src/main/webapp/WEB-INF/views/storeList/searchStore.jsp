@@ -11,27 +11,32 @@
 
 </head>
 <body>
-	<c:import url="../template/header.jsp"></c:import>
+	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
-		<div class="row">
-		
-			<c:forEach items="${vo}" var="vo" varStatus="i">
-				<div class="col-sm-4">
-					<div class="panel panel-info" style="max-width: 1000px; max-height: 800px;">
-						<div class="panel-heading">${vo.st_name}</div>
-						<div class="panel-body" align="center">
-							<img src="${pageContext.request.contextPath}/resources/images/logo.png" 
-								class="img-responsive" style="overflow: hidden; display: flex; align-items: center;
-								justify-content: center; width: 348px; height: 340px;" alt="Image">
-						</div>
-						<div class="panel-footer">${vo.st_address}</div>
-					</div>
-				</div>					
-			</c:forEach>
-				
-	
-			</div>
+		<div class="row" id="result">
+			
 		</div>
+		<div align="center" style="margin-top: 20px; margin-bottom: 20px; background-color:lightgray; display: flex; justify-content: center; height: 50px;">
+			<button id="more" >더보기</button>
+		</div>
+	</div>
+		
+		<script type="text/javascript">
+		var count=1;
+		function getList(curPage) {
+			$.get("getList?curPage="+curPage, function(result) {
+				$("#result").append(result);
+			});	
+		}
+		
+		getList(count);		
+		
+		$("#more").click(function() {
+			count++;
+			getList(count);
+		});	
+		
+		</script>
 	
 	<c:import url="../template/footer.jsp"></c:import>
 </body>
