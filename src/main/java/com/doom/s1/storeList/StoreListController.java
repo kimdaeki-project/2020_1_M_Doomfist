@@ -31,15 +31,15 @@ public class StoreListController {
 	public ModelAndView searchStore(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		storeListService.listCheck(pager);
-//		  
-//		  mv.addObject("listt", storeListVOs); 
-//		  mv.addObject("pager",pager);
-		  mv.setViewName("storeList/searchStore"); 
-		  long a = pager.getLastNum();
-		  System.out.println(a);
-		  mv.addObject("last", a); 
-//		  System.out.println("user : "+storeListVOs.size());
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
+		mv.addObject("listt", storeListVOs.size());
+		
+//		mv.addObject("pager",pager);
+		mv.setViewName("storeList/searchStore"); 
+		long a = pager.getLastNum();
+		
+		mv.addObject("last", a); 
+//		System.out.println("user : "+storeListVOs.size());
 		 
 		return mv;
 	}

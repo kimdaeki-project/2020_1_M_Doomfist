@@ -13,7 +13,7 @@
 	</delete>
 
 	<sql id="search">
-		like '%'||#{search}||'%' AND st_key>=1 ORDER BY st_key DESC
+		like '%'||#{search}||'%' ORDER BY st_key DESC
 	</sql>
 
 	<select id="listCheck" parameterType="com.doom.s1.util.Pager" resultType="com.doom.s1.storeList.StoreListVO">
