@@ -38,10 +38,11 @@
 					${vo.sm_menu}:${vo.sm_price}
 					<br>
 					현재가격 :
-					 <input	type="button" id="menu${i.index}" value="0" name="ps_multi">
+					 <input	type="text" id="menu${i.index}" value="0" name="ps_multi">
 					 <!-- 기존 가겨  -->
 					 <input type="hidden" id="menus${i.index}" value="${vo.sm_price}">
-					<br> 수량  <input type="button" id="count${i.index }" value="" name="ps_count"> 
+					<br> 
+					수량  <input type="text" id="count${i.index}" value="0" name="ps_count"> 
 						<table>
 							<tr>
 								<td>
@@ -57,7 +58,7 @@
 
 			</ul>
 			
-	총가격 : <input type="text" id="total" value="">
+	총가격 : <input type="text" id="total" value="0" name="totalPrice">
 	<button type="submit" id="btn" class="btn btn-default">보내기</button>
 			</form>
 		</div>
@@ -115,25 +116,12 @@
 		//전송 
 	$("#btn").click(function() {
 
-	// title, contents 데이터 유무 검증
-
 	if ($("#total").val()>0) {
-		// form 전송(submit event 강제 발생)
-		// $("#con").val(contents);// contents Server null일때
 		$("#frm").submit();
-
 	} else {
-		// submit event 종료
 		alert("구매내역이 없습니다.");
-		/*
-		 * console.log(title==''); console.log(contents=="");
-		 * console.log(title.length); console.log(contents.length);
-		 */
 	}
-
 });
-		
-		console.log($("#menu0").attr("name"));
 		
 		
 		

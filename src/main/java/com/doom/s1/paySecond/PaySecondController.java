@@ -23,12 +23,14 @@ public class PaySecondController {
 	
 	
 	@PostMapping("paySecondInsert")
-	public ModelAndView paySecondSelect(PaySecondVO paySecondVO, String[] ps_menu, long[] ps_count, long[] ps_multi) throws Exception{
+	public ModelAndView paySecondSelect(PaySecondVO paySecondVO,String[] ps_menu,long[] ps_count ,long [] ps_multi,long pf_key) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println("psc 1");
-		System.out.println("=========");
-		int result = paySecondService.paySecondInsert(paySecondVO, ps_menu, ps_count, ps_multi);
 		
+		//String[] ps_menu = request.getParameterValues("ps_menu");
+		//String[] ps_count = request.getParameterValues("ps_count");
+		//String[] ps_multi = request.getParameterValues("ps_multi");
+		System.out.println("psc 1");		
+		int result = paySecondService.paySecondInsert(paySecondVO,ps_menu,ps_count,ps_multi,pf_key);
 		System.out.println("psc 2");
 		if(result>0) {
 			mv.setViewName("redirect:./paySecondSelect");

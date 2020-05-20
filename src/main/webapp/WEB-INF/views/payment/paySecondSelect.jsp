@@ -6,7 +6,7 @@
     String email = "email";
     String phone ="phone"; 
     String address = "test";
-    long totalPrice = 10000;
+    long totalPrice = 500000;
     
 	%>
 <!DOCTYPE html>
