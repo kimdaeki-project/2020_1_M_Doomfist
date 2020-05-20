@@ -6,7 +6,7 @@
     String email = "email";
     String phone ="phone"; 
     String address = "test";
-    long totalPrice = 100;
+    //long totalPrice = 500000;
     
 	%>
 <!DOCTYPE html>
@@ -29,7 +29,7 @@
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : 'DOOM FOOD',
-            amount : <%=totalPrice%>,
+            amount : ${total},
             buyer_email : '<%=email%>',
             buyer_name : '<%=name%>',
             buyer_tel : '<%=phone%>',

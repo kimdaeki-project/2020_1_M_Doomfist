@@ -16,9 +16,13 @@ public class PaySecondController {
 	private PaySecondService paySecondService;
 	//진입	
 	@GetMapping("paySecondSelect")
-	public String paySecondSelect()throws Exception{
+	public ModelAndView paySecondSelect()throws Exception{
+		ModelAndView mv = new ModelAndView();
 		
-		return "payment/paySecondSelect";
+		mv.setViewName("payment/paySecondSelect");
+		
+		
+		return mv;
 		
 	}
 	
@@ -26,17 +30,31 @@ public class PaySecondController {
 	public ModelAndView paySecondSelect(PaySecondVO paySecondVO,String[] ps_menu,long[] ps_count ,long [] ps_multi,long pf_key) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//db에 데이터 삽입 하고.
-		int result = paySecondService.paySecondInsert(paySecondVO,ps_menu,ps_count,ps_multi,pf_key);
-		//
+		int result = 1;
+		/////
+		// 총합 구하기
+				long total = 0;
+				paySecondVO = new PaySecondVO();
+				for (int i = 0; i<ps_menu.length; i++) {
+					paySecondVO.setPs_menu(ps_menu[i]);
+					paySecondVO.setPs_count(ps_count[i]);
+					paySecondVO.setPs_multi(ps_multi[i]);
+					total = total + ps_multi[i];
+					paySecondVO.setPf_key(pf_key);
+					paySecondService.paySecondInsert(paySecondVO,ps_menu,ps_count,ps_multi,pf_key);
+				}
 		
-		//
+		System.out.println("총가격"+total);
+		
+		/////
 		if(result>0) {
 			// */*/**/*/*//*/*/*/*  꼭 추가할것
 			// 결제 끝나면 payFirst pfCheck를 1로 변경 
 			// 적당한 위치에 집어넣어
 			// result =paySecondService.payFirstUpdate(pf_key);
-			
-			mv.setViewName("redirect:./paySecondSelect");
+			mv.addObject("total",total);
+			//mv.setViewName("redirect:./paySecondSelect");
+			mv.setViewName("payment/paySecondSelect");
 		}else {
 			mv.addObject("result", "결제 실패" );
 			mv.addObject("path", "./payFirstSelect");//총합계산

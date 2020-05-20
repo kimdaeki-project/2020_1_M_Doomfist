@@ -14,16 +14,7 @@ public class PaySecondService {
 	private PaySecondDAO paySecondDAO;
 
 	public int paySecondInsert(PaySecondVO paySecondVO,String [] ps_menu, long[] ps_count, long[] ps_multi,long pf_key)	throws Exception {
-	// 밸류 꺼내서 하나씩
-		paySecondVO = new PaySecondVO();
-		for (int i = 0; i<ps_menu.length; i++) {
-			paySecondVO.setPs_menu(ps_menu[i]);
-			paySecondVO.setPs_count(ps_count[i]);
-			paySecondVO.setPs_multi(ps_multi[i]);
-			paySecondVO.setPf_key(pf_key);
-			paySecondDAO.paySecondInsert(paySecondVO);
-		}
-		return 1;
+			return 	paySecondDAO.paySecondInsert(paySecondVO);
 	}
 
 	public int payFirstDelete(long pf_check) throws Exception {
