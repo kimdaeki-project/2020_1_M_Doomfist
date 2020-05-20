@@ -7,15 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<img alt="" src="${pageContext.request.contextPath}/resources/images/findimage.png">
+<hr>
  <form class="form-horizontal" action="./memberIdFind" method="post">
     <div class="form-group">
-      <label for="inputlg">Email :</label>
-      <input type="email" style="width: 30%;"  class="form-control input-lg" id="email" placeholder="Enter Email" name="email">
-    </div>
-    <div class="form-group">
-      <label for="inputlg">이름 :</label>
-      <input type="text" style="width: 30%;"  class="form-control input-lg" id="name" placeholder="Enter NAME" name="name">
+
+    <table class="text-info Shadow" style="width: 100%; border-top: 3px white solid;">
+    <tr>
+      	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;E-Mail : </th>
+      	<td style="border-bottom: 2px white solid; height: 50px;"><input value="${sessionId}" type="email"  id="email"  name="email"><td>
+    </tr>
+    
+    <tr>
+     	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;이름 : </th>
+     	<td style="border-bottom: 2px white solid; height: 50px;"><input value="${sessionName}" type="text"  id="name"  name="name"><td>
+    </tr>
+    
+    </table>
     </div>
     <br>
     <button type="submit" class="btn btn-primary">아이디 찾기</button>
