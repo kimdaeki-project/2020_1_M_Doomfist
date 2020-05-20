@@ -20,7 +20,7 @@ public class PayFirstDAO {
 		
 	}
 	
-	
+	//지우는건 second에서
 //	public long payFirstDelete(long pf_check)throws Exception{
 //		return session.delete(NAMESPACE+"payFirstDelete", pf_check);
 //		

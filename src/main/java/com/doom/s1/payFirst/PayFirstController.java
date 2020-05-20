@@ -21,7 +21,7 @@ public class PayFirstController {
 
 	//진입
 	@GetMapping("payFirstSelect")
-	public ModelAndView payFirstSelect(PayFirstVO payFirstVO,long st_key/*,long pf_check*/) throws Exception{
+	public ModelAndView payFirstSelect(PayFirstVO payFirstVO,long st_key) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//1인설트 하고
 		int result = payFirstService.payFirstInsert(payFirstVO);
@@ -31,14 +31,9 @@ public class PayFirstController {
 		mv.addObject("vo", paFirstVO);
 		mv.addObject("vo_sm", storeMenuVOs);
 		mv.setViewName("payment/payFirstSelect");
-		
-		//0인데이터 지우기 는 paySecond에서
+	
 		return mv;
 		
-//		long aa = payFirstService.payFirstDelete(pf_check);
-		
 	}
-	
-	
 	
 }

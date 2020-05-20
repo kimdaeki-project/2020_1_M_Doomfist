@@ -20,7 +20,7 @@
   
   <!--  현재 들어와 있는 페이지 출력 -->
   <select id="payFirstSelect" parameterType="java.lang.Long" resultType="com.doom.s1.payFirst.PayFirstVO">
-  	SELECT * FROM (SELECT * FROM payfirst ORDER BY ROWNUM DESC) WHERE ROWNUM = 1
+  	SELECT * FROM (SELECT * FROM payfirst ORDER BY pf_key DESC) WHERE ROWNUM = 1
   </select>
   
   

@@ -20,6 +20,7 @@
 				<li>식당 이름 : ${vo.pf_stname}</li>
 				<li>회원 아이디: ${vo.id}</li>
 				<li>결제날짜 : ${vo.pf_date}</li>
+				
 			</ul>
 		</div>
 	</div>
@@ -27,21 +28,26 @@
 
 	<div class="panel panel-warning">
 		<div class="panel-heading" align="center">
+		<form action="./paySecondInsert" method="post">
+		<input type="hidden" value="${vo.pf_key}" name="pf_key">
 			<ul class="list" style="list-style-type: none;">
 				<li><h2>메뉴와 가격</h2></li>
 				<br>
 				<c:forEach items="${vo_sm}" var="vo" varStatus="i">
-					<li>${vo.sm_menu}:${vo.sm_price}
+					<li><input type="hidden" value="${vo.sm_menu}"  name="ps_menu">
+					${vo.sm_menu}:${vo.sm_price}
 					<br>
 					현재가격 :
-					 <input	type="button" id="menu${i.index}" value="0">
+					 <input	type="button" id="menu${i.index}" value="0" name="ps_multi">
+					 <!-- 기존 가겨  -->
 					 <input type="hidden" id="menus${i.index}" value="${vo.sm_price}">
-					<br> 수량  <input type="button" id="count${i.index }" value="0"> 
+					<br> 수량  <input type="button" id="count${i.index }" value="" name="ps_count"> 
 						<table>
 							<tr>
 								<td>
-									 <button id="pl${i.index}" title="${i.index}" class="btn btn-info pl">+</button>
-									<button id="mi${i.index}" title="${i.index}" class="btn btn-danger mi">-</button> 
+									 <input type="button" id="pl${i.index}" title="${i.index}" class="btn btn-info pl" value="+">
+									 <input type="button" id="mi${i.index}" title="${i.index}" class="btn btn-danger mi " value="-"> 
+									
 								</td>
 							</tr>
 						</table>
@@ -50,16 +56,16 @@
 				</c:forEach>
 
 			</ul>
-			<form action="./paySecondSelect" id="form" name="form" method="POST">
-			총가격 : <input type="text" id="total" value="">
+			
+	총가격 : <input type="text" id="total" value="">
+	<button type="submit" id="btn" class="btn btn-default">보내기</button>
 			</form>
 		</div>
 	</div>
-
-	<a href="./paySecondSelect"> <img
+	 <a href="./paySecondSelect"> <img
 		src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png"
 		alt="kpay">
-	</a>
+	</a> 
 
 
 	<script type="text/javascript">
@@ -79,10 +85,10 @@
 			//console.log(" 값 확인"+$("#count"+btn).val() * $("#menus"+btn).val());
 			$("#menu"+btn).val($("#count"+btn).val() * $("#menus"+btn).val());
 			
-			}//else 긑
-			//총합계산
+			//	총합더하기계산
 				result = result + $("#menus"+btn).val()*1;
 				$("#total").val(result);
+			}//else 긑
 			
 			
 		});
@@ -98,27 +104,38 @@
 			$("#count"+btn).val(count*1-1);
 			//console.log(($("#menus"+btn).val()*count)-$("#menus"+btn).val());
 			$("#menu"+btn).val(($("#menus"+btn).val()*count)-$("#menus"+btn).val());
-			}//else끝
-			//총합계산 
-			
+			//총합 마이너스
 			result = result - $("#menus"+btn).val()*1;
 			$("#total").val(result);
 			
-			
+			}
 			
 		});
 		
-		
-		
-		/* ///// 토탈 금액 확인
-		for (i = 0; i < 10; i++) {	
-			if (!isNaN($('#menu' + i).val() * 1)) {
-				result = result + $('#menu' + i).val() * 1;
-			}
-		}
-		$("#total").val(result); */
+		//전송 
+	$("#btn").click(function() {
 
-		///////////////////////////////////////////////////////////////////////////
+	// title, contents 데이터 유무 검증
+
+	if ($("#total").val()>0) {
+		// form 전송(submit event 강제 발생)
+		// $("#con").val(contents);// contents Server null일때
+		$("#frm").submit();
+
+	} else {
+		// submit event 종료
+		alert("구매내역이 없습니다.");
+		/*
+		 * console.log(title==''); console.log(contents=="");
+		 * console.log(title.length); console.log(contents.length);
+		 */
+	}
+
+});
+		
+		console.log($("#menu0").attr("name"));
+		
+		
 		
 		
 	</script>

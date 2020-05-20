@@ -6,18 +6,25 @@
   <mapper namespace="com.doom.s1.paySecond.PaySecondDAO">
   
   <!--첫번째 결제가 끝나면  두번째 결제 페이지 데이터 삽입  -->
-  <insert id="paySecondInsert">
-  
+  <insert id="paySecondInsert" parameterType="com.doom.s1.paySecond.PaySecondVO">
+  insert into paySecond values(
+  	pays_seq.nextval,
+  	#{ps_menu},
+  	#{ps_count},
+  	#{ps_multi},
+  	#{pf_key}
+  	)
   </insert>
   <!-- 주문내역 확인   -->
-  <select id="">
-  
-  </select>
-  
+ 
+ 
   
   <!-- 결제가 성공하면  첫번쨰 결제페이지 pf_check -> 1로 변경  -->
-  <update id="payFirstUpdate">
-  
+  <update id="payFirstUpdate" parameterType="Long">
+  update payfirst set pf_check = 1 
+  where pf_key= (SELECT * FROM (
+  SELECT pf_key FROM payfirst ORDER BY ROWNUM DESC)
+   WHERE ROWNUM = 1)
   </update>
   
   

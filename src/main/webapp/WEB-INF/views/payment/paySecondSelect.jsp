@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
     <%
     String name = "name";//EL태그로 사용 받아와
     String email = "email";
-    String phone ="phone";
-    String address = "address";
-    int totalPrice = 100;    
+    String phone ="phone"; 
+    String address = "test";
+    long totalPrice = 10000;
     
 	%>
 <!DOCTYPE html>
