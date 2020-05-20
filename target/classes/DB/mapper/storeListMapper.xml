@@ -25,10 +25,10 @@
 						st_name
 					</when>
 					<when test="kind == 'lk'">
-						st_key
+						st_kind
 					</when>
 					<otherwise>
-						id
+						st_address
 					</otherwise>
 				</choose>
 				<include refid="search"></include>) N)
@@ -42,10 +42,10 @@
 					st_name <include refid="search"></include>
 				</if>
 				<if test="kind =='lk'">
-					st_key <include refid="search"></include>
+					st_kind <include refid="search"></include>
 				</if>
 				<if test="kind == 'li'">
-					id <include refid="search"></include>
+					st_address <include refid="search"></include>
 				</if>
 			</where>
 	</select>

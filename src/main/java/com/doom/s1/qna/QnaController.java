@@ -33,6 +33,7 @@ public class QnaController {
 		mv.setViewName("qna/qnaJoin");
 		return mv;
 	}
+	
 	@PostMapping("qnaJoin")
 	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files, HttpSession session, long [] qm_price, String [] qm_menu)throws Exception{
 		
@@ -82,5 +83,6 @@ public class QnaController {
 
 		
 	}
+
 
 }

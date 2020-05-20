@@ -3,15 +3,16 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 
-<c:forEach items="${list}" var="vo" varStatus="i"> 
-	<div class="col-sm-4">
+			
+<c:forEach items="${list}" var="vo" varStatus="i">
+	<div class="col-sm-4" style="display: inline-block;">
 		<div class="panel panel-info" style="max-width: 1000px; max-height: 800px;">
 			<div class="panel-heading">${vo.st_name}</div>
 				<div class="panel-body" align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/logo.png" 
+					<img src="${pageContext.request.contextPath}/resources/images/DOOM.png" 
 					class="img-responsive" style="overflow: hidden; display: flex; align-items: center;
 					justify-content: center; width: 348px; height: 340px;" alt="Image">
-			</div>
+				</div>
 			<div class="panel-footer" style="overflow: hidden; display: flex; align-items: center;
 						justify-content: center; height: 50px;">${vo.st_kind}</div>
 		</div>

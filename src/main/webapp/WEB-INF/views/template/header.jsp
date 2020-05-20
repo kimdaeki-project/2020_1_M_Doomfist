@@ -39,7 +39,7 @@
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
 					</li>
 					
-					<c:if test="${sessionScope.member.id eq 'admin' or not empty sessionId}">
+					<c:if test="${sessionScope.member.id eq 'admin' and empty sessionId}">
 					<li>
 					<div style="margin-top: 7.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/storeList/storeListCheck">
@@ -50,14 +50,24 @@
 					</li>
 					</c:if>
 					
+					<c:if test="${not empty member}">
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/qna/qnaJoin">
 					  <button class="btn" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
 					  </a>
 					  </div>
+					  </li>
+					</c:if>
+					  
+					<c:if test="${empty member}">
+					<li>
+					<div style="margin-top: 7px;" class="dropdown">
+					  <button class="btn notjoin" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
+					  </div>  
 					<!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
 					</li>
+					</c:if>
 					
 					<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </li>
 
@@ -65,11 +75,11 @@
 					<!--<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					 영호 추가 -->
 					<li>
-					<form class="form-inline" style="padding-top: 6.5px;" action="./storeList/searchStore">
+					<form class="form-inline" style="padding-top: 6.5px;" action="/s1/storeList/searchStore">
 						<select class="form-control" id="sel1" name="kind">
-							<option value="ln">식당이름</option>
-							<option value="lk">식당고유번호</option>
-							<option value="li">아이디</option>
+							<option value="ln">식당이름 검색</option>
+							<option value="lk">카테고리 검색</option>
+							<option value="li">주소 검색</option>
 						</select>
 						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
@@ -121,11 +131,12 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="#">결제내역 ${member.member_div}</a></li>
+					    <li><a href="#">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
 					    </c:if>
+					    <li><a href="#">나의 식당 </a></li>
 					  </ul>
 					</div>	
 					</li>	
@@ -169,10 +180,14 @@
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
  
+	$(".notjoin").click(function() {
+		alert("로그인 후 이용해주세요")
+	})
 	
 	function openWin(){  
 	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}  		
+	
 
 	</script>
 	<!-- 영호 추가 -->
