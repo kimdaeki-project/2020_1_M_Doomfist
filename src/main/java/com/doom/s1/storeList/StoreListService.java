@@ -42,16 +42,39 @@ public class StoreListService {
 		return storeListDAO.storeDelete(list);
 	}
 	
+	public List<StoreTagVO> tagNumSelect(Pager pager)throws Exception{
+		return storeTagDAO.tagNumSelect(pager);
+	}
+	
+	public StoreListVO listCheck2(Pager pager, long st_key)throws Exception{
+//		pager.setPerpage(9);
+//		pager.makeRow();
+//		long totalCount = storeListDAO.listCount2(pager);
+//		pager.makePage(totalCount);
+		
+		StoreListVO storeListVO=storeListDAO.listCheck2(st_key);	
+		
+		return storeListVO;
+	}
+	
 	public List<StoreListVO> listCheck(Pager pager)throws Exception{
 		pager.setPerpage(9);
 		pager.makeRow();
 		long totalCount = storeListDAO.listCount(pager);
+//		System.out.println("첫번째 토탈카운트"+totalCount);
+//		if(totalCount==0) {
+//			totalCount = storeListDAO.listCount2(pager);
+//			System.out.println("두번째 토탈카운트"+totalCount);
+//		}
 		pager.makePage(totalCount);
-		System.out.println("startRow :"+pager.getStartRow());
-		System.out.println("lastRow :" +pager.getLastRow());
-		System.out.println("startNum :"+pager.getStartNum());
-		System.out.println("lastNum :" +pager.getLastNum());
-		return storeListDAO.listCheck(pager);		
+//		System.out.println("startRow :"+pager.getStartRow());
+//		System.out.println("lastRow :" +pager.getLastRow());
+//		System.out.println("startNum :"+pager.getStartNum());
+//		System.out.println("lastNum :" +pager.getLastNum());
+		
+		List<StoreListVO>storeListVOs =storeListDAO.listCheck(pager);	
+		
+		return storeListVOs;
 	}
 	
 	public List<StoreFileVO> storeFileSelect(long st_key)throws Exception{

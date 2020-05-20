@@ -8,5 +8,13 @@
 	<select id="storeTagSelect" parameterType="Long" resultType="com.doom.s1.storeList.tag.StoreTagVO">
 		SELECT * FROM storeTag WHERE st_key=#{st_key}
 	</select>
+	
+	<sql id="search">
+		like '%'||#{search}||'%' ORDER BY st_key DESC
+	</sql>
+
+	<select id="tagNumSelect" parameterType="com.doom.s1.util.Pager" resultType="com.doom.s1.storeList.tag.StoreTagVO">
+		SELECT DISTINCT st_key FROM storeTag WHERE tag_name <include refid="search"></include>
+	</select>
 
 </mapper>

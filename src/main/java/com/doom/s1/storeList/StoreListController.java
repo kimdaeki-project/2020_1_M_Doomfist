@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,22 +34,57 @@ public class StoreListController {
 	public ModelAndView searchStore(Pager pager) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		
-		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
-		mv.addObject("listt", storeListVOs.size());
-		
-//		mv.addObject("pager",pager);
-		mv.setViewName("storeList/searchStore"); 
-		long a = pager.getLastNum();
-		
-		mv.addObject("last", a); 
-//		System.out.println("user : "+storeListVOs.size());
-		 
-		return mv;
+		if(pager.getKind().equals("lt")) {
+			List<StoreTagVO> storeTagVOs = storeListService.tagNumSelect(pager);
+			
+			List<StoreListVO> storeListVOs =  new ArrayList<StoreListVO>();
+			
+			for (StoreTagVO storeTagVO : storeTagVOs) {
+				StoreListVO storeListVO = storeListService.listCheck2(pager, storeTagVO.getSt_key());
+				storeListVOs.add(storeListVO);
+			}
+			mv.addObject("listt", storeListVOs.size());
+			
+			mv.setViewName("storeList/searchStore"); 
+			long a = pager.getLastNum();
+			
+			mv.addObject("last", a); 
+			return mv;
+		}else {
+			List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
+			mv.addObject("listt", storeListVOs.size());
+			
+//			mv.addObject("pager",pager);
+			mv.setViewName("storeList/searchStore"); 
+			long a = pager.getLastNum();
+			
+			mv.addObject("last", a); 
+//			System.out.println("user : "+storeListVOs.size());
+			 
+			return mv;
+		}
 	}
 
 	@GetMapping("getList")
 	public void getList(Pager pager, Model model) throws Exception {
-		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+		List<StoreListVO> storeListVOs = new ArrayList<StoreListVO>();
+		
+		System.out.println(pager.getKind());
+		if(pager.getKind().equals("lt")) {
+			
+			List<StoreTagVO> storeTagVOs = storeListService.tagNumSelect(pager);
+			System.out.println("tag :"+storeTagVOs.size());
+			
+			for (StoreTagVO storeTagVO : storeTagVOs) {
+				StoreListVO storeListVO = storeListService.listCheck2(pager, storeTagVO.getSt_key());
+				storeListVOs.add(storeListVO);
+			}
+			System.out.println("list :"+storeListVOs.size());
+			
+		}else {
+			 storeListVOs = storeListService.listCheck(pager);
+			
+		}
 		model.addAttribute("list", storeListVOs);
 	}
 

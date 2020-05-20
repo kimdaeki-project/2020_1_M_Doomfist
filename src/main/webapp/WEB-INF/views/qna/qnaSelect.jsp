@@ -49,6 +49,17 @@
    	 </div>
    	 
    	 <div class="panel panel-primary">
+      <div class="panel-heading">태그</div>
+      
+      <div class="panel-body" style="font-size: large;">
+   	 <c:forEach items="${vo_ta}" var="vo_ta">
+     ${vo_ta.qtag_name} 
+   	 </c:forEach>
+      </div>
+   	 
+   	 </div>
+   	 
+   	 <div class="panel panel-primary">
       <div class="panel-heading">사진</div>
       
    	 <c:forEach items="${vo_fi}" var="vo_fi">

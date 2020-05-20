@@ -40,7 +40,6 @@
 		
 		getList(count, k, s);
 		
-		
 		if(check==0){
 			$("#more").attr("type", "hidden");
 			$("#none").attr("type", "text");
