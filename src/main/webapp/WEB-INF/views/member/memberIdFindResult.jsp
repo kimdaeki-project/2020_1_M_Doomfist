@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
+<img alt="" src="${pageContext.request.contextPath}/resources/images/findimage.png">
+<hr>
 <form class="form-horizontal" action="./memberIdFindResult" method="post">
-<h3>'${member.id}' 입니다 </h3>
+<h3 >아이디는 '${member.id}' 입니다 </h3>
 </form>
 </body>
 </html>
