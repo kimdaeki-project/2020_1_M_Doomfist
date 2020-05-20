@@ -47,7 +47,10 @@ public class StoreListService {
 		pager.makeRow();
 		long totalCount = storeListDAO.listCount(pager);
 		pager.makePage(totalCount);
-		
+		System.out.println("startRow :"+pager.getStartRow());
+		System.out.println("lastRow :" +pager.getLastRow());
+		System.out.println("startNum :"+pager.getStartNum());
+		System.out.println("lastNum :" +pager.getLastNum());
 		return storeListDAO.listCheck(pager);		
 	}
 	

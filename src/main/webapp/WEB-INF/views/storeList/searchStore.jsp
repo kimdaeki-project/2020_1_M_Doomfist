@@ -25,14 +25,14 @@
 	
 		<script type="text/javascript">
 		var count=1;
-		
-		function getList(curPage) {
-			$.get("getList?curPage="+curPage, function(result) {
+		var k = '${param.kind}';
+		var s='${param.search}';
+		function getList(curPage, kind, search) {
+			$.get("getList?curPage="+curPage+"&kind="+kind+"&search="+search, function(result) {
 				$("#result").append(result);
 			});	
 		}
-		
-		getList(count);		
+		getList(count, k, s);
 		
 		$("#more").click(function() {
 			console.log($("#more").attr("title"));
@@ -43,12 +43,12 @@
 			}else if (count==$("#more").attr("title")){
 			count++;
 
-			getList(count);
+			getList(count, k, s);
 			$("#more").attr("type", "hidden");
 			$("#dv").removeAttr("style");
 			}else{
 				count++;
-				getList(count);
+				getList(count, k, s);
 			}
 		});	
 		

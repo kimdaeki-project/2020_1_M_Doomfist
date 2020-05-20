@@ -65,7 +65,7 @@
 					<!--<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					 영호 추가 -->
 					<li>
-					<form class="form-inline" style="padding-top: 6.5px;" action="./storeList/searchStore">
+					<form class="form-inline" style="padding-top: 6.5px;" action="/s1/storeList/searchStore">
 						<select class="form-control" id="sel1" name="kind">
 							<option value="ln">식당이름 검색</option>
 							<option value="lk">카테고리 검색</option>
