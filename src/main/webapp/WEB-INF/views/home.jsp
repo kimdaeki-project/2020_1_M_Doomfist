@@ -20,6 +20,8 @@
 	
 		<div class="container ">
 			<div class="row">
+			<div><img src="${pageContext.request.contextPath}/resources/images/today.png"> </div> 
+			<hr>
 				<div class="col-sm-4">
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
