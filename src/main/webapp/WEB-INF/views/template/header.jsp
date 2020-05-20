@@ -39,7 +39,7 @@
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
 					</li>
 					
-					<c:if test="${sessionScope.member.id eq 'admin' or not empty sessionId}">
+					<c:if test="${sessionScope.member.id eq 'admin' and empty sessionId}">
 					<li>
 					<div style="margin-top: 7.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/storeList/storeListCheck">
@@ -50,14 +50,24 @@
 					</li>
 					</c:if>
 					
+					<c:if test="${not empty member}">
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/qna/qnaJoin">
 					  <button class="btn" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
 					  </a>
 					  </div>
+					  </li>
+					</c:if>
+					  
+					<c:if test="${empty member}">
+					<li>
+					<div style="margin-top: 7px;" class="dropdown">
+					  <button class="btn notjoin" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
+					  </div>  
 					<!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
 					</li>
+					</c:if>
 					
 					<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </li>
 
@@ -126,6 +136,8 @@
 					   	  <li class="divider"></li>
 					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
 					    </c:if>
+					    <li class="divider"></li>
+					    <li><a href="#">나의 식당 </a></li>
 					  </ul>
 					</div>	
 					</li>	
@@ -169,10 +181,14 @@
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
  
+	$(".notjoin").click(function() {
+		alert("로그인 후 이용해주세요")
+	})
 	
 	function openWin(){  
 	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}  		
+	
 
 	</script>
 	<!-- 영호 추가 -->

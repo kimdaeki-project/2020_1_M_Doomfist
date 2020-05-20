@@ -107,6 +107,7 @@
 					    <li><a href="#">결제내역</a></li>
 					    <li class="divider"></li>
 					    <li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
+					    <li><a href="#">나의 식당 </a></li>					 
 					  </ul>
 					</div>	
 					</li>	
