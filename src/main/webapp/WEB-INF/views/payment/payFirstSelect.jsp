@@ -38,7 +38,7 @@
 					${vo.sm_menu}:${vo.sm_price}
 					<br>
 					현재가격 :
-					 <input	type="text" id="menu${i.index}" value="0" name="ps_multi">
+					 <input	type="text" id="menu${i.index}" value="0" name="ps_multi" class="menu">
 					 <!-- 기존 가겨  -->
 					 <input type="hidden" id="menus${i.index}" value="${vo.sm_price}">
 					<br> 
@@ -78,7 +78,7 @@
 			if($("#count"+btn).val()==10){
 			alert("최대수량 10");	
 			}else{
-			var count = $("#count"+btn).val();
+			/* var count = $("#count"+btn).val();
 			//테스트
 			$("#count"+btn).val(count*1+1);
 			//console.log("count 값은 :"+ $("#count"+btn).val());
@@ -88,7 +88,12 @@
 			
 			//	총합더하기계산
 				result = result + $("#menus"+btn).val()*1;
-				$("#total").val(result);
+				$("#total").val(result); */
+				// test
+				var count = $("#count"+btn).val();
+				$("#count"+btn).val(count*1+1);
+				hap(btn);
+				
 			}//else 긑
 			
 			
@@ -100,7 +105,7 @@
 			if($("#count"+btn).val()==0){
 			alert("최소 수량은 0입니다.");	
 			
-			}else{
+			}else{/* 
 			var count = $("#count"+btn).val();
 			$("#count"+btn).val(count*1-1);
 			//console.log(($("#menus"+btn).val()*count)-$("#menus"+btn).val());
@@ -108,18 +113,36 @@
 			//총합 마이너스
 			result = result - $("#menus"+btn).val()*1;
 			$("#total").val(result);
-			
-			}
+			 */
+			 var count = $("#count"+btn).val();
+			 $("#count"+btn).val(count*1-1);
+				hap(btn);
+			 }
 			
 		});
 		
+		// ***  합계  실시간 조회
+		function hap(num) {
+			var p = $("#menus"+num).val();
+			var c = $("#count"+num).val();
+			var h = p*c;
+			$("#menu"+num).val(h);
+			h = 0;
+			$(".menu").each(function () {
+			h = h+$(this).val()*1;
+			});
+			$("#total").val(h);
+		}
+		
+		
 		//전송 
 	$("#btn").click(function() {
-
 	if ($("#total").val()>0) {
+		alert("결제 페이지로 이동합니다.");
 		$("#frm").submit();
 	} else {
 		alert("구매내역이 없습니다.");
+		 event.preventDefault();//이벤트 막기
 	}
 });
 		

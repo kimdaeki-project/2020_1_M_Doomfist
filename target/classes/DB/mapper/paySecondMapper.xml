@@ -15,11 +15,14 @@
   	#{pf_key}
   	)
   </insert>
-  <!-- 주문내역 확인   -->
- 
- 
+  <!-- 주문내역 확인     서브쿼리로 찾아서 검색   -->
   
-  <!-- 결제가 성공하면  첫번쨰 결제페이지 pf_check -> 1로 변경  -->
+  <!-- 3 결제가 끝나면  Second 테이블 ps_count값이 0인 데이터 삭제.  -->
+  <delete id="paySecondDelete" parameterType="Long">
+	 DELETE paysecond where ps_count = 0 
+  </delete>
+  
+  <!-- 1 결제가 성공하면  첫번쨰 결제페이지 pf_check -> 1로 변경  -->
   <update id="payFirstUpdate" parameterType="Long">
   update payfirst set pf_check = 1 
   where pf_key= (SELECT * FROM (
@@ -28,7 +31,7 @@
   </update>
   
   
-  <!-- 결제가 끝나면 첫번째 결제페이지 pf_check 값이 0인 데이터 삭제.  -->
+  <!-- 2 결제가 성공하면  첫번째 결제페이지 pf_check 값이 0인 데이터 삭제.  -->
   <delete id="payFirstDelete" parameterType="Long">
   	delete payFirst where pf_check = 0
   </delete>
