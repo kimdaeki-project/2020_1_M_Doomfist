@@ -92,6 +92,7 @@ public class StoreListService {
 	
 
 	public StoreListVO storeListSelect(long st_key)throws Exception{
+		
 		return storeListDAO.storeListSelect(st_key);
 	}
 	
@@ -106,5 +107,17 @@ public class StoreListService {
 	public List<StoreTagVO> storeTagSelect(long st_key)throws Exception{
 		return storeTagDAO.storeTagSelect(st_key);
 	}
+	
+	//StoreListSelectInterceptor에서 사용 
+	public List<StoreListVO> select_stKey(long st_key)throws Exception{
+		return storeListDAO.select_stKey(st_key);
+	}
+	public List<StoreListVO> select_id(long st_key)throws Exception{
+		return storeListDAO.select_id(st_key);
+	}
+	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
+		return storeListDAO.selectReview_id(re_num);
+	}
+	
 	
 }

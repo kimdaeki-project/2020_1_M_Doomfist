@@ -61,9 +61,19 @@
 		
 		<interceptor>
 			<mapping path="/storeList/storeListSelect"/>
+			<mapping path="/storeList/storeReviewWrite"/>
 			<beans:ref bean="storeListSelectInterceptor"/>
 		</interceptor>
 		
+		<interceptor>
+			<mapping path="/storeList/storeReviewWrite"/>
+			<beans:ref bean="selectReviewWriteInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/storeList/storeReviewDelete"/>
+			<beans:ref bean="storeListDeleteReviewInterceptor"/>
+		</interceptor>
 		
 	</interceptors> 
 	

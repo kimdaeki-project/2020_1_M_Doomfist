@@ -76,7 +76,7 @@ public class StoreListController {
 	}
 
 	@RequestMapping(value = "storeListCheck")
-	public ModelAndView storeListCheck(Pager pager, ModelAndView mv) throws Exception {
+	public ModelAndView storeListCheck(Pager pager, ModelAndView mv,long st_key) throws Exception {
 		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);

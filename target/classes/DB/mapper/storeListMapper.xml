@@ -70,7 +70,16 @@
 		DELETE storeReview WHERE re_num=#{re_num}
 	</delete>
 	
-	<select id="select_stKey" resultType="com.doom.s1.storeList.StoreListVO">
-		SELECT st_key from storelist
+	<!-- StoreListSelectInterceptor에서 사용 -->
+	<select id="select_stKey" parameterType="Long" resultType="Long">
+		SELECT st_key from storelist where st_key=#{st_key}
 	</select>
+	
+	<select id="select_id" parameterType="Long" resultType="com.doom.s1.storeList.StoreListVO">
+		select id from storelist where st_key = #{st_key}
+	</select>
+	<select id="selectReview_id" parameterType="Long" resultType="com.doom.s1.storeList.StoreListVO">
+		select id from storeReview where re_num = #{re_num}
+	</select>
+	<!-- StoreListSelectInterceptor에서 사용 -->
 </mapper>
