@@ -77,17 +77,6 @@ public class StoreListController {
 		return mv;
 	}
 	
-	@GetMapping("storeListChecks")
-	public ModelAndView storeListChecks(Pager pager) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
-		mv.addObject("vo", storeListVOs);
-		mv.addObject("pager", pager);
-		mv.setViewName("storeList/storeListChecks");
-	
-		
-		return mv;
-	}
 
 	@RequestMapping(value = "storeListCheck")
 	public ModelAndView storeListCheck(Pager pager, ModelAndView mv) throws Exception {
