@@ -16,6 +16,12 @@
   	)
   </insert>
   <!-- 주문내역 확인     서브쿼리로 찾아서 검색   -->
+  <select id="payReceipt" parameterType="" resultType="">
+  select * from paysecond where pf_key in
+    (select pf_key from payfirst where id = #{id})
+     ORDER BY pf_key DESC
+  
+  </select>
   
   <!-- 3 결제가 끝나면  Second 테이블 ps_count값이 0인 데이터 삭제.  -->
   <delete id="paySecondDelete" parameterType="Long">

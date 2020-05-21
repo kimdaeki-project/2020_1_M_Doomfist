@@ -30,8 +30,7 @@ public class PaySecondController {
 	public ModelAndView paySecondSelect(PaySecondVO paySecondVO,String[] ps_menu,long[] ps_count ,long [] ps_multi,long pf_key) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		//db에 데이터 삽입 하고.
-		int result = 1;
-		/////
+		int result = 1;		
 		// 총합 구하기
 				long total = 0;
 				paySecondVO = new PaySecondVO();
@@ -67,6 +66,29 @@ public class PaySecondController {
 		//result = paySecondService.paySecondDelete(pf_key);
 		return mv;
 	}
+	
+	// 결제 성공 페이지
+	@GetMapping("paySuccess")
+	public void paySuccess() throws Exception {
+		
+		
+	}
+	
+	
+	
+	// 결제 실패 페이지
+	@GetMapping("payFail")
+	public void payFail()  throws Exception{
+		
+	}
+	
+	//나의 결제 목록 확인 페이지
+	
+	@GetMapping("payReceipt")
+	public void receiptPage() throws Exception{
+		
+	}
+	
 	
 
 }
