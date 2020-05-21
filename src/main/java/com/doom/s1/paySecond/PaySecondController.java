@@ -78,16 +78,15 @@ public class PaySecondController {
 	
 	// 결제 실패 페이지
 	@GetMapping("payFail")
-	public void payFail()  throws Exception{
+	public ModelAndView payFail(ModelAndView mv)  throws Exception{
+		
+		//실패시  이동할 경로
+		mv.setViewName("payment/payFirstSelect");
+		
+		return mv;
 		
 	}
 	
-	//나의 결제 목록 확인 페이지
-	
-	@GetMapping("payReceipt")
-	public void receiptPage() throws Exception{
-		
-	}
 	
 	
 

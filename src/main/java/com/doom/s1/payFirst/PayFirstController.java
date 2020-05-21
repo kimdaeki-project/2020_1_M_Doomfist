@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.doom.s1.paySecond.PaySecondVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 
 @Controller
@@ -35,5 +36,22 @@ public class PayFirstController {
 		return mv;
 		
 	}
+	
+	//나의 결제 목록 확인 페이지
+	
+		@GetMapping("payReceipt")
+		public ModelAndView receiptPage(String id) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			List<PayFirstVO> payFirstVOs = payFirstService.payAll(id);
+			List<PaySecondVO> paySecondVOs =  payFirstService.payReceipt(id);
+			
+			mv.addObject("vo_pf", payFirstVOs);
+			mv.addObject("vo_ps", paySecondVOs);
+			
+			mv.setViewName("payment/payReceipt");
+			
+			return mv;
+		}
+	
 	
 }

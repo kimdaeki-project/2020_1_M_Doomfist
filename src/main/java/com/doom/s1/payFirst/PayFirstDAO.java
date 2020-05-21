@@ -1,8 +1,12 @@
 package com.doom.s1.payFirst;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.doom.s1.paySecond.PaySecondVO;
 
 @Repository
 public class PayFirstDAO {
@@ -20,10 +24,12 @@ public class PayFirstDAO {
 		
 	}
 	
-	//지우는건 second에서
-//	public long payFirstDelete(long pf_check)throws Exception{
-//		return session.delete(NAMESPACE+"payFirstDelete", pf_check);
-//		
-//	}
+	public List<PaySecondVO> payReceipt(String id)throws Exception{
+		return session.selectList(NAMESPACE+"payReceipt", id);
+	}
+	
+	public List<PayFirstVO> payAll(String id) throws Exception {
+		return session.selectList(NAMESPACE+"payAll",id);
+	}
 
 }
