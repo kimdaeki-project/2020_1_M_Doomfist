@@ -70,4 +70,7 @@
 		DELETE storeReview WHERE re_num=#{re_num}
 	</delete>
 	
+	<select id="select_stKey" resultType="com.doom.s1.storeList.StoreListVO">
+		SELECT st_key from storelist
+	</select>
 </mapper>

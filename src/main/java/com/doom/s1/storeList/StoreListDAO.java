@@ -48,4 +48,7 @@ public class StoreListDAO {
 	public long storeReviewDelete(long re_num)throws Exception{
 		return sqlSession.delete(NAMESPACE+"storeReviewDelete", re_num);
 	}
+	public List<StoreListVO> select_stKey()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"select_stKey");
+	}
 }

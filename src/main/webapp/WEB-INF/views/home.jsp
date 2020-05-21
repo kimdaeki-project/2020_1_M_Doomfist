@@ -23,14 +23,14 @@
 			<div><img src="${pageContext.request.contextPath}/resources/images/today.png"> </div> 
 			<hr>
 				<div class="col-sm-4">
-					<div class="panel panel-info">
+					<div class="panel panel-info">	
 						<div class="panel-heading"></div>
 						<div class="panel-body">
-							<img id="num0" 
+							<img id="num0"
 								class="img-responsive test1" style="display: flex; justify-content: center; height: 300px;"
-								alt="Image">
+								alt="Image"> 
 						</div>
-						<div class="panel-footer"><input type="button" id="category0"  style="border: 0px" class="panel-footer test2"></div>
+						<div align="center"><input type="button"  id="category0"  style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -41,7 +41,7 @@
 								class="img-responsive test1" style="display: flex; justify-content: center; height: 300px;"
 								alt="Image">
 						</div>
-						<div class="panel-footer"><input type="button" id="category1"  style="border: 0px" class="panel-footer test2"></div>
+						<div align="center"><input type="button"  id="category1"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -52,7 +52,7 @@
 								class="img-responsive test1" style="display: flex; justify-content: center; height: 300px;"
 								alt="Image">
 						</div>
-						<div class="panel-footer"><input type="button" id="category2"  style="border: 0px" class="panel-footer test2"></div>
+						<div align="center"><input type="button"  id="category2"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
 			</div>
@@ -69,7 +69,7 @@
 								class="img-responsive test1" style="display: flex; justify-content: center; height: 300px;"
 								alt="Image">
 						</div>
-						<div class="panel-footer"><input type="button" id="category3" style="border: 0px" class="panel-footer test2"></div>
+						<div align="center"><input type="button"  id="category3"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -80,7 +80,7 @@
 								class="img-responsive test1" style="display: flex; justify-content: center; height: 300px;"
 								alt="Image">
 						</div>
-						<div class="panel-footer"><input type="button" id="category4" style="border: 0px" class="panel-footer test2"></div>
+						<div align="center"><input type="button"  id="category4"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
 				<div class="col-sm-4">
@@ -91,7 +91,7 @@
 								class="img-responsive test1" style="display: flex; justify-content: center; height: 300px;"
 								alt="Image">
 						</div>
-						<div class="panel-footer"><input type="button"  id="category5" style="border: 0px" class="panel-footer test2"></div>
+						<div align="center"><input type="button"  id="category5"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large; " class="panel-footer test2"></div>
 					</div>
 				</div>
 			</div>
@@ -137,7 +137,7 @@
 			var btn = document.getElementsByClassName('test2');
 			for (k =0; k <6; k++) {
 				img[k].src=imgs[random[k]];
-				btn[k].value=text[random[k]];
+				btn[k].value=text[random[k]]+" 먹으러 가기!!";
 			}
 		
 			console.log(btn[1].value);
