@@ -94,7 +94,7 @@ public class StoreListController {
 		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);
-		mv.setViewName("storeList/storeSearch");
+		mv.setViewName("storeList/storeListChecks");
 
 		return mv;
 	}

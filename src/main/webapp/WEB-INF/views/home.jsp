@@ -120,8 +120,8 @@
 			var random = new Array();
 			
 			//중복 되지 않는 랜덤 값 6개 를 random 배열에 넣기
-			for (i = 0; i < 12; i++) {
-				random[i] = Math.round(Math.random() * 11);
+			for (i = 0; i < 13; i++) {
+				random[i] = Math.round(Math.random() * 12);  
 				for (j = 0; j < i; j++) {
 					if (random[i] == random[j]) {
 						i--;
@@ -137,8 +137,8 @@
 			var btn = document.getElementsByClassName('test2');
 			for (k =0; k <6; k++) {
 				img[k].src=imgs[random[k]];
-				btn[k].value=text[random[k]]+" 먹으러 가기!!";
-			}
+				btn[k].value=text[random[k]];
+			}   
 		
 			console.log(btn[1].value);
 			$("#category0").click(function() {
