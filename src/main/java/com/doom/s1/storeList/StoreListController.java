@@ -38,11 +38,11 @@ public class StoreListController {
 			List<StoreTagVO> storeTagVOs = storeListService.tagNumSelect(pager);
 			
 			List<StoreListVO> storeListVOs =  new ArrayList<StoreListVO>();
-			
 			for (StoreTagVO storeTagVO : storeTagVOs) {
-				StoreListVO storeListVO = storeListService.listCheck2(pager, storeTagVO.getSt_key());
+				StoreListVO storeListVO = storeListService.listCheck2(pager,storeTagVO.getSt_key());
 				storeListVOs.add(storeListVO);
 			}
+//			storeListService.listCount2(pager);
 			mv.addObject("listt", storeListVOs.size());
 			
 			mv.setViewName("storeList/searchStore"); 
@@ -76,7 +76,7 @@ public class StoreListController {
 			System.out.println("tag :"+storeTagVOs.size());
 			
 			for (StoreTagVO storeTagVO : storeTagVOs) {
-				StoreListVO storeListVO = storeListService.listCheck2(pager, storeTagVO.getSt_key());
+				StoreListVO storeListVO = storeListService.listCheck2(pager,storeTagVO.getSt_key());
 				storeListVOs.add(storeListVO);
 			}
 			System.out.println("list :"+storeListVOs.size());
