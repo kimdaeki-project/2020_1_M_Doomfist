@@ -114,6 +114,8 @@ public class StoreListService {
 	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
 		return storeListDAO.selectReview_id(re_num);
 	}
-	
+	public String selectFileName(long st_key)throws Exception{
+		return storeListDAO.selectFileName(st_key);
+	}
 	
 }

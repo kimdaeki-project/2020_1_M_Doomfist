@@ -40,6 +40,7 @@ public class StoreListController {
 		long a = pager.getLastNum();	
 			
 		mv.addObject("last", a); 
+		
 
 		return mv;
 		
@@ -47,10 +48,27 @@ public class StoreListController {
 
 	@GetMapping("getList")
 	public void getList(Pager pager, Model model) throws Exception {
+		
 		List<StoreListVO> storeListVOs = new ArrayList<StoreListVO>();
 		storeListVOs = storeListService.listCheck(pager);
+	
+		model.addAttribute("list",storeListVOs);
+
+		List<String> ar = new ArrayList<String>();
+		int index=0;
+		for (StoreListVO storeListVO : storeListVOs) {
+			long st_key = storeListVO.getSt_key();
+			System.out.println("B : "+st_key);
+			System.out.println(storeListService.selectFileName(st_key));
 			
-		model.addAttribute("list", storeListVOs);
+			ar.add(storeListService.selectFileName(st_key));
+			
+			index++;
+		}
+		
+		model.addAttribute("file",ar);
+	
+		
 	}
 
 	@GetMapping("storeListChecks")

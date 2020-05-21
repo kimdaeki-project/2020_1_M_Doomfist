@@ -5,6 +5,8 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
+import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.util.Pager;
 
 
@@ -58,5 +60,8 @@ public class StoreListDAO {
 	}
 	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"selectReview_id",re_num);
+	}
+	public String selectFileName(long st_key)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"selectFileName", st_key);
 	}
 }

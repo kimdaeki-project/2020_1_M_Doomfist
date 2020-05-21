@@ -3,14 +3,14 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
 
 
-			
+	
 <c:forEach items="${list}" var="vo" varStatus="i">
 	<div class="col-sm-4" style="display: inline-block;">
 		<div class="panel panel-info" style="max-width: 1000px; max-height: 800px;">
-		
+	 
 			<div class="panel-heading">
 			<a href="./storeListSelect?st_key=${vo.st_key}">
-			${vo.st_name}
+			${vo.st_name} ${file[i.index]}
 			</a>
 			</div>
 				<div class="panel-body" align="center">
@@ -25,3 +25,5 @@
 		</div>
 	</div>					
 </c:forEach>
+
+
