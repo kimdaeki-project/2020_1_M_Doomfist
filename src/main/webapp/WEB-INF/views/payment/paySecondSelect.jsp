@@ -18,6 +18,8 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
+<button id="btnn"> 클릭</button>
+
 		   <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
@@ -74,6 +76,8 @@
         });
         
     });
+    
+
     </script>
  
 </body>

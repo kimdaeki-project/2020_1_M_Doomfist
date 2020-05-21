@@ -10,6 +10,7 @@
 <c:import url="../template/style.jsp"></c:import>
 </head>
 <body>
+
 	<c:import url="../template/header.jsp"></c:import>
 	<!-- 결제 준비 페이지  -->
 	<h1>결제 중간단계</h1>
@@ -145,10 +146,9 @@
 		 event.preventDefault();//이벤트 막기
 	}
 });
+
 		
-		
-		
-		
+	  
 	</script>
 </body>
 </html>

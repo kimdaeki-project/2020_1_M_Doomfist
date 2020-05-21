@@ -43,5 +43,11 @@ public class PayFirstService {
 		return payFirstDAO.payAll(id);
 	}
 	
+	// 뒤로가기
+	public int back() throws Exception {
+		return payFirstDAO.back();
+		
+	}
+	
 
 }

@@ -31,5 +31,11 @@ public class PayFirstDAO {
 	public List<PayFirstVO> payAll(String id) throws Exception {
 		return session.selectList(NAMESPACE+"payAll",id);
 	}
+	
+	//결제에서 뒤로가기 누르면 기존 메뉴 삭제
+	public int back() throws Exception{
+		return session.delete(NAMESPACE+"back");
+		
+	}
 
 }

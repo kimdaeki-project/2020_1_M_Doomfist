@@ -14,22 +14,27 @@
 
 <h1>${sessionScope.member.id} 님의 결재내역</h1>	
 <ul class="list" style="list-style-type: none;">
-
+				
 				<li><h2>메뉴와 가격</h2></li>
 				<br>
 				<c:forEach items="${vo_pf}" var="vo" varStatus="i">
 				<button class="btn btn-info">결제날짜 :${vo.pf_date }</button>
 				<button class="btn btn-warning">가게 이름: ${vo.pf_stname}</button>
 				<div>
-					<c:forEach items="${vo_ps}" var="vo2" varStatus="i">
+					<c:set var="sum" value="${0}"/>
+					<c:forEach items="${vo_ps}" var="vo2" varStatus="i2">
 					<c:if test="${vo.pf_key eq vo2.pf_key}">
-					${vo2.ps_menu} ${vo2.ps_count} 개    가격:  ${vo2.ps_multi} <br>
+    				<c:set var="sum" value="${sum+vo2.ps_multi}"/> 
+					${vo2.ps_menu} ${vo2.ps_count} 개    가격:   <input type="button" value="${vo2.ps_multi}" class="v${i.index}"><br>
 					</c:if>
 					</c:forEach>
-					총금액 : 
+   					
+					총금액 : <input type="text" value="<c:out value="${sum}"/>" id=total"${i.index}" readonly="readonly">
+					<br> 
 				</div>
+				<br>
 				</c:forEach>
 			</ul>
-
+			
 </body>
 </html>
