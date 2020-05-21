@@ -10,6 +10,8 @@ public class StoreListVO {
 	private String st_address;
 	private String id;
 	private String st_kind;
+	private String st_tag;
+	
 	
 	public String getSt_phone() {
 		return st_phone;
@@ -47,6 +49,12 @@ public class StoreListVO {
 	}
 	public void setSt_kind(String st_kind) {
 		this.st_kind = st_kind;
+	}
+	public String getSt_tag() {
+		return st_tag;
+	}
+	public void setSt_tag(String st_tag) {
+		this.st_tag = st_tag;
 	}
 	
 	//==================================================================

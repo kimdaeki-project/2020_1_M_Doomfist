@@ -16,7 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.doom.s1.member.MemberVO;
 import com.doom.s1.qna.qnaFile.QnaFileVO;
-import com.doom.s1.qna.tag.QnaTagVO;
 import com.doom.s1.qnamenu.QnaMenuVO;
 import com.doom.s1.util.Pager;
 
@@ -36,9 +35,9 @@ public class QnaController {
 	}
 	
 	@PostMapping("qnaJoin")
-	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files, HttpSession session, long [] qm_price, String [] qm_menu, String [] qtag_name)throws Exception{
+	public ModelAndView qnaJoin(QnaVO qnaVO,ModelAndView mv, MultipartFile[] files, HttpSession session, long [] qm_price, String [] qm_menu)throws Exception{
 		
-		int result = qnaService.qnaJoin(qnaVO,files,qm_price,qm_menu,qtag_name);
+		int result = qnaService.qnaJoin(qnaVO,files,qm_price,qm_menu);
 		
 		
 		if(result>0) {
@@ -75,11 +74,10 @@ public class QnaController {
 		QnaVO qnaVO = qnaService.qnaSelect(qna_storekey);
 		List<QnaMenuVO> qnaMenuVOs = qnaService.qnaMenuSelect(qna_storekey);	//메뉴 출력
 		List<QnaFileVO> qnaFileVOs = qnaService.qnaFileSelect(qna_storekey);	//사진 출력
-		List<QnaTagVO> qnaTagVOs = qnaService.qnaTagSelect(qna_storekey);		//태그출력
+		
 		mv.addObject("vo",qnaVO);
 		mv.addObject("vo_me", qnaMenuVOs);										//메뉴 출력
 		mv.addObject("vo_fi", qnaFileVOs);
-		mv.addObject("vo_ta", qnaTagVOs);
 		mv.setViewName("qna/qnaSelect");
 		
 		return mv;

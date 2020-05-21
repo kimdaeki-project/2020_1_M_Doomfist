@@ -16,7 +16,8 @@
   		#{qna_storekey},
   		(select qna_contents from qna where qna_storekey=#{qna_storekey}),
   		(select id from qna where qna_storekey=#{qna_storekey}),
-  		(SELECT qna_kind FROM qna WHERE qna_storeKey=#{qna_storeKey})
+  		(SELECT qna_kind FROM qna WHERE qna_storeKey=#{qna_storeKey}),
+  		(SELECT qna_tag FROM qna WHERE qna_storeKey=#{qna_storeKey})
   		)
   	</insert>
   
@@ -32,10 +33,6 @@
   	<insert id="storeMenuInsert" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">
   		insert into storemenu values(#{sm_menu},#{sm_price},smkey_seq.nextval,#{st_key})
   	</insert>
-  	
-  	<insert id="storeTagInsert" parameterType="com.doom.s1.storeList.tag.StoreTagVO">
-		INSERT INTO storeTag VALUES(#{tag_key},#{st_key},#{tag_name})  	
-  	</insert>
 
 	<select id="Statuscheck" parameterType="String" resultType="com.doom.s1.qnacheck.QnaCheckVO">
 		select * from qnacheck where id=#{id} order by qc_check asc
@@ -47,10 +44,6 @@
 	
 	<select id="selectMenu" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
 		select * from qnamenu where qna_storekey=#{qna_storekey}
-	</select>
-	
-	<select id="selectTag" parameterType="Long" resultType="com.doom.s1.qna.tag.QnaTagVO">
-		SELECT * FROM qnaTag WHERE qna_storekey=#{qna_storekey}	
 	</select>
 
 	<select id="keycompare" resultType="com.doom.s1.storeList.StoreListVO">

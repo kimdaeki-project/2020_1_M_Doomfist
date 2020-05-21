@@ -52,9 +52,7 @@
       <div class="panel-heading">태그</div>
       
       <div class="panel-body" style="font-size: large;">
-   	 <c:forEach items="${vo_ta}" var="vo_ta">
-     ${vo_ta.qtag_name} 
-   	 </c:forEach>
+   			${vo.qna_tag}
       </div>
    	 
    	 </div>

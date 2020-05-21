@@ -20,7 +20,6 @@ import org.springframework.web.servlet.ModelAndView;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
-import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.Pager;
 
 @Controller
@@ -32,59 +31,25 @@ public class StoreListController {
 
 	@GetMapping("searchStore")
 	public ModelAndView searchStore(Pager pager) throws Exception {
-		ModelAndView mv = new ModelAndView();
+		ModelAndView mv = new ModelAndView();		
+		//더보기 관련
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
+		mv.addObject("listt", storeListVOs.size());
+			
+		mv.setViewName("storeList/searchStore"); 
+		long a = pager.getLastNum();	
+			
+		mv.addObject("last", a); 
+
+		return mv;
 		
-		if(pager.getKind().equals("lt")) {
-			List<StoreTagVO> storeTagVOs = storeListService.tagNumSelect(pager);
-			
-			List<StoreListVO> storeListVOs =  new ArrayList<StoreListVO>();
-			for (StoreTagVO storeTagVO : storeTagVOs) {
-				StoreListVO storeListVO = storeListService.listCheck2(pager,storeTagVO.getSt_key());
-				storeListVOs.add(storeListVO);
-			}
-//			storeListService.listCount2(pager);
-			mv.addObject("listt", storeListVOs.size());
-			
-			mv.setViewName("storeList/searchStore"); 
-			long a = pager.getLastNum();
-			
-			mv.addObject("last", a); 
-			return mv;
-		}else {
-			List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
-			mv.addObject("listt", storeListVOs.size());
-			
-//			mv.addObject("pager",pager);
-			mv.setViewName("storeList/searchStore"); 
-			long a = pager.getLastNum();
-			
-			mv.addObject("last", a); 
-//			System.out.println("user : "+storeListVOs.size());
-			 
-			return mv;
-		}
 	}
 
 	@GetMapping("getList")
 	public void getList(Pager pager, Model model) throws Exception {
 		List<StoreListVO> storeListVOs = new ArrayList<StoreListVO>();
-		
-		System.out.println(pager.getKind());
-		if(pager.getKind().equals("lt")) {
+		storeListVOs = storeListService.listCheck(pager);
 			
-			List<StoreTagVO> storeTagVOs = storeListService.tagNumSelect(pager);
-			System.out.println("tag :"+storeTagVOs.size());
-			
-			for (StoreTagVO storeTagVO : storeTagVOs) {
-				StoreListVO storeListVO = storeListService.listCheck2(pager,storeTagVO.getSt_key());
-				storeListVOs.add(storeListVO);
-			}
-			System.out.println("list :"+storeListVOs.size());
-			
-		}else {
-			 storeListVOs = storeListService.listCheck(pager);
-			
-		}
 		model.addAttribute("list", storeListVOs);
 	}
 
@@ -111,6 +76,18 @@ public class StoreListController {
 
 		return mv;
 	}
+	
+	@GetMapping("storeListChecks")
+	public ModelAndView storeListChecks(Pager pager) throws Exception {
+		ModelAndView mv = new ModelAndView();
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+		mv.addObject("vo", storeListVOs);
+		mv.addObject("pager", pager);
+		mv.setViewName("storeList/storeListChecks");
+	
+		
+		return mv;
+	}
 
 	@RequestMapping(value = "storeListCheck")
 	public ModelAndView storeListCheck(Pager pager, ModelAndView mv) throws Exception {
@@ -118,7 +95,7 @@ public class StoreListController {
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);
 		mv.setViewName("storeList/storeListCheck");
-		System.out.println("admin : " + storeListVOs.size());
+
 		return mv;
 	}
 
@@ -155,8 +132,7 @@ public class StoreListController {
 		avg = Math.round(avg * 10);
 		avg = avg / 10.0;
 
-		// 태그 출력
-		List<StoreTagVO> storeTagVOs = storeListService.storeTagSelect(st_key);
+		
 
 		mv.addObject("vo", storeListVO); // store 소개
 		mv.addObject("vo_sm", storeMenuVOs);// 메뉴 소개
@@ -164,7 +140,6 @@ public class StoreListController {
 		mv.addObject("vof1", sList); // 리뷰 글 안 사진들 출력
 		mv.addObject("stfile", storeFileVOs);// store 사진 출력
 		mv.addObject("avg", avg); // 평점 평균출력
-		mv.addObject("vo_tag", storeTagVOs);// 태그 출력
 		mv.setViewName("storeList/storeListSelect");
 		return mv;
 	}
