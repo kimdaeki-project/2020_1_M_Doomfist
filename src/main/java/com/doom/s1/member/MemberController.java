@@ -244,7 +244,7 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		List<MemberVO> memberVOs = memberService.memberList(pager);
 		
-		mv.addObject("member", memberVOs);
+		mv.addObject("list", memberVOs);
 		mv.addObject("pager", pager);
 		mv.setViewName("member/memberList");		
 		

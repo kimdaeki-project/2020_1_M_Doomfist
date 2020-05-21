@@ -107,7 +107,7 @@
 					</td>
 				</tr>
 
-				<c:forEach items="${member}" var="vo" varStatus="i">
+				<c:forEach items="${list}" var="vo" varStatus="i">
 					<tr>
 						<td id="id${i.index}">${vo.id}</td>
 						<td>${vo.name}</td>

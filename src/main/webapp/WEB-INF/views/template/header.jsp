@@ -113,6 +113,7 @@
 							<ul class="dropdown-menu">
 							<li><a href="${pageContext.request.contextPath}/member/memberPage">개인정보 수정</a> </li>
 							</ul>-->
+							
 					<!-- admin 일떄 -->
 					<c:if test="${member.id eq 'admin'}">
 					<li>
