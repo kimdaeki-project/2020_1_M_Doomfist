@@ -80,6 +80,7 @@
 							<option value="ln">식당이름 검색</option>
 							<option value="lk">카테고리 검색</option>
 							<option value="li">주소 검색</option>
+							<option value="lt">태그 검색</option>
 						</select>
 						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"

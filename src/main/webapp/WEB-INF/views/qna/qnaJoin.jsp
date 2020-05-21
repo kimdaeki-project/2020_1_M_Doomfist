@@ -85,9 +85,9 @@
 			</div>
 			<div id="menuu" align="center"></div><br></br>
 			
-			<!-- 음신 사진 추가 -->
+			<!-- 음식 사진 추가 -->
 			<div align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 50px" height="50px"> 음신 사진 추가 
+				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 50px" height="50px"> 음식 사진 추가 
 				<input type="button" id="add" class="btn btn-info active" value="음식사진 추가"> 
 			</div> 
 			<div align="center"> 
@@ -148,7 +148,7 @@
 								console.log(countt); 
 								$("#tagg")
 										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qm_menu" name="qm_menu" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
+												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qtag_name" name="qtag_name" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
 
 								countt++;
 							} else {
