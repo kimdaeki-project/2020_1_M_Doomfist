@@ -5,8 +5,6 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.Pager;
 
 
@@ -26,16 +24,8 @@ public class StoreListDAO {
 		return sqlSession.selectOne(NAMESPACE+"listCount", pager);
 	}
 	
-	public long listCount2(Pager pager)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"listCount2", pager);
-	}
-	
 	public List<StoreListVO> listCheck(Pager pager)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"listCheck", pager);
-	}
-	
-	public StoreListVO listCheck2(long st_key)throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"listCheck2", st_key);
 	}
 	
 	public long reviewNum() throws Exception{

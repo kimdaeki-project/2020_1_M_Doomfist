@@ -15,10 +15,6 @@
 	<sql id="search">
 		like '%'||#{search}||'%' ORDER BY st_key DESC
 	</sql>
-	
-	<sql id="search2">
-		like #{search} ORDER BY st_key DESC
-	</sql>
 
 	<select id="listCheck" parameterType="com.doom.s1.util.Pager" resultType="com.doom.s1.storeList.StoreListVO">
 		SELECT * FROM
@@ -34,6 +30,9 @@
 					<when test="kind == 'li'">
 						st_address
 					</when>
+					<when test="kind == 'lt'">
+						st_tag
+					</when>
 					<otherwise>
 						st_key
 					</otherwise>
@@ -42,9 +41,6 @@
 		WHERE R BETWEEN #{startRow} AND #{lastRow}
 	</select>
 	
-	<select id="listCheck2" parameterType="Long" resultType="com.doom.s1.storeList.StoreListVO">
-		SELECT * FROM storeList WHERE st_key=#{st_key}
-	</select>
 	
 	<select id="listCount" parameterType="com.doom.s1.util.Pager" resultType="Long">
 		SELECT count(st_key) FROM storeList
@@ -59,25 +55,7 @@
 					st_address <include refid="search"></include>
 				</if>
 				<if test="kind == 'lt'">
-					id<include refid="search2"></include>
-				</if>
-			</where>
-	</select>
-	
-	<select id="listCount2" parameterType="com.doom.s1.util.Pager" resultType="Long">
-		SELECT count(st_key) FROM storeTag
-			<where>
-				<if test="kind =='ln'">
-					st_name <include refid="search2"></include>
-				</if>
-				<if test="kind =='lk'">
-					st_kind <include refid="search2"></include>
-				</if>
-				<if test="kind == 'li'">
-					st_address <include refid="search2"></include>
-				</if>
-				<if test="kind == 'lt'">
-					tag_name<include refid="search"></include>
+					st_tag<include refid="search"></include>
 				</if>
 			</where>
 	</select>

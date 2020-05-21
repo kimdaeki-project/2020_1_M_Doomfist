@@ -73,7 +73,9 @@
 				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 50px" height="50px"> 태그 
 				<input type="button" id="addtag" class="btn btn-info active" value="태그 추가하기">
 			</div> 
-			<div id="tagg" align="center"></div><br></br>
+			<div id="tagg" align="center">
+			<div>태그는 한줄로, 각 태그 앞에 ' # ' , 태그 뒤에 ' , ' 를 붙여주세요</div>
+			</div><br></br>
 			
 			<!-- 메뉴 추가 -->
 			<div align="center">
@@ -144,15 +146,15 @@
 		$("#addtag")
 				.click(
 						function() {
-							if (countt < 10) {
+							if (countt < 2) {
 								console.log(countt); 
 								$("#tagg")
 										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qtag_name" name="qtag_name" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
+												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qna_tag" name="qna_tag" placeholder="#태그, #태그 ..." style="margin-right: 15px; margin-left:15px; width=300px;"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
 
 								countt++;
 							} else {
-								alert("태그등록은 최대 10개 까지입니다.")
+								alert("태그는 한번만 추가할 수 있습니다.")
 							}
 
 						});

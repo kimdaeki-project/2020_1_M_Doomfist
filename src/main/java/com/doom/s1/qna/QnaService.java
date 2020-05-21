@@ -13,8 +13,6 @@ import com.doom.s1.member.MemberDAO;
 import com.doom.s1.member.MemberVO;
 import com.doom.s1.qna.qnaFile.QnaFileDAO;
 import com.doom.s1.qna.qnaFile.QnaFileVO;
-import com.doom.s1.qna.tag.QnaTagDAO;
-import com.doom.s1.qna.tag.QnaTagVO;
 import com.doom.s1.qnacheck.QnaCheckDAO;
 import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.qnamenu.QnaMenuDAO;
@@ -37,8 +35,6 @@ public class QnaService {
 	private QnaMenuDAO qnaMenuDAO;
 	@Autowired
 	private QnaCheckDAO qnaCheckDAO;
-	@Autowired
-	private QnaTagDAO qnaTagDAO;
 	
 	public MemberVO selectMember(String id) throws Exception{
 		return qnaDAO.selectMember(id);
@@ -52,11 +48,7 @@ public class QnaService {
 		return qnaMenuDAO.qnaMenuSelect(qna_storekey);
 	}
 	
-	public List<QnaTagVO> qnaTagSelect(long qna_storekey)throws Exception{
-		return qnaTagDAO.qnaTagSelect(qna_storekey);
-	}
-	
-	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files,long [] qm_price, String [] qm_menu,String [] qtag_name) throws Exception{
+	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files,long [] qm_price, String [] qm_menu) throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/qna_images");
 		qnaVO.setQna_storekey(qnaDAO.qnaNum());
@@ -87,14 +79,6 @@ public class QnaService {
 			
 		
 			qnaMenuDAO.qnaMenuInsert(qnaMenuVO);	
-		}
-		
-		QnaTagVO qnaTagVO = new QnaTagVO();
-		for(int i=0; i<qtag_name.length; i++) {
-			qnaTagVO.setQtag_name(qtag_name[i]);
-			qnaTagVO.setQna_storekey(qnaVO.getQna_storekey());
-			
-			qnaTagDAO.qnaTagInsert(qnaTagVO);
 		}
 	
 		

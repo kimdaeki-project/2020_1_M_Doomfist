@@ -7,12 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.doom.s1.qna.QnaVO;
 import com.doom.s1.qna.qnaFile.QnaFileVO;
-import com.doom.s1.qna.tag.QnaTagVO;
 import com.doom.s1.qnamenu.QnaMenuVO;
 import com.doom.s1.storeList.StoreListVO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
-import com.doom.s1.storeList.tag.StoreTagVO;
 
 @Service
 public class QnaCheckService {
@@ -49,17 +47,6 @@ public class QnaCheckService {
 			menuVO.setSt_key(qna_storekey);
 			
 			qnaCheckDAO.storeMenuInsert(menuVO);
-		}
-		
-		List<QnaTagVO> qnaTagVOs = qnaCheckDAO.selectTag(qna_storekey);
-		
-		for (QnaTagVO qnaTagVO : qnaTagVOs) {
-			StoreTagVO storeTagVO = new StoreTagVO();
-			storeTagVO.setSt_key(qna_storekey);
-			storeTagVO.setTag_name(qnaTagVO.getQtag_name());
-			storeTagVO.setTag_key(qnaTagVO.getQtag_key());
-		
-			qnaCheckDAO.storeTagInsert(storeTagVO);
 		}
 		
 		
