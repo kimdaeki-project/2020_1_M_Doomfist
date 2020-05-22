@@ -53,7 +53,7 @@ public class PayFirstController {
 			ModelAndView mv = new ModelAndView();
 			//first의 check 0인 데이터 삭제해서 안보여주기
 			//테스트시에는 잠깐 주석처리        -**************************************** 제출시에 주석해제
-			//int result = paySecondService.payFirstDelete(0);			
+			int result = paySecondService.payFirstDelete(0);			
 			
 			List<PayFirstVO> payFirstVOs = payFirstService.payAll(id);
 			List<PaySecondVO> paySecondVOs =  payFirstService.payReceipt(id);
