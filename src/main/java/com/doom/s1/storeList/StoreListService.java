@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.storeList.file.StoreFileDAO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
@@ -107,4 +108,27 @@ public class StoreListService {
 		return storeTagDAO.storeTagSelect(st_key);
 	}
 	
+	public List<StoreListVO> storePage(String id)throws Exception{
+		return storeListDAO.storePage(id);
+	}
+	
+	public long storeListUpdate(StoreListVO storeListVO) throws Exception{
+		return storeListDAO.storeListUpdate(storeListVO);
+	}
+	
+	public long storeMenuUpdate(StoreMenuVO storeMenuVO) throws Exception{
+		return storeListDAO.storeMenuUpdate(storeMenuVO);
+	}
+	
+	public long storeTagUpdate(List<StoreTagVO> storeTagVO) throws Exception{
+		return storeListDAO.storeTagUpdate(storeTagVO);
+	}
+	
+	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
+		return storeListDAO.storeMenuInsert(storeMenuVO);
+	}
+	
+	public long storeMenuDelete(StoreMenuVO storeMenuVO) throws Exception{
+		return storeListDAO.storeMenuDelete(storeMenuVO);
+	}
 }

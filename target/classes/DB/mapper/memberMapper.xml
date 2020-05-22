@@ -54,7 +54,7 @@
 		select id from member where email=#{email} and name=#{name}
 	</select>
   
-  
+
   
   
   

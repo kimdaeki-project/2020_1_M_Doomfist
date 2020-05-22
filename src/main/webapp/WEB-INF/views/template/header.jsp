@@ -136,7 +136,7 @@
 					   	  <li class="divider"></li>
 					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
 					    </c:if>
-					    <li><a href="#">나의 식당 </a></li>
+					    <li><a href="${pageContext.request.contextPath}/storeList/storePage">나의 식당 </a></li>
 					  </ul>
 					</div>	
 					</li>	

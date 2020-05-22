@@ -6,6 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.doom.s1.qnacheck.QnaCheckVO;
+import com.doom.s1.storeList.storeMenu.StoreMenuVO;
+import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.Pager;
 
 
@@ -29,9 +32,15 @@ public class StoreListDAO {
 		return sqlSession.selectList(NAMESPACE+"listCheck", pager);
 	}
 	
+	public List<StoreListVO> storePage(String id)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"storePage",id);
+	}
+	
 	public long reviewNum() throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"reviewNum");
 	}
+	
+
 	
 	public StoreListVO storeListSelect(long st_key) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"storeListSelect", st_key);
@@ -47,5 +56,25 @@ public class StoreListDAO {
 	
 	public long storeReviewDelete(long re_num)throws Exception{
 		return sqlSession.delete(NAMESPACE+"storeReviewDelete", re_num);
+	}
+	
+	public long storeListUpdate(StoreListVO storeListVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"storeListUpdate", storeListVO);
+	}
+
+	public long storeMenuUpdate(StoreMenuVO storeMenuVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"storeMenuUpdate", storeMenuVO);
+	}
+	
+	public long storeTagUpdate(List<StoreTagVO> storeTagVO) throws Exception{
+		return sqlSession.update(NAMESPACE+ "storeTagUpdate", storeTagVO);
+	}
+	
+	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
+		return sqlSession.update(NAMESPACE+"storeMenuInsert", storeMenuVO);
+	}
+	
+	public long storeMenuDelete(StoreMenuVO storeMenuVO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"storeMenuDelete", storeMenuVO);
 	}
 }
