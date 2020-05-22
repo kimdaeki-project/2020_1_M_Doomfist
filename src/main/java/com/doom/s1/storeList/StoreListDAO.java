@@ -76,7 +76,7 @@ public class StoreListDAO {
 		return sqlSession.update(NAMESPACE+"storeMenuUpdate", storeMenuVO);
 	}
 	
-	public long storeMenuInsert(List<StoreMenuVO> storeMenuVO) throws Exception{
+	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
 		return sqlSession.update(NAMESPACE+"storeMenuInsert", storeMenuVO);
 	}
 	

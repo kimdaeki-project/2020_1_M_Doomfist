@@ -94,7 +94,7 @@
 	<!-- StoreListSelectInterceptor에서 사용 -->
 	
 	<update id="storeListUpdate" parameterType="com.doom.s1.storeList.StoreListVO">
-  update storeList set st_name=#{st_name}, st_phone=#{st_phone}, st_address=#{st_address}, st_kind=#{st_kind} where st_key=#{st_key}
+  update storeList set st_name=#{st_name}, st_phone=#{st_phone}, st_address=#{st_address}, st_kind=#{st_kind}, st_tag=#{st_tag} where st_key=#{st_key}
   	</update>
   	
   	<update id="storeMenuUpdate" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">

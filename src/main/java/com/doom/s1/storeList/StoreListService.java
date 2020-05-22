@@ -129,7 +129,7 @@ public class StoreListService {
 		return storeListDAO.storeMenuUpdate(storeMenuVO);
 	}
 	
-	public long storeMenuInsert(List<StoreMenuVO> storeMenuVO) throws Exception{
+	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
 		return storeListDAO.storeMenuInsert(storeMenuVO);
 	}
 	

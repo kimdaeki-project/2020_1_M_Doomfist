@@ -47,13 +47,13 @@ function Close_Event(){
 			
 		
 			
-			<c:forEach items="${listmenu}" var="vo">
+			<%-- <c:forEach items="${listmenu}" var="vo">
 			<div class="menuu2" style="margin-top: 15px; margin-bottom: 15px;" align="center">
 			<input type="hidden" id="sm_key" name="sm_key" value="${vo.sm_key}">
 				<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu"  style="margin-right: 15px"> 
 				<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" >
 			</div>
-			</c:forEach>
+			</c:forEach> --%>
 			
 			<div id="menuu" align="center">
 			
@@ -108,26 +108,6 @@ function Close_Event(){
 			countt = countt + tt;
 		}
 
-		$("#tagg").on("click", ".removet", function() {
-			$(this).parent().remove();
-			countt--;
-		});
-
-		$("#addtag")
-				.click(
-						function() {
-							if (countt < 10) {
-								console.log(countt); 
-								$("#tagg")
-										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="tag_name" name="tag_name" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
-
-								countt++;
-							} else {
-								alert("태그등록은 최대 10개 까지입니다.")
-							}
-
-						});
 		
 		function goPopup(){
 			// 주소검색을 수행할 팝업 페이지를 호출합니다.
