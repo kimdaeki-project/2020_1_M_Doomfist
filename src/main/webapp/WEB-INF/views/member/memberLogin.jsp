@@ -44,12 +44,26 @@
     <hr></hr>
     <a href="" onclick="javascript:openWin();">아이디를 잊으셨습니까?</a>
     <br></br>
-	<a href="${pageContext.request.contextPath}/member/memberJoin">아이디가 없으신가요? 지금 생성하세요.</a>
+	<a href="${pageContext.request.contextPath}/member/memberJoin" >아이디가 없으신가요? 지금 생성하세요.</a>
 	<br></br>
 	<div id="naverIdLogin"></div>
 <br>
 </form>
 </div>
+
+<!--  -->
+
+
+
+
+
+
+
+
+
+
+<!--  -->
+
 
 <!-- 네이버 로그인 창으로 이동 -->
 <div class="container" id="naver_id_login" style="text-align:left;"><a href="${url}">
