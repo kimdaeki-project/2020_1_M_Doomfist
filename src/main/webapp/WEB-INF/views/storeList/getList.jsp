@@ -10,12 +10,12 @@
 	 
 			<div class="panel-heading">
 			<a href="./storeListSelect?st_key=${vo.st_key}">
-			${vo.st_name} ${file[i.index]}
+			${vo.st_name} 
 			</a>
 			</div>
 				<div class="panel-body" align="center">
-					<a href="./storeListSelect?st_key=${vo.st_key}">
-					<img src="${pageContext.request.contextPath}/resources/images/DOOM.png" 
+				 	<a href="./storeListSelect?st_key=${vo.st_key}">
+					<img src="${pageContext.request.contextPath}/resources/images/${file[i.index]}"
 					class="img-responsive" style="overflow: hidden; display: flex; align-items: center;
 					justify-content: center; width: 348px; height: 340px;" alt="Image">
 					</a>

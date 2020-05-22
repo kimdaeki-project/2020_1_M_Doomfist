@@ -99,7 +99,7 @@
 
 			<br>
 			<div align="center">
-				<button type="button" id="btn" class="btn btn-default active" >신청하기</button>
+				<button type="button" id="btn" class="btn btn-default active">신청하기Modal</button>
 			</div>
 		</form>
 	</div>

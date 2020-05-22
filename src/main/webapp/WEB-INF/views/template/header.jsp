@@ -61,7 +61,6 @@
 					</c:if>
 					
 					<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </li>
-
 					<!-- 영호 추가 -->
 					<!--<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					 영호 추가 -->
@@ -147,11 +146,11 @@
 					    <li><a href="#">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
-					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
+					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
 					    </c:if>
 					    <li><a href="#">나의 식당 </a></li>
 					  </ul>
-					</div>	
+					</div>	 
 					</li>	
 							
 				</c:if>					
@@ -189,7 +188,13 @@
 			</div>
 		</div>
 	</nav>
+	  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      
+  </div>
+</div>
 	
+  
 	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
@@ -202,7 +207,6 @@
 	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
 	}  		
 	
-
 	</script>
 	<!-- 영호 추가 -->
 	</div>
