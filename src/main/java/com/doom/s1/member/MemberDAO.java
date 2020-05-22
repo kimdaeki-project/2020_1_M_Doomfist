@@ -39,16 +39,12 @@ public class MemberDAO {
 		return sqlSession.update(NAMESPACE+"memberUpdate", memberVO);
 	}
 	
-	public Long memberCount(Pager pager) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"memberCount", pager);
+	public Long memberCount(Pager memberPager) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberCount", memberPager);
 	}
 	
-	public List<MemberVO> memberList(Pager pager) throws Exception{
-		return sqlSession.selectList(NAMESPACE+"memberList", pager);
-	}
-	
-	public int memberDeletes(List<String> list)throws Exception{
-		return sqlSession.delete(NAMESPACE+"memberDeletes", list);
+	public List<MemberVO> memberList(Pager memberPager) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"memberList", memberPager);
 	}
 	
 	public MemberVO memberIdFind(MemberVO memberVO) throws Exception{

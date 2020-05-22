@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.storeList.file.StoreFileDAO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
@@ -69,7 +68,7 @@ public class StoreListService {
 		
 	public long storeReviewWrite(StoreListVO storeListVO, MultipartFile[] files)throws Exception{
 		
-		String path = servletContext.getRealPath("/resources/review_images");
+		String path = servletContext.getRealPath("/resources/uploadNotice");
 		System.out.println(path);
 		
 		//sequence 번호받기
@@ -115,25 +114,8 @@ public class StoreListService {
 	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
 		return storeListDAO.selectReview_id(re_num);
 	}
-	
-	
-	public List<StoreListVO> storePage(String id)throws Exception{
-		return storeListDAO.storePage(id);
+	public String selectFileName(long st_key)throws Exception{
+		return storeListDAO.selectFileName(st_key);
 	}
 	
-	public long storeListUpdate(StoreListVO storeListVO) throws Exception{
-		return storeListDAO.storeListUpdate(storeListVO);
-	}
-	
-	public long storeMenuUpdate(StoreMenuVO storeMenuVO) throws Exception{
-		return storeListDAO.storeMenuUpdate(storeMenuVO);
-	}
-	
-	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
-		return storeListDAO.storeMenuInsert(storeMenuVO);
-	}
-	
-	public long storeMenuDelete(StoreMenuVO storeMenuVO) throws Exception{
-		return storeListDAO.storeMenuDelete(storeMenuVO);
-	}
 }

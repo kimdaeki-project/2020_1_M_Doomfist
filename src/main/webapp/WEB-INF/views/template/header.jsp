@@ -61,7 +61,6 @@
 					</c:if>
 					
 					<li>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  </li>
-
 					<!-- 영호 추가 -->
 					<!--<li><a><input type=button value="나의 신청 현황" onclick="javascript:openWin();"></a></li>
 					 영호 추가 -->
@@ -113,7 +112,6 @@
 							<ul class="dropdown-menu">
 							<li><a href="${pageContext.request.contextPath}/member/memberPage">개인정보 수정</a> </li>
 							</ul>-->
-							
 					<!-- admin 일떄 -->
 					<c:if test="${member.id eq 'admin'}">
 					<li>
@@ -145,14 +143,14 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
+					    <li><a href="#">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
-					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
+					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
 					    </c:if>
-					    <li><a href="${pageContext.request.contextPath}/storeList/storePage">나의 식당 </a></li>
+					    <li><a href="#">나의 식당 </a></li>
 					  </ul>
-					</div>	
+					</div>	 
 					</li>	
 							
 				</c:if>					
@@ -190,7 +188,26 @@
 			</div>
 		</div>
 	</nav>
-	
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ 	
 	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
@@ -199,11 +216,8 @@
 		alert("로그인 후 이용해주세요")
 	})
 	
-	function openWin(){  
-	    window.open("http://localhost:8080/s1/qnacheck/Statuscheck?id=${sessionScope.member.id}", "새창","width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes" );  
-	}  		
-	
 
+	
 	</script>
 	<!-- 영호 추가 -->
 	</div>

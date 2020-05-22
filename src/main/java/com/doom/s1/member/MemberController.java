@@ -1,9 +1,7 @@
 package com.doom.s1.member;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Enumeration;
-import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.Cookie;
@@ -28,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.doom.s1.member.NaverLoginBO;
-import com.doom.s1.util.Pager;
 import com.github.scribejava.core.model.OAuth2AccessToken;
 import com.github.scribejava.core.model.Response;
 
@@ -239,42 +236,11 @@ public class MemberController {
 	return "redirect:../";
 	}
 	
-	@GetMapping("/member/memberList")
-	public ModelAndView memberList(Pager pager)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		List<MemberVO> memberVOs = memberService.memberList(pager);
-		
-		mv.addObject("list", memberVOs);
-		mv.addObject("pager", pager);
-		mv.setViewName("member/memberList");		
-		
-		return mv;
-	}
-	
-	@GetMapping("/member/memberDeletes")
-	public ModelAndView memberDeletes(String[] ids)throws Exception{
-		//배열을 List로 변환
-		ModelAndView mv = new ModelAndView();
-		List<String> list = Arrays.asList(ids);
-		int result = memberService.memberDeletes(list);
 
-		mv.addObject("result", result);
-		mv.setViewName("common/ajaxResult");
-		
-		return mv;
-	}
-//	
-//	@GetMapping("/member/memberLists")
-//	public ModelAndView memberLists(Pager pager)throws Exception{
-//		ModelAndView mv = new ModelAndView();
-//		List<MemberVO> ar = memberService.memberList(pager);
-//		
-//		mv.addObject("member", ar);
-//		mv.addObject("pager", pager);
-//		mv.setViewName("member/memberLists");		
-//		
-//		return mv;
-//		
-//	}
+
+	
+	
+
+	
 
 }
