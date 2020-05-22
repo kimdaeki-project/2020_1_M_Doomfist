@@ -106,8 +106,7 @@
 	</select>
 	
 	<insert id="storeMenuInsert" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">
-		insert into storemenu values(#{sm_menu}, #{sm_price}, smkey_seq.nextval, #{st_key});
-	
+		insert into storemenu values(#{sm_menu}, #{sm_price}, smkey_seq.nextval, #{st_key})
 	</insert>
 	
 	<delete id="storeMenuDelete" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">

@@ -60,7 +60,6 @@ public class StoreListDAO {
 	
 	//StoreListSelectInterceptor에서 사용 
 	public List<StoreListVO> select_stKey(long st_key)throws Exception{
-		
 		return sqlSession.selectList(NAMESPACE+"select_stKey",st_key);
 	}
 	public List<StoreListVO> select_id(long st_key)throws Exception{
@@ -77,7 +76,7 @@ public class StoreListDAO {
 		return sqlSession.update(NAMESPACE+"storeMenuUpdate", storeMenuVO);
 	}
 	
-	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
+	public long storeMenuInsert(List<StoreMenuVO> storeMenuVO) throws Exception{
 		return sqlSession.update(NAMESPACE+"storeMenuInsert", storeMenuVO);
 	}
 	
@@ -86,14 +85,5 @@ public class StoreListDAO {
 
 	}
 	//StoreListSelectInterceptor에서 사용 
-	public List<StoreListVO> select_stKey(long st_key)throws Exception{
-		
-		return sqlSession.selectList(NAMESPACE+"select_stKey",st_key);
-	}
-	public List<StoreListVO> select_id(long st_key)throws Exception{
-		return sqlSession.selectList(NAMESPACE+"select_id",st_key);
-	}
-	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
-		return sqlSession.selectList(NAMESPACE+"selectReview_id",re_num);
-	}
+	
 }

@@ -233,10 +233,26 @@ public class StoreListController {
 	public ModelAndView storePageUpdate(StoreListVO storeListVO, StoreMenuVO storeMenuVO) throws Exception{
 		ModelAndView mv =  new ModelAndView();
 		long listup= storeListService.storeListUpdate(storeListVO);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (listup>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuDelete", method = RequestMethod.POST)
+	public ModelAndView storeMenuDelete(StoreMenuVO storeMenuVO) throws Exception{
+		ModelAndView mv =  new ModelAndView();
 		long menudel = storeListService.storeMenuDelete(storeMenuVO);
 		System.out.println(menudel);
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
-		if (listup>0) {
+		if (menudel>0) {
 			mv.addObject("result", "수정 성공");
 			mv.addObject("path", "./storePage");
 			mv.setViewName("common/result");
@@ -293,10 +309,14 @@ public class StoreListController {
 	}
 	
 	@RequestMapping(value = "storeMenuInsert", method = RequestMethod.POST)
-	public ModelAndView storeMenuInsert(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+	public ModelAndView storeMenuInsert(List<StoreMenuVO> storeMenuVO, long st_key) throws Exception{
 		ModelAndView mv =  new ModelAndView();
 		
 		long menuin = storeListService.storeMenuInsert(storeMenuVO);
+		
+		for (int i = 0; i < array.length; i++) {
+			
+		}
 
 		System.out.println(menuin);
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
