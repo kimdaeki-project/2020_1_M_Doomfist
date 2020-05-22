@@ -9,4 +9,8 @@
 		SELECT * FROM sel_check WHRER st_key=#{st_key}
 	</select>
 	
+	<!-- <update id="insertSelAddr" parameterType="com.doom.s1.buyaddr.BuyAddrVO">
+		UPDATE sel_check SET #{buy_address} WHERE 
+	</update> -->
+	
 </mapper>
