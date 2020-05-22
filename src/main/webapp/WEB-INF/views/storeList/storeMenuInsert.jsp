@@ -26,7 +26,7 @@
 			<!-- 메뉴 추가 -->
 			<div align="center">
 				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px">
-				<!--<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기"> -->
+			<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기">
 
 				&nbsp; &nbsp;
 			</div> 
@@ -38,7 +38,6 @@
 			<input type="hidden" id="sm_key" name="sm_key" value="${vo.sm_key}">
 				<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> 
 				<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" placeholder="가격을 입력해주세요">
-				<button type="submit" class="btn btn-default">삭제</button>
 			</div>
 			</c:forEach>
 			
