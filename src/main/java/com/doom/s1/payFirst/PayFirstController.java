@@ -60,7 +60,7 @@ public class PayFirstController {
 			
 			mv.addObject("vo_pf", payFirstVOs);
 			mv.addObject("vo_ps", paySecondVOs);
-			//
+			
 			mv.setViewName("payment/payReceipt");
 			
 			return mv;
