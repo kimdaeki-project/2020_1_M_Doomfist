@@ -112,7 +112,6 @@
 							<ul class="dropdown-menu">
 							<li><a href="${pageContext.request.contextPath}/member/memberPage">개인정보 수정</a> </li>
 							</ul>-->
-							
 					<!-- admin 일떄 -->
 					<c:if test="${member.id eq 'admin'}">
 					<li>
@@ -144,12 +143,12 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
+					    <li><a href="#">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
 					    </c:if>
-					    <li><a href="${pageContext.request.contextPath}/storeList/storePage">나의 식당 </a></li>
+					    <li><a href="#">나의 식당 </a></li>
 					  </ul>
 					</div>	 
 					</li>	

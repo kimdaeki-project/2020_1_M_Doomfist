@@ -1,12 +1,8 @@
 package com.doom.s1.payFirst;
 
-import java.util.List;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
-import com.doom.s1.paySecond.PaySecondVO;
 
 @Repository
 public class PayFirstDAO {
@@ -24,17 +20,9 @@ public class PayFirstDAO {
 		
 	}
 	
-	public List<PaySecondVO> payReceipt(String id)throws Exception{
-		return session.selectList(NAMESPACE+"payReceipt", id);
-	}
 	
-	public List<PayFirstVO> payAll(String id) throws Exception {
-		return session.selectList(NAMESPACE+"payAll",id);
-	}
-	
-	//결제에서 뒤로가기 누르면 기존 메뉴 삭제
-	public int back() throws Exception{
-		return session.delete(NAMESPACE+"back");
+	public long payFirstDelete(long pf_check)throws Exception{
+		return session.delete(NAMESPACE+"payFirstDelete", pf_check);
 		
 	}
 
