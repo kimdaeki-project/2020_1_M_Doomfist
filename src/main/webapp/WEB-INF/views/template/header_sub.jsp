@@ -100,7 +100,7 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="#">결제내역</a></li>
+					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
 					    <li class="divider"></li>
 					    <li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
 					    <li><a href="#">나의 식당 </a></li>					 
