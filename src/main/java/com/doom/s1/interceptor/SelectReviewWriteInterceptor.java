@@ -26,13 +26,13 @@ public class SelectReviewWriteInterceptor extends HandlerInterceptorAdapter {
 		long st_key = Long.parseLong(request.getParameter("st_key"));
 		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
 
-		List<StoreListVO> ar = storeListService.select_id(st_key);
 		System.out.println(memberVO.getId());
-		System.out.println("id : "+ (String)ar.get(0).getId());
-		
+		StoreListVO ar = storeListService.select_id(st_key);
+//		System.out.println("id : "+ (String)ar.get(0).getId());
+		String stid= ar.getId();
 		
 		if(memberVO != null && !memberVO.getId().equals("admin")) {
-			if (ar.get(0).getId().equals(memberVO.getId())) {
+			if (stid.equals(memberVO.getId())) {
 				check = false;
 				request.setAttribute("result", "식당등록 id는 리뷰를 쓰실수 없습니다.");
 				request.setAttribute("path", "../");

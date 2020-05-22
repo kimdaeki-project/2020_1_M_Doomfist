@@ -89,7 +89,7 @@
 		SELECT st_key from storelist where st_key=#{st_key}
 	</select>
 	
-	<select id="select_id" parameterType="Long" resultType="String">
+	<select id="select_id" parameterType="Long" resultType="com.doom.s1.storeList.StoreListVO">
 		select id from storelist where st_key = #{st_key}
 	</select>
 	<select id="selectReview_id" parameterType="Long" resultType="com.doom.s1.storeList.StoreListVO">

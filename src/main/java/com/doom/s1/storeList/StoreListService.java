@@ -76,7 +76,6 @@ public class StoreListService {
 		storeListVO.setRe_num(storeListDAO.reviewNum());
 		//storereview테이블 insert
 		long result = storeListDAO.storeReviewWrite(storeListVO);
-		
 		for (MultipartFile file : files) {
 			if(file.getSize()>0) {
 				ReviewFileVO reviewFileVO = new ReviewFileVO();
@@ -93,7 +92,6 @@ public class StoreListService {
 	
 
 	public StoreListVO storeListSelect(long st_key)throws Exception{
-		
 		return storeListDAO.storeListSelect(st_key);
 	}
 	
@@ -109,7 +107,7 @@ public class StoreListService {
 	public List<StoreListVO> select_stKey(long st_key)throws Exception{
 		return storeListDAO.select_stKey(st_key);
 	}
-	public List<StoreListVO> select_id(long st_key)throws Exception{
+	public StoreListVO select_id(long st_key)throws Exception{
 		return storeListDAO.select_id(st_key);
 	}
 	public List<StoreListVO> selectReview_id(long re_num)throws Exception{

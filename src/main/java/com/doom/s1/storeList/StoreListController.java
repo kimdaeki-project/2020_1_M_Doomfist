@@ -63,8 +63,8 @@ public class StoreListController {
 		int index=0;
 		for (StoreListVO storeListVO : storeListVOs) {
 			long st_key = storeListVO.getSt_key();
-			System.out.println("B : "+st_key);
-			System.out.println(storeListService.selectFileName(st_key));
+//			System.out.println("B : "+st_key);
+//			System.out.println(storeListService.selectFileName(st_key));
 			
 			ar.add(storeListService.selectFileName(st_key));
 			
