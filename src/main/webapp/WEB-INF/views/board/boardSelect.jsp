@@ -23,7 +23,7 @@
 			<div class="panel-heading">TITLE</div>
 			<div class="panel-body">${vo.title}</div>
 			<div class="panel-heading">Contents</div>
-			<div class="panel-body" style="height: 500px;">${vo.contents}</div>
+			<div class="panel-body" style="width:100%;overflow:hidden;word-wrap:break-word;">${vo.contents}</div>
 		</div>
 		<div class="panel panel-warning">
 			<div class="panel-heading">${vo.regDate}</div>

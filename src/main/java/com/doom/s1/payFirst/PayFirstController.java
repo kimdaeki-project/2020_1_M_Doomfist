@@ -52,8 +52,9 @@ public class PayFirstController {
 		public ModelAndView receiptPage(String id) throws Exception{
 			ModelAndView mv = new ModelAndView();
 			//first의 check 0인 데이터 삭제해서 안보여주기
-
-			int result = paySecondService.payFirstDelete(0);			
+			int result = paySecondService.payFirstDelete(0);
+			//second 의 count 0인 데이터 삭제
+			result = paySecondService.paySecondDelete(0);
 			
 			List<PayFirstVO> payFirstVOs = payFirstService.payAll(id);
 			List<PaySecondVO> paySecondVOs =  payFirstService.payReceipt(id);
