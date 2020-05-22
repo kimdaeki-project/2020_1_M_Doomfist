@@ -188,11 +188,12 @@
 			</div>
 		</div>
 	</nav>
-	  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
+	
+	<div class="modal fade" id="myModal" role="dialog">
+   		<div class="modal-dialog modal-sm">
       
-  </div>
-</div>
+  		</div>
+	</div>
 	
   
 	<!-- 추가 -->
