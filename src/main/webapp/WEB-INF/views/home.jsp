@@ -15,6 +15,7 @@
 	<c:import url="./template/boot.jsp"></c:import>
 	<c:import url="./template/style.jsp"></c:import>
 	</head>
+	
 	<body>
 		<c:import url="./template/header.jsp"></c:import>
 	
@@ -98,9 +99,13 @@
 		</div>
 		<br>
 		<br>
+		<div id="loading"><img id="loading-image" src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" alt="Loading..." /></div>
+
 		<c:import url="./template/footer.jsp"></c:import>
 	
 		<script type="text/javascript">
+	
+	
 			var imgs = ['${pageContext.request.contextPath}/resources/images/category0.jpg',
 						'${pageContext.request.contextPath}/resources/images/category1.jpg',
 						'${pageContext.request.contextPath}/resources/images/category2.jpg',
@@ -159,8 +164,10 @@
 			$("#category5").click(function() {
 				location.href="storeList/searchStore?kind=lk&search="+btn[5].value;
 			});
-		
-	
+			$(document).ready(function() {
+			     $("#loading").hide(); 
+			   });
+
 		</script>
 
 	</body>
