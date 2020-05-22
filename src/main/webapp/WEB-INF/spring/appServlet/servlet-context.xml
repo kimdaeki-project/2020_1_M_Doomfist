@@ -75,6 +75,10 @@
 			<beans:ref bean="storeListDeleteReviewInterceptor"/>
 		</interceptor>
 		
+		<interceptor>
+			<mapping path="/member/memberList"/>
+			<beans:ref bean="memberListInterceptor"/>
+		</interceptor>
 	</interceptors> 
 	
 	<context:component-scan base-package="com.doom.s1" />
