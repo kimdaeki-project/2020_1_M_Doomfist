@@ -5,8 +5,8 @@
 <div class="footerArea" style="background-color: #e6f5ff;">
 		<div class="footer">
 			<div class="footer_nav" style="padding-top: 10px;">
-				<img alt="" src="${pageContext.request.contextPath}/resources/images/logo.png" width="70px",height="50px">
-			</div>
+				<img alt="" src="${pageContext.request.contextPath}/resources/images/doom_1.png" width="100px",height="70px">
+			</div> 
 			<div class="footer_nav" style="width: 630px;">
 				<div class="footer_nav_sub" style="font-size: small; padding-top: 20px;">
 					<ul>

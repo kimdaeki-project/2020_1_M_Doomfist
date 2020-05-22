@@ -2,12 +2,11 @@
 		pageEncoding="UTF-8"%>
 	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 	
-	
 	<!DOCTYPE html>
 	<html lang="en">
 	
 	<head>
-	<title>Bootstrap Example</title>
+	<title>Doom Food Main</title>
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -99,7 +98,7 @@
 		</div>
 		<br>
 		<br>
-		<div id="loading"><img id="loading-image" src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" alt="Loading..." /></div>
+		
 
 		<c:import url="./template/footer.jsp"></c:import>
 	
@@ -164,9 +163,7 @@
 			$("#category5").click(function() {
 				location.href="storeList/searchStore?kind=lk&search="+btn[5].value;
 			});
-			$(document).ready(function() {
-			     $("#loading").hide(); 
-			   });
+		
 
 		</script>
 

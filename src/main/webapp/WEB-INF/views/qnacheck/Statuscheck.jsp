@@ -14,11 +14,11 @@
 
 <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">신청 현황 </h4>
+          <h4 class="modal-title">맛집 신청 현황 </h4>
 </div>
 
 
-<h1>${member.id}님의 신청 현황</h1>
+<h1>${member.id}님의 맛집 신청 현황</h1>
 
 <div class="modal-body">
          <table class="table table-bordered" border="1">
