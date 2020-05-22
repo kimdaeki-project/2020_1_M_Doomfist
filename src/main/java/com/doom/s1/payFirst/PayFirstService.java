@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.doom.s1.paySecond.PaySecondVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuDAO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 
@@ -33,8 +34,20 @@ public class PayFirstService {
 		return storeMenuDAO.storeMenuList(st_key);
 	}
 	
-	public long payFirstDelete(long pf_check)throws Exception{
-		return payFirstDAO.payFirstDelete(pf_check);
+	public List<PaySecondVO> payReceipt(String id) throws Exception {
+		return payFirstDAO.payReceipt(id);
 		
 	}
+	
+	public List<PayFirstVO> payAll(String id) throws Exception {
+		return payFirstDAO.payAll(id);
+	}
+	
+	// 뒤로가기
+	public int back() throws Exception {
+		return payFirstDAO.back();
+		
+	}
+	
+
 }

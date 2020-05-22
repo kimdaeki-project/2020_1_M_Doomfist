@@ -1,12 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>    
     <%
     String name = "name";//EL태그로 사용 받아와
     String email = "email";
-    String phone ="phone";
-    String address = "address";
-    int totalPrice = 100;    
+    String phone ="phone"; 
+    String address = "test";
+    //long totalPrice = 500000;
     
 	%>
 <!DOCTYPE html>
@@ -18,6 +18,8 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
+<button id="btnn"> 클릭</button>
+
 		   <script>
     $(function(){
         var IMP = window.IMP; // 생략가능
@@ -29,7 +31,7 @@
             pay_method : 'card',
             merchant_uid : 'merchant_' + new Date().getTime(),
             name : 'DOOM FOOD',
-            amount : <%=totalPrice%>,
+            amount : ${total},
             buyer_email : '<%=email%>',
             buyer_name : '<%=name%>',
             buyer_tel : '<%=phone%>',
@@ -74,6 +76,8 @@
         });
         
     });
+    
+
     </script>
  
 </body>

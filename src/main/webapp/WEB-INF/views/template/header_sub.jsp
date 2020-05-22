@@ -5,10 +5,6 @@
 
 <body>
 
-	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_3.jpg')">
-		<div class="container text-center">
-		</div>
-	</div>	
 	<div style="width: 1910px; align="center">
 	<nav class="navbar">
 		<div class="container-fluid">
@@ -104,7 +100,7 @@
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
 					    <li class="divider"></li>
-					    <li><a href="#">결제내역</a></li>
+					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
 					    <li class="divider"></li>
 					    <li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
 					    <li><a href="#">나의 식당 </a></li>					 
