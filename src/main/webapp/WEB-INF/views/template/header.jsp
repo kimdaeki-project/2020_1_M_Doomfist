@@ -39,16 +39,7 @@
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
 					</li>
 					
-					<c:if test="${sessionScope.member.id eq 'admin' and empty sessionId}">
-					<li>
-					<div style="margin-top: 7.5px;" class="dropdown">
-						<a href="${pageContext.request.contextPath}/storeList/storeListCheck">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>맛집리스트</b></button>
-					  </a>
-					  </div>
-					<!--<a href="${pageContext.request.contextPath}/storeList/storeListSelect">맛집리스트</a>-->
-					</li>
-					</c:if>
+					
 					
 					<c:if test="${not empty member}">
 					<li>
@@ -60,7 +51,7 @@
 					  </li>
 					</c:if>
 					  
-					<c:if test="${empty member}">
+					<c:if test="${empty member}"> 
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 					  <button class="btn notjoin" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
@@ -80,6 +71,7 @@
 							<option value="ln">식당이름 검색</option>
 							<option value="lk">카테고리 검색</option>
 							<option value="li">주소 검색</option>
+							<option value="lt">태그 검색</option>
 						</select>
 						<input type="text" class="form-control" size="60%"
 								placeholder="맛집을 검색하세요!"
@@ -114,13 +106,35 @@
 					</li>
 				</c:if>
 				
-				<c:if test="${not empty member}">
+			<c:if test="${not empty member}">
 				
 					<!-- <li><a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user dro"></span>
 							회원 정보<b class="caret"></b></a></li>
 							<ul class="dropdown-menu">
 							<li><a href="${pageContext.request.contextPath}/member/memberPage">개인정보 수정</a> </li>
 							</ul>-->
+							
+					<!-- admin 일떄 -->
+					<c:if test="${member.id eq 'admin'}">
+					<li>
+					<div style="margin-top: 8px;" class="dropdown">
+					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown">
+					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>관리자</b>
+					  <span class="caret"></span></button>
+					  <ul class="dropdown-menu">
+					  	<li><a href="#">회원정보 관리</a></li>
+					    <li class="divider"></li>
+					    <li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집 리스트 관리</a></li>
+					    <li class="divider"></li>
+					    
+					  </ul>
+					</div>	
+					</li>	
+							
+				</c:if> 
+							
+					<!-- 맴버일떄 -->		
+					<c:if test="${member.id ne 'admin'}">
 					<li>
 					<div style="margin-top: 8px;" class="dropdown">
 					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown">
@@ -136,11 +150,12 @@
 					   	  <li class="divider"></li>
 					    	<li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
 					    </c:if>
-					    <li><a href="#">나의 식당 </a></li>
+					    <li><a href="${pageContext.request.contextPath}/storeList/storePage">나의 식당 </a></li>
 					  </ul>
 					</div>	
 					</li>	
-												
+							
+				</c:if>					
 					<li>
 					<div style="margin-top: 8px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/member/memberLogout">

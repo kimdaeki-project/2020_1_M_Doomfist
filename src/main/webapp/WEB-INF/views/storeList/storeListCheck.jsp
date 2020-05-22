@@ -64,9 +64,10 @@
 			<form class="form-inline" action="./storeListCheck">
 				<div class="input-group input-group-sm col-xs-2">
 					<select class="form-control" id="sel1" name="kind">
-						<option value="ln">식당이름</option>
-						<option value="lk">식당고유번호</option>
-						<option value="li">아이디</option>
+						<option value="ln">식당이름검색</option>
+						<option value="lk">카테고리검색</option>
+						<option value="li">식당주소검색</option>
+						<option value="lt">식당태그검색</option>
 					</select>
 				</div>
 				<div class="input-group input-group-sm col-xs-4">

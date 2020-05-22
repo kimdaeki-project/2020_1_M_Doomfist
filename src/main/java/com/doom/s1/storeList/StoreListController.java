@@ -4,21 +4,27 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.w3c.dom.ls.LSInput;
 
+import com.doom.s1.member.MemberVO;
+import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
-import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.Pager;
 
 @Controller
@@ -30,24 +36,25 @@ public class StoreListController {
 
 	@GetMapping("searchStore")
 	public ModelAndView searchStore(Pager pager) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		
-		storeListService.listCheck(pager);
-//		  
-//		  mv.addObject("listt", storeListVOs); 
-//		  mv.addObject("pager",pager);
-		  mv.setViewName("storeList/searchStore"); 
-		  long a = pager.getLastNum();
-		  System.out.println(a);
-		  mv.addObject("last", a); 
-//		  System.out.println("user : "+storeListVOs.size());
-		 
+		ModelAndView mv = new ModelAndView();		
+		//더보기 관련
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
+		mv.addObject("listt", storeListVOs.size());
+			
+		mv.setViewName("storeList/searchStore"); 
+		long a = pager.getLastNum();	
+			
+		mv.addObject("last", a); 
+
 		return mv;
+		
 	}
 
 	@GetMapping("getList")
 	public void getList(Pager pager, Model model) throws Exception {
-		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+		List<StoreListVO> storeListVOs = new ArrayList<StoreListVO>();
+		storeListVOs = storeListService.listCheck(pager);
+			
 		model.addAttribute("list", storeListVOs);
 	}
 
@@ -57,7 +64,7 @@ public class StoreListController {
 		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);
-		mv.setViewName("storeList/storeSearch");
+		mv.setViewName("storeList/storeListChecks");
 
 		return mv;
 	}
@@ -74,6 +81,7 @@ public class StoreListController {
 
 		return mv;
 	}
+	
 
 	@RequestMapping(value = "storeListCheck")
 	public ModelAndView storeListCheck(Pager pager, ModelAndView mv) throws Exception {
@@ -81,9 +89,35 @@ public class StoreListController {
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);
 		mv.setViewName("storeList/storeListCheck");
-		System.out.println("admin : " + storeListVOs.size());
+
 		return mv;
 	}
+	
+//	@RequestMapping(value = "storePage")
+//	public ModelAndView storePage(Pager pager, ModelAndView mv) throws Exception {
+//		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+//		mv.addObject("vo", storeListVOs);
+//		mv.addObject("pager", pager);
+//		mv.setViewName("storeList/storePage");
+//		return mv;
+//	}
+	
+	@GetMapping("storePage")
+	public ModelAndView storePage(HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		String id = ((MemberVO)session.getAttribute("member")).getId();
+		System.out.println(id+"dddd");
+		List<StoreListVO> ar = storeListService.storePage(id);
+		List<String> result = new ArrayList<String>();
+		
+		mv.addObject("liststore",ar);
+		mv.addObject("result",result);
+		mv.setViewName("storeList/storePage");
+		
+		return mv;
+	}
+	
+
 
 	@RequestMapping(value = "storeListSelect", method = RequestMethod.GET)
 	public ModelAndView storeListSelect(long st_key) throws Exception {
@@ -118,8 +152,7 @@ public class StoreListController {
 		avg = Math.round(avg * 10);
 		avg = avg / 10.0;
 
-		// 태그 출력
-		List<StoreTagVO> storeTagVOs = storeListService.storeTagSelect(st_key);
+		
 
 		mv.addObject("vo", storeListVO); // store 소개
 		mv.addObject("vo_sm", storeMenuVOs);// 메뉴 소개
@@ -127,7 +160,6 @@ public class StoreListController {
 		mv.addObject("vof1", sList); // 리뷰 글 안 사진들 출력
 		mv.addObject("stfile", storeFileVOs);// store 사진 출력
 		mv.addObject("avg", avg); // 평점 평균출력
-		mv.addObject("vo_tag", storeTagVOs);// 태그 출력
 		mv.setViewName("storeList/storeListSelect");
 		return mv;
 	}
@@ -183,5 +215,103 @@ public class StoreListController {
 
 		return mv;
 	}
+
+	
+	@RequestMapping(value = "storePageUpdate")
+	public ModelAndView storePageUpdate(long st_key)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
+		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
+		mv.addObject("liststore", storeListVO);
+		mv.addObject("listmenu", storeMenuVO);
+		int a =storeMenuVO.size();
+		mv.addObject("a", a);
+		return mv;
+	}
+	
+	@RequestMapping(value = "storePageUpdate", method = RequestMethod.POST)
+	public ModelAndView storePageUpdate(StoreListVO storeListVO, StoreMenuVO storeMenuVO) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		long listup= storeListService.storeListUpdate(storeListVO);
+		long menudel = storeListService.storeMenuDelete(storeMenuVO);
+		System.out.println(menudel);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (listup>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuUpdate")
+	public ModelAndView storeMenuUpdate(long st_key)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
+		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
+		mv.addObject("liststore", storeListVO);
+		mv.addObject("listmenu", storeMenuVO);
+		int a =storeMenuVO.size();
+		mv.addObject("a", a);
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuUpdate", method = RequestMethod.POST)
+	public ModelAndView storeMenuUpdate(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		
+		long menuup = storeListService.storeMenuUpdate(storeMenuVO);
+
+		System.out.println(menuup);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (menuup>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuUpdate?st_key=" + st_key);
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			//mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuInsert")
+	public ModelAndView storeMenuInsert(long st_key)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
+		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
+		mv.addObject("liststore", storeListVO);
+		mv.addObject("listmenu", storeMenuVO);
+		int a =storeMenuVO.size();
+		mv.addObject("a", a);
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuInsert", method = RequestMethod.POST)
+	public ModelAndView storeMenuInsert(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		
+		long menuin = storeListService.storeMenuInsert(storeMenuVO);
+
+		System.out.println(menuin);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (menuin>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuInsert?st_key=" + st_key);
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			//mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	
 
 }

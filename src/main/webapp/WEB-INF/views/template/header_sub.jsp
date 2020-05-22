@@ -5,10 +5,6 @@
 
 <body>
 
-	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_3.jpg')">
-		<div class="container text-center">
-		</div>
-	</div>	
 	<div style="width: 1910px; align="center">
 	<nav class="navbar">
 		<div class="container-fluid">

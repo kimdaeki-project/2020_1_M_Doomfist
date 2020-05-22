@@ -8,14 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.storeList.file.StoreFileDAO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuDAO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
-import com.doom.s1.storeList.tag.StoreTagDAO;
-import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.FileSaver;
 import com.doom.s1.util.Pager;
 
@@ -34,8 +33,6 @@ public class StoreListService {
 	private ReviewFileDAO reviewFileDAO;
 	@Autowired
 	private StoreFileDAO storeFileDAO;
-	@Autowired
-	private StoreTagDAO storeTagDAO;
 	
 	
 	public int storeDelete(List<String> list) throws Exception{
@@ -46,12 +43,16 @@ public class StoreListService {
 		pager.setPerpage(9);
 		pager.makeRow();
 		long totalCount = storeListDAO.listCount(pager);
+
 		pager.makePage(totalCount);
-		System.out.println("startRow :"+pager.getStartRow());
-		System.out.println("lastRow :" +pager.getLastRow());
-		System.out.println("startNum :"+pager.getStartNum());
-		System.out.println("lastNum :" +pager.getLastNum());
-		return storeListDAO.listCheck(pager);		
+//		System.out.println("startRow :"+pager.getStartRow());
+//		System.out.println("lastRow :" +pager.getLastRow());
+//		System.out.println("startNum :"+pager.getStartNum());
+//		System.out.println("lastNum :" +pager.getLastNum());
+		
+		List<StoreListVO>storeListVOs =storeListDAO.listCheck(pager);	
+		
+		return storeListVOs;
 	}
 	
 	public List<StoreFileVO> storeFileSelect(long st_key)throws Exception{
@@ -68,7 +69,7 @@ public class StoreListService {
 		
 	public long storeReviewWrite(StoreListVO storeListVO, MultipartFile[] files)throws Exception{
 		
-		String path = servletContext.getRealPath("/resources/uploadNotice");
+		String path = servletContext.getRealPath("/resources/review_images");
 		System.out.println(path);
 		
 		//sequence 번호받기
@@ -92,6 +93,7 @@ public class StoreListService {
 	
 
 	public StoreListVO storeListSelect(long st_key)throws Exception{
+		
 		return storeListDAO.storeListSelect(st_key);
 	}
 	
@@ -103,8 +105,35 @@ public class StoreListService {
 		return reviewFileDAO.fileSelect(re_num);
 	}
 	
-	public List<StoreTagVO> storeTagSelect(long st_key)throws Exception{
-		return storeTagDAO.storeTagSelect(st_key);
+	//StoreListSelectInterceptor에서 사용 
+	public List<StoreListVO> select_stKey(long st_key)throws Exception{
+		return storeListDAO.select_stKey(st_key);
+	}
+	public List<StoreListVO> select_id(long st_key)throws Exception{
+		return storeListDAO.select_id(st_key);
+	}
+	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
+		return storeListDAO.selectReview_id(re_num);
 	}
 	
+	
+	public List<StoreListVO> storePage(String id)throws Exception{
+		return storeListDAO.storePage(id);
+	}
+	
+	public long storeListUpdate(StoreListVO storeListVO) throws Exception{
+		return storeListDAO.storeListUpdate(storeListVO);
+	}
+	
+	public long storeMenuUpdate(StoreMenuVO storeMenuVO) throws Exception{
+		return storeListDAO.storeMenuUpdate(storeMenuVO);
+	}
+	
+	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
+		return storeListDAO.storeMenuInsert(storeMenuVO);
+	}
+	
+	public long storeMenuDelete(StoreMenuVO storeMenuVO) throws Exception{
+		return storeListDAO.storeMenuDelete(storeMenuVO);
+	}
 }

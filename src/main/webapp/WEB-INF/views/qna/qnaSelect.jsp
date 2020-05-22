@@ -49,6 +49,15 @@
    	 </div>
    	 
    	 <div class="panel panel-primary">
+      <div class="panel-heading">태그</div>
+      
+      <div class="panel-body" style="font-size: large;">
+   			${vo.qna_tag}
+      </div>
+   	 
+   	 </div>
+   	 
+   	 <div class="panel panel-primary">
       <div class="panel-heading">사진</div>
       
    	 <c:forEach items="${vo_fi}" var="vo_fi">
