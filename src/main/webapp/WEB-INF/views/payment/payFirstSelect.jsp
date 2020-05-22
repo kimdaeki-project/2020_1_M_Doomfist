@@ -13,8 +13,6 @@
 
 	<c:import url="../template/header.jsp"></c:import>
 	<!-- 결제 준비 페이지  -->
-	<h1>결제 중간단계</h1>
-
 	<div class="panel panel-default">
 		<div class="panel-body">
 			<ul class="list" style="list-style-type: none;">
@@ -29,7 +27,7 @@
 
 	<div class="panel panel-warning">
 		<div class="panel-heading" align="center">
-		<form action="./paySecondInsert" method="post">
+		<form action="./paySecondInsert" method="post" id="frm">
 		<input type="hidden" value="${vo.pf_key}" name="pf_key">
 			<ul class="list" style="list-style-type: none;">
 				<li><h2>메뉴와 가격</h2></li>
@@ -62,12 +60,13 @@
 	총가격 : <input type="text" id="total" value="0" name="totalPrice">
 	<button type="submit" id="btn" class="btn btn-default">보내기</button>
 			</form>
+			<button class="btn btn-danger" id="re">수량 초기화 </button>
 		</div>
 	</div>
-	 <a href="./paySecondSelect"> <img
+	 <%-- <a href="./paySecondSelect"> <img
 		src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png"
 		alt="kpay">
-	</a> 
+	</a>  --%>
 
 
 	<script type="text/javascript">
@@ -141,11 +140,17 @@
 	if ($("#total").val()>0) {
 		alert("결제 페이지로 이동합니다.");
 		$("#frm").submit();
+		
 	} else {
 		alert("구매내역이 없습니다.");
 		 event.preventDefault();//이벤트 막기
 	}
 });
+		
+	$("#re").click(function() {
+		console.log("새로고침");
+		location.reload();
+	});
 
 		
 	  
