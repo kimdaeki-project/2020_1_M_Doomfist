@@ -92,4 +92,26 @@
 		select id from storeReview where re_num = #{re_num}
 	</select>
 	<!-- StoreListSelectInterceptor에서 사용 -->
+	
+	<update id="storeListUpdate" parameterType="com.doom.s1.storeList.StoreListVO">
+  update storeList set st_name=#{st_name}, st_phone=#{st_phone}, st_address=#{st_address}, st_kind=#{st_kind} where st_key=#{st_key}
+  	</update>
+  	
+  	<update id="storeMenuUpdate" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">
+  update storeMenu set sm_menu=#{sm_menu}, sm_price=#{sm_price} where sm_key=#{sm_key}
+  	</update>
+
+  	<select id="storePage" parameterType="String" resultType="com.doom.s1.storeList.StoreListVO">
+		select * from storeList where id=#{id} order by st_key asc
+	</select>
+	
+	<insert id="storeMenuInsert" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">
+		insert into storemenu values(#{sm_menu}, #{sm_price}, smkey_seq.nextval, #{st_key});
+	
+	</insert>
+	
+	<delete id="storeMenuDelete" parameterType="com.doom.s1.storeList.storeMenu.StoreMenuVO">
+		delete storemenu where sm_key=#{sm_key} 
+	</delete>
+	
 </mapper>

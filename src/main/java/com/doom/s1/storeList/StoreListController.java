@@ -10,13 +10,18 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+import org.w3c.dom.ls.LSInput;
 
+import com.doom.s1.member.MemberVO;
+import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
@@ -87,6 +92,32 @@ public class StoreListController {
 
 		return mv;
 	}
+	
+//	@RequestMapping(value = "storePage")
+//	public ModelAndView storePage(Pager pager, ModelAndView mv) throws Exception {
+//		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+//		mv.addObject("vo", storeListVOs);
+//		mv.addObject("pager", pager);
+//		mv.setViewName("storeList/storePage");
+//		return mv;
+//	}
+	
+	@GetMapping("storePage")
+	public ModelAndView storePage(HttpSession session)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		String id = ((MemberVO)session.getAttribute("member")).getId();
+		System.out.println(id+"dddd");
+		List<StoreListVO> ar = storeListService.storePage(id);
+		List<String> result = new ArrayList<String>();
+		
+		mv.addObject("liststore",ar);
+		mv.addObject("result",result);
+		mv.setViewName("storeList/storePage");
+		
+		return mv;
+	}
+	
+
 
 	@RequestMapping(value = "storeListSelect", method = RequestMethod.GET)
 	public ModelAndView storeListSelect(long st_key) throws Exception {
@@ -184,5 +215,103 @@ public class StoreListController {
 
 		return mv;
 	}
+
+	
+	@RequestMapping(value = "storePageUpdate")
+	public ModelAndView storePageUpdate(long st_key)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
+		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
+		mv.addObject("liststore", storeListVO);
+		mv.addObject("listmenu", storeMenuVO);
+		int a =storeMenuVO.size();
+		mv.addObject("a", a);
+		return mv;
+	}
+	
+	@RequestMapping(value = "storePageUpdate", method = RequestMethod.POST)
+	public ModelAndView storePageUpdate(StoreListVO storeListVO, StoreMenuVO storeMenuVO) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		long listup= storeListService.storeListUpdate(storeListVO);
+		long menudel = storeListService.storeMenuDelete(storeMenuVO);
+		System.out.println(menudel);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (listup>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuUpdate")
+	public ModelAndView storeMenuUpdate(long st_key)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
+		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
+		mv.addObject("liststore", storeListVO);
+		mv.addObject("listmenu", storeMenuVO);
+		int a =storeMenuVO.size();
+		mv.addObject("a", a);
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuUpdate", method = RequestMethod.POST)
+	public ModelAndView storeMenuUpdate(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		
+		long menuup = storeListService.storeMenuUpdate(storeMenuVO);
+
+		System.out.println(menuup);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (menuup>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuUpdate?st_key=" + st_key);
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			//mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuInsert")
+	public ModelAndView storeMenuInsert(long st_key)throws Exception {
+		ModelAndView mv = new ModelAndView();
+		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
+		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
+		mv.addObject("liststore", storeListVO);
+		mv.addObject("listmenu", storeMenuVO);
+		int a =storeMenuVO.size();
+		mv.addObject("a", a);
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuInsert", method = RequestMethod.POST)
+	public ModelAndView storeMenuInsert(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		
+		long menuin = storeListService.storeMenuInsert(storeMenuVO);
+
+		System.out.println(menuin);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (menuin>0) {
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuInsert?st_key=" + st_key);
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
+			//mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	
 
 }
