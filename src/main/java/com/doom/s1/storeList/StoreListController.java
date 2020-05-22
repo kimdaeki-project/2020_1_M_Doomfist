@@ -7,7 +7,6 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-import org.omg.CORBA.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.w3c.dom.ls.LSInput;
@@ -27,7 +25,6 @@ import com.doom.s1.qnacheck.QnaCheckVO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
-import com.doom.s1.storeList.tag.StoreTagVO;
 import com.doom.s1.util.Pager;
 
 @Controller
@@ -39,24 +36,25 @@ public class StoreListController {
 
 	@GetMapping("searchStore")
 	public ModelAndView searchStore(Pager pager) throws Exception {
-		ModelAndView mv = new ModelAndView();
-		
-		storeListService.listCheck(pager);
-//		  
-//		  mv.addObject("listt", storeListVOs); 
-//		  mv.addObject("pager",pager);
-		  mv.setViewName("storeList/searchStore"); 
-		  long a = pager.getLastNum();
-		  System.out.println(a);
-		  mv.addObject("last", a); 
-//		  System.out.println("user : "+storeListVOs.size());
-		 
+		ModelAndView mv = new ModelAndView();		
+		//더보기 관련
+		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);  
+		mv.addObject("listt", storeListVOs.size());
+			
+		mv.setViewName("storeList/searchStore"); 
+		long a = pager.getLastNum();	
+			
+		mv.addObject("last", a); 
+
 		return mv;
+		
 	}
 
 	@GetMapping("getList")
 	public void getList(Pager pager, Model model) throws Exception {
-		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
+		List<StoreListVO> storeListVOs = new ArrayList<StoreListVO>();
+		storeListVOs = storeListService.listCheck(pager);
+			
 		model.addAttribute("list", storeListVOs);
 	}
 
@@ -66,7 +64,7 @@ public class StoreListController {
 		List<StoreListVO> storeListVOs = storeListService.listCheck(pager);
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);
-		mv.setViewName("storeList/storeSearch");
+		mv.setViewName("storeList/storeListChecks");
 
 		return mv;
 	}
@@ -83,6 +81,7 @@ public class StoreListController {
 
 		return mv;
 	}
+	
 
 	@RequestMapping(value = "storeListCheck")
 	public ModelAndView storeListCheck(Pager pager, ModelAndView mv) throws Exception {
@@ -90,7 +89,7 @@ public class StoreListController {
 		mv.addObject("vo", storeListVOs);
 		mv.addObject("pager", pager);
 		mv.setViewName("storeList/storeListCheck");
-		System.out.println("admin : " + storeListVOs.size());
+
 		return mv;
 	}
 	
@@ -153,8 +152,7 @@ public class StoreListController {
 		avg = Math.round(avg * 10);
 		avg = avg / 10.0;
 
-		// 태그 출력
-		List<StoreTagVO> storeTagVOs = storeListService.storeTagSelect(st_key);
+		
 
 		mv.addObject("vo", storeListVO); // store 소개
 		mv.addObject("vo_sm", storeMenuVOs);// 메뉴 소개
@@ -162,7 +160,6 @@ public class StoreListController {
 		mv.addObject("vof1", sList); // 리뷰 글 안 사진들 출력
 		mv.addObject("stfile", storeFileVOs);// store 사진 출력
 		mv.addObject("avg", avg); // 평점 평균출력
-		mv.addObject("vo_tag", storeTagVOs);// 태그 출력
 		mv.setViewName("storeList/storeListSelect");
 		return mv;
 	}
@@ -225,10 +222,8 @@ public class StoreListController {
 		ModelAndView mv = new ModelAndView();
 		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
 		List<StoreMenuVO> storeMenuVO = storeListService.storeMenuSelect(st_key);
-		List<StoreTagVO> storeTagVO = storeListService.storeTagSelect(st_key);
 		mv.addObject("liststore", storeListVO);
 		mv.addObject("listmenu", storeMenuVO);
-		mv.addObject("listtag", storeTagVO);
 		int a =storeMenuVO.size();
 		mv.addObject("a", a);
 		return mv;

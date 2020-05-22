@@ -16,7 +16,8 @@
   		#{qna_storekey},
   		(select qna_contents from qna where qna_storekey=#{qna_storekey}),
   		(select id from qna where qna_storekey=#{qna_storekey}),
-  		(SELECT qna_kind FROM qna WHERE qna_storeKey=#{qna_storeKey})
+  		(SELECT qna_kind FROM qna WHERE qna_storeKey=#{qna_storeKey}),
+  		(SELECT qna_tag FROM qna WHERE qna_storeKey=#{qna_storeKey})
   		)
   	</insert>
   
@@ -40,7 +41,6 @@
 	<select id="selctFile" parameterType="Long" resultType="com.doom.s1.qna.qnaFile.QnaFileVO">
 		select * from qnafile where qna_storekey=#{qna_storekey}
 	</select>
-
 	
 	<select id="selectMenu" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
 		select * from qnamenu where qna_storekey=#{qna_storekey}

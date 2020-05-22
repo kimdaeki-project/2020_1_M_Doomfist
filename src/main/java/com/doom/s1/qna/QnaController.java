@@ -74,6 +74,7 @@ public class QnaController {
 		QnaVO qnaVO = qnaService.qnaSelect(qna_storekey);
 		List<QnaMenuVO> qnaMenuVOs = qnaService.qnaMenuSelect(qna_storekey);	//메뉴 출력
 		List<QnaFileVO> qnaFileVOs = qnaService.qnaFileSelect(qna_storekey);	//사진 출력
+		
 		mv.addObject("vo",qnaVO);
 		mv.addObject("vo_me", qnaMenuVOs);										//메뉴 출력
 		mv.addObject("vo_fi", qnaFileVOs);
@@ -83,5 +84,6 @@ public class QnaController {
 
 		
 	}
+
 
 }

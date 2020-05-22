@@ -11,8 +11,15 @@ public class QnaVO{
 	private Date qna_date;
 	private String qna_phone;
 	private String qna_kind;
+	private String qna_tag;
 	
 	
+	public String getQna_tag() {
+		return qna_tag;
+	}
+	public void setQna_tag(String qna_tag) {
+		this.qna_tag = qna_tag;
+	}
 	public long getQna_storekey() {
 		return qna_storekey;
 	}
