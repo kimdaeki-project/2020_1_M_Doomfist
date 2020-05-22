@@ -129,10 +129,6 @@ public class StoreListService {
 		return storeListDAO.storeMenuUpdate(storeMenuVO);
 	}
 	
-	public long storeTagUpdate(List<StoreTagVO> storeTagVO) throws Exception{
-		return storeListDAO.storeTagUpdate(storeTagVO);
-	}
-	
 	public long storeMenuInsert(StoreMenuVO storeMenuVO) throws Exception{
 		return storeListDAO.storeMenuInsert(storeMenuVO);
 	}
