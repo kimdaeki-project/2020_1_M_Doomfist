@@ -248,15 +248,31 @@ public class StoreListController {
 	}
 	
 	@RequestMapping(value = "storePageUpdate", method = RequestMethod.POST)
-	public ModelAndView storePageUpdate(StoreListVO storeListVO, StoreMenuVO storeMenuVO) throws Exception{
+	public ModelAndView storePageUpdate(StoreListVO storeListVO, StoreMenuVO storeMenuVO, long st_key) throws Exception{
 		ModelAndView mv =  new ModelAndView();
 		long listup= storeListService.storeListUpdate(storeListVO);
-		long menudel = storeListService.storeMenuDelete(storeMenuVO);
-		System.out.println(menudel);
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
 		if (listup>0) {
 			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "http://localhost:8080/s1/storeList/storePageUpdate?st_key=" + st_key);
+			mv.setViewName("common/result");
+		}else {
+			mv.addObject("result", "수정 실패");
 			mv.addObject("path", "./storePage");
+			mv.setViewName("common/result");
+		}
+		return mv;
+	}
+	
+	@RequestMapping(value = "storeMenuDelete", method = RequestMethod.POST)
+	public ModelAndView storeMenuDelete(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+		ModelAndView mv =  new ModelAndView();
+		long menudel = storeListService.storeMenuDelete(storeMenuVO);
+		System.out.println(menudel);
+//		long tagup = storeListService.storeTagUpdate(storeTagVO);
+		if (menudel>0) {
+			mv.addObject("result", "삭제 성공");
+			mv.addObject("path", "http://localhost:8080/s1/storeList/storePageUpdate?st_key=" + st_key);
 			mv.setViewName("common/result");
 		}else {
 			mv.addObject("result", "수정 실패");
@@ -311,14 +327,38 @@ public class StoreListController {
 	}
 	
 	@RequestMapping(value = "storeMenuInsert", method = RequestMethod.POST)
-	public ModelAndView storeMenuInsert(StoreMenuVO storeMenuVO, long st_key) throws Exception{
+	public ModelAndView storeMenuInsert(String[] sm_menu,long[] sm_price , long st_key) throws Exception{
 		ModelAndView mv =  new ModelAndView();
+		StoreMenuVO storeMenuVO = new StoreMenuVO();
 		
-		long menuin = storeListService.storeMenuInsert(storeMenuVO);
+		List<Long> menuin = new ArrayList<Long>();
+		int index=0;
+		
+		for (int i=0; i<sm_menu.length; i++) {
+			storeMenuVO.setSm_menu(sm_menu[index]);
+			storeMenuVO.setSm_price(sm_price[index]);
+			storeMenuVO.setSt_key(st_key);
+			menuin.add(index, storeListService.storeMenuInsert(storeMenuVO));
+			index++;
+		}
 
-		System.out.println(menuin);
+		
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
-		if (menuin>0) {
+		
+		boolean menuAll=false;
+		int check=0;
+		
+		for(int i=0; i<menuin.size(); i++) {
+			if(menuin.get(i)>0) {
+				check++;
+			}
+		}
+		
+		if(check==menuin.size()) {
+			menuAll=true;
+		}
+		
+		if (menuAll) {
 			mv.addObject("result", "수정 성공");
 			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuInsert?st_key=" + st_key);
 			mv.setViewName("common/result");

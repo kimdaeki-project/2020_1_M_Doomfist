@@ -60,7 +60,6 @@ public class StoreListDAO {
 	
 	//StoreListSelectInterceptor에서 사용 
 	public List<StoreListVO> select_stKey(long st_key)throws Exception{
-		
 		return sqlSession.selectList(NAMESPACE+"select_stKey",st_key);
 	}
 	public List<StoreListVO> select_id(long st_key)throws Exception{

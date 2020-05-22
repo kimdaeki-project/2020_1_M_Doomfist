@@ -75,36 +75,28 @@
 			<!-- 태그 추가 -->
 			<div align="center">
 				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 50px" height="50px"> 태그 
-				<input type="button" id="addtag" class="btn btn-info active" value="태그 추가하기">
+				<input type="text" style="width: 30%;"
+					class="form-control" id="st_tag" placeholder="태그" value="${liststore.st_tag}"
+					name="st_tag">
 				
-			<c:forEach items="${listtag}" var="vo">
-			<div style="margin-top: 15px; margin-bottom: 15px;"> 
-			<input value="${vo.tag_name}" type="text" id="tag_name" name="tag_name" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> 
-			</div>
-			
-			</c:forEach>	
 				
 			</div> 
-			<div id="tagg" align="center"></div><br></br>
-			
-						<br>
+<br>
 			<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
 						<button style="margin-left: 37%;" type="submit" class="btn btn-default">수정</button>
 					</div>
 				</div>
-			
+			<br>
 		</form>
 		</div>
-		<br><br>
 		</div>
 		<hr>
 	<div style="margin-left: 35%;"><img src="${pageContext.request.contextPath}/resources/images/menuinfo.png"></div>
 		<hr>
 		
 			<div style="background-color: #e6f5ff;">
-			<form class="form-horizontal" action="./storePageUpdate" id="form" name="form" method="POST"
-			enctype="multipart/form-data">
+		
 			<!-- 메뉴 추가 -->
 			<div align="center">
 				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px">
@@ -116,19 +108,22 @@
 			
 		
 			
-			<c:forEach items="${listmenu}" var="vo">
-			<div class="menuu2" style="margin-top: 15px; margin-bottom: 15px;" align="center">
-			<input type="hidden" id="sm_key" name="sm_key" value="${vo.sm_key}">
-				<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> 
-				<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" placeholder="가격을 입력해주세요">
-				<button type="submit" class="btn btn-default">삭제</button>
-			</div>
+			<c:forEach items="${listmenu}" var="vo">	
+				<form class="form-horizontal" action="./storeMenuDelete" id="form" name="form" method="POST"
+				enctype="multipart/form-data">
+					<div class="menuu2" style="margin-top: 15px; margin-bottom: 15px;" align="center">
+					<input type="hidden" id="st_key" name="st_key" value="${vo.st_key}">
+						<input type="hidden" id="sm_key" name="sm_key" value="${vo.sm_key}">
+						<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> 
+						<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" placeholder="가격을 입력해주세요">
+						<button type="submit" class="btn btn-default">삭제</button>
+					</div>
+				</form>
 			</c:forEach>
 			
 			<div id="menuu" align="center">
 			
 			</div>
-			</form>
 			</div>
 			<br></br>
 			
@@ -142,7 +137,7 @@
 				<input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block; margin-bottom: 15px;"> 
 			</div>
 			<div id="file" align="center"></div>-->	
-
+	<a href="http://localhost:8080/s1/storeList/storePage"><button type="button" class="btn btn-default">목록</button></a>
 
 	</div>
 	<input type="hidden" id="a" value="${a}">
