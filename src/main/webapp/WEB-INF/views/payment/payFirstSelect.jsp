@@ -33,15 +33,17 @@
 				<li><h2>메뉴와 가격</h2></li>
 				<br>
 				<c:forEach items="${vo_sm}" var="vo" varStatus="i">
-					<li><input type="hidden" value="${vo.sm_menu}"  name="ps_menu">
+					<li>
+					<div class=""><!-- 반복해서 나눌거  --> 
+					<input type="hidden" value="${vo.sm_menu}"  name="ps_menu">
 					${vo.sm_menu}:${vo.sm_price}
 					<br>
 					현재가격 :
-					 <input	type="text" id="menu${i.index}" value="0" name="ps_multi" class="menu">
+					 <input	type="text" id="menu${i.index}" value="0" name="ps_multi" class="menu" readonly="readonly">
 					 <!-- 기존 가겨  -->
 					 <input type="hidden" id="menus${i.index}" value="${vo.sm_price}">
 					<br> 
-					수량  <input type="text" id="count${i.index}" value="0" name="ps_count"> 
+					수량  <input type="text" id="count${i.index}" value="0" name="ps_count" readonly="readonly"> 
 						<table>
 							<tr>
 								<td>
@@ -51,12 +53,11 @@
 								</td>
 							</tr>
 						</table>
+					</div>
 					</li>
 					<br>
 				</c:forEach>
-
 			</ul>
-			
 	총가격 : <input type="text" id="total" value="0" name="totalPrice">
 	<button type="submit" id="btn" class="btn btn-default">보내기</button>
 			</form>
