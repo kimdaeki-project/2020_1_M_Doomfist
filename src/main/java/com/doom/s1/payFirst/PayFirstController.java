@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.doom.s1.paySecond.PaySecondService;
+import com.doom.s1.paySecond.PaySecondVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 
 @Controller
@@ -18,30 +20,50 @@ import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 public class PayFirstController {
 	@Autowired
 	private PayFirstService payFirstService;
+	@Autowired
+	private PaySecondService paySecondService;
 
 	//진입
 	@GetMapping("payFirstSelect")
-	public ModelAndView payFirstSelect(PayFirstVO payFirstVO,long st_key/*,long pf_check*/) throws Exception{
+	public ModelAndView payFirstSelect(PayFirstVO payFirstVO,long st_key) throws Exception{
 		ModelAndView mv = new ModelAndView();
+		//0 뒤로가기 눌럿으면 삭제 
+		int result = payFirstService.back();
+		//second의 count가 0인 데이터 삭제
+		result = paySecondService.paySecondDelete(0);
+		// check 0삭제
+		result = paySecondService.payFirstDelete(0);
 		//1인설트 하고
-		int result = payFirstService.payFirstInsert(payFirstVO);
-		System.out.println("1");
+		result = payFirstService.payFirstInsert(payFirstVO);
 		//2셀렉트
 		PayFirstVO paFirstVO = payFirstService.payFirstSelect(st_key);
-		System.out.println("2");
 		List<StoreMenuVO> storeMenuVOs = payFirstService.storeMenuSelect(payFirstVO.getSt_key());
-		System.out.println("3");
 		mv.addObject("vo", paFirstVO);
 		mv.addObject("vo_sm", storeMenuVOs);
 		mv.setViewName("payment/payFirstSelect");
-		
-		//0인데이터 지우기
+	
 		return mv;
-		
-//		long aa = payFirstService.payFirstDelete(pf_check);
 		
 	}
 	
+	//나의 결제 목록 확인 페이지
+	
+		@GetMapping("payReceipt")
+		public ModelAndView receiptPage(String id) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			//first의 check 0인 데이터 삭제해서 안보여주기
+			int result = paySecondService.payFirstDelete(0);			
+			
+			List<PayFirstVO> payFirstVOs = payFirstService.payAll(id);
+			List<PaySecondVO> paySecondVOs =  payFirstService.payReceipt(id);
+			
+			mv.addObject("vo_pf", payFirstVOs);
+			mv.addObject("vo_ps", paySecondVOs);
+			
+			mv.setViewName("payment/payReceipt");
+			
+			return mv;
+		}
 	
 	
 }

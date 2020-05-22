@@ -156,7 +156,7 @@
   					<c:forEach items="${vof1}" var="vof11" varStatus="status">
   						<c:forEach items="${vof11}" var="vof2" varStatus="status2">
   							<c:if test="${vor.re_num eq vof2.re_num}">
-  							<img alt="" src="../resources/uploadNotice/${vof2.refile_name}" style="max-height: 250px; max-width: 250px;">${vof2.refile_oriname}
+  							<img alt="${vof2.refile_oriname}" src="../resources/review_images/${vof2.refile_name}" style="width: 250px;height: 250px;max-height: 250px; max-width: 250px;">
   							</c:if>
   						</c:forEach>  					
   					</c:forEach>

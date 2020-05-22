@@ -31,11 +31,18 @@ public class MemberService {
 		return memberDAO.memberUpdate(memberVO);
 	}
 	
-	public List<MemberVO> memberList(Pager memberPager) throws Exception{
-		memberPager.makeRow();
-		long totalCount = memberDAO.memberCount(memberPager);
-		memberPager.makePage(totalCount);
-		return memberDAO.memberList(memberPager);
+	public List<MemberVO> memberList(Pager pager) throws Exception{
+		pager.makeRow();
+		long totalCount = memberDAO.memberCount(pager);
+		System.out.println("11111 :"+totalCount);
+		pager.makePage(totalCount);
+		System.out.println(totalCount);
+
+		return memberDAO.memberList(pager);
+	}
+	
+	public int memberDeletes(List<String> list)throws Exception{
+		return memberDAO.memberDeletes(list);
 	}
 	
 	public MemberVO memberIdCheck(MemberVO memberVO) throws Exception {
