@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DoomFOOD LOGIN</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
@@ -23,7 +23,8 @@
 <c:otherwise>
 <!-- 폼넣기 -->
 <div class="container">
-
+<br>
+<br>
 		   <div><img src="${pageContext.request.contextPath}/resources/images/login.png"> </div> 
 <br>
 <br>
@@ -40,22 +41,41 @@
       <label><input type="checkbox" name="remember">아이디 저장</label>
     </div>
     <br>
-    <button type="submit" class="btn btn-primary">로그인</button>
+    <!--<button type="submit" class="btn btn-primary">로그인</button>-->
+    <input type="image" id="joinbtn" style="outline: 0; " src="${pageContext.request.contextPath}/resources/images/loginbtn.png">
     <hr></hr>
     <a href="" onclick="javascript:openWin();">아이디를 잊으셨습니까?</a>
     <br></br>
-	<a href="${pageContext.request.contextPath}/member/memberJoin">아이디가 없으신가요? 지금 생성하세요.</a>
+	<a href="${pageContext.request.contextPath}/member/memberJoin" >아이디가 없으신가요? 지금 생성하세요.</a>
 	<br></br>
 	<div id="naverIdLogin"></div>
 <br>
 </form>
 </div>
 
+<!--  -->
+
+
+
+
+
+
+
+
+
+
+<!--  -->
+
+
 <!-- 네이버 로그인 창으로 이동 -->
 <div class="container" id="naver_id_login" style="text-align:left;"><a href="${url}">
 <img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>
 </c:otherwise>
 </c:choose>
+
+<footer style="margin-top: 10%">
+<c:import url="../template/footer.jsp" ></c:import>
+</footer>
 <!-- <div class="container">
   <h1>로그인</h1>
   <br></br>
@@ -89,9 +109,7 @@
 <img width="223" src="https://developers.naver.com/doc/review_201802/CK_bEFnWMeEBjXpQ5o8N_20180202_7aot50.png"/></a></div>-->
 
 
-<footer style="margin-top: 5%">
-<c:import url="../template/footer.jsp" ></c:import>
-</footer>
+
 
 <!-- <script type="text/javascript">
 	var naverLogin = new naver.LoginWithNaverId(

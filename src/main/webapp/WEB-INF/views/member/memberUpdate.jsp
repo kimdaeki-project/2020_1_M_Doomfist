@@ -51,7 +51,7 @@
 				
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">수정</button>
+						<input type="image" id="upbtn" style="outline: 0; " src="${pageContext.request.contextPath}/resources/images/upbtn.png">
 					</div>
 				</div>
 			</form>

@@ -86,7 +86,7 @@
 ④ 전항의 경우 “몰”은 이로 인하여 이용자가 입은 손해를 배상합니다. 다만, “몰”이 고의 또는 과실이 없음을 입증하는 경우에는 그러하지 아니합니다.
        </textarea>
        <hr></hr>
-       <font style="color: red;">(필수)</font> 이용약관에 동의하십니까? <input class="check" type="checkbox" id="check1">
+       <font style="color: red;">(필수)</font> 이용약관에 동의하십니까? <input class="check" type="checkbox" id="check1">&nbsp;동의함
        <hr></hr>
        <textarea style="width: 100%; height: 120px;" name="" id="">1. 개인정보 수집목적 및 이용목적
 
@@ -117,16 +117,17 @@ o 계약 또는 청약철회 등에 관한 기록
 -보존기간 : 5년
        </textarea>
        <hr></hr>
-		 <font style="color: red;">(필수)</font>개인정보 수집 및 이용에 동의하십니까? <input class="check" type="checkbox" id="check2">
+		 <font style="color: red;">(필수)</font>개인정보 수집 및 이용에 동의하십니까? <input class="check" type="checkbox" id="check2">&nbsp;동의함
 		<hr></hr>
-		 <font style="color: red;">(필수)</font>이용약관 및 개인정보수집 및 이용에 모두 동의합니다. <input type="checkbox" id="checkAll">
+		 <font style="color: red;">(필수)</font>이용약관 및 개인정보수집 및 이용에 모두 동의합니다. <input type="checkbox" id="checkAll">&nbsp;동의함
 		<hr></hr>
 		</div>
-    <button type="submit" id="btn" class="btn btn-primary">가입완료</button>
+    <!-- <button type="submit" id="btn" class="btn" style="outline: 0px;"><img alt="" border="0" src="${pageContext.request.contextPath}/resources/images/joinbtn.png"></button> -->
+    <input type="image" id="joinbtn" style="outline: 0;margin-left: 44%; " src="${pageContext.request.contextPath}/resources/images/joinbtn_3.png">
     
   </form>
 </div>
-<footer style="margin-top: 5%">
+<footer style="margin-top: 1%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 
@@ -180,7 +181,7 @@ $('#pw2').keyup(function() {
 	});
 });
 
-$("#btn").click(function() {
+$("#joinbtn").click(function() {
 	var pw = $("#pw").val();
 	var pw2 = $("#pw2").val();
 	var email = $("#email").val();
