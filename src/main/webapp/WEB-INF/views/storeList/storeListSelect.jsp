@@ -126,7 +126,7 @@
   			</font>
 		</h2>
   	</div>
-  	<form action="./storeReviewWrite" method="get">
+  	<!-- <form action="./storeReviewWrite" method="get"> -->
   	<div class="panel-body" align="center">
   		<table class="table table-striped">
   		
@@ -199,7 +199,7 @@
   		
   			</table>
   	</div>
-  	</form>
+  	<!-- </form> -->
   </div>
   
 

@@ -63,8 +63,8 @@ public class StoreListController {
 		int index=0;
 		for (StoreListVO storeListVO : storeListVOs) {
 			long st_key = storeListVO.getSt_key();
-			System.out.println("B : "+st_key);
-			System.out.println(storeListService.selectFileName(st_key));
+//			System.out.println("B : "+st_key);
+//			System.out.println(storeListService.selectFileName(st_key));
 			
 			ar.add(storeListService.selectFileName(st_key));
 			
@@ -124,7 +124,7 @@ public class StoreListController {
 	public ModelAndView storePage(HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		String id = ((MemberVO)session.getAttribute("member")).getId();
-		System.out.println(id+"dddd");
+		
 		List<StoreListVO> ar = storeListService.storePage(id);
 		List<String> result = new ArrayList<String>();
 		
