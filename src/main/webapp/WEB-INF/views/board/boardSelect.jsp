@@ -35,10 +35,13 @@
 			<br>
 			<br>
 		<div>
+		<c:choose>
+			<c:when test="${member.id eq 'admin'}">
 			<a href="./${board}Update?num=${vo.no_num}" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span>Update</a> 
 			<a href="./${board}Delete?num=${vo.no_num}" class="btn btn-danger pull-right"><span class="	glyphicon glyphicon-remove-sign"></span>Delete</a>
+			</c:when>
+		</c:choose>
 		</div>
-
 	</div>
 <c:import url="../template/footer.jsp"></c:import>
 </body>

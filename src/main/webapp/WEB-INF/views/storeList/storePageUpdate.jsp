@@ -114,8 +114,8 @@
 					<div class="menuu2" style="margin-top: 15px; margin-bottom: 15px;" align="center">
 					<input type="hidden" id="st_key" name="st_key" value="${vo.st_key}">
 						<input type="hidden" id="sm_key" name="sm_key" value="${vo.sm_key}">
-						<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> 
-						<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" placeholder="가격을 입력해주세요">
+						<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" disabled="disabled" style="margin-right: 15px"> 
+						<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" disabled="disabled">
 						<button type="submit" class="btn btn-default">삭제</button>
 					</div>
 				</form>

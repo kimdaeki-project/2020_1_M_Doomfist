@@ -26,15 +26,24 @@
 
 
 	<div class="panel panel-warning">
-		<div class="panel-heading" align="center">
+		<div class="panel-heading" align="center">		
 		<form action="./paySecondInsert" method="post" id="frm">
+		
+			<div align="center">
+				<label for="address">배달 받을 주소</label>
+				<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>			
+				<br>
+				<input style="width: 30%;" type="text" id="buy_address" name="buy_address" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
+				<br>
+			</div>
+		
 		<input type="hidden" value="${vo.pf_key}" name="pf_key">
 			<ul class="list" style="list-style-type: none;">
 				<li><h2>메뉴와 가격</h2></li>
 				<br>
 				<c:forEach items="${vo_sm}" var="vo" varStatus="i">
 					<li>
-					<div class=""><!-- 반복해서 나눌거  --> 
+					<div class="" style="font-size: 20px;"><!-- 반복해서 나눌거  --> 
 					<input type="hidden" value="${vo.sm_menu}"  name="ps_menu">
 					${vo.sm_menu}:${vo.sm_price}
 					<br>
@@ -138,12 +147,16 @@
 		
 		//전송 
 	$("#btn").click(function() {
-	if ($("#total").val()>0) {
+	var buy = $("#buy_address").val();
+	var chb = buy != "";
+	if ($("#total").val()>0 && chb ) {
+		
 		alert("결제 페이지로 이동합니다.");
 		$("#frm").submit();
 		
 	} else {
-		alert("구매내역이 없습니다.");
+		
+		alert("모두 입력해주세요");
 		 event.preventDefault();//이벤트 막기
 	}
 });
@@ -154,6 +167,22 @@
 	});
 
 		
+	function goPopup(){
+		// 주소검색을 수행할 팝업 페이지를 호출합니다.
+		// 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrLinkUrl.do)를 호출하게 됩니다.
+		var pop = window.open("../popup/jusoPopup.jsp","pop","width=570,height=420, scrollbars=yes, resizable=yes"); 
+		
+		// 모바일 웹인 경우, 호출된 페이지(jusopopup.jsp)에서 실제 주소검색URL(http://www.juso.go.kr/addrlink/addrMobileLinkUrl.do)를 호출하게 됩니다.
+	    //var pop = window.open("/popup/jusoPopup.jsp","pop","scrollbars=yes, resizable=yes"); 
+	}
+
+	function jusoCallBack(roadFullAddr){
+			// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
+			$("#buy_address").attr("value",roadFullAddr);
+			
+	}
+	
+	
 	  
 	</script>
 </body>

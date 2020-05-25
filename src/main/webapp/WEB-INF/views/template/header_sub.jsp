@@ -106,10 +106,11 @@
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
 					  	<li><a href="#">회원정보 관리</a></li>
+
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집 리스트 관리</a></li>
 					    <li class="divider"></li>
-					    
+		    
 					  </ul>
 					</div>	
 					</li>	
@@ -173,7 +174,6 @@
 		</div>
 		<div id="loading"><img id="loading-image" style="display: flex; justify-content: center; height: 300px; width:300px " src="${pageContext.request.contextPath}/resources/images/loading.gif" alt="Loading..." /></div>
 	</nav>
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -208,6 +208,5 @@
 	})
 	
 
-	
 	</script>
 	<!-- 영호 추가 -->

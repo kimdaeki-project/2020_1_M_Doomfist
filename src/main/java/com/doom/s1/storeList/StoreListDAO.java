@@ -40,8 +40,6 @@ public class StoreListDAO {
 		return sqlSession.selectOne(NAMESPACE+"reviewNum");
 	}
 	
-
-	
 	public StoreListVO storeListSelect(long st_key) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"storeListSelect", st_key);
 	}
@@ -62,8 +60,8 @@ public class StoreListDAO {
 	public List<StoreListVO> select_stKey(long st_key)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"select_stKey",st_key);
 	}
-	public List<StoreListVO> select_id(long st_key)throws Exception{
-		return sqlSession.selectList(NAMESPACE+"select_id",st_key);
+	public StoreListVO select_id(long st_key)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"select_id",st_key);
 	}
 	public List<StoreListVO> selectReview_id(long re_num)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"selectReview_id",re_num);
