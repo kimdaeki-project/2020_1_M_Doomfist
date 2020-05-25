@@ -216,7 +216,7 @@
 		</div>
 		<br>
 		<br>
-		<div id="loading"><img id="loading-image" src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" alt="Loading..." /></div>
+	
 
 		<c:import url="./template/footer.jsp"></c:import>
 	
