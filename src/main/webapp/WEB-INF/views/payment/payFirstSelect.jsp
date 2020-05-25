@@ -34,7 +34,7 @@
 				<br>
 				<c:forEach items="${vo_sm}" var="vo" varStatus="i">
 					<li>
-					<div class=""><!-- 반복해서 나눌거  --> 
+					<div class="" style="font-size: 20px;"><!-- 반복해서 나눌거  --> 
 					<input type="hidden" value="${vo.sm_menu}"  name="ps_menu">
 					${vo.sm_menu}:${vo.sm_price}
 					<br>
