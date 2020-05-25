@@ -147,12 +147,16 @@
 		
 		//전송 
 	$("#btn").click(function() {
-	if ($("#total").val()>0) {
+	var buy = $("#buy_address").val();
+	var chb = buy != "";
+	if ($("#total").val()>0 && chb ) {
+		
 		alert("결제 페이지로 이동합니다.");
 		$("#frm").submit();
 		
 	} else {
-		alert("구매내역이 없습니다.");
+		
+		alert("모두 입력해주세요");
 		 event.preventDefault();//이벤트 막기
 	}
 });
