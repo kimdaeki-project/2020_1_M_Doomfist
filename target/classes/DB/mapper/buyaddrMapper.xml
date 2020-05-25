@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="selectBuyAddr" parameterType="String" resultType="com.doom.s1.buyaddr.BuyAddrVO">
-		SELECT * FROM buy_address WHERE pf_key = (SELECT pf_key FROM payFirst AND rownum=1 WHERE id=#{id} ORDER by pf_key DESC)
+		SELECT * FROM buy_address WHERE pf_key =(SELECT pf_key FROM (SELECT * FROM payfirst ORDER BY pf_key DESC) WHERE id=#{id} AND rownum=1)
 	</select> 
 
 </mapper>

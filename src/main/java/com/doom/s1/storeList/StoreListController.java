@@ -124,7 +124,7 @@ public class StoreListController {
 	public ModelAndView storePage(HttpSession session)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		String id = ((MemberVO)session.getAttribute("member")).getId();
-		System.out.println(id+"dddd");
+		
 		List<StoreListVO> ar = storeListService.storePage(id);
 		List<String> result = new ArrayList<String>();
 		

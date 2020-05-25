@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 
 import com.doom.s1.buyaddr.BuyAddrDAO;
 import com.doom.s1.buyaddr.BuyAddrVO;
+import com.doom.s1.payFirst.PayFirstVO;
+import com.doom.s1.paySecond.PaySecondVO;
 
 @Service
 public class SellCheckService {
@@ -16,8 +18,8 @@ public class SellCheckService {
 	@Autowired
 	private BuyAddrDAO buyAddrDAO;
 	
-	public List<SellCheckVO> sellList(long st_key)throws Exception{
-		return sellCheckDAO.sellList(st_key);
+	public List<SellCheckVO> sellCheck(long st_key)throws Exception{
+		return sellCheckDAO.sellCheck(st_key);
 	}
 	
 	public int insertBuyAddr(BuyAddrVO buyAddrVO)throws Exception{
@@ -28,7 +30,20 @@ public class SellCheckService {
 		return buyAddrDAO.selectBuyAddr(id);
 	}
 	
-	public int insertSelAddr(BuyAddrVO buyAddrVO)throws Exception{
-		return sellCheckDAO.insertSelAddr(buyAddrVO);
+	public int insertSelCheck(PayFirstVO payFirstVO)throws Exception{
+		return sellCheckDAO.insertSelCheck(payFirstVO);
 	}
+	
+	public List<PaySecondVO> selectMenu(long pf_key)throws Exception{
+		return sellCheckDAO.selectMenu(pf_key);
+	}
+	
+	public int updateMenu(String meco)throws Exception{
+		return sellCheckDAO.updateMenu(meco);
+	}
+	
+	public long orderCount(long st_key) throws Exception{
+		return sellCheckDAO.orderCount(st_key);
+	}
+	
 }

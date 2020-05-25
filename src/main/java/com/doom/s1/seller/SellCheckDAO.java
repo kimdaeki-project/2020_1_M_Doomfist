@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.doom.s1.buyaddr.BuyAddrVO;
+import com.doom.s1.payFirst.PayFirstVO;
+import com.doom.s1.paySecond.PaySecondVO;
 
 @Repository
 public class SellCheckDAO {
@@ -15,12 +17,24 @@ public class SellCheckDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.doom.s1.seller.SellCheckDAO.";
 	
-	public List<SellCheckVO> sellList(long st_key)throws Exception{
+	public List<SellCheckVO> sellCheck(long st_key)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"sellCheck", st_key);
 	}
 	
-	public int insertSelAddr(BuyAddrVO buyAddrVO)throws Exception{
-		return sqlSession.update(NAMESPACE+"insertSelAddr", buyAddrVO);
+	public int insertSelCheck(PayFirstVO payFirstVO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"insertSelCheck", payFirstVO);
+	}
+	
+	public List<PaySecondVO> selectMenu(long pf_key)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"selectMenu", pf_key);
+	}
+	
+	public int updateMenu(String meco)throws Exception{
+		return sqlSession.update(NAMESPACE+"updateMenu", meco);
+	}
+	
+	public long orderCount(long st_key)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"orderCount", st_key);
 	}
 	
 }

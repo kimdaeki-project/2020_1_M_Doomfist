@@ -1,9 +1,12 @@
 package com.doom.s1.paySecond;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.doom.s1.buyaddr.BuyAddrVO;
 import com.doom.s1.member.MemberVO;
+import com.doom.s1.payFirst.PayFirstVO;
 import com.doom.s1.seller.SellCheckService;
 
 @Controller
@@ -61,6 +65,7 @@ public class PaySecondController {
 			
 		if(result>0 && adr>0) {			
 			mv.addObject("total",total);
+			mv.addObject("pfvo", paySecondVO);
 			mv.setViewName("payment/paySecondSelect");
 		}else {
 			mv.addObject("result", "결제 실패" );
@@ -84,9 +89,21 @@ public class PaySecondController {
 					//paysecond의 count 가 0인 테이블 삭제
 					result = paySecondService.paySecondDelete(pf_key);
 					
-					String id = ((MemberVO)session.getAttribute("member")).getId();
-					BuyAddrVO buyAddrVO = sellCheckService.selectBuyAddr(id);
-					int adr = sellCheckService.insertSelAddr(buyAddrVO);
+					String id = ((MemberVO)session.getAttribute("member")).getId();	//구매자 id 가져오기
+					PayFirstVO payFirstVO = new PayFirstVO();						//sel_check에 서브쿼리 할때 필요한 payfirstvo 선언
+					payFirstVO.setId(id);
+					payFirstVO.setPf_key(pf_key);
+					int sel_result = sellCheckService.insertSelCheck(payFirstVO);	//sel_check에 데이터 집어넣기
+					List<PaySecondVO> paySecondVOs = sellCheckService.selectMenu(pf_key);	//메뉴 수량 뽑아와서 집어넣기
+					String meco = "";
+					for (PaySecondVO paySecondVO : paySecondVOs) {
+						String temp = paySecondVO.getPs_menu()+"*"+paySecondVO.getPs_count()+" ";	//메뉴*수량 한줄로만들기
+						meco = meco+temp;
+					}
+					int meco_Result = sellCheckService.updateMenu(meco);
+					
+//					BuyAddrVO buyAddrVO = sellCheckService.selectBuyAddr(id); 	//구매자 주소테이블에서 주소 가져오기
+//					int adr = sellCheckService.insertSelAddr(buyAddrVO);		//가져온 주소 판매확인 테이블에 추가
 					
 		return mv;
 	}
