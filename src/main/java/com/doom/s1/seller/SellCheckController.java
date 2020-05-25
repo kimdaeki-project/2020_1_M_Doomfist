@@ -1,6 +1,8 @@
 package com.doom.s1.seller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -8,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -49,13 +52,44 @@ public class SellCheckController {
 	@GetMapping("orderCheck")
 	public ModelAndView orderCheck(long st_key)throws Exception{
 		ModelAndView mv = new ModelAndView();
+		SimpleDateFormat sd = new SimpleDateFormat("yyMMdd");
+		Date today = new Date();
+		String todayDate = sd.format(today);
 		List<SellCheckVO> sellCheckVOs = sellCheckService.sellCheck(st_key);
 		StoreListVO storeListVO = storeListService.storeListSelect(st_key);
 		
+		mv.addObject("today", todayDate);
 		mv.addObject("se_list", sellCheckVOs);
 		mv.addObject("stvo", storeListVO);
-		mv.setViewName("./seller/sellList");
+		mv.setViewName("./seller/orderCheck");
 		
+		
+		return mv;
+	}
+	
+	@PostMapping("orderCheck")
+	public ModelAndView orderCheck(SellCheckVO sellCheckVO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		int result = sellCheckService.updateOkCheck(sellCheckVO);
+		
+		String msg = "";
+		String path = "";
+		
+		if(result>0 && sellCheckVO.getSel_okcheck()==1) {
+			msg="배달상태가 변경되었습니다!";
+			path="./orderCheck?st_key=" + sellCheckVO.getSt_key();
+		}else if(result>0 && sellCheckVO.getSel_okcheck()==2) {
+			msg="주문이 취소되었습니다.";
+			path="./orderCheck?st_key=" + sellCheckVO.getSt_key();
+		}else if(result<0) {
+			msg="입력이 정상적으로 실행되지 않았습니다.";
+			path="./orderCheck?st_key=" + sellCheckVO.getSt_key();
+		}
+		
+		mv.addObject("result", msg);
+		mv.addObject("path", path);
+		mv.setViewName("common/result");
 		
 		return mv;
 	}

@@ -46,4 +46,8 @@ public class SellCheckService {
 		return sellCheckDAO.orderCount(st_key);
 	}
 	
+	public int updateOkCheck(SellCheckVO sellCheckVO)throws Exception{
+		return sellCheckDAO.updateOkCheck(sellCheckVO);
+	}
+	
 }
