@@ -102,7 +102,7 @@
   			<br>
   			<li style="align-self: center;"><h1><b>메뉴 정보</b></h1></li>
   			<c:forEach items="${vo_sm}" var="vo" >
-	  		<li><div style="float: left; display: inline-block; width: 80px; overflow: hidden;"> ${vo.sm_menu}</div> <hr style="width: 350px;display: inline-block; margin-left: 50px; overflow: hidden;"> <div style="float: right; display: inline-block;"> ${vo.sm_price} 원</div>  
+	  		<li><div style="float: left; display: inline-block; width: 100px; overflow: hidden;"> ${vo.sm_menu}</div> <hr style="width: 350px;display: inline-block; margin-left: 50px; overflow: hidden;"> <div style="float: right; display: inline-block;"> ${vo.sm_price} 원</div>  
 	  			<br>
   			</c:forEach>
 	  		<li align="right" style="margin-right: 40px;a">
