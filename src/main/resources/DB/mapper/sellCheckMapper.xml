@@ -38,4 +38,13 @@
 		UPDATE sel_check SET sel_okcheck=#{sel_okcheck} WHERE sel_key=#{sel_key}
 	</update>
 	
+	<delete id="deletePayFirst" parameterType="com.doom.s1.seller.SellCheckVO">
+		DELETE payfirst WHERE pf_key=(SELECT pf_key FROM 
+		(SELECT * FROM payfirst ORDER BY pf_key DESC)
+		WHERE id=(SELECT DISTINCT selb_id FROM 
+		(SELECT * FROM sel_check ORDER BY sel_key DESC) 
+		WHERE selb_id=#{selb_id})
+		AND rownum=1)
+	</delete>
+	
 </mapper>

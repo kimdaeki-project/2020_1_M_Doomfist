@@ -41,4 +41,8 @@ public class SellCheckDAO {
 		return sqlSession.update(NAMESPACE+"updateOkCheck", sellCheckVO);
 	}
 	
+	public int deletePayFirst(SellCheckVO sellCheckVO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"deletePayFirst", sellCheckVO);
+	}
+	
 }

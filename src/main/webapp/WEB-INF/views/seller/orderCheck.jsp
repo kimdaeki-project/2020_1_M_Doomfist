@@ -64,6 +64,7 @@
 							
 							<td><input type="hidden" name="sel_key" value="${vo.sel_key}">
 							<input type="hidden" name="st_key" value="${vo.st_key}">
+							<input type="hidden" name="selb_id" value="${vo.selb_id}">
 							<button name="sel_okcheck" class="btn btn-success" value="1">배달 완료!</button></td>
 							<td><button name="sel_okcheck" class="btn btn-danger" value="2">주문 취소</button></td>
 						</c:if>

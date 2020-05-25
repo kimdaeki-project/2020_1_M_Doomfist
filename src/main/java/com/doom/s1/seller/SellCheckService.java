@@ -50,4 +50,8 @@ public class SellCheckService {
 		return sellCheckDAO.updateOkCheck(sellCheckVO);
 	}
 	
+	public int deletePayFirst(SellCheckVO sellCheckVO)throws Exception{
+		return sellCheckDAO.deletePayFirst(sellCheckVO);
+	}
+	
 }

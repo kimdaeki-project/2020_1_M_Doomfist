@@ -82,6 +82,7 @@ public class SellCheckController {
 		}else if(result>0 && sellCheckVO.getSel_okcheck()==2) {
 			msg="주문이 취소되었습니다.";
 			path="./orderCheck?st_key=" + sellCheckVO.getSt_key();
+			int del = sellCheckService.deletePayFirst(sellCheckVO);
 		}else if(result<0) {
 			msg="입력이 정상적으로 실행되지 않았습니다.";
 			path="./orderCheck?st_key=" + sellCheckVO.getSt_key();
