@@ -24,7 +24,7 @@
 					<li class="active">
 					<div style="margin-top: 5.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>HOME</b></button>
+					  <button class="btn" id="drop" type="button" style="outline: 0;" >&nbsp;<b>HOME</b></button>
 					  </a>
 					</div>	
 					<!-- <a href="${pageContext.request.contextPath}/">Home</a> -->
@@ -33,7 +33,7 @@
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/notice/noticeList">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>공지사항</b></button>
+					  <button class="btn" id="drop" type="button" style="outline: 0;">&nbsp;<b>공지사항</b></button>
 					  </a>
 					  </div>	
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
@@ -45,7 +45,7 @@
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/qna/qnaJoin">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
+					  <button class="btn" id="drop" type="button" style="outline: 0;">&nbsp;<b>맛집신청</b></button>
 					  </a>
 					  </div>
 					  </li>
@@ -123,8 +123,9 @@
 					  <ul class="dropdown-menu">
 					  	<li><a href="#">회원정보 관리</a></li>
 					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집 리스트 관리</a></li>
+					    <li><a href="${pageContext.request.contextPath}/qna/qnaList"> 맛집 신청 관리</a></li>
 					    <li class="divider"></li>
+					    <li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집 리스트 관리</a></li>
 					    
 					  </ul>
 					</div>	
