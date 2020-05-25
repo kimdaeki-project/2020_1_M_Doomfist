@@ -80,6 +80,16 @@
 			<beans:ref bean="memberListInterceptor"/>
 		</interceptor>
 		
+		<interceptor>
+			<mapping path="/payment/*"/>
+			<mapping path="/payment/payFirstSelect"/>
+			<mapping path="/payment/payReceipt"/>
+			<mapping path="/payment/paySecondSelect"/>
+			<mapping path="/payment/paySuccess"/>
+			<beans:ref bean="paymentInterceptor"/>
+		</interceptor>
+		
+		
 	</interceptors> 
 	
 	<context:component-scan base-package="com.doom.s1" />
