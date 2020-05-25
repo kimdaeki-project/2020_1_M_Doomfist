@@ -5,72 +5,29 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${stvo.st_name} 주문 현황</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 
-<script type="text/javascript">
-
-	$(function() {
-		
-		//전체체크
-		$("#result").on("click","#checkAll", function() {
-			$(".check").prop("checked",$(this).prop("checked"));
-		});
-		
-		//체크가 되어있는지 확인
-		$("#result").on("click",".check", function() {
-			var result =true;
-			$(".check").each(function() {
-				if(!$(this).prop("checked")){
-					result=false;
-				};
-			});
-			$("#checkAll").prop("checked",result);
-		});
-		
-		//버튼 누르면 ajax 이용해서 삭제
-		$("#result").on("click","#del", function() {
-			var st_key = [];	// 빈 배열 생성
-			$(".check").each(function() {
-				if($(this).prop("checked")){
-					st_key.push($(this).attr("id"));	//배열에 체크된 식당고유번호(st_key) 넣기
-				}
-			});
-			console.log(st_key);
-			$.ajax({
-				type:"get",
-				url: "./storeDelete",
-				traditional : true,
-				data: {
-					st_key: st_key
-				},
-				success: function(data) {
-					$.get("./storeListChecks", function(data) {
-						$("#result").html(data);
-					});
-				}
-			});
-		});
-	});
-	
-</script>
 </head>
 <body>
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
 		<div class="row">
-			<h1>${stvo.st_name}주문 현황</h1>
+			<h1>${stvo.st_name} 주문 현황</h1>
 			
-			<div id="result">
+			<div>
+			<form action="./orderCheck" method="post">
+			
 			<table class="table table-hover">
 				<tr>
 					
-					<td>식당고유번호<td> 
-					<td>식당이름</td> 
-					<td>아이디</td>	
-					<td>식당주소</td> 
-					<td>식당 삭제 체크</td>
+					<td>구매자아이디<td> 
+					<td>구매자 전화번호</td> 
+					<td>주문한 음식</td>	
+					<td>배달할 주소</td> 
+					<td>배달 완료 버튼</td>
+					<td>배달 취소 버튼</td>
 
 				</tr>
 				
@@ -80,13 +37,13 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td> 전체 체크 : <input type="checkbox" id="checkAll" > 
-				</td>
+				<td></td>
+				<td></td>
 				</tr>
 				
-				<c:forEach items="${vo}" var="vo" varStatus="i">
+				<c:forEach items="${se_list}" var="vo" varStatus="i">
 					<tr>
-						<td id="id${i.index}">${vo.st_key}</td>
+						<td id="id${i.index}">${vo.selb_id}</td>
 						<td>
 						<c:catch>
 						<!-- for(int i=0; i<1 i++ -->
@@ -96,45 +53,48 @@
 						</c:catch>
 						</td>
 						
-						<td><a href="./storeListSelect?st_key=${vo.st_key}">${vo.st_name}</a></td>
-						<td>${vo.id}</td>
-						<td>${vo.st_address}</td>
-						<td> <input type="checkbox" name="del" title="id${i.index}" id="${vo.st_key}" class="check"></td>
+						<td>${vo.selb_phone}</td>
+						<td>${vo.sel_meco}</td>
+						<td>${vo.sel_address}ㅁㄴㅇㅁㄴㅇ</td>
+						
+					<c:if test="${vo.sel_date eq today}">		<!-- 오늘 들어온 주문만  -->
+						<c:if test="${vo.sel_okcheck eq 0}">
+							
+							<td><input type="hidden" name="sel_key" value="${vo.sel_key}">
+							<input type="hidden" name="st_key" value="${vo.st_key}">
+							<button name="sel_okcheck" class="btn btn-success" value="1">배달 완료!</button></td>
+							<td><button name="sel_okcheck" class="btn btn-danger" value="2">주문 취소</button></td>
+						</c:if>
+						<c:if test="${vo.sel_okcheck eq 1}">
+							<td> 배달 완료! </td>
+							<td></td>
+						</c:if>
+						<c:if test="${vo.sel_okcheck eq 2}">
+							<td> 주문 취소! </td>
+							<td></td>
+						</c:if>
+					</c:if>
+					
+					<c:if test="${vo.sel_date ne today}">
+					<td>오늘 들어온 주문이 아닙니다!</td>
+					<td></td>
+					</c:if>
+					
 					</tr>
 				</c:forEach>
-					
-				<tr> <!-- 칸맞추기 -->
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td> <button class="btn btn-danger" id="del">삭제하기</button>
-					</td>
-				</tr>
 				
 			</table>
+			</form>
 			</div>
 
-			<div>
-				<ul class="pagination">
-					<c:if test="${pager.curBlock gt 1}">
-						<li><a
-							href="./storeListCheck?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">이전</a></li>
-					</c:if>
-					<c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
-						<li><a
-							href="./storeListCheck?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
-					</c:forEach>
-					<c:if test="${pager.curBlock lt pager.totalBlock}">
-						<li><a
-							href="./storeListCheck?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">다음</a></li>
-					</c:if>
-				</ul>
-			</div>
+			
 		</div>
 	</div>
-	
+	<script type="text/javascript">
+		
+	</script>
+	<div style="margin-top: 500px;">
 	<c:import url="../template/footer.jsp"></c:import>
+	</div>
 </body>
 </html>

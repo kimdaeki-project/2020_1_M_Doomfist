@@ -37,4 +37,8 @@ public class SellCheckDAO {
 		return sqlSession.selectOne(NAMESPACE+"orderCount", st_key);
 	}
 	
+	public int updateOkCheck(SellCheckVO sellCheckVO)throws Exception{
+		return sqlSession.update(NAMESPACE+"updateOkCheck", sellCheckVO);
+	}
+	
 }

@@ -9,9 +9,10 @@ public class SellCheckVO {
 	private String selb_id;
 	private String selb_phone;
 	private String sel_meco;
-	private Date sel_date;
+	private String sel_date;
 	private String sel_address;
 	private long sel_okcheck;
+	
 	public long getSel_key() {
 		return sel_key;
 	}
@@ -42,10 +43,10 @@ public class SellCheckVO {
 	public void setSel_meco(String sel_meco) {
 		this.sel_meco = sel_meco;
 	}
-	public Date getSel_date() {
+	public String getSel_date() {
 		return sel_date;
 	}
-	public void setSel_date(Date sel_date) {
+	public void setSel_date(String sel_date) {
 		this.sel_date = sel_date;
 	}
 	public String getSel_address() {

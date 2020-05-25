@@ -16,7 +16,7 @@
 		(SELECT id FROM payfirst WHERE id=#{id} AND pf_key=#{pf_key}),
 		(SELECT phone FROM member WHERE id=#{id}),
 		'0',	<!-- 구매 메뉴*수량은 나중에 update -->
-		(SELECT pf_date FROM payFirst WHERE pf_key=#{pf_key}),
+		(SELECT to_char(pf_date,'yymmdd') FROM payFirst WHERE pf_key=#{pf_key}),
 		(SELECT buy_address FROM buy_address WHERE pf_key=#{pf_key}),
 		0
 		)
@@ -31,7 +31,11 @@
 	</update>
 	
 	<select id="orderCount" parameterType="Long" resultType="Long">
-		SELECT count(*) FROM sel_check WHERE st_key=#{st_key} AND sel_date=sysdate
+		SELECT count(*) FROM sel_check WHERE st_key=#{st_key} AND sel_date=to_char(sysdate,'yymmdd') AND sel_okcheck=0
 	</select>
+	
+	<update id="updateOkCheck" parameterType="com.doom.s1.seller.SellCheckVO">
+		UPDATE sel_check SET sel_okcheck=#{sel_okcheck} WHERE sel_key=#{sel_key}
+	</update>
 	
 </mapper>
