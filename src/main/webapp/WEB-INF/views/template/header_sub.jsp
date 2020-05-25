@@ -3,6 +3,7 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 	
+	</div>
 	<div style=" width: 1910px; align="center">
 	<nav class="navbar">
 		<div class="container-fluid">
@@ -124,15 +125,14 @@
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
 					  	<li><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
+					  
 					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
-					    <li class="divider"></li>
-					    <%-- <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li> --%>
-					     <li><a href="/s1/payment/payReceipt?id=${member.id}" data-toggle="modal" data-target="#my2Modal">결제내역</a></li>
-					    <li class="divider"></li>
-					    <li><a href="#" onclick="javascript:openWin();">나의 신청 현황</a></li>
-					    <li><a href="#">나의 식당 </a></li>					 
-
+					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
+					    <c:if test="${member.member_div eq 1}">
+					   	  <li class="divider"></li>
+					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
+					    </c:if>
+					    <li><a href="${pageContext.request.contextPath}/storeList/storePage">나의 식당 </a></li>
 					  </ul>
 					</div>	 
 					</li>	
@@ -171,10 +171,10 @@
 				</ul>
 			</div>
 		</div>
+		<div id="loading"><img id="loading-image" style="display: flex; justify-content: center; height: 300px; width:300px " src="${pageContext.request.contextPath}/resources/images/loading.gif" alt="Loading..." /></div>
 	</nav>
-	<!-- Modal2 -->
-  <div class="modal fade" id="my2Modal" role="dialog">
-
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
@@ -190,19 +190,22 @@
       </div>
     </div>
   </div>
-
 </div>
  	
 	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
+	setTimeout(() =>{
+		$(document).ready(function() {
+		     $("#loading").hide();
+		   });
+			
+		}, 800);
  
 	$(".notjoin").click(function() {
 		alert("로그인 후 이용해주세요")
 	})
 	
-
 	
 	</script>
 	<!-- 영호 추가 -->
-	</div>
