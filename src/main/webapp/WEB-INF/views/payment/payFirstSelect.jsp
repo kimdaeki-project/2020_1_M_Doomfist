@@ -9,7 +9,14 @@
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 </head>
-<body>
+ <script type="text/javascript">
+ window.history.forward();
+ function noBack(){window.history.forward();}
+</script>
+
+
+<!-- <body> -->
+<body onload="noBack();" onpageshow="if(event.persisted) noBack();" onunload="">
 
 	<c:import url="../template/header.jsp"></c:import>
 	<!-- 결제 준비 페이지  -->
@@ -154,9 +161,9 @@
 		alert("결제 페이지로 이동합니다.");
 		$("#frm").submit();
 		
-	} else {
 		
-		alert("모두 입력해주세요");
+	} else {
+		alert("모두 입력해주세요.");
 		 event.preventDefault();//이벤트 막기
 	}
 });

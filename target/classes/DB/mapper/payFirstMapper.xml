@@ -37,7 +37,7 @@
   
   <!-- 뒤로 가기 누르고 오면 second에 있는 쓰레기값 제거  -->
   <delete id="back" parameterType="Long">
-  DELETE paysecond where pf_key = ( select pf_key from (SELECT * from payfirst ORDER BY pf_key DESC) WHERE ROWNUM=1)
+  delete paysecond where pf_key =(select pf_key from payfirst WHERE pf_check = 0)
   
   </delete>
   

@@ -18,11 +18,11 @@ public class PaymentInterceptor {
 		boolean check = false;
 		
 		MemberVO memberVO = (MemberVO)request.getSession().getAttribute("member");
-		if(memberVO != null && memberVO.getId().equals("admin")) {
+		if(memberVO != null) {
 			check = true;
 			
 		}else {
-			request.setAttribute("result", "권한이 없음");
+			request.setAttribute("result", "로그인후 이용");
 			request.setAttribute("path","../");
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
