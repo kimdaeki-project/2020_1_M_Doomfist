@@ -22,10 +22,9 @@
   </div>
 			<form class="form-horizontal" action="./memberUpdate" method="post">
 				
-				<table class="text-info Shadow" style="width: 100%; border-top: 3px white solid; margin-left: 17%;">
+<table class="text-info Shadow" style="width: 100%; border-top: 3px white solid; margin-left: 17%;">
    <tbody>
     <tr>
-
      	<th style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid;" scope="row">&nbsp;&nbsp;아이디 : </th>
       	<td style="border-bottom: 2px white solid; height: 50px;"><input style="background-color: #e6f5ff;" type="text" id="id" readonly="readonly" value="${member.id}" name="id"> 아이디는 변경불가합니다<td>
 		<hr></hr>
@@ -61,7 +60,7 @@
 
 
 <footer style="margin-top: 5%">
-<c:import url="../template/footer.jsp" ></c:import>
+	<c:import url="../template/footer.jsp" ></c:import>
 </footer>
 
 

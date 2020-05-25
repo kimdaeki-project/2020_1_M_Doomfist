@@ -18,11 +18,13 @@
 	<body>
 		<c:import url="./template/header.jsp"></c:import>
 	
-		<div class="container ">
-			<div class="row">
+
+		
+		<div class="container"> 
+			<div class="row" style="min-width: 1170px;">
 			<div><img src="${pageContext.request.contextPath}/resources/images/today.png"> </div> 
 			<hr>
-				<div class="col-sm-4">
+				<div class="col-sm-4" style="width: 390px;">
 					<div class="panel panel-info">	
 						<div class="panel-heading"></div>
 						<div class="panel-body">
@@ -33,7 +35,7 @@
 						<div align="center"><input type="button"  id="category0"  style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2"></div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4" style="width: 390px;">
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
 						<div class="panel-body">
@@ -44,7 +46,7 @@
 						<div align="center"><input type="button"  id="category1"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4" style="width: 390px;">
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
 						<div class="panel-body">
@@ -59,9 +61,9 @@
 		</div>
 		<br>
 	
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4">
+		<div class="container" >
+			<div class="row" style="min-width: 1170px;">
+				<div class="col-sm-4" style="width: 390px;">
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
 						<div class="panel-body">
@@ -72,7 +74,7 @@
 						<div align="center"><input type="button"  id="category3"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4" style="width: 390px;">
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
 						<div class="panel-body">
@@ -83,7 +85,7 @@
 						<div align="center"><input type="button"  id="category4"  style="border: 0px; background-color:white; bold; color: #ff751a; font-size: large;" class="panel-footer test2"></div>
 					</div>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4" style="width: 390px;">
 					<div class="panel panel-info">
 						<div class="panel-heading"></div>
 						<div class="panel-body">
@@ -96,6 +98,7 @@
 				</div>
 			</div>
 		</div>
+	
 		<br>
 		<br>
 		

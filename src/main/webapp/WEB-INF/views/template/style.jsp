@@ -16,11 +16,6 @@
     margin-top: 0;
 }
 
-
-
-
-
-
 /*성민추가 */
 
 body{
@@ -28,12 +23,10 @@ body{
 }
 
 
-
-
-
 .navbar {
 	margin-bottom: 50px;
 	border-radius: 0;
+	
 }
 
 .jumbotron {
@@ -103,7 +96,7 @@ body{
 #loading-image {  
  position: absolute;  
  top: 50%;  
- left: 50%; 
+ left: 40%; 
  z-index: 100; }
  
 

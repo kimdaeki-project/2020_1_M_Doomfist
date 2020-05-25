@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
+<div style="width: 1910px">
 	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_3.jpg')">
 
 		<div class="container text-center">
@@ -189,7 +190,6 @@
 		</div>
 		<div id="loading"><img id="loading-image" style="display: flex; justify-content: center; height: 300px; width:300px " src="${pageContext.request.contextPath}/resources/images/loading.gif" alt="Loading..." /></div>
 	</nav>
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -208,6 +208,7 @@
     </div>
   </div>
 </div>
+</div>
  	
 	<!-- 추가 -->
 	<!-- 영호 추가 -->
@@ -223,7 +224,6 @@
 		alert("로그인 후 이용해주세요")
 	})
 	
-
 	
 	</script>
 	<!-- 영호 추가 -->
