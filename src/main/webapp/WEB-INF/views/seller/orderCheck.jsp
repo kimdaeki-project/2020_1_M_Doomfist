@@ -12,7 +12,7 @@
 </head>
 <body>
 	<c:import url="../template/header_sub.jsp"></c:import>
-	<div class="container">
+	<div class="container" style="width: 80%">
 		<div class="row">
 			<h1>${stvo.st_name} 주문 현황</h1>
 			
@@ -25,6 +25,7 @@
 					<td>구매자아이디<td> 
 					<td>구매자 전화번호</td> 
 					<td>주문한 음식</td>	
+					<td>주문 날짜</td>
 					<td>배달할 주소</td> 
 					<td>배달 완료 버튼</td>
 					<td>배달 취소 버튼</td>
@@ -32,6 +33,7 @@
 				</tr>
 				
 				<tr> <!-- 칸맞추기 -->
+				<td></td>
 				<td></td>
 				<td></td>
 				<td></td>
@@ -52,9 +54,9 @@
 							</c:forEach>
 						</c:catch>
 						</td>
-						
 						<td>${vo.selb_phone}</td>
 						<td>${vo.sel_meco}</td>
+						<td>${vo.sel_date}</td>
 						<td>${vo.sel_address}ㅁㄴㅇㅁㄴㅇ</td>
 						
 					<c:if test="${vo.sel_date eq today}">		<!-- 오늘 들어온 주문만  -->
