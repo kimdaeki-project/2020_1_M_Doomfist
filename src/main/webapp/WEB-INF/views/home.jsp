@@ -216,6 +216,7 @@
 		<br>
 		<br>
 
+
 		<c:import url="./template/footer.jsp"></c:import>
 	
 		<script type="text/javascript">
