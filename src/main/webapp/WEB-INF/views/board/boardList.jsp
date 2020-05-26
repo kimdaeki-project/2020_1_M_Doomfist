@@ -17,7 +17,7 @@
 <div class="container">
 	<div class="row">
 		   <div class="page-header text-center text-info">
-		   <div><img src="${pageContext.request.contextPath}/resources/images/notice.png"> </div> 
+		   <div><img src="${pageContext.request.contextPath}/resources/images/notice_2.png"> </div> 
     <br></br>
     <br></br>
   </div>

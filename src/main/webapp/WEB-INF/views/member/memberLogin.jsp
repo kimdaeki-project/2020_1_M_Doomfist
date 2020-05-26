@@ -25,7 +25,7 @@
 <div class="container">
 <br>
 <br>
-		   <div><img src="${pageContext.request.contextPath}/resources/images/login.png"> </div> 
+		   <div><img src="${pageContext.request.contextPath}/resources/images/login_2.png"> </div> 
 <br>
 <br>
   <form class="form-horizontal" action="./memberLogin_HOME" method="post">

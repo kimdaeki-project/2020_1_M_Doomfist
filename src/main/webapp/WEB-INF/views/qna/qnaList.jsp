@@ -14,7 +14,8 @@
 
 	<div class="container">
 		<div class="row">
-			<h1>신청 현황</h1>
+		<div><img src="${pageContext.request.contextPath}/resources/images/storeappli.png"> </div> 
+			<hr>
 			<form class="col-xs-6" action="./qnaList">
 					<select class="form-control" id="sel1" name="kind">
 						<option value="bt">식당이름</option>

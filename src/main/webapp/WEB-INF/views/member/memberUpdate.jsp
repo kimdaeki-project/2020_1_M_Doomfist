@@ -59,7 +59,7 @@
 	</div>
 
 
-<footer style="margin-top: 5%">
+<footer style="margin-top: 13%">
 	<c:import url="../template/footer.jsp" ></c:import>
 </footer>
 

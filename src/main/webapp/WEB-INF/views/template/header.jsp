@@ -122,7 +122,7 @@
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>관리자</b>
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					  	<li><a href="#">회원정보 관리</a></li>
+					  	<li><a href="${pageContext.request.contextPath}/member/memberList">회원정보 관리</a></li>
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/qna/qnaList"> 맛집 신청 관리</a></li>
 					    <li class="divider"></li>

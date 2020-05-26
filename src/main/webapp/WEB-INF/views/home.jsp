@@ -21,7 +21,7 @@
 	
 		<div class="container ">
 			<div class="row">
-			<div><img src="${pageContext.request.contextPath}/resources/images/today.png"> </div> 
+			<div><img src="${pageContext.request.contextPath}/resources/images/today_2.png"> </div> 
 			<hr>
 			
 <!-- 구분선=============================================================================================== -->		
@@ -34,7 +34,8 @@
    			<h3>Select Food</h3>
 			<p><br></p>
    			<p>Thank you for coming to DoomFood.</p>
-   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right"></i>
+   			<p>Please enjoy the meal.</p>
+   			<i class="ion-ios-arrow-right">></i>
  		 	</figcaption>
  			<a href="#"></a>
   			<input type="hidden" style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2">
@@ -48,7 +49,7 @@
    			<h3>Select Food</h3>
 			<p><br></p>
    			<p>Thank you for coming to DoomFood.</p>
-   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right"></i>
+   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right">></i>
   			</figcaption>
  			<a href="#"></a>
   			<input type="hidden"    style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2">
@@ -62,7 +63,7 @@
     		<h3>Select Food</h3>
 			<p><br></p>
    			<p>Thank you for coming to DoomFood.</p>
-   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right"></i>
+   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right">></i>
   			</figcaption>
   			<a href="#"></a>
    			<input type="hidden"    style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2">
@@ -81,11 +82,9 @@
   			<img id="num0" class="img-responsive test1" style="display: flex; justify-content: center;"alt="Image"> 
   			<figcaption>
     		<h3>Select Food</h3>		
-		
-			
 			<p><br></p>
    			<p>Thank you for coming to DoomFood.</p>
-   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right"></i>
+   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right">></i>
   			</figcaption>
   			<a href="#"></a>
    			<input type="hidden"    style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2">
@@ -99,7 +98,7 @@
     		<h3>Select Food</h3>
 			<p><br></p>
    			<p>Thank you for coming to DoomFood.</p>
-   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right"></i>
+   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right">></i>
   			</figcaption>
   			<a href="#"></a>
    			<input type="hidden"    style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2">
@@ -114,7 +113,7 @@
     		<h3>Select Food</h3>
 			<p><br></p>
    			<p>Thank you for coming to DoomFood.</p>
-   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right"></i>
+   			<p>Please enjoy the meal.</p><i class="ion-ios-arrow-right">></i>
   			</figcaption>
   			<a href="#"></a>
   			<input type="hidden"    style="border: 0px; background-color:white; bold; color:black; font-size: large; font-family:sans-serif;" class="panel-footer test2">
@@ -216,7 +215,6 @@
 		</div>
 		<br>
 		<br>
-		<div id="loading"><img id="loading-image" src="${pageContext.request.contextPath}/resources/images/ajax-loader.gif" alt="Loading..." /></div>
 
 		<c:import url="./template/footer.jsp"></c:import>
 	
@@ -231,19 +229,19 @@
 		
 		
 	
-			var imgs = ['${pageContext.request.contextPath}/resources/images/category0.png',
-						'${pageContext.request.contextPath}/resources/images/category1.png',
-						'${pageContext.request.contextPath}/resources/images/category2.png',
-						'${pageContext.request.contextPath}/resources/images/category13.jpg',
-						'${pageContext.request.contextPath}/resources/images/category4.png',
-						'${pageContext.request.contextPath}/resources/images/category5.png',
-						'${pageContext.request.contextPath}/resources/images/category6.png',
-						'${pageContext.request.contextPath}/resources/images/category7.png',
-						'${pageContext.request.contextPath}/resources/images/category14.jpg',
-						'${pageContext.request.contextPath}/resources/images/category9.png',
-						'${pageContext.request.contextPath}/resources/images/category10.png',
-						'${pageContext.request.contextPath}/resources/images/category11.png',
-						'${pageContext.request.contextPath}/resources/images/category12.png'
+			var imgs = ['${pageContext.request.contextPath}/resources/images/category_0_2.png',
+						'${pageContext.request.contextPath}/resources/images/category_1_2.png',
+						'${pageContext.request.contextPath}/resources/images/category_2_2.png',
+						'${pageContext.request.contextPath}/resources/images/category_3_2.jpg',
+						'${pageContext.request.contextPath}/resources/images/category_4_2.png',
+						'${pageContext.request.contextPath}/resources/images/category_5_2.png',
+						'${pageContext.request.contextPath}/resources/images/category_6_2.jpg',
+						'${pageContext.request.contextPath}/resources/images/category_7_2.png',
+						'${pageContext.request.contextPath}/resources/images/category_8_2.jpg',
+						'${pageContext.request.contextPath}/resources/images/category_9_2.jpg',
+						'${pageContext.request.contextPath}/resources/images/category_10_2.jpg',
+						'${pageContext.request.contextPath}/resources/images/category_11_2.jpg',
+						'${pageContext.request.contextPath}/resources/images/category_12_2.jpg'
 						];
 			var text = ['한식','분식','카페,디저트','돈까스,회,일식','치킨','피자','아시안,양식','중국집','족발,보쌈','야식','찜,탕','도시락','패스트푸드'];
 			
