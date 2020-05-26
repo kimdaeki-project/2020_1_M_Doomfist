@@ -28,23 +28,21 @@ function Close_Event(){
   
   	<div>
 
-	
-	<div style="margin-left: 35%;"><img src="${pageContext.request.contextPath}/resources/images/.png"></div>
-		<hr>
-		
 			
 	<form class="form-horizontal" action="./storeMenuInsert" id="form" name="form" method="POST"
 			enctype="multipart/form-data">
 			<!-- 메뉴 추가 -->
-			<div align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px">
-			<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기">
+			<div align="center" class="form-group">
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 30px" height="30px"> 메뉴</div>
+				<input type="button" id="addmenu" class="btn btn-info active" style="width: 342px; background-image: url('${pageContext.request.contextPath}/resources/images/qna_menu.png')"> 
+			</div>  
 			<input type="hidden" id="st_key" name="st_key" value="${liststore.st_key}">
 
 				&nbsp; &nbsp;
-				<button type="submit" id="btn" class="btn btn-default active" >신청하기</button>
-			</div> 
 			
+			
+				
 		
 			
 			<%-- <c:forEach items="${listmenu}" var="vo">
@@ -55,9 +53,9 @@ function Close_Event(){
 			</div>
 			</c:forEach> --%>
 			
-			<div id="menuu" align="center">
-			
-			</div>
+			<div id="menuu" align="center"> 
+			</div>    
+			<button type="button" id="btn" class="btn btn-default active" style="width: 126px; height: 49px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
 			</form>
 			</div>
 			<br></br>
@@ -125,13 +123,8 @@ function Close_Event(){
 		}
 		
 	</script>
-	
-	<script type="text/javascript" src="../resources/boardForm.js?v=<%=System.currentTimeMillis() %>">
-		
-	</script>
+
 	</div>
-	<footer style="margin-top: 5%">
-<c:import url="../template/footer.jsp" ></c:import>
-</footer>
+
 </body>
 </html>
