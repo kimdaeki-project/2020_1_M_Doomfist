@@ -46,7 +46,7 @@
 			<div class="item active">
 				<img src="../resources/qna_images/${stfile.stfile_name}" alt="${stfile.stfile_oriname}" 
 				style="overflow: hidden; display: flex; align-items: center; justify-content: center;
-				width: 800px; height: 600px;">
+				width: 1140px; height: 600px;">
 				<div class="carousel-caption">
 				<p> </p>
 				</div>
@@ -84,43 +84,50 @@
   <div class="panel panel-default">
   	<div class="panel-body" >
   		<div id="map" style="width:250px;height:250px; display: inline-block; float: right;" align="center"></div>
-  		<ul class="list" style="list-style-type: none;">
-  			<li>가게 상세정보</li>
-  			<li>전화번호 : ${vo.st_phone}</li>
-    		<li>식당 주소 : ${vo.st_address} <input type="hidden" id="address" value="${vo.st_address}"></li> 
-    		<li>음식 종류 : ${vo.st_kind}</li>
+  		<ul class="list" style="list-style-type: none; font-size: large; font: bold;">  
+  			<li><h1><b>가게 정보</b></h1></li>
+    		<li><img alt="" src="${pageContext.request.contextPath}/resources/images/location.png" width="30px" height="30px"> 식당 주소 : ${vo.st_address} <input type="hidden" id="address" value="${vo.st_address}"></li> 
+  			<li><img alt="" src="${pageContext.request.contextPath}/resources/images/tel.png" width="30px" height="30px"> ${vo.st_phone}</li>
+    		<li style="visibility: hidden;">음식 종류 : ${vo.st_kind}</li>
+    	
     		<c:if test="${not empty vo.st_tag}">
     		<li>태그 :${vo.st_tag}</li>
     		</c:if>
     		
+    		<hr>
+
+  	<div>
+  	
+  		<ul class="list" style="list-style-type: none; width: 600px;">
+  			<br>
+  			<li style="align-self: center;"><h1><b>메뉴 정보</b></h1></li>
+  			<c:forEach items="${vo_sm}" var="vo" >
+	  		<li><div style="float: left; display: inline-block; width: 100px; overflow: hidden;"> ${vo.sm_menu}</div> <hr style="width: 350px;display: inline-block; margin-left: 50px; overflow: hidden;"> <div style="float: right; display: inline-block;"> ${vo.sm_price} 원</div>  
+	  			<br>
+  			</c:forEach>
+	  		<li align="right" style="margin-right: 40px;a">
+	  		</li>
+  		</ul>
+  		<div style="float: right;">
+	  		<a href="../payment/payFirstSelect?st_key=${vo.st_key}&pf_stname=${vo.st_name}&id=${sessionScope.member.id}">
+	  			<img src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png" alt="kpay">
+	  		</a>
+	  	</div>
+  	</div>
+
   		</ul>
   	</div>
   </div>
 
 	<p class="gap"><br></p>
 
-	<div class="panel panel-warning">
-  	<div class="panel-heading" align="center">
-  		<ul class="list" style="list-style-type: none;">
-  			<li>여기는 가게 메뉴와 가격이 적히는 곳입니다</li>
-  			<c:forEach items="${vo_sm}" var="vo" >
-  			<li>${vo.sm_menu} : ${vo.sm_price}</li>
-  			</c:forEach>
-	  		<li align="right" style="margin-right: 40px;a">
-	  		<a href="../payment/payFirstSelect?st_key=${vo.st_key}&pf_stname=${vo.st_name}&id=${sessionScope.member.id}">
-	  		<img src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png" alt="kpay">
-	  		</a>
-	  		</li>
-  		</ul>
-  	</div>
-  </div>
   
   <p class="gap"><br></p>
   
-  <div class="panel panel-success">
+  <div class="panel panel-default">
   	<div class="panel-heading" align="center">
 		<h2>
-	  		이 식당의 평점 : 
+	  		식당 방문자 평점: 
   			<font color="red">
   				${avg}
   			</font>

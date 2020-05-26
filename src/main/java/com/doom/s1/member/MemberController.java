@@ -103,8 +103,8 @@ public class MemberController {
 			 session.setAttribute("member", memberVO);
 			 mv.setViewName("redirect:../");
 		 }else {
-			 mv.addObject("result", "Login Fail");
-			 mv.addObject("path", "./memberJoin");
+			 mv.addObject("result", "아이디 혹은 비밀번호를 확인해주세요");
+			 mv.addObject("path", "./memberLogin");
 			 mv.setViewName("common/result");
 		 }
 		 
@@ -151,7 +151,9 @@ public class MemberController {
 		
 		if (result>0) {
 			session.setAttribute("member", memberVO);
-			mv.setViewName("redirect:./memberPage");
+			mv.addObject("result", "수정 성공");
+			mv.addObject("path", "./memberPage");
+			mv.setViewName("common/result");
 		}else {
 			mv.addObject("result", "수정 실패");
 			mv.addObject("path", "./memberPage");

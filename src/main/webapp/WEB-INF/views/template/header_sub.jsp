@@ -3,11 +3,12 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
 	
+
 	<div style=" width: 1910px; align="center">
 	<nav class="navbar">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
+				<button type="button" class="navbar-toggle" data-toggle="collapse" 
 					data-target="#myNavbar">
 					<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
@@ -104,11 +105,12 @@
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>관리자</b>
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					  	<li><a href="#">회원정보 관리</a></li>
+					  <li><a href="${pageContext.request.contextPath}/member/memberList">회원정보 관리</a></li>
+					    <li class="divider"></li>
+					    <li><a href="${pageContext.request.contextPath}/qna/qnaList"> 맛집 신청 관리</a></li>
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집 리스트 관리</a></li>
-					    <li class="divider"></li>
-					    
+		    
 					  </ul>
 					</div>	
 					</li>	
@@ -124,8 +126,7 @@
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
 					  	<li><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
-					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
+					  
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
 					    <c:if test="${member.member_div eq 1}">
@@ -171,8 +172,8 @@
 				</ul>
 			</div>
 		</div>
+		<div id="loading"><img id="loading-image" style="display: flex; justify-content: center; height: 300px; width:300px " src="${pageContext.request.contextPath}/resources/images/loading.gif" alt="Loading..." /></div>
 	</nav>
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -195,13 +196,17 @@
 	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
+	setTimeout(() =>{
+		$(document).ready(function() {
+		     $("#loading").hide();
+		   });
+			
+		}, 800);
  
 	$(".notjoin").click(function() {
 		alert("로그인 후 이용해주세요")
 	})
 	
 
-	
 	</script>
 	<!-- 영호 추가 -->
-	</div>

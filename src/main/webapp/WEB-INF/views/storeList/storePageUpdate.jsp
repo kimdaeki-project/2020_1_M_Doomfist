@@ -69,7 +69,7 @@
 				<label for="address">식당 주소 정보</label>
 				<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>			
 				<br></br>	
-				<input style="width: 30%;" type="text" id="st_address" name="st_address" class="form-control" placeholder="Enter Address" required="true" readonly="readonly" value="${liststore.st_address}">
+				<input style="width: 30%;" type="text" id="st_address" name="st_address" class="form-control" placeholder="Enter Address" required="true"  value="${liststore.st_address}">
 				<br>
 			</div>
 			<!-- 태그 추가 -->
@@ -226,16 +226,18 @@
 
 		function jusoCallBack(roadFullAddr){
 				// 팝업페이지에서 주소입력한 정보를 받아서, 현 페이지에 정보를 등록합니다.
-				document.form.qna_contents.value = roadFullAddr;	
+				window.document.form.st_address.value = roadFullAddr;	
 				
 		}
+		
+		
 		
 	</script>
 	
 	<script type="text/javascript" src="../resources/boardForm.js?v=<%=System.currentTimeMillis() %>">
 		
 	</script>
-	</div>
+
 	<footer style="margin-top: 5%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>

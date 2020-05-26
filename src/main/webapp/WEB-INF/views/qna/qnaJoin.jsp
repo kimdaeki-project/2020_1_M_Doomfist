@@ -14,7 +14,7 @@
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
 		  <div class="page-header text-center text-info">
-		   <div><img src="${pageContext.request.contextPath}/resources/images/apply.png"> </div> 
+		   <div><img src="${pageContext.request.contextPath}/resources/images/apply_2.png"> </div> 
     <br></br>
     <br></br>
   </div>
@@ -179,6 +179,7 @@
 	<script type="text/javascript" src="../resources/boardForm.js?v=<%=System.currentTimeMillis() %>">
 		
 	</script>
+	</div>
 	<c:import url="../template/footer.jsp"></c:import>
 </body>
 </html>

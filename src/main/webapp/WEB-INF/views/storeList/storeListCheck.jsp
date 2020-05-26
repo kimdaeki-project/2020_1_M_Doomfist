@@ -60,7 +60,8 @@
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
 		<div class="row">
-			<h1>등록된 식당 현황</h1>
+			<div><img src="${pageContext.request.contextPath}/resources/images/storelistad.png"> </div> 
+			<hr>
 			<form class="form-inline" action="./storeListCheck">
 				<div class="input-group input-group-sm col-xs-2">
 					<select class="form-control" id="sel1" name="kind">

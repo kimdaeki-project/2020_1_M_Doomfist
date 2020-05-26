@@ -48,13 +48,16 @@
 				<hr>
 		
 	</form>
-	<button style="margin-left: 200px" class="btn btn-primary" id="update">수정</button>
-		<button class="btn btn-danger" id="del">탈퇴</button>
+	<!-- <button style="margin-left: 200px" class="btn btn-primary" id="update">수정</button>
+	<button class="btn btn-danger" id="del">탈퇴</button> -->
+	<input type="image" id="upbtn" style="outline: 0; margin-left: 200px;" src="${pageContext.request.contextPath}/resources/images/upbtn.png">
+	<input type="image" id="delbtn" style="outline: 0; " src="${pageContext.request.contextPath}/resources/images/delbtn.png">
+		
 	</div>
 
 </div>
 
-<footer style="margin-top: 5%">
+<footer style="margin-top: 13.5%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 
@@ -62,11 +65,11 @@
 	//js  document.getElementById
 	//js  document.querySelector
 	//jquery $(선택자)
-	$("#update").on("click", function() {
+	$("#upbtn").on("click", function() {
 		location.href="./memberUpdate";
 	});
 	
-	$("#del").click(function() {
+	$("#delbtn").click(function() {
 		var result = confirm("정말 탈퇴하시겠습니까?");
 		if(result){
 			location.href="./memberDelete";	

@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <body>
+<div style="width: 1910px">
 	<div class="jumbotron" style="height: 480px; background-size:cover;background-image: url('${pageContext.request.contextPath}/resources/images/food_3.jpg')">
 
 		<div class="container text-center">
@@ -24,7 +25,7 @@
 					<li class="active">
 					<div style="margin-top: 5.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>HOME</b></button>
+					  <button class="btn" id="drop" type="button" style="outline: 0;" >&nbsp;<b>HOME</b></button>
 					  </a>
 					</div>	
 					<!-- <a href="${pageContext.request.contextPath}/">Home</a> -->
@@ -33,7 +34,7 @@
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/notice/noticeList">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>공지사항</b></button>
+					  <button class="btn" id="drop" type="button" style="outline: 0;">&nbsp;<b>공지사항</b></button>
 					  </a>
 					  </div>	
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
@@ -45,7 +46,7 @@
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/qna/qnaJoin">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
+					  <button class="btn" id="drop" type="button" style="outline: 0;">&nbsp;<b>맛집신청</b></button>
 					  </a>
 					  </div>
 					  </li>
@@ -121,10 +122,11 @@
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>관리자</b>
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
-					  	<li><a href="#">회원정보 관리</a></li>
+					  	<li><a href="${pageContext.request.contextPath}/member/memberList">회원정보 관리</a></li>
+					    <li class="divider"></li>
+					    <li><a href="${pageContext.request.contextPath}/qna/qnaList"> 맛집 신청 관리</a></li>
 					    <li class="divider"></li>
 					    <li><a href="${pageContext.request.contextPath}/storeList/storeListCheck">맛집 리스트 관리</a></li>
-					    <li class="divider"></li>
 					    
 					  </ul>
 					</div>	
@@ -141,10 +143,10 @@
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
 					  	<li><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
+					
 					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/member/memberUpdate">개인정보수정</a></li>
-					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
+					    <%-- <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li> --%>
+					    <li><a href="/s1/payment/payReceipt?id=${member.id}" data-toggle="modal" data-target="#my2Modal">결제내역</a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
@@ -188,8 +190,8 @@
 				</ul>
 			</div>
 		</div>
+		<div id="loading"><img id="loading-image" style="display: flex; justify-content: center; height: 300px; width:300px " src="${pageContext.request.contextPath}/resources/images/loading.gif" alt="Loading..." /></div>
 	</nav>
-
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-lg">
@@ -207,18 +209,42 @@
       </div>
     </div>
   </div>
+  
+  <!-- Modal2 -->
+  <div class="modal fade" id="my2Modal" role="dialog">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>This is a large modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
 </div>
  	
 	<!-- 추가 -->
 	<!-- 영호 추가 -->
 	<script type="text/javascript">
+	setTimeout(() => {
+		$(document).ready(function() {
+		     $("#loading").hide();
+		   });
+			
+		}, 800);
  
 	$(".notjoin").click(function() {
 		alert("로그인 후 이용해주세요")
 	})
 	
-
 	
 	</script>
 	<!-- 영호 추가 -->
-	</div>

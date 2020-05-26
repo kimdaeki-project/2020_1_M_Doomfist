@@ -63,10 +63,12 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	
 
 	<div class="container">
 		<div class="row">
-			<h1>회원 정보</h1>
+		<div><img src="${pageContext.request.contextPath}/resources/images/memberinfoad.png"> </div> 
+		<hr>
 			<form action="./memberList" class="form-inline">
 				<div class="input-group input-group-sm col-xs-2">
 					<select class="form-control" id="sel1" name="kind">

@@ -17,7 +17,7 @@
 <div class="container">
 	<div class="row">
 		   <div class="page-header text-center text-info">
-		   <div><img src="${pageContext.request.contextPath}/resources/images/notice.png"> </div> 
+		   <div><img src="${pageContext.request.contextPath}/resources/images/notice_2.png"> </div> 
     <br></br>
     <br></br>
   </div>
@@ -37,9 +37,9 @@
 		    </div>
 		  </form>
 		</div>
-		<table class="table">
+		<table class="table" style="text-align: center;">
 			<tr style="background-color: #e6f5ff;">
-				<td>번호</td>
+				<td></td>
 				<td>제목</td>
 				<td>작성날짜</td>
 				<td>조회수</td>

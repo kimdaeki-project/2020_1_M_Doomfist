@@ -15,7 +15,8 @@
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
 		<div class="row">
-			<h1>${sessionScope.member.id}님의 식당 현황</h1>
+			<div style="font-size: 80px;">${sessionScope.member.id}&nbsp;<img src="${pageContext.request.contextPath}/resources/images/mystorelist.png"> </div>
+			<hr>
 			<form class="form-inline" action="./storePage">
 				<div class="input-group input-group-sm col-xs-2">
 				</div>
