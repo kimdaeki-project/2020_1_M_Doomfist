@@ -4,8 +4,8 @@
 <body>
 	
 
-	<div style=" width: 1910px; align="center">
-	<nav class="navbar">
+	<div style=" width: 1910px;" align="center">
+	<nav class="navbar" style="border-bottom: 1px solid #e9ebec; height: 65px;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" 
@@ -21,7 +21,7 @@
 					<li class="active">
 					<div style="margin-top: 5.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>HOME</b></button>
+					  <button class="btn" id="drop" type="button" style="height: 65px;">&nbsp;<b>HOME</b></button>
 					  </a>
 					</div>	
 					<!-- <a href="${pageContext.request.contextPath}/">Home</a> -->
@@ -30,7 +30,7 @@
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/notice/noticeList">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>공지사항</b></button>
+					  <button class="btn" id="drop" type="button" style="height: 65px;">&nbsp;<b>공지사항</b></button>
 					  </a>
 					  </div>	
 					<!--<a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a>-->
@@ -42,7 +42,7 @@
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/qna/qnaJoin">
-					  <button class="btn" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
+					  <button class="btn" id="drop" type="button" style="height: 65px;">&nbsp;<b>맛집신청</b></button>
 					  </a>
 					  </div>
 					  </li>
@@ -51,7 +51,7 @@
 					<c:if test="${empty member}"> 
 					<li>
 					<div style="margin-top: 7px;" class="dropdown">
-					  <button class="btn notjoin" id="drop" type="button" >&nbsp;<b>맛집신청</b></button>
+					  <button class="btn notjoin" id="drop" type="button" style="height: 65px;">&nbsp;<b>맛집신청</b></button>
 					  </div>  
 					<!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
 					</li>
@@ -69,7 +69,7 @@
 					<li>
 						<div style="margin-top: 7px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/member/memberJoin">
-					  <button class="btn" id="drop" type="button" >
+					  <button class="btn" id="drop" type="button" style="height: 65px;">
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>회원가입</b></button>
 					  </a>
 					  </div>
@@ -80,7 +80,7 @@
 					<li>
 						<div style="margin-top: 5.5px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/member/memberLogin">
-					  <button class="btn" id="drop" type="button">
+					  <button class="btn" id="drop" type="button" style="height: 65px;">
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>로그인</b></button>
 					  </a>
 					  </div>
@@ -101,7 +101,7 @@
 					<c:if test="${member.id eq 'admin'}">
 					<li>
 					<div style="margin-top: 8px;" class="dropdown">
-					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown">
+					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown" style="height: 65px;">
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>관리자</b>
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
@@ -121,7 +121,7 @@
 					<c:if test="${member.id ne 'admin'}">
 					<li>
 					<div style="margin-top: 8px;" class="dropdown">
-					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown">
+					  <button class="btn dropdown-toggle" id="drop" type="button" data-toggle="dropdown" style="height: 65px;">
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>회원정보</b>
 					  <span class="caret"></span></button>
 					  <ul class="dropdown-menu">
@@ -142,7 +142,7 @@
 					<li>
 					<div style="margin-top: 8px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/member/memberLogout">
-					  <button class="btn" id="drop" type="button" >
+					  <button class="btn" id="drop" type="button" style="height: 65px;">
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>로그아웃</b></button>
 					  </a>
 					</div>	
@@ -161,7 +161,7 @@
 					<li>
 					<div style="margin-top: 8px;" class="dropdown">
 						<a href="${pageContext.request.contextPath}/member/logout">
-					  <button class="btn" id="drop" type="button" >
+					  <button class="btn" id="drop" type="button" style="height: 65px;">
 					  <span class="glyphicon glyphicon-user"></span>&nbsp;<b>로그아웃</b></button>
 					  </a>
 					</div>	

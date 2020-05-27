@@ -27,10 +27,10 @@
 
 			<div id="result">
 			<table class="table table-hover">
-				<tr>
-					<td width="100px">식당고유번호<td> <!-- st_key -->
+				<tr style="background-color: #e6f5ff">
+					<td width="100px">등록번호<td> <!-- st_key -->
 					<td>식당이름</td> <!-- st_title -->
-					<td width="100px">아이디</td>	<!-- id -->
+					<td hidden="" width="100px">아이디</td>	<!-- id -->
 					<td>식당주소</td> <!-- st_address -->
 
 				</tr>
@@ -49,7 +49,7 @@
 						</td>
 						
 						<td><a href="./storePageUpdate?st_key=${vo.st_key}">${vo.st_name}</a></td>
-						<td>${vo.id}</td>
+						<td hidden="">${vo.id}</td>
 						<td>${vo.st_address}</td>
 					</tr>
 				</c:forEach>
