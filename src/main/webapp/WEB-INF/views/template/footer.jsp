@@ -9,9 +9,9 @@
 			</div> 
 			<div class="footer_nav" style="width: 630px;" align="center">
 				<div class="footer_nav_sub" style="font-size: small; padding-top: 20px; padding-left: 40px;">
-					<ul>
-						<li><a href="../${pageContext.request.contextPath}/footer/legalnotice" style="text-decoration: none; color: black;">법적고지</a> |</li>
-						<li><a href="#"
+					<ul>      	
+						<li><a href="${pageContext.request.contextPath}/footer/legalnotice" style="text-decoration: none; color: black;">법적고지</a> |</li>
+						<li><a href="${pageContext.request.contextPath}/footer/privacy"
 							style="color: #1A97A3; font-weight: bold; font-size: 13px;">&lt;개인정보처리방침&gt;</a>
 							 |</li>   
 						<li><a href="#" style="text-decoration: none; color: black;">윤리경영 핫라인</a> |</li>

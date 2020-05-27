@@ -387,9 +387,9 @@
 
 				<p class="txt txt01">회사는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한
 					정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보보호 책임자를 지정하고 있습니다.</p>
-
+        	
 				<div class="table-wrap-type01 table-type03">
-					<table class="table table-bordered" style="text-align: center;">       
+					<table class="table table-bordered" style="text-align: center; border-left: hidden; border-right: hidden;">       
 	
 						<colgroup>
 							<col class="col01" width="25%">
