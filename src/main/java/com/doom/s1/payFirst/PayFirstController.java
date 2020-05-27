@@ -76,7 +76,8 @@ public class PayFirstController {
 			
 			mv.addObject("vo_pf1", payFirstVO);
 			mv.addObject("vo_ps", paySecondVOs);
-			mv.setViewName("payment/payReceipts");
+			mv.addObject("result", payFirstVO.getPf_key());
+			mv.setViewName("common/ajaxResult");
 			
 			return mv;
 		}

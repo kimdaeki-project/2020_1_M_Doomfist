@@ -25,10 +25,13 @@
 				${vo.pf_stname} || 결제날짜 :${vo.pf_date}
 			</div>
 			<div style="font-size: medium;">
-				<br> <a href="/s1/payment/payReceipts?pf_key=${vo.pf_key}"
-				data-toggle="modal" data-target="#my3Modal">
+				<br> <%-- <a href="/s1/payment/payReceipts?pf_key=${vo.pf_key}"
+				data-toggle="modal" data-target="#my3Modal" id="detail${i.index}"> --%>
+				<input type="hidden" id="detail${i.index}" value="${vo.pf_key}">
+				<button class="btn btn-info" title="detail${i.index}" id="btndt">
 				자세히보기
-				</a>
+				</button>
+				
 				<c:set var="sum" value="${0}" />
 			
 				
@@ -43,6 +46,28 @@
 	<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 </div>
 
+<script type="text/javascript">
+
+	$("#btndt").click(function() {
+		var pfs = $(this).attr("title");
+		var pf_key = $("#"+pfs).attr("value");
+		
+		$.ajax({
+			type:"get",
+			url: "./payment/payReceipts",
+			traditional: true,
+			data:{
+				pf_key: pf_key
+			},
+			success: function(data) {
+				$.get("./payReceipts", function(data) {
+					$("#my3Modal").html(data);
+				});
+			}
+		});
+	});
+
+</script>
 
 
 <!-- </body>
