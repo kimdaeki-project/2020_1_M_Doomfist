@@ -218,7 +218,6 @@ body{
  left: 40%; 
  z-index: 100; }
  
-
 	
 </style>
     

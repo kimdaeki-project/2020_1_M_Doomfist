@@ -58,7 +58,7 @@
 			   
 			<div align="center" class="form-group">
 				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 카테고리</b></div>
-				<select id="qna_kind" name="qna_kind" style="width: 180px;">
+				<select id="qna_kind" name="qna_kind" style="width: 180px; display: inline-block;" class="form-control">
 					<option value="">선택없음</option>
 					<option>한식</option>
 					<option>분식</option>
@@ -88,7 +88,7 @@
 			<div align="center" class="form-group">
 				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
 				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 30px" height="30px"> 태그 </div>
-				<div style="display: inline-block;"> <input type="text" id="qna_tag" name="qna_tag" placeholder="#태그  #태그 ..." value="#맛집" style="width: 342px"></div>
+				<div style="display: inline-block;"> <input type="text" class="form-control" id="qna_tag" name="qna_tag" placeholder="#태그  #태그 ..." value="#맛집" style="width: 342px"></div>
 			</div>
 			<br></br>
 			
@@ -98,10 +98,10 @@
 				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 30px" height="30px"> 메뉴</div>
 				<input type="button" id="addmenu" class="btn btn-info active" style="width: 342px; background-image: url('${pageContext.request.contextPath}/resources/images/qna_menu.png')"> 
 			</div>  
-  		     
+  		       
  			<div style="margin-top: 15px; margin-bottom: 15px;" align="center">
  				<div style="width: 150px; height: 20px; display: inline-block; margin-right: 10px;"></div>
-				<input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; display: inline-block; width: 166px"> <input type="text" numberOnly id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요" style="width: 166px;">
+				<input type="text" class="form-control" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; display: inline-block; width: 166px"> <input type="text" numberOnly id="qm_price" class="form-control" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요" style="width: 166px; display: inline-block;">
 			</div>
 			<div id="menuu" align="center"></div>   
 				
@@ -150,10 +150,10 @@
 				.click(
 						function() {   
 							if (countm < 10) { 
-								console.log(countm);
+								console.log(countm);  
 								$("#menuu")    
 										.append(
-										'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px;"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요 "style="width:166px;" ><i class="glyphicon glyphicon-remove remove"></i></div>');
+										'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px; display: inline-block" class="form-control"> <input type="text" id="qm_price" name="qm_price" class="form-control" placeholder="가격을 입력해주세요 "style="width:166px; display: inline-block;" ><i class="glyphicon glyphicon-remove remove"></i></div>');
 								countm++;
 								$("input:text[numberOnly]").on("keyup", function() {
 								    $(this).val($(this).val().replace(/[^0-9]/g,""));

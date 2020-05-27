@@ -55,7 +55,7 @@ function Close_Event(){
 			
 			<div id="menuu" align="center"> 
 			</div>    
-			<button type="button" id="btn" class="btn btn-default active" style="width: 126px; height: 49px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
+			<button type="submit" id="btn" class="btn btn-default active" style="width: 126px; height: 49px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
 			</form>
 			</div>
 			<br></br>
@@ -91,7 +91,7 @@ function Close_Event(){
 							if (countm < 11) {
 								$("#menuu")
 										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <input type="text" id="sm_price" name="sm_price" class="sm_price" placeholder="가격을 입력해주세요"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
+												'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px; display: inline-block" class="form-control"> <input type="text" id="sm_price" name="sm_price" class="form-control" placeholder="가격을 입력해주세요 "style="width:166px; display: inline-block;" ><i class="glyphicon glyphicon-remove remove"></i></div>');
 
 								countm++;
 							} else {

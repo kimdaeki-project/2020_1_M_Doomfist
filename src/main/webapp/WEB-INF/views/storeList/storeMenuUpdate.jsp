@@ -33,27 +33,28 @@ function Close_Event(){
 			
 			
 			<!-- 메뉴 추가 -->
-			<div align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px"> 메뉴
-			</div> 
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row" align="center">
+				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 30px" height="30px"> 메뉴</div>
 			
 			
-			
+			    
 			<c:forEach items="${listmenu}" var="vo">
 			<form class="form-horizontal" action="./storeMenuUpdate" id="form" name="form" method="POST">
 			<input type="hidden" id="st_key" name="st_key" value="${liststore.st_key}">
 			<div class="menuu2" style="margin-top: 15px; margin-bottom: 15px;" align="center">
-			<input type="text" id="sm_key" name="sm_key" value="${vo.sm_key}">
-				<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> 
-				<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price" placeholder="가격을 입력해주세요">
-				<i class="glyphicon glyphicon-remove remove"></i><button type="submit" class="btn btn-default">수정</button>
+			<input type="hidden" id="sm_key" name="sm_key" value="${vo.sm_key}">
+				<input value="${vo.sm_menu}" title="${a}"type="text" id="sm_menu" name="sm_menu" class="form-control" placeholder="메뉴를 입력해주세요" style="margin-right: 15px; width: 200px; display: inline-block;"> 
+				<input value="${vo.sm_price}" type="text" id="sm_price" name="sm_price" class="sm_price form-control" placeholder="가격을 입력해주세요" style="width: 200px; display: inline-block;">
+			
+					<br><br>
+				<button type="submit" id="btn" class="btn btn-default active" style="width: 126px; height: 49px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
 			</div>
 			</form>
 			</c:forEach>
 			
 			
-			
-			
+			 
+			 
 			
 			
 			
