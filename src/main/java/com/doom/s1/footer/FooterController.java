@@ -17,5 +17,13 @@ public class FooterController {
 	public void privacy()throws Exception{
 		
 	}
+	@GetMapping("company")
+	public void company()throws Exception{
+		
+	}
+	@GetMapping("membergrade")
+	public void membergrade()throws Exception{
+		
+	}
 
 }
