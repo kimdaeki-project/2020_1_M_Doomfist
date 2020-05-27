@@ -13,15 +13,20 @@
 	style="text-align: center; font-size: 30px; margin-left: 10%; margin-right: 10%;">
 	<h1 style="color: black;">${sessionScope.member.id}님결제내역</h1>
 	<ul class="list" style="list-style-type: none;">
-
+	
 		<c:forEach items="${vo_pf}" var="vo" varStatus="i">
+		
 			<div style="margin-top: 50px">
 				<hr>
-				${vo.pf_stname} || 결제날짜 :${vo.pf_date}
-			</div>
-			<div style="font-size: medium;">
-				<br> <%-- <a href="/s1/payment/payReceipts?pf_key=${vo.pf_key}"
-				data-toggle="modal" data-target="#my3Modal" id="detail${i.index}"> --%>
+				<div style="float: left;">
+				${vo.pf_stname} | 
+				</div>
+				<div style="float: left; font-size: medium; margin-top: 10px" >
+				
+				결제날짜 :${vo.pf_date}	
+				</div> 
+			<div style="font-size: medium; float: right;">
+				
 				<input type="hidden" id="${i.count}" value="${vo.pf_key}" title="${i.count}">
 				<%forcount++; %>
 				<button class="btn btn-info plz" title="${i.count}" id="btndt${i.count}" 
@@ -33,13 +38,15 @@
 			
 				
 			</div>
+			</div>
+			
 		</c:forEach>
-
-
-
+		
 	</ul>
+	
+	
 </div>
-<div class="modal-footer">
+<div class="modal-footer" style="margin-top: 50px">
 	<button type="button" class="btn btn-default" data-dismiss="modal" id="close1">Close</button>
 </div>
 
@@ -49,7 +56,7 @@
 	console.log(co);
 	for(var i=1; i<=co; i++){
 		$("#btndt"+i).click(function() {
-			$('body').css("overflow", "hidden");
+			
 			var pf_key = [];
 				
 					var pfs = $(this).attr("title");

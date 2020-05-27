@@ -18,8 +18,7 @@
 				결제날짜 :${vo_pf1.pf_date}
 			</div>
 		
-			<ul class="list" style="list-style-type: none;">
-		
+			<ul class="list" style="list-style-type: none; ">		
 		
 				<c:set var="sum" value="${0}" />
 				<br>
@@ -27,11 +26,12 @@
 					<c:set var="sum" value="${sum+vo2.ps_multi}" />
 					<li>
 						<div style="font-size: medium;">
-							${vo2.ps_menu} x ${vo2.ps_count}개 -- ${vo2.ps_multi}원
-							<%-- ${vo2.ps_count} --%>
+							${vo2.ps_menu} x ${vo2.ps_count}개 
+							<p></p>
+							 ${vo2.ps_multi}원
 						</div>
-					</li>
 					<br>
+					</li>
 		
 				</c:forEach>
 				<li>
