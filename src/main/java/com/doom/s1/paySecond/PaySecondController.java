@@ -104,7 +104,8 @@ public class PaySecondController {
 					
 //					BuyAddrVO buyAddrVO = sellCheckService.selectBuyAddr(id); 	//구매자 주소테이블에서 주소 가져오기
 //					int adr = sellCheckService.insertSelAddr(buyAddrVO);		//가져온 주소 판매확인 테이블에 추가
-					
+					List<PaySecondVO> paList = paySecondService.payS();
+					mv.addObject("pas", paList);
 		return mv;
 	}
 	

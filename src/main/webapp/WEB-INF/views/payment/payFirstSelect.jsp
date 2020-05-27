@@ -38,7 +38,7 @@
 		</div>
 	</div>
 	<div class="container" id="result"	style="width: 65%; font-size: 30px; background-color: #e6f5ff;">
-		<div class="row">
+		<div class="row" style="min-height: 800px;">
 			<form action="./paySecondInsert" method="post" id="frm">
 				<div align="center">
 					<label for="address">배달 받을 주소</label>
