@@ -26,7 +26,7 @@ figure.snip1384 {
   overflow: hidden;
   margin: 10px;
   min-width: 230px;
-  max-width: 340px;
+  max-width: 333px;
   width: 100%;
   color: #ffffff;
   text-align: left;
@@ -130,12 +130,80 @@ figure.snip1384.hover i {
   opacity: 1;
 }
 
+/*0526*/
 
 
 
 
 
-/*성민추가 */
+fieldset {
+  position: relative;
+  display: inline-block;
+  padding: 0 0 0 40px;
+  background: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+
+
+input {
+  color: #666;
+  z-index: 2;
+  
+}
+input:focus {
+  outline: 0 none;
+}
+input:focus + .btn2 {
+  -webkit-transform: translate(0, 0);
+      -ms-transform: translate(0, 0);
+          transform: translate(0, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+input:focus + .btn2 .fa {
+  -webkit-transform: translate(0px, 0);
+      -ms-transform: translate(0px, 0);
+          transform: translate(0px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  color: #fff;
+}
+
+.btn2 {
+  z-index: 1;
+  width: 50px;
+  border: 0 none;
+  background: #80d6ff;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;  
+  -webkit-transform: translate(-50px, 0);
+      -ms-transform: translate(-50px, 0);
+          transform: translate(-50px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+}
+
+.fa-search {
+  font-size: 1.4rem;
+  color: #29abe2;
+  z-index: 3;
+  top: 25%;
+  -webkit-transform: translate(-340px, 0);
+      -ms-transform: translate(-340px, 0);
+          transform: translate(-340px, 0);
+  -webkit-transition-duration: 0.3s;
+          transition-duration: 0.3s;
+  -webkit-transition: all 0.1s ease-in-out;
+          transition: all 0.1s ease-in-out;
+}
+
+/*0527*/
+
+
+	
+/*성민추가  끝*/
 
 body{
 	background-color:white;

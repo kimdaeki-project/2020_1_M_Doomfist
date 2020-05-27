@@ -19,7 +19,7 @@
 	<body>
 		<c:import url="./template/header.jsp"></c:import>
 	
-		<div class="container ">
+		<div class="container" style="width:1150px;">
 			<div class="row">
 			<div><img src="${pageContext.request.contextPath}/resources/images/today_2.png"> </div> 
 			<hr>
@@ -27,7 +27,7 @@
 <!-- 구분선=============================================================================================== -->		
 			
 			
-		<div class="col-sm-4" style="border: solid #e6e6e6 1px; border-right: 0px;cursor: pointer;" id="category0">	
+		<div class="col-sm-4" style="border: solid #e6e6e6 1px; border-right: 0px;cursor: pointer;" id="category0" >	
 		<figure class="snip1384">
   			<img id="num0" class="img-responsive test1" style="display: flex; justify-content: center;"alt="Image"> 
  			<figcaption>

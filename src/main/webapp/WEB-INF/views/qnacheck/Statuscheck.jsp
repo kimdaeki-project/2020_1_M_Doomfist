@@ -14,31 +14,30 @@
 
 <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">맛집 신청 현황 </h4>
 </div>
 
 
-<h1>${member.id}님의 맛집 신청 현황</h1>
+<div style="font-size: 48px;"align="center">&nbsp; ${member.id}&nbsp;<img alt="" src="${pageContext.request.contextPath}/resources/images/applyboard.png">  </div>
 
 <div class="modal-body">
-         <table class="table table-bordered" border="1">
-		<tr style="background-color: aqua;">
-			<td>신청번호</td>
+         <table class="table table-bordered" border="1" >
+		<tr style="background-color: #e6f5ff;  font-weight: bold;">
+			<td align="center" style="width: 10%;">신청번호</td>
 			<!-- qna_storekey -->
-			<td>식당이름</td>
+			<td align="center" style="width: 40%;">식당이름</td>
 			<!-- qna_title -->
-			<td>날짜</td>
+			<td align="center" style="width: 20%;">날짜</td>
 			<!-- qna_date -->
-			<td>승인 여부</td>
+			<td align="center" style="width: 15%;">승인 여부</td>
 		</tr>
 
 		
 		<c:forEach items="${list}" var="vo" varStatus="i" >
 			<tr id="status">
-				<td>${vo.qc_check}</td>
-				<td>${vo.qc_title}</td>
-				<td>${vo.qc_date}</td>
-				<td>
+				<td align="center">${vo.qc_check}</td>
+				<td align="center">${vo.qc_title}</td>
+				<td align="center">${vo.qc_date}</td>
+				<td align="center">
 					<c:choose>
 					<c:when test="${vo.qna_storekey > 0}">
 						처리중
@@ -55,7 +54,8 @@
  
   </div>
 <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			
+          <button type="button" class="btn btn-info" data-dismiss="modal" style=" background-image:url('${pageContext.request.contextPath}/resources/images/close.png'); width: 100px; height: 39px;" ></button>
        </div>
 <!-- </body>
 </html> -->

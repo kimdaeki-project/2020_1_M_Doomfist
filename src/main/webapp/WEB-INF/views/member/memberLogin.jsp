@@ -73,7 +73,7 @@
 </c:otherwise>
 </c:choose>
 
-<footer style="margin-top: 10%">
+<footer style="margin-top: 8%">
 <c:import url="../template/footer.jsp" ></c:import>
 </footer>
 <!-- <div class="container">
