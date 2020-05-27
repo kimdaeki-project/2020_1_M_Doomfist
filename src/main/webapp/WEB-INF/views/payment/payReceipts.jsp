@@ -4,18 +4,18 @@
 
 <div class="modal-dialog modal-sm">
 	<div class="modal-content">
-		<div class="modal-header">
+		<div class="modal-header" style="border-bottom: 3px #80d6ff solid;">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h2>${vo_pf1.pf_stname}</h2>
 		</div>
 		
 		<div class="modal-body"
-			style="text-align: center; font-size: 30px; margin-left: 10%; margin-right: 10%;">
-			<h1 style="color: black;">${sessionScope.member.id}님결제내역</h1>
+			style="text-align: center; font-size: 30px; margin-left: 10%; margin-right: 10%; ">
 		
-			<div style="margin-top: 50px; font-size: medium;">
+			<div style="margin-top: 15px; font-size: medium;">
 				<hr>
-				${vo_pf1.pf_stname}<br>
 				결제날짜 :${vo_pf1.pf_date}
+				<hr>
 			</div>
 		
 			<ul class="list" style="list-style-type: none; ">		
@@ -35,7 +35,14 @@
 		
 				</c:forEach>
 				<li>
-					<hr> 총금액 : ${sum} 원
+					<hr> 
+					<h2>
+					결제 금액
+					</h2>
+					
+					<h2>
+					${sum} 원
+					</h2>					 
 				</li>
 		
 			</ul>
