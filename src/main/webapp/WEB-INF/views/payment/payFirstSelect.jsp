@@ -8,6 +8,7 @@
 <title>${vo.pf_stname}</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
+
 </head>
 <!-- 뒤로가기  -->
 <script type="text/javascript">
