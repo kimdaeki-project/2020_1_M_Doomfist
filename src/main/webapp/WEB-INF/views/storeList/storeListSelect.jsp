@@ -60,7 +60,7 @@
 						<div class="item">
 							<img src="../resources/qna_images/${stfile.stfile_name}"
 								alt="${stfile.stfile_oriname}"
-								style="overflow: hidden; display: flex; align-items: center; justify-content: center; width: 800px; height: 600px;">
+								style="overflow: hidden; display: flex; align-items: center; justify-content: center; width: 1140px; height: 600px;">
 							<div class="carousel-caption">
 								<p></p>
 							</div>

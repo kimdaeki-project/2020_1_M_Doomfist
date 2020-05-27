@@ -23,26 +23,42 @@
 			enctype="multipart/form-data">
 
 			<div class="form-group" align="center">
-				<label for="qna_title">식당이름 </label> <input type="text" style="width: 30%;"
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 이름</b></div> <input type="text" style="width: 342px; display: inline-block;"
 					class="form-control" id="qna_title" placeholder="식당이름"
 					name="qna_title">
 			</div>
 
 			<div class="form-group">
-				<input type="hidden" class="form-control" style="width: 30%;"
+				<input type="hidden" class="form-control" style="width: 342px;"
 					id="id"  value="${sessionScope.member.id}"
 					placeholder="Enter writer" name="id">
 			</div>
 			
 			<div class="form-group" align="center">
-				<label for="qna_phone">식당전화번호 </label> <input type="text" style="width: 30%;"
-					class="form-control" id="qna_phone" placeholder="식당 전화번호"
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>전화 번호</b></div>  <input type="text" numberOnly style="width: 342px; display: inline-block;"
+					class="form-control" id="qna_phone" placeholder="전화 번호는 -을 뺴고 입력해 주세요"
 					name="qna_phone">
+			</div> 
+			
+			<hr style="width: 800px; margin-left: 150px;"> 
+			
+			
+			<div class="form-group" align="center">
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>음식점 주소</b></div>
+				<input style="width: 342px; display: inline-block;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
+				<br><br>	
+				<div style="width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"></div>
+				<button type="button" class="btn btn-warning active" onClick="goPopup()" style="width: 342px;"><span class="glyphicon glyphicon-search"></span>주소검색</button>			
+				
+				<br>
 			</div>
 			
-			<div align="center">
-				<label for="category">식당 카테고리</label>
-				<select id="qna_kind" name="qna_kind">
+			
+			<hr style="width: 800px; margin-left: 150px;"> 
+			   
+			<div align="center" class="form-group">
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 카테고리</b></div>
+				<select id="qna_kind" name="qna_kind" style="width: 180px; display: inline-block;" class="form-control">
 					<option value="">선택없음</option>
 					<option>한식</option>
 					<option>분식</option>
@@ -52,60 +68,74 @@
 					<option>피자</option>
 					<option>아시안,양식</option>
 					<option>중국집</option>
-					<option>족발,보쌈</option>
+					<option>족발,보쌈</option> 
 					<option>야식</option>
 					<option>찜,탕</option>
 					<option>도시락</option>
 					<option>패스트 푸드</option>
 				</select>
+				<div style="display: inline-block; width: 166px; height: 20px;"></div>
 			</div> 
 			
-		
-			<div align="center">
-				<label for="address">식당 주소 정보</label>
-				<button type="button" class="btn btn-warning active" onClick="goPopup()"><span class="glyphicon glyphicon-search"></span>주소검색</button>			
-				<br></br>	
-				<input style="width: 30%;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
-				<br>
-			</div>
+			
+			<br><br>
+		  
 			<!-- 태그 추가 -->
-			<div align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 50px" height="50px"> 태그 
-				<input type="button" id="addtag" class="btn btn-info active" value="태그 추가하기">
-			</div> 
-			<div id="tagg" align="center">
-			<div>태그는 한줄로, 각 태그 앞에 ' # ' , 태그 뒤에 ' , ' 를 붙여주세요</div>
-			</div><br></br>
-			
-			<!-- 메뉴 추가 -->
-			<div align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 50px" height="50px"> 메뉴
-				<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기">
-			</div> 
-			<div style="margin-top: 15px; margin-bottom: 15px;" align="center">
-				<input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요">
+			<div align="center" class="form-group">
+				<div  style="background-color: #e6f5ff; width: 492px;">태그는 한줄로, 각 태그 앞에 ' # ' , 태그 뒤에  ' '(공백) 를 붙여주세요</div>
 			</div>
-			<div id="menuu" align="center"></div><br></br>
 			
-			<!-- 음식 사진 추가 -->
-			<div align="center">
-				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 50px" height="50px"> 음식 사진 추가 
-				<input type="button" id="add" class="btn btn-info active" value="음식사진 추가"> 
+			<div align="center" class="form-group">
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 30px" height="30px"> 태그 </div>
+				<div style="display: inline-block;"> <input type="text" class="form-control" id="qna_tag" name="qna_tag" placeholder="#태그  #태그 ..." value="#맛집" style="width: 342px"></div>
+			</div>
+			<br></br>
+			
+			<!-- 메뉴 추가 -->    
+			<div align="center" class="form-group">
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 30px" height="30px"> 메뉴</div>
+				<input type="button" id="addmenu" class="btn btn-info active" style="width: 342px; background-image: url('${pageContext.request.contextPath}/resources/images/qna_menu.png')"> 
+			</div>  
+  		       
+ 			<div style="margin-top: 15px; margin-bottom: 15px;" align="center">
+ 				<div style="width: 150px; height: 20px; display: inline-block; margin-right: 10px;"></div>
+				<input type="text" class="form-control" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; display: inline-block; width: 166px"> <input type="text" numberOnly id="qm_price" class="form-control" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요" style="width: 166px; display: inline-block;">
+			</div>
+			<div id="menuu" align="center"></div>   
+				
+			<br></br> 
+			 
+			<!-- 음식 사진 추가 -->  
+			<div align="center" class="form-group">
+				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 30px" height="30px"> 사진 추가 </div>
+				<input type="button" id="add" class="btn btn-info active" style="width: 342px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_img.png')">
 			</div> 
-			<div align="center"> 
-				<input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block; margin-bottom: 15px;"> 
+			
+			<div align="center" class="form-group">
+				<div style="width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"></div>
+				<input type="file" class="form-control files" name="files" style="width: 342px; display: inline-block;"> 
 			</div>
 			<div id="file" align="center"></div>	
-
-			<br>
+    
+			<br> 
 			<div align="center">
-				<button type="button" id="btn" class="btn btn-default active">신청하기Modal</button>
+				<button type="button" id="btn" class="btn btn-default active" style="width: 126px; height: 49px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
 			</div>
-		</form>
+		
+		 </form>
 	</div>
 
 
-	<script type="text/javascript">
+	<script type="text/javascript">   
+	
+	//전화번호, 메뉴 가격 숫자만 들어가게 하기
+	$("input:text[numberOnly]").on("keyup", function() {
+	    $(this).val($(this).val().replace(/[^0-9]/g,""));
+	});
+
 		var countm = 1;
 		function setCountm(cc) {
 			countm = countm + cc;
@@ -118,46 +148,22 @@
 
 		$("#addmenu")
 				.click(
-						function() {
-							if (countm < 10) {
-								console.log(countm);
-								$("#menuu")
+						function() {   
+							if (countm < 10) { 
+								console.log(countm);  
+								$("#menuu")    
 										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <input type="text" id="qm_price" name="qm_price" class="qm_price" placeholder="가격을 입력해주세요"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
-
+										'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px; display: inline-block" class="form-control"> <input type="text" id="qm_price" name="qm_price" class="form-control" placeholder="가격을 입력해주세요 "style="width:166px; display: inline-block;" ><i class="glyphicon glyphicon-remove remove"></i></div>');
 								countm++;
-							} else {
+								$("input:text[numberOnly]").on("keyup", function() {
+								    $(this).val($(this).val().replace(/[^0-9]/g,""));
+								});
+							} else {    
 								alert("메뉴등록은 최대 10개 까지입니다.")
 							}
 
 						});
 		
-		
-		var countt = 1;
-		function setCountt(tt) {
-			countt = countt + tt;
-		}
-
-		$("#tagg").on("click", ".removet", function() {
-			$(this).parent().remove();
-			countt--;
-		});
-
-		$("#addtag")
-				.click(
-						function() {
-							if (countt < 2) {
-								console.log(countt); 
-								$("#tagg")
-										.append(
-												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="qna_tag" name="qna_tag" placeholder="#태그, #태그 ..." style="margin-right: 15px; margin-left:15px; width=300px;"> <i class="glyphicon glyphicon-remove removet"></i> </div>');
-
-								countt++;
-							} else {
-								alert("태그는 한번만 추가할 수 있습니다.")
-							}
-
-						});
 		
 		function goPopup(){
 			// 주소검색을 수행할 팝업 페이지를 호출합니다.

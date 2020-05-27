@@ -15,11 +15,11 @@ $("#file").on("click", ".remove", function() {
 
 $("#add")
 		.click(
-				function() {
-					if (count < 6) {
+				function() {   
+					if (count < 5) {
 						$("#file")
 								.append(
-										'<div class="form-group"> <input type="file" class="form-control files" name="files" style="width: 300px; display: inline-block; margin-left: 16px;"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
+								'<div class="form-group"> <input type="file" class="form-control files" name="files" style="width: 342px; display: inline-block; margin-left: 182px;"> <i class="glyphicon glyphicon-remove remove"></i> </div>');
 						count++;
 					} else {
 						alert("이미지는 최대 5개 까지입니다.")
@@ -94,19 +94,30 @@ $("#btn").click(function() {
 			ch3 = false;
 		}
 	});
+	var ch5 = false;
+
+
+		var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+
+		ch5 = regPhone.test($("#qna_phone").val());
+		
+		if(ch5==false){
+			alert('전화번호를 확인해주세요')
+		}
+
 
 	var ch1 = title != "";
 	var ch2 = qna_contents != "";
 	var ch4 = qna_kind !="";
 	
-	if (ch1 && ch2 && ch3 && ch4) {
+	if (ch1 && ch2 && ch3 && ch4 && ch5) {
 		// form 전송(submit event 강제 발생)
 		// $("#con").val(contents);// contents Server null일때
 		$("#form").submit();
 
 	} else {
 		// submit event 종료
-		alert("필수 요소는 다 입력하세요요");
+		alert("항목들을 확인해 주세요");
 		/*
 		 * console.log(title==''); console.log(contents=="");
 		 * console.log(title.length); console.log(contents.length);

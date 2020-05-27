@@ -10,7 +10,7 @@
 <c:import url="../template/style.jsp"></c:import>
 
 </head>
-<body >
+<body>
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container" id="result">
 		<div class="row" >
