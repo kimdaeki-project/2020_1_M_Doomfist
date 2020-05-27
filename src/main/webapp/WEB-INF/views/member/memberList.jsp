@@ -115,8 +115,13 @@
 						<td>${vo.name}</td>
 						<td>${vo.phone}</td>
 						<td>${vo.email}</td>
+						<c:if test="${vo.id ne 'admin'}">
 						<td><input type="checkbox" name="del" title="id${i.index}"
 							id="${vo.id}" class="check"></td>
+						</c:if>
+						<c:if test="${vo.id eq 'admin'}">
+						<td></td>
+						</c:if>
 					</tr>
 				</c:forEach>
 

@@ -136,4 +136,9 @@ public class StoreListService {
 	public long storeMenuDelete(StoreMenuVO storeMenuVO) throws Exception{
 		return storeListDAO.storeMenuDelete(storeMenuVO);
 	}
+	
+	public List<StoreListVO> listAll()throws Exception{
+		return storeListDAO.listAll();
+	}
+	
 }

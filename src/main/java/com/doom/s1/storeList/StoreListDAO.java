@@ -85,4 +85,8 @@ public class StoreListDAO {
 	public String selectFileName(long st_key)throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"selectFileName",st_key);
 	}
+	
+	public List<StoreListVO> listAll()	throws Exception{
+		return sqlSession.selectList(NAMESPACE+"listAll");
+	}
 }

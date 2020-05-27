@@ -35,7 +35,14 @@ public class PayFirstDAO {
 	//결제에서 뒤로가기 누르면 기존 메뉴 삭제
 	public int back() throws Exception{
 		return session.delete(NAMESPACE+"back");
-		
+	}
+	
+	public List<PaySecondVO> pay2Receipts(long pf_key)throws Exception{
+		return session.selectList(NAMESPACE+"pay2Receipts", pf_key);
+	}
+	
+	public PayFirstVO payOne(long pf_key)throws Exception{
+		return session.selectOne(NAMESPACE+"payOne", pf_key);
 	}
 
 }

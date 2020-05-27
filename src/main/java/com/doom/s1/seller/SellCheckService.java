@@ -54,4 +54,8 @@ public class SellCheckService {
 		return sellCheckDAO.deletePayFirst(sellCheckVO);
 	}
 	
+	public int orderDel(long sel_key)throws Exception{
+		return sellCheckDAO.orderDel(sel_key);
+	}
+	
 }

@@ -1,5 +1,7 @@
 package com.doom.s1.paySecond;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,10 @@ public class PaySecondService {
 	public int paySecondDelete(long ps_count)throws Exception{
 		return paySecondDAO.paySecondDelete(ps_count);
 		
+	}
+	
+	public List<PaySecondVO> payS() throws Exception {
+		return paySecondDAO.payS();
 	}
 
 }

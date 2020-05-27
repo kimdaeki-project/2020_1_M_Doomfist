@@ -36,5 +36,9 @@
   	delete payFirst where pf_check = 0
   </delete>
   
+  <select id="payS" parameterType="Long" resultType="PaySecondVO">
+	select * from paysecond WHERE pf_key = ( select pf_key from (SELECT * from payfirst ORDER BY pf_key DESC) WHERE ROWNUM=1)
+  </select>
+  
   
   </mapper>
