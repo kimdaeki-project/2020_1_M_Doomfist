@@ -13,14 +13,14 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>${member.id} 님의 결제  </title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
-<button id="btnn"> 클릭</button>
-	<input type="text" id="pf_key" value="${pfvo.pf_key}">
+	<input type="hidden" id="pf_key" value="${pfvo.pf_key}">
 		   <script>
+		   
     $(function(){
         var IMP = window.IMP; // 생략가능
         IMP.init('imp92077235'); // 'iamport' 대신 부여받은 "가맹점 식별코드"를 사용   imp92077235  << 내꺼 제출전 에 pg 리스트 추가
