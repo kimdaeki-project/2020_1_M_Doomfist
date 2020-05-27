@@ -27,12 +27,17 @@
 			<div>
 				<form class="form-horizontal" action="./storePageUpdate" id="form"
 					name="form" method="POST" enctype="multipart/form-data">
+					
+					<div style="width: 800px; border-top: 3px #80d6ff solid; margin-left:150px;">
+					<br>
+			<br>
+					
 					<input type="hidden" id="st_key" name="st_key"
 						value="${liststore.st_key}">
 
 					<div class="form-group" align="center">
 						<div
-							style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
+							style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
 							scope="row">
 							<b>식당 이름</b>
 						</div>
@@ -40,6 +45,8 @@
 							class="form-control" id="st_name" placeholder="식당이름"
 							value="${liststore.st_name}" name="st_name">
 					</div>
+					
+					<hr style="width: 500px; margin-left: 150px;">
 
 					<div class="form-group">
 						<input type="hidden" class="form-control" style="width: 342px;"
@@ -49,7 +56,7 @@
 
 					<div class="form-group" align="center">
 						<div
-							style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
+							style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
 							scope="row">
 							<b>전화 번호</b>
 						</div>
@@ -58,11 +65,11 @@
 							id="st_phone" placeholder="전화 번호는 -을 뺴고 입력해 주세요"
 							value="${liststore.st_phone}" name="st_phone">
 					</div>
-					<hr style="width: 800px; margin-left: 150px;">
+					<hr style="width: 500px; margin-left: 150px;">
 
 					<div class="form-group" align="center">
 						<div
-							style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
+							style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
 							scope="row">
 							<b>음식점 주소</b>
 						</div>
@@ -83,10 +90,10 @@
 					</div>
 
 
-					<hr style="width: 800px; margin-left: 150px;">
+					<hr style="width: 500px; margin-left: 150px;">
 					<div align="center" class="form-group">
 						<div
-							style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
+							style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
 							scope="row">
 							<b>식당 카테고리</b>
 						</div>
@@ -109,7 +116,7 @@
 						</select>
 						<div style="display: inline-block; width: 166px; height: 20px;"></div>
 					</div>
-					<br>
+					<hr style="width: 500px; margin-left: 150px;">
 
 					<!-- 태그 시작 -->
 					<div align="center" class="form-group">
@@ -120,7 +127,7 @@
 
 					<div align="center" class="form-group">
 						<div
-							style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
+							style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;"
 							scope="row">
 							<img
 								src="${pageContext.request.contextPath}/resources/images/tag.png"
@@ -132,15 +139,16 @@
 								style="width: 342px">
 						</div>
 					</div>
-					<br></br>
+					<hr style="width: 500px; margin-left: 150px;">
 					<!-- 태그 끝 -->     
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10"> 
-							<button style="margin-left: 37%; width: 140px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/update_icon.png');" type="submit"
+							<button style="margin-left: 29.5%; width: 140px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/update_icon.png');" type="submit"
 								class="btn btn-default"></button>
 						</div>
 					</div>
 					<br>
+					</div>
 				</form>
 			</div>
 		</div>
@@ -150,7 +158,9 @@
 				src="${pageContext.request.contextPath}/resources/images/menuinfo_1.png">
 		</div>
 		<hr>
-
+					<div style="width: 800px; border-top: 3px #80d6ff solid; margin-left:150px;">
+					<br>
+			<br>
 		<div>
 
 			<!-- 메뉴 추가 -->
@@ -158,6 +168,7 @@
 				<img
 					src="${pageContext.request.contextPath}/resources/images/menu.png"
 					style="width: 50px" height="50px">
+					
 				<!--<input type="button" id="addmenu" class="btn btn-info active" value="메뉴 추가하기"> -->
 				<a href="" onclick="javascript:openWin2();">메뉴 추가</a> &nbsp; &nbsp;
 				<a href="" onclick="javascript:openWin();">메뉴 수정</a>

@@ -82,6 +82,21 @@ public class MemberController {
 		return mv;
 	}
 	
+	@PostMapping("/member/memberEmailCheck")
+	public ModelAndView memberEmailCheck(ModelAndView mv, MemberVO memberVO, HttpSession session) throws Exception{
+		memberVO = memberService.memberEmailCheck(memberVO);
+		//null -> 가입 가능1
+		//null이 아니면 중복 
+		int result =0;
+		if (memberVO==null) {
+			result=1;
+			
+		}
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
 
 	@RequestMapping(value= "/member/memberLogin_HOME")
 	public void memberLogin_HOME(@CookieValue(value = "cId", required = false) String cId, Model model) {
@@ -123,7 +138,6 @@ public class MemberController {
 			mv.setViewName("redirect:./memberIdFindResult");
 		}else {
 			mv.addObject("result","등록된 아이디가 없습니다");
-			mv.addObject("path", "./memberLogin");
 			mv.setViewName("common/result");
 		}
 		

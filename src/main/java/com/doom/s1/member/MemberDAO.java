@@ -23,6 +23,10 @@ public class MemberDAO {
 		return sqlSession.selectOne(NAMESPACE+"memberIdCheck", memberVO);
 	}
 	
+	public MemberVO memberEmailCheck(MemberVO memberVO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"memberEmailCheck", memberVO);
+	}
+	
 	public MemberVO memberNaverCheck(MemberVO memberVO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"memberNaverCheck", memberVO);
 	}

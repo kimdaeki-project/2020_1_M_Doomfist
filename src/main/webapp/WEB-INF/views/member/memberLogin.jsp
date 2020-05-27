@@ -129,7 +129,7 @@
 	})
 	
 	function openWin() {
-		window.open("http://localhost:8080/s1/member/memberIdFind","아이디찾기","width=380, height=320, toolbar=no, menubar=no, scrollbars=no, resizable=yes") 
+		window.open("http://localhost:8080/s1/member/memberIdFind","아이디찾기","width=470, height=330, toolbar=no, menubar=no, scrollbars=no, resizable=yes") 
 
 	}
 	</script>

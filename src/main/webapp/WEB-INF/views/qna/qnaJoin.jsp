@@ -21,13 +21,19 @@
   	<div>
 		<form action="./qnaJoin" id="form" name="form" method="POST"
 			enctype="multipart/form-data">
+			<br>
+			<div style="width: 800px; border-top: 3px #80d6ff solid; margin-left:150px;">
+			<br>
+			<br>
 
 			<div class="form-group" align="center">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 이름</b></div> <input type="text" style="width: 342px; display: inline-block;"
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 이름</b></div> <input type="text" style="width: 342px; display: inline-block;"
 					class="form-control" id="qna_title" placeholder="식당이름"
 					name="qna_title">
 			</div>
-
+			
+			<hr style="width: 500px; margin-left: 150px;">
+			
 			<div class="form-group">
 				<input type="hidden" class="form-control" style="width: 342px;"
 					id="id"  value="${sessionScope.member.id}"
@@ -35,16 +41,16 @@
 			</div>
 			
 			<div class="form-group" align="center">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>전화 번호</b></div>  <input type="text" numberOnly style="width: 342px; display: inline-block;"
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>전화 번호</b></div>  <input type="text" numberOnly style="width: 342px; display: inline-block;"
 					class="form-control" id="qna_phone" placeholder="전화 번호는 -을 뺴고 입력해 주세요"
 					name="qna_phone">
 			</div> 
 			
-			<hr style="width: 800px; margin-left: 150px;"> 
+			<hr style="width: 500px; margin-left: 150px;"> 
 			
 			
 			<div class="form-group" align="center">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>음식점 주소</b></div>
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>음식점 주소</b></div>
 				<input style="width: 342px; display: inline-block;" type="text" id="qna_contents" name="qna_contents" class="form-control" placeholder="Enter Addr" required="true" readonly="readonly"/>
 				<br><br>	
 				<div style="width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"></div>
@@ -57,7 +63,7 @@
 			<hr style="width: 800px; margin-left: 150px;"> 
 			   
 			<div align="center" class="form-group">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 카테고리</b></div>
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row"> <b>식당 카테고리</b></div>
 				<select id="qna_kind" name="qna_kind" style="width: 180px; display: inline-block;" class="form-control">
 					<option value="">선택없음</option>
 					<option>한식</option>
@@ -77,8 +83,7 @@
 				<div style="display: inline-block; width: 166px; height: 20px;"></div>
 			</div> 
 			
-			
-			<br><br>
+			<hr style="width: 500px; margin-left: 150px;">
 		  
 			<!-- 태그 추가 -->
 			<div align="center" class="form-group">
@@ -86,15 +91,16 @@
 			</div>
 			
 			<div align="center" class="form-group">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
 				<img src="${pageContext.request.contextPath}/resources/images/tag.png" style="width: 30px" height="30px"> 태그 </div>
 				<div style="display: inline-block;"> <input type="text" class="form-control" id="qna_tag" name="qna_tag" placeholder="#태그  #태그 ..." value="#맛집" style="width: 342px"></div>
 			</div>
-			<br></br>
+			
+			<hr style="width: 500px; margin-left: 150px;">
 			
 			<!-- 메뉴 추가 -->    
 			<div align="center" class="form-group">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
 				<img src="${pageContext.request.contextPath}/resources/images/menu.png" style="width: 30px" height="30px"> 메뉴</div>
 				<input type="button" id="addmenu" class="btn btn-info active" style="width: 342px; background-image: url('${pageContext.request.contextPath}/resources/images/qna_menu.png')"> 
 			</div>  
@@ -105,11 +111,11 @@
 			</div>
 			<div id="menuu" align="center"></div>   
 				
-			<br></br> 
+			<hr style="width: 500px; margin-left: 150px;">
 			 
 			<!-- 음식 사진 추가 -->  
 			<div align="center" class="form-group">
-				<div style="background-color: #e6f5ff; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
+				<div style="background-color: ; width: 150px; border-bottom: 2px white solid; margin-right: 10px; display: inline-block;" scope="row">
 				<img src="${pageContext.request.contextPath}/resources/images/fileimg.png" style="width: 30px" height="30px"> 사진 추가 </div>
 				<input type="button" id="add" class="btn btn-info active" style="width: 342px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_img.png')">
 			</div> 
@@ -119,12 +125,13 @@
 				<input type="file" class="form-control files" name="files" style="width: 342px; display: inline-block;"> 
 			</div>
 			<div id="file" align="center"></div>	
-    
+    		<hr style="width: 500px; margin-left: 150px;">
 			<br> 
 			<div align="center">
-				<button type="button" id="btn" class="btn btn-default active" style="width: 126px; height: 49px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
+				<button type="button" id="btn" class="btn btn-default active" style="width: 120px; height: 45px;  background-image: url('${pageContext.request.contextPath}/resources/images/qna_submit.png')"></button>
+			<br><br><br>
 			</div>
-		
+		</div>
 		 </form>
 	</div>
 

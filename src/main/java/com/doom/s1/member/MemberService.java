@@ -49,6 +49,10 @@ public class MemberService {
 		return memberDAO.memberIdCheck(memberVO);
 	}
 	
+	public MemberVO memberEmailCheck(MemberVO memberVO) throws Exception {
+		return memberDAO.memberEmailCheck(memberVO);
+	}
+	
 	public MemberVO memberNaverCheck(MemberVO memberVO) throws Exception {
 		return memberDAO.memberNaverCheck(memberVO);
 	}
