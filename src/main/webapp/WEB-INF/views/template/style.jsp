@@ -286,6 +286,10 @@ body{
  left: 40%; 
  z-index: 100; }
  
+ .modal {
+  overflow-y:auto;
+}
+ 
 	
 </style>
     

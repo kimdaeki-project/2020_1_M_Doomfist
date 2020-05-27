@@ -67,8 +67,20 @@ public class PayFirstController {
 			return mv;
 		}
 		
+		@GetMapping("selectReceipt")
+		public ModelAndView selectReceipt(long pf_key) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			
+			PayFirstVO payFirstVO = payFirstService.payOne(pf_key);
+		
+			mv.addObject("result", payFirstVO.getPf_key());
+			mv.setViewName("common/ajaxResult");
+			
+			return mv;
+		}
+		
 		@GetMapping("payReceipts")
-		public ModelAndView receipt2Page(long pf_key) throws Exception{
+		public ModelAndView receipt2Page(long pf_key)throws Exception{
 			ModelAndView mv = new ModelAndView();
 			
 			PayFirstVO payFirstVO = payFirstService.payOne(pf_key);
@@ -76,9 +88,8 @@ public class PayFirstController {
 			
 			mv.addObject("vo_pf1", payFirstVO);
 			mv.addObject("vo_ps", paySecondVOs);
-			mv.addObject("result", payFirstVO.getPf_key());
-			mv.setViewName("common/ajaxResult");
-			
+			mv.setViewName("payment/payReceipts");
+
 			return mv;
 		}
 	
