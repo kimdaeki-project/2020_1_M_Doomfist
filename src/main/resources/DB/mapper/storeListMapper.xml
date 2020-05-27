@@ -117,4 +117,8 @@
 		delete storemenu where sm_key=#{sm_key} 
 	</delete>
 	
+	<select id="listAll" resultType="com.doom.s1.storeList.StoreListVO">
+		SELECT * FROM storeList
+	</select>
+	
 </mapper>

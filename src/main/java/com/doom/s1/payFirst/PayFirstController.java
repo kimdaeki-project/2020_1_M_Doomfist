@@ -66,6 +66,20 @@ public class PayFirstController {
 			
 			return mv;
 		}
+		
+		@GetMapping("payReceipts")
+		public ModelAndView receipt2Page(long pf_key) throws Exception{
+			ModelAndView mv = new ModelAndView();
+			
+			PayFirstVO payFirstVO = payFirstService.payOne(pf_key);
+			List<PaySecondVO> paySecondVOs = payFirstService.pay2Receipts(pf_key);
+			
+			mv.addObject("vo_pf1", payFirstVO);
+			mv.addObject("vo_ps", paySecondVOs);
+			mv.setViewName("payment/payReceipts");
+			
+			return mv;
+		}
 	
 	
 }

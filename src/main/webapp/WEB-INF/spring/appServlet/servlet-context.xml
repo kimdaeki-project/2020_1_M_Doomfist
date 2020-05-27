@@ -89,6 +89,21 @@
 			<beans:ref bean="paymentInterceptor"/>
 		</interceptor>
 		
+		<interceptor>
+			<mapping path="/seller/sellList"/>
+			<beans:ref bean="sellerInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/seller/orderCheck"/>
+			<beans:ref bean="orderCheckInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/storeList/storePage"/>
+			<mapping path="/storeList/storePageUpdate"/>
+			<beans:ref bean="storePageInterceptor"/>
+		</interceptor>
 		
 	</interceptors> 
 	

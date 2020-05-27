@@ -41,5 +41,12 @@
   
   </delete>
   
+  <select id="pay2Receipts" parameterType="Long" resultType="PaySecondVO">
+  	SELECT * FROM paySecond WHERE pf_key=#{pf_key}
+  </select>
+  
+  <select id="payOne" parameterType="Long" resultType="PayFirstVO">
+  	SELECT * FROM payFirst WHERE pf_key=#{pf_key}
+  </select>
  
   </mapper>

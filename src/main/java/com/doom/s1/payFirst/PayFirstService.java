@@ -49,5 +49,13 @@ public class PayFirstService {
 		
 	}
 	
+	public List<PaySecondVO> pay2Receipts(long pf_key)throws Exception{
+		return payFirstDAO.pay2Receipts(pf_key);
+	}
+	
+	public PayFirstVO payOne(long pf_key)throws Exception{
+		return payFirstDAO.payOne(pf_key);
+	}
+	
 
 }

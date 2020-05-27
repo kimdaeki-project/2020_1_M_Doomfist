@@ -1,5 +1,7 @@
 package com.doom.s1.paySecond;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -33,5 +35,10 @@ public class PaySecondDAO {
 		
 		return session.delete(NAMESPACE+"paySecondDelete", ps_count);
 	}
+	
+	public List<PaySecondVO> payS() throws Exception {
+		return session.selectList(NAMESPACE+"payS");
+	}
+
 
 }

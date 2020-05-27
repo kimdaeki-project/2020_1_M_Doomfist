@@ -45,4 +45,8 @@ public class SellCheckDAO {
 		return sqlSession.delete(NAMESPACE+"deletePayFirst", sellCheckVO);
 	}
 	
+	public int orderDel(long sel_key)throws Exception{
+		return sqlSession.delete(NAMESPACE+"orderDel", sel_key);
+	}
+	
 }

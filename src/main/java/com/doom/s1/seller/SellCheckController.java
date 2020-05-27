@@ -94,5 +94,25 @@ public class SellCheckController {
 		
 		return mv;
 	}
+	
+	@GetMapping("orderDel")
+	public ModelAndView orderDel(long sel_key, long st_key)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = sellCheckService.orderDel(sel_key);
+		
+		String msg = "삭제되지 않았습니다.";
+		String path = "";
+		
+		if(result>0) {
+			msg = "삭제되었습니다.";
+			path = "./orderCheck?st_key="+st_key;
+		}
+		
+		mv.addObject("result", msg);
+		mv.addObject("path", path);
+		mv.setViewName("common/result");
+		
+		return mv;
+	}
 
 }

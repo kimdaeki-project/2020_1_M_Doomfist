@@ -258,9 +258,6 @@
 				}
 			}
 			
-			for(i=0;i<12;i++){
-				console.log(random[i]);
-			}
 			
 			var img = document.getElementsByClassName('test1');
 			var btn = document.getElementsByClassName('test2');

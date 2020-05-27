@@ -47,4 +47,8 @@
 		AND rownum=1)
 	</delete>
 	
+	<delete id="orderDel" parameterType="Long">
+		DELETE sel_check WHERE sel_key=#{sel_key}
+	</delete>
+	
 </mapper>
