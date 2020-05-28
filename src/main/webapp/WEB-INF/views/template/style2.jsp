@@ -11,7 +11,7 @@ html, body {
   width: 90%;
   max-width: 1080px;
   margin: 0 auto;
-  background: #2B343A;
+  background: #e6f5ff;
   padding: 0 10%;
   border-radius: 2px;
 }
@@ -91,7 +91,7 @@ Main components
   box-shadow: 0 0 0 4px #80d6ff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
 }
 .cd-timeline-img {
-  background: #8fcbe8;
+  background: white;
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-img {
@@ -110,11 +110,11 @@ Main components
   position: relative;
   margin-left: 60px;
   margin-right: 30px;
-  background: #333C42;
+  background: white;
   border-radius: 2px;
   padding: 1em;
   .timeline-content-info {
-    background: #2B343A;
+    background: white;
     padding: 5px 10px;
     color: rgba(255,255,255,0.7);
     font-size: 12px;
@@ -184,7 +184,7 @@ Main components
   height: 0;
   width: 0;
   border: 7px solid transparent;
-  border-right: 7px solid #333C42;
+  border-right: 7px solid white;
 }
 
 @media only screen and (min-width: 768px) {
@@ -203,7 +203,7 @@ Main components
 }
 @media only screen and (min-width: 1170px) {
   .cd-timeline-content {
-    color: white;
+    color: gray;
     margin-left: 0;
     padding: 1.6em;
     width: 36%;
@@ -213,7 +213,7 @@ Main components
     top: 24px;
     left: 100%;
     border-color: transparent;
-    border-left-color: #333C42;
+    border-left-color: white;
   }
   .cd-timeline-content .cd-date {
     position: absolute;
@@ -231,7 +231,7 @@ Main components
     left: auto;
     right: 100%;
     border-color: transparent;
-    border-right-color: #333C42;
+    border-right-color: white;
   }
   .cd-timeline-block:nth-child(even) .cd-timeline-content .cd-read-more {
     float: right;
@@ -242,6 +242,9 @@ Main components
     text-align: right;
   }
 }
+	
+/**/
+	
 	
 </style>
     

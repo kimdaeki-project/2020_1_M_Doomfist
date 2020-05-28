@@ -164,6 +164,32 @@ $("#id").blur(function() {
 	});
 });
 
+$("#email").blur(function() {
+	var email = $("#email").val();
+	
+	$.ajax({
+		type : "post",	//메서드형식
+		url : "./memberEmailCheck", //url 주소
+		data : {
+			email : email}, //parameter
+		success: function(e) {
+			if ($("#email").val()!=""&& e==0) {
+				alert("중복된 이메일입니다"); 
+				location.reload();
+			}else if ($("#email").val()!=""&&e==1) {
+				alert("사용가능한 이메일 입니다.");
+			}
+			
+		},
+		error: function() {
+			alert("error 발생")
+		}
+	
+		
+	});
+});
+
+
 
 $(function(){
     $('#pw').keyup(function(){

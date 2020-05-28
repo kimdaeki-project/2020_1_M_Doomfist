@@ -61,6 +61,10 @@
 		select id from member where id=#{id}
 	</select>
 	
+		<select id="memberEmailCheck" resultType="MemberVO" parameterType="MemberVO">
+		select email from member where email=#{email}
+	</select>
+	
 <select id="memberNaverCheck" resultType="MemberVO" parameterType="MemberVO">
 		select email from member where email=#{email}
 	</select>

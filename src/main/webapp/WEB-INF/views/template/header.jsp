@@ -224,6 +224,7 @@
 													<li class="divider"></li>
 													<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}"
 														data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
+														<li><a href="/s1/seller/sellList">가게 주문 현황</a></li>
 
 												</c:if>
 												<li><a

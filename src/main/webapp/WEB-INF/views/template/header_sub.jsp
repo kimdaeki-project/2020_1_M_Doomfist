@@ -132,6 +132,7 @@
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
+					    	<li><a href="/s1/seller/sellList">가게 주문 현황</a></li>
 					    </c:if>
 					    <li><a href="${pageContext.request.contextPath}/storeList/storePage">나의 식당 </a></li>
 					  </ul>
