@@ -20,6 +20,7 @@
 		   <div><img src="${pageContext.request.contextPath}/resources/images/notice_2.png"> </div> 
     <br></br>
     <br></br>
+    <hr style=" border-top: 3px #80d6ff solid;">
   </div>
 		  <form style="margin-left: 16px;" action="./${board}List" class="form-inline">
 		  <div class="input-group input-group-sm col-xs-2">
