@@ -14,7 +14,7 @@
 		
 			<div style="margin-top: 15px; font-size: medium;">
 				<hr>
-				결제날짜 :${vo_pf1.pf_date}
+				결제날짜 : ${vo_pf1.pf_date}
 				<hr>
 			</div>
 		
