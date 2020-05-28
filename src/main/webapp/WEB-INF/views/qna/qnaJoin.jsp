@@ -5,9 +5,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>맛집 신청d</title>
+<title>Doom Food | 맛집 신청</title>
 <c:import url="../template/boot.jsp"></c:import>
-<c:import url="../template/summer.jsp"></c:import>
+<c:import url="../template/summer.jsp"></c:import>   
 <c:import url="../template/style.jsp"></c:import>
 </head>
 <body>
@@ -153,15 +153,16 @@
 			countm--;
 		});
 
-		$("#addmenu")
+		$("#addmenu")       
 				.click(
 						function() {   
 							if (countm < 10) { 
 								console.log(countm);  
 								$("#menuu")    
 										.append(
-										'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px; display: inline-block" class="form-control qm_menu"> <input type="text" id="qm_price" name="qm_price" class="form-control qm_price" placeholder="가격을 입력해주세요 "style="width:166px; display: inline-block;" ><i class="glyphicon glyphicon-remove remove"></i></div>');
+										'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px; display: inline-block" class="form-control qm_menu"> <input type="text" numberOnly id="qm_price" name="qm_price" class="form-control qm_price" placeholder="가격을 입력해주세요 "style="width:166px; display: inline-block;" ><i class="glyphicon glyphicon-remove remove"></i></div>');
 								countm++;
+								
 								$("input:text[numberOnly]").on("keyup", function() {
 								    $(this).val($(this).val().replace(/[^0-9]/g,""));
 								});

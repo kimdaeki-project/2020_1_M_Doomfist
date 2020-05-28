@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>맛집 신청d</title>
+<title>Doom Food | 식당수정 > 메뉴추가</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>

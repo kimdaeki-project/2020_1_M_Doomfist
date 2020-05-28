@@ -25,9 +25,9 @@
 
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<!-- 결제 준비 페이지  -->
-	<div class="panel panel-default">
+	<div class="">
 		<div class="panel-body"
-			style="text-align: center; font-size: 30px;">
+			style="text-align: center; font-size: 30px; border: 0 none;">
 			<ul class="list" style="list-style-type: none;">
 				<%-- <li>식당 이름 : ${vo.pf_stname}</li> --%>
 				<%-- <li>아이디 : ${vo.id}</li> --%>
@@ -39,10 +39,12 @@
 		</div>
 	</div>
 	<div class="container" id="result"	style="width: 65%; font-size: 20px; background-color: #e6f5ff;">
+
 		<div class="row" style="min-height: 800px;">
 			<form action="./paySecondInsert" method="post" id="frm">
-				<div align="center">
-					<label for="address">배달 받을 주소</label>
+				<div style="border-top: 3px #80d6ff solid; " align="center">
+				<br>
+					<label for="address"><img src="${pageContext.request.contextPath}/resources/images/ads_2.png" >	</label>
 					<button type="button" class="btn btn-warning active"
 						onClick="goPopup()">
 						<span class="glyphicon glyphicon-search"></span>주소검색
@@ -92,14 +94,15 @@
 						<button type="submit" id="btn" class="btn "><img
 		src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png"
 		alt="kpay"></button>
+		</div>
 			</form>
 			<!-- <button class="btn btn-danger pull-right" id="re">수량 초기화</button></h2> -->
 			<!-- 리모콘 고정 -->
 			 <div
-				style="position: fixed; top: 73%; right: 5%; height: 150px; background-color: #e6f9ff ">
-				<span><img src="${pageContext.request.contextPath}/resources/images/pay3.png" alt="pay3">	  </span><br>
+				style="position: fixed; top: 73%; right: 5%; height: 150px; background-color: #e6f9ff ;border-top: 3px #80d6ff solid;">
+				<span style="margin-left: 26px;"><img src="${pageContext.request.contextPath}/resources/images/pay3.png" alt="pay3">	  </span><br>
 				<input type="button" id="total2" value="0" name="totalPrice"
-					class="btn btn-info" style="font-size: 20px;"> <input
+					class="btn btn-info" style="font-size: 20px; margin-left: 30px"> <input
 					type="hidden" id="total2" value="0" name="totalPrice"> <br>
 				<button type="submit" id="btn2" class="btn "><img
 		src="${pageContext.request.contextPath}/resources/images/payment_icon_yellow_medium.png"
@@ -245,4 +248,7 @@
 		}
 	</script>
 </body>
+<hr>
+<br>
+<c:import url="../template/footer.jsp"></c:import>
 </html>
