@@ -19,7 +19,7 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 </head>
 <body>
-<c:import url="../template/header.jsp"></c:import>
+
 	<input type="hidden" id="pf_key" value="${pfvo.pf_key}">
 		   <script>
 		   

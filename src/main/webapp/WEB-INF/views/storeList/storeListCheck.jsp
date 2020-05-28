@@ -37,7 +37,7 @@
 					st_key.push($(this).attr("id"));	//배열에 체크된 식당고유번호(st_key) 넣기
 				}
 			});
-			console.log(st_key);
+			
 			$.ajax({
 				type:"get",
 				url: "./storeDelete",

@@ -128,7 +128,8 @@
 					  	<li><a href="${pageContext.request.contextPath}/member/memberPage">회원정보</a></li>
 					  
 					    <li class="divider"></li>
-					    <li><a href="${pageContext.request.contextPath}/payment/payReceipt?id=${sessionScope.member.id}">결제내역 </a></li>
+					    <li><a href="/s1/payment/payReceipt?id=${member.id}"
+													data-toggle="modal" data-target="#my2Modal">결제내역</a></li>
 					    <c:if test="${member.member_div eq 1}">
 					   	  <li class="divider"></li>
 					    	<li><a href="/s1/qnacheck/Statuscheck?id=${member.id}" data-toggle="modal" data-target="#myModal">나의 신청 현황</a></li>
@@ -193,6 +194,21 @@
     </div>
   </div>
 </div>
+<!-- Modal2 -->
+			<div class="modal fade" id="my2Modal" role="dialog">
+				<div class="modal-dialog modal-lg">
+					<div class="modal-content">
+						
+					</div>
+				</div>
+			</div>
+			
+			
+			<!-- Modal3 -->
+			<div class="modal fade" id="my3Modal" role="dialog">
+									
+			</div>
+	
  	
 	<!-- 추가 -->
 	<!-- 영호 추가 -->

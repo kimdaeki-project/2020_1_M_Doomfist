@@ -22,6 +22,7 @@ import org.w3c.dom.ls.LSInput;
 
 import com.doom.s1.member.MemberVO;
 import com.doom.s1.qnacheck.QnaCheckVO;
+import com.doom.s1.seller.SellCheckVO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
@@ -93,7 +94,7 @@ public class StoreListController {
 		// 배열을 List로 변환
 		List<String> list = Arrays.asList(st_key);
 		int result = storeListService.storeDelete(list);
-		System.out.println(result);
+//		System.out.println(result);
 		mv.addObject("result", result);
 		mv.setViewName("common/ajaxResult");
 
@@ -170,14 +171,16 @@ public class StoreListController {
 		avg = Math.round(avg * 10);
 		avg = avg / 10.0;
 
-		
+		//이 식당 구매자인지 확인
+		List<SellCheckVO> sellCheckVOs = storeListService.buyCheck(st_key);	
 
-		mv.addObject("vo", storeListVO); // store 소개
-		mv.addObject("vo_sm", storeMenuVOs);// 메뉴 소개
-		mv.addObject("vor", storeListVOs); // 리뷰글 출력
-		mv.addObject("vof1", sList); // 리뷰 글 안 사진들 출력
-		mv.addObject("stfile", storeFileVOs);// store 사진 출력
-		mv.addObject("avg", avg); // 평점 평균출력
+		mv.addObject("vo", storeListVO); 		// store 소개
+		mv.addObject("vo_sm", storeMenuVOs);	// 메뉴 소개
+		mv.addObject("vor", storeListVOs); 		// 리뷰글 출력
+		mv.addObject("vof1", sList); 			// 리뷰 글 안 사진들 출력
+		mv.addObject("stfile", storeFileVOs);	// store 사진 출력
+		mv.addObject("avg", avg); 				// 평점 평균출력
+		mv.addObject("scvo", sellCheckVOs);		// 이 식당 구매자인지 확인
 		mv.setViewName("storeList/storeListSelect");
 		return mv;
 	}
@@ -268,7 +271,7 @@ public class StoreListController {
 	public ModelAndView storeMenuDelete(StoreMenuVO storeMenuVO, long st_key) throws Exception{
 		ModelAndView mv =  new ModelAndView();
 		long menudel = storeListService.storeMenuDelete(storeMenuVO);
-		System.out.println(menudel);
+//		System.out.println(menudel);
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
 		if (menudel>0) {
 			mv.addObject("result", "삭제 성공");
@@ -300,7 +303,7 @@ public class StoreListController {
 		
 		long menuup = storeListService.storeMenuUpdate(storeMenuVO);
 
-		System.out.println(menuup);
+//		System.out.println(menuup);
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
 		if (menuup>0) {
 			mv.addObject("result", "수정 성공");

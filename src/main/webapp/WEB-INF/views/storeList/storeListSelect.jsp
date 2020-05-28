@@ -215,13 +215,18 @@
 
 
 				</table>
+				<hr>
+				<!-- 로그인을 안한사람 / 관리자계정으로 로그인한사람 / 식당주인 / 식당에서 구매를 하지 않은사람은 리뷰 작성 버튼 안보임 -->
+				<c:forEach items="${scvo}" var="scvo">
 				<c:if
-					test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin' and sessionScope.member.id ne vo.id}">
-
+					test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin' and sessionScope.member.id ne vo.id
+							and sessionScope.member.id eq scvo.selb_id}">
+					
 					<a href="./storeReviewWrite?st_key=${vo.st_key}"> <input type="button" class="btn btn-info" value="리뷰 작성 하기!">
 					</a>
 					
 				</c:if>
+				</c:forEach>
 
 			</div>
 			<!-- </form> -->
@@ -230,12 +235,6 @@
 
 		<!-- container 끝 -->
 	</div>
-	<!-- 
-<script type="text/javascript">
-	$("#write").on("click", function() {
-		location.href="./storeReviewWrite?st_key=1";
-	});
-</script> -->
 
 	<script type="text/javascript">
 		function doImgPop(img) {

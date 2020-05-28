@@ -277,7 +277,7 @@
 				.click(
 						function() {
 							if (countt < 10) {
-								console.log(countt);
+								
 								$("#tagg")
 										.append(
 												'<div style="margin-top: 15px; margin-bottom: 15px;"> <input type="text" id="tag_name" name="tag_name" placeholder="태그를 입력해주세요" style="margin-right: 15px; margin-left:15px"> <i class="glyphicon glyphicon-remove removet"></i> </div>');

@@ -98,7 +98,7 @@ $("#btn").click(function() {
 	var title="a";
 
 	var contents = $("#re_contents").summernote('code');
-	console.log($("#re_contents").summernote('isEmpty'));
+//	console.log($("#re_contents").summernote('isEmpty'));
 
 	var ch3 = true;
 

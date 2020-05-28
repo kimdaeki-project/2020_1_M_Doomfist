@@ -235,7 +235,7 @@ $("#joinbtn").click(function() {
 		return false;
 	}else if ($('#checkAll').is(":checked") == false) {
 		alert("이용 및 약관에 동의해주세요");
-		console.log(email);
+		/* console.log(email); */
 		return false;
 	}else if (pw==pw2) {
 		$("#frm").submit();

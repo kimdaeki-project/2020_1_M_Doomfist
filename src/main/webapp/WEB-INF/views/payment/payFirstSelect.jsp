@@ -189,8 +189,8 @@
 				alert("결제 페이지로 이동합니다.");
 				$("#frm").submit();
 			} else if (chb == false) {
-				console.log(chb);
-				console.log($("#total").val());
+				/* console.log(chb);
+				console.log($("#total").val()); */
 				alert("주소가 없습니다.");
 				event.preventDefault();//이벤트 막기
 			} else if ($("#total").val() == 0) {
@@ -209,8 +209,8 @@
 				alert("결제 페이지로 이동합니다.");
 				$("#frm").submit();
 			} else if (chb == false) {
-				console.log(chb);
-				console.log($("#total").val());
+				/* console.log(chb);
+				console.log($("#total").val()); */
 				alert("주소가 없습니다.");
 				event.preventDefault();//이벤트 막기
 			} else if ($("#total").val() == 0) {
@@ -223,7 +223,7 @@
 		});
 
 		$("#re").click(function() {
-			console.log("새로고침");
+			/* console.log("새로고침"); */
 			location.reload();
 		});
 

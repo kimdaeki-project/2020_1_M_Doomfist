@@ -6,9 +6,9 @@
 %>
 
 <div class="modal-header" id="result123"
-	style="border-bottom: 3px #80d6ff solid;">
+	style="border-bottom: 3px #80d6ff solid; text-align: center;">
 	<button type="button" class="close" data-dismiss="modal">&times;</button>
-	<h1>주문내역</h1>
+	<input type="image" src="${pageContext.request.contextPath}/resources/images/pr1.png">
 </div>
 
 <div class="modal-body"
@@ -26,8 +26,9 @@
 						title="${i.count}">
 					<%forcount++;%>
 					<button class="btn btn-info plz" title="${i.count}"
-						id="btndt${i.count}" data-toggle="modal" data-target="#my3Modal">
-						자세히보기</button>
+						id="btndt${i.count}" data-toggle="modal" data-target="#my3Modal" 
+						style="background-image: url('${pageContext.request.contextPath}/resources/images/pr1check.png');no-repeat 0 0; width: 100px; height: 40px;">
+						</button>
 					<c:set var="sum" value="${0}" />
 				</div>
 				
@@ -42,15 +43,14 @@
 
 </div>
 <div class="modal-footer" style="margin-top: 30px">
-	<button type="button" class="btn btn-default" data-dismiss="modal"
-		id="close1">Close</button>
+	<button type="button" class="btn btn-default" data-dismiss="modal"style=" background-image:url('${pageContext.request.contextPath}/resources/images/close.png'); width: 100px; height: 39px;">
+	
+	</button>
 </div>
 
 <script type="text/javascript">
-	var co =
-<%=forcount++%>
-	* 1;
-	console.log(co);
+	var co =<%=forcount++%>	* 1;
+	
 	for (var i = 1; i <= co; i++) {
 		$("#btndt" + i).click(
 				function() {
@@ -63,7 +63,7 @@
 
 					$.ajax({
 						type : "get",
-						url : "./payment/selectReceipt",
+						url : "/s1/payment/selectReceipt",
 						traditional : true,
 						data : {
 							pf_key : pf_key2

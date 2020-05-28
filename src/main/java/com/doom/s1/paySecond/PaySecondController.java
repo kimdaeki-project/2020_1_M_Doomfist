@@ -84,15 +84,31 @@ public class PaySecondController {
 					// 결제 끝나면 payFirst pfCheck를 1로 변경 
 					// 적당한 위치에 집어넣어
 					int result =paySecondService.payFirstUpdate(pf_key);
+					
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						System.out.println(e.getMessage());    //sleep 메소드가 발생시키는 InterruptedException
+					}
+					String id = ((MemberVO)session.getAttribute("member")).getId();	//구매자 id 가져오기
+					PayFirstVO payFirstVO = new PayFirstVO();						//sel_check에 서브쿼리 할때 필요한 payfirstvo 선언
+					payFirstVO.setId(id);
+					payFirstVO.setPf_key(pf_key);
+					
 					//payFirst pfCheck 0삭제하여 쓰레기값 제거.
 					result = paySecondService.payFirstDelete(pf_key);
 					//paysecond의 count 가 0인 테이블 삭제
 					result = paySecondService.paySecondDelete(pf_key);
 					
-					String id = ((MemberVO)session.getAttribute("member")).getId();	//구매자 id 가져오기
-					PayFirstVO payFirstVO = new PayFirstVO();						//sel_check에 서브쿼리 할때 필요한 payfirstvo 선언
-					payFirstVO.setId(id);
-					payFirstVO.setPf_key(pf_key);
+
+					
+					
+					try {
+						Thread.sleep(2000);
+					} catch (InterruptedException e) {
+						System.out.println(e.getMessage());    //sleep 메소드가 발생시키는 InterruptedException
+					}
+					
 					int sel_result = sellCheckService.insertSelCheck(payFirstVO);	//sel_check에 데이터 집어넣기
 					List<PaySecondVO> paySecondVOs = sellCheckService.selectMenu(pf_key);	//메뉴 수량 뽑아와서 집어넣기
 					String meco = "";
@@ -106,6 +122,8 @@ public class PaySecondController {
 //					int adr = sellCheckService.insertSelAddr(buyAddrVO);		//가져온 주소 판매확인 테이블에 추가
 					List<PaySecondVO> paList = paySecondService.payS();
 					mv.addObject("pas", paList);
+					
+					
 		return mv;
 	}
 	
