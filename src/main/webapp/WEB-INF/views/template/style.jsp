@@ -220,44 +220,8 @@ body{
 	margin-bottom: 0;
 	background-color:#e6f7ff ;
 	
-}
+}      
 
-.footerArea {
-	width: 100%;
-	height: 90px;
-	background-color: silver;
-	margin: 0px auto;
-}
-
-.footer {
-	width: 1000px;
-	height: 90px;
-	margin: 0px auto;
-	
-}
-
-.botnavi li {
-	list-style: none;
-	float: left;
-}
-
-.footer_nav {
-	float: left;
-	margin-right: 10px;
-}
-.footer_nav li{
-	list-style: none;
-	float: left;
-	
-}
-
-.footer_nav_sub{
-	float: left;
-}
-
-.ft_copyright{
-	font-size: x-small;
-}
 
 #sns li{
 	margin-right: 10px;
@@ -285,6 +249,10 @@ body{
  top: 50%;  
  left: 40%; 
  z-index: 100; }
+ 
+ .modal {
+  overflow-y:auto;
+}
  
 	
 </style>

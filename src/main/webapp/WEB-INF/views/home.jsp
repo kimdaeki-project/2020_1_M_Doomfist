@@ -14,6 +14,7 @@
 	
 	<c:import url="./template/boot.jsp"></c:import>
 	<c:import url="./template/style.jsp"></c:import>
+		<c:import url="./template/footerstyle.jsp"></c:import>
 	</head>
 	
 	<body>
@@ -214,10 +215,10 @@
 			</div>
 		</div>
 		<br>
-		<br>
+		<br>  
 
-
-		<c:import url="./template/footer.jsp"></c:import>
+		<footer style="background-color: #e6f5ff;"><c:import url="./template/footer.jsp"></c:import></footer>
+		
 	
 		<script type="text/javascript">
 		

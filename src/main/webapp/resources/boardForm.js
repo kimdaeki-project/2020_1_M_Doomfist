@@ -86,15 +86,31 @@ $("#btn").click(function() {
 	var title = $("#qna_title").val();
 	var qna_contents = $("#qna_contents").val();
 	var qna_kind = $("#qna_kind").val();
+	var qna_menu = $(".qm_menu").val();
+	var qna_price = $(".qm_price").val();
 	
 	var ch3 = true;
+	var ch6 = true;
+	var ch7 = true;
 
 	$(".files").each(function() {
 		if ($(this).val() == "") {
 			ch3 = false;
 		}
 	});
-	var ch5 = false;
+	
+	$(".qm_menu").each(function() {
+		if ($(this).val() == "") {
+			ch6 = false;
+		}
+	});
+	
+	$(".qm_price").each(function() {
+		if ($(this).val() == "") {
+			ch7 = false;
+		}
+	});
+	var ch5 = false; //전화번호검사
 
 
 		var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
@@ -106,11 +122,12 @@ $("#btn").click(function() {
 		}
 
 
-	var ch1 = title != "";
-	var ch2 = qna_contents != "";
-	var ch4 = qna_kind !="";
+	var ch1 = title != ""; //식당 이름
+	var ch2 = qna_contents != "";//주소
+	var ch4 = qna_kind !=""; //카테고리
+
 	
-	if (ch1 && ch2 && ch3 && ch4 && ch5) {
+	if (ch1 && ch2 && ch3 && ch4 && ch5 && ch6 && ch7) {
 		// form 전송(submit event 강제 발생)
 		// $("#con").val(contents);// contents Server null일때
 		$("#form").submit();
@@ -125,6 +142,7 @@ $("#btn").click(function() {
 	}
 
 });
+
 
 // $("선택자 ").action();
 // $('#qna_contents').summernote({

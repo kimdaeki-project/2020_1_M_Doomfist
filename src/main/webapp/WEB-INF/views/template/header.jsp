@@ -312,23 +312,15 @@
 				</div>
 			</div>
 			
+			
 			<!-- Modal3 -->
 			<div class="modal fade" id="my3Modal" role="dialog">
-				<div class="modal-dialog modal-sm">
-					<div class="modal-content">
-						
-		</div>
-
-		
-					</div>
-				</div>
+									
 			</div>
-
 		</div>
+	</div>
 
 
-	</div>
-	</div>
 
 
 	<!-- 추가 -->
@@ -349,4 +341,7 @@
 	
 	
 	</script>
+	
+	
+	
 	<!-- 영호 추가 -->
