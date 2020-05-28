@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디찾기 > DoomFood | 회원정보</title>
 </head>
 <body>
 <div align="center">

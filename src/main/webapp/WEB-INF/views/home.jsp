@@ -7,7 +7,7 @@
 	<html lang="en">
 	
 	<head>
-	<title>Bootstrap Example</title>
+	<title>대한민국 1등 맛집 사이트 - DOOMFOOD</title>
 	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">

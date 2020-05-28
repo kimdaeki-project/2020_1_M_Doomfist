@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="UTF-8">    
+<title>Doom Food | ${sessionScope.member.id}님의 식당</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 

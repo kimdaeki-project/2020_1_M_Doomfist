@@ -113,7 +113,7 @@ $("#btn").click(function() {
 	var ch5 = false; //전화번호검사
 
 
-		var regPhone = /^((01[1|6|7|8|9])[1-9]+[0-9]{6,7})|(010[1-9][0-9]{7})$/;
+		var regPhone = /(02)([0-9]{3,4})([0-9]{4})$/;
 
 		ch5 = regPhone.test($("#qna_phone").val());
 		

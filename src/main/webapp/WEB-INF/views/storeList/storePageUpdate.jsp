@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>식당 수정</title>
+<title>Doom Food | 식당수정</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/summer.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
@@ -205,11 +205,12 @@
 			<div id="file" align="center"></div>-->
 		<div align="center"> 
 			<a href="http://localhost:8080/s1/storeList/storePage"><button
-					type="button" class="btn btn-default" style="width: 140px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/list_icon.png')"></button></a>
+					type="button" class="btn btn-default" style="width: 140px; height: 40px;  background-image: url('${pageContext.request.contextPath}/resources/images/list_icon.png')"></button></a>
+					<br><br> 
 		</div>
 	</div>
 	<input type="hidden" id="a" value="${a}">
-
+</div>     	
 
 
 	<script type="text/javascript">
@@ -309,10 +310,9 @@
 	<script type="text/javascript"
 		src="../resources/boardForm.js?v=<%=System.currentTimeMillis()%>">
 		
-	</script>
-
-	<footer style="margin-top: 5%">
+	</script>   
+	
 		<c:import url="../template/footer.jsp"></c:import>
-	</footer>
+	
 </body>
 </html>

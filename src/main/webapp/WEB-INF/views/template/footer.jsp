@@ -3,13 +3,13 @@
  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <div class="footer" style="height: 330px;">
-	<div class="footer-menu">
+	<div class="footer-menu">  
 		<ul>
-		<li><a href="${pageContext.request.contextPath}/footer/company">회사소개</a></li>
+		<li><a href="${pageContext.request.contextPath}/footer/company">회사소개</a></li>    
 		<li><a href="${pageContext.request.contextPath}/footer/legalnotice/">법적고지</a></li>
 		<li><a href="${pageContext.request.contextPath}/footer/privacy">개인정보처리방침</a></li>
 		<li><a href="${pageContext.request.contextPath}/footer/membergrade">회원등급정책</a></li>
-		<li><a href="#/point_policy/">공지사항</a></li>   
+		<li><a href="${pageContext.request.contextPath}/notice/noticeList">공지사항</a></li>   
 		<li class="sns-link"><img src="${pageContext.request.contextPath}/resources/images/f_icon_facebookt.png" alt="페이스북"  style="height: 17px;"><span></span>페이스북
 		<img src="${pageContext.request.contextPath}/resources/images/f_icon_instagram.png" alt="인스타그램" style="margin-left: 20px; height: 17px;"><span></span>인스타그램</li>
 		</ul>

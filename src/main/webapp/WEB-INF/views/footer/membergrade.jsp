@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원등급 정책</title>
+<title>Doom Food | 회원등급 정책</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 </head>

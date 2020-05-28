@@ -4,14 +4,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>공지사항</title>
+<title>DoomFood | 공지사항</title>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 </head>
-<body>
+<body>   
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">

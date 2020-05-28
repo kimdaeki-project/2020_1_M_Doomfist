@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>DoomFood | 맛집 신청 리스트</title>
 <c:import url="../template/boot.jsp"></c:import>
 <c:import url="../template/style.jsp"></c:import>
 </head>
