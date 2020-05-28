@@ -100,7 +100,7 @@ public class MemberController {
 
 	@RequestMapping(value= "/member/memberLogin_HOME")
 	public void memberLogin_HOME(@CookieValue(value = "cId", required = false) String cId, Model model) {
-		System.out.println(cId);
+		
 	}
 
 	@PostMapping(value = "/member/memberLogin_HOME")
@@ -219,7 +219,7 @@ public class MemberController {
 	//네이버 로그인 성공시 callback호출 메소드
 	@RequestMapping(value = "/member/callback", method = { RequestMethod.GET, RequestMethod.POST })
 	public String callback(Model model, @RequestParam String code, @RequestParam String state, HttpSession session) throws IOException, ParseException {
-	System.out.println("여기는 callback");
+	//System.out.println("여기는 callback");
 	OAuth2AccessToken oauthToken;
 	oauthToken = naverLoginBO.getAccessToken(session, code, state);
 	//1. 로그인 사용자 정보를 읽어온다.
@@ -239,7 +239,7 @@ public class MemberController {
 	//response의 nickname값 파싱
 	String email = (String)response_obj.get("email");
 	String name = (String)response_obj.get("name");
-	System.out.println(email);
+	//System.out.println(email);
 	//4.파싱 닉네임 세션으로 저장
 	session.setAttribute("sessionId",email); //세션 생성
 	session.setAttribute("sessionName",name);
@@ -249,7 +249,7 @@ public class MemberController {
 	//로그아웃
 	@RequestMapping(value = "/member/logout", method = { RequestMethod.GET, RequestMethod.POST })
 	public String logout(HttpSession session)throws IOException {
-	System.out.println("여기는 logout");
+	//System.out.println("여기는 logout");
 	session.invalidate();
 	return "redirect:../";
 	}

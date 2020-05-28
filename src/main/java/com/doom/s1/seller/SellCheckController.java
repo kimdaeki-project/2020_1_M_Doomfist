@@ -61,7 +61,7 @@ public class SellCheckController {
 		mv.addObject("today", todayDate);
 		mv.addObject("se_list", sellCheckVOs);
 		mv.addObject("stvo", storeListVO);
-		mv.setViewName("./seller/orderCheck");
+		mv.setViewName("seller/orderCheck");
 		
 		
 		return mv;

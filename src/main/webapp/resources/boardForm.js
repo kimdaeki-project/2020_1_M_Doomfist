@@ -112,6 +112,7 @@ $("#btn").click(function() {
 	});
 	var ch5 = true; //전화번호검사
 
+
 /*
 		var regPhone = /(02)([0-9]{3,4})([0-9]{4})$/;
 
@@ -122,6 +123,7 @@ $("#btn").click(function() {
 		}*/
 	
 	ch5=true;
+
 
 
 	var ch1 = title != ""; //식당 이름

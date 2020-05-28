@@ -4,7 +4,7 @@
 
 <div class="modal-dialog modal-sm">
 	<div class="modal-content">
-		<div class="modal-header" style="border-bottom: 3px #80d6ff solid;">
+		<div class="modal-header" style="border-bottom: 3px #80d6ff solid; text-align: center;">
 			<button type="button" class="close" data-dismiss="modal">&times;</button>
 			<h2>${vo_pf1.pf_stname}</h2>
 		</div>
@@ -37,7 +37,7 @@
 				<li>
 					<hr> 
 					<h2>
-					결제 금액
+					<img alt="" src="${pageContext.request.contextPath}/resources/images/prstotal.png">
 					</h2>
 					
 					<h2>
@@ -49,7 +49,7 @@
 		</div>
 		
 		<div class="modal-footer">
-			<button type="button" class="btn btn-default" data-dismiss="modal" id="close2">Close</button>
+			<button type="button" class="btn btn-default" data-dismiss="modal" style=" background-image:url('${pageContext.request.contextPath}/resources/images/close.png'); width: 100px; height: 39px;"></button>
 		</div>
 		
 

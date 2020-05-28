@@ -34,9 +34,9 @@ public class MemberService {
 	public List<MemberVO> memberList(Pager pager) throws Exception{
 		pager.makeRow();
 		long totalCount = memberDAO.memberCount(pager);
-		System.out.println("11111 :"+totalCount);
+		//System.out.println("11111 :"+totalCount);
 		pager.makePage(totalCount);
-		System.out.println(totalCount);
+		//System.out.println(totalCount);
 
 		return memberDAO.memberList(pager);
 	}

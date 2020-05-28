@@ -53,22 +53,18 @@ public class QnaService {
 		String path = servletContext.getRealPath("/resources/qna_images");
 		System.out.println(path);
 		qnaVO.setQna_storekey(qnaDAO.qnaNum());
-		System.out.println(qnaVO.getQna_storekey());
+		
 		int result = qnaDAO.qnaJoin(qnaVO);
-		System.out.println(path);
+		
 		for(MultipartFile file : files) {
 			if(file.getSize()>0) {
 				QnaFileVO qnaFileVO = new QnaFileVO();
 				String fileName = fileSaver.saveByTransfer(file, path);
-				System.out.println(path);
 				qnaFileVO.setQna_storekey(qnaVO.getQna_storekey());
 				qnaFileVO.setQf_filename(fileName);
-				qnaFileVO.setQf_oriname(file.getOriginalFilename());
-				
+				qnaFileVO.setQf_oriname(file.getOriginalFilename());				
 			
-				qnaFileDAO.fileInsert(qnaFileVO);
-				
-				
+				qnaFileDAO.fileInsert(qnaFileVO);				
 			}
 		}
 		

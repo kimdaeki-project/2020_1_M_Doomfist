@@ -267,7 +267,7 @@
 				btn[k].value=text[random[k]];
 			}   
 		
-			console.log(btn[1].value);
+			/* console.log(btn[1].value); */
 			$("#category0").click(function() {
 				location.href="storeList/searchStore?kind=lk&search="+btn[0].value;
 			});

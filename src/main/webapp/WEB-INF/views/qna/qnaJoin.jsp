@@ -157,7 +157,7 @@
 				.click(
 						function() {   
 							if (countm < 10) { 
-								console.log(countm);  
+								/* console.log(countm); */  
 								$("#menuu")    
 										.append(
 										'<div class="form-group" style="margin-top: 15px; margin-bottom: 15px;"><div style="width:150px; height:20px; display:inline-block;"></div> <input type="text" id="qm_menu" name="qm_menu" placeholder="메뉴를 입력해주세요" style="margin-right: 10px; margin-left:24px; width:166px; display: inline-block" class="form-control qm_menu"> <input type="text" numberOnly id="qm_price" name="qm_price" class="form-control qm_price" placeholder="가격을 입력해주세요 "style="width:166px; display: inline-block;" ><i class="glyphicon glyphicon-remove remove"></i></div>');

@@ -15,7 +15,9 @@
 	<c:import url="../template/header_sub.jsp"></c:import>
 	<div class="container">
 		<div class="row">
-			<h1>${sessionScope.member.id}님의 식당 주문 현황</h1>
+			<img src="${pageContext.request.contextPath}/resources/images/sellList1.png">
+			<br>
+			<br>
 			
 			<div id="result">
 			<table class="table table-hover">

@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import com.doom.s1.qnacheck.QnaCheckVO;
+import com.doom.s1.seller.SellCheckVO;
 import com.doom.s1.storeList.storeMenu.StoreMenuVO;
 import com.doom.s1.util.Pager;
 
@@ -89,4 +90,9 @@ public class StoreListDAO {
 	public List<StoreListVO> listAll()	throws Exception{
 		return sqlSession.selectList(NAMESPACE+"listAll");
 	}
+	
+	public List<SellCheckVO> buyCheck(long st_key)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"buyCheck", st_key);
+	}
+	
 }

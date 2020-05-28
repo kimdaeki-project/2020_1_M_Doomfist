@@ -121,4 +121,8 @@
 		SELECT * FROM storeList
 	</select>
 	
+	<select id="buyCheck" parameterType="Long" resultType="com.doom.s1.seller.SellCheckVO">
+		SELECT DISTINCT selb_id FROM sel_check WHERE st_key=#{st_key}
+	</select>
+	
 </mapper>

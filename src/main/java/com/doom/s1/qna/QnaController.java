@@ -60,7 +60,7 @@ public class QnaController {
 	public ModelAndView qnaList(Pager pager, ModelAndView mv)throws Exception{
 		
 		List<QnaVO> ar = qnaService.qnaList(pager);
-		System.out.println(ar.size());
+		
 		mv.addObject("list",ar);
 		mv.addObject("pager",pager);
 		mv.setViewName("qna/qnaList");

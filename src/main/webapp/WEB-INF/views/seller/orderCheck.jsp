@@ -71,25 +71,29 @@
 								<td>구매자에게 배달이 되었는지</td>
 								<td>전화하여 확인해주세요.</td>
 								<td>
-								<input type="button" class="btn btn-info sel_del" value="목록 삭제" id="${vo.sel_key}">
+								<input type="button" class="btn btn-info sel_del" id="${vo.sel_key}"
+								style="background: url('${pageContext.request.contextPath}/resources/images/listDel.png');no-repeat 0 0; width: 100px; height: 40px;">
 								</td>
 							</c:if>
 						</c:if>
 						
 						<c:if test="${vo.sel_okcheck eq 1}">
-							<td> 배달 완료! </td>
+							<td><img src="${pageContext.request.contextPath}/resources/images/deliOK.png"></td>
 							<td></td>
 							<td></td>
 							<td>
-							<input type="button" class="btn btn-info sel_del" value="목록 삭제" id="${vo.sel_key}">
+							<input type="button" class="btn btn-info sel_del" id="${vo.sel_key}"
+							style="background: url('${pageContext.request.contextPath}/resources/images/listDel.png');no-repeat 0 0; width: 100px; height: 40px;">
 							</td>
 						</c:if>
 						<c:if test="${vo.sel_okcheck eq 2}">
-							<td> 주문 취소! </td>
+							<td><img src="${pageContext.request.contextPath}/resources/images/deliNO.png"></td>
 							<td></td>
 							<td></td>
 							<td>
-							<input type="button" class="btn btn-info sel_del" value="목록 삭제" id="${vo.sel_key}">
+							<input type="button" class="btn btn-info sel_del" id="${vo.sel_key}" 
+							style="background: url('${pageContext.request.contextPath}/resources/images/listDel.png') no-repeat 0 0; width: 100px; height: 40px;">
+							
 							</td>
 						</c:if>
 					
@@ -99,8 +103,9 @@
 								<td><input type="hidden" name="sel_key" value="${vo.sel_key}" id="sel_key">
 								<input type="hidden" name="st_key" value="${vo.st_key}">
 								<input type="hidden" name="selb_id" value="${vo.selb_id}">
-								<button name="sel_okcheck" class="btn btn-success" value="1">배달 완료!</button></td>
-								<td><button name="sel_okcheck" class="btn btn-danger" value="2">주문 취소</button></td>
+								<button name="sel_okcheck"  value="1"><img src="${pageContext.request.contextPath}/resources/images/OKdeli.png"></button></td>
+								<td><button name="sel_okcheck" value="2"><img src="${pageContext.request.contextPath}/resources/images/NOdeli.png"></button></td>
+								<td></td>
 							</c:if>
 						</c:if>
 					

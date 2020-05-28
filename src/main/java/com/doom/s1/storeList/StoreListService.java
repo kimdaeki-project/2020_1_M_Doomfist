@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.doom.s1.qnacheck.QnaCheckVO;
+import com.doom.s1.seller.SellCheckVO;
 import com.doom.s1.storeList.file.StoreFileDAO;
 import com.doom.s1.storeList.file.StoreFileVO;
 import com.doom.s1.storeList.reviewFile.ReviewFileDAO;
@@ -70,7 +71,7 @@ public class StoreListService {
 	public long storeReviewWrite(StoreListVO storeListVO, MultipartFile[] files)throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/review_images");
-		System.out.println(path);
+//		System.out.println(path);
 		
 		//sequence 번호받기
 		storeListVO.setRe_num(storeListDAO.reviewNum());
@@ -139,6 +140,10 @@ public class StoreListService {
 	
 	public List<StoreListVO> listAll()throws Exception{
 		return storeListDAO.listAll();
+	}
+	
+	public List<SellCheckVO> buyCheck(long st_key)throws Exception{
+		return storeListDAO.buyCheck(st_key);
 	}
 	
 }

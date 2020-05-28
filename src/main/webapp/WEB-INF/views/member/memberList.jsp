@@ -41,22 +41,27 @@
 				}
 			});
 
-			console.log(ids);
-			//foreach 끝
-			$.ajax({
-				type : "get",
-				url : "./memberDeletes",
-				traditional : true,
-				data : {
-					ids : ids
-				},
-				success : function(data) {
-				/* 	$.get("./memberLists", function(data) {
-						$("#result").html(data);
-					}); */
-						location.reload();
-				}
-			});
+			var check = confirm("삭제하면 복구가 불가능합니다. 삭제하시겠습니까?");
+			if(check){
+				
+				$.ajax({
+					type : "get",
+					url : "./memberDeletes",
+					traditional : true,
+					data : {
+						ids : ids
+					},
+					success : function(data) {
+					/* 	$.get("./memberLists", function(data) {
+							$("#result").html(data);
+						}); */
+							alert("삭제되었습니다.");
+							location.reload();
+					}
+				});
+			}else{
+				location.reload();
+			}			
 		});
 	});
 </script>

@@ -16,7 +16,6 @@ public class NoticeInterceptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		
 		boolean check = false;
-		System.out.println("Notice interceptor");
 		
 		MemberVO memberVO = (MemberVO)request.getSession().getAttribute("member");
 		if(memberVO != null && memberVO.getId().equals("admin")) {

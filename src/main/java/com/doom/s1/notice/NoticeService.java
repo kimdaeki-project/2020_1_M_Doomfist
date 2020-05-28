@@ -55,7 +55,7 @@ public class NoticeService implements BoardService {
 	@Override
 	public int boardUpdate(BoardVO boardVO) throws Exception {
 		int result = noticeDAO.boardUpdate(boardVO);
-		System.out.println("service uo:"+result);
+		//System.out.println("service uo:"+result);
 		return result;
 	}
 

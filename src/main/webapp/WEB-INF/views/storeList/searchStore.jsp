@@ -54,7 +54,7 @@
 		}
 		
 		$("#more").click(function() {
-			console.log($("#more").attr("title"));
+			
 			
 			if(count>$("#more").attr("title")){
 				$("#more").attr("type", "hidden");
