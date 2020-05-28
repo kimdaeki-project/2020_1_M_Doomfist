@@ -13,11 +13,11 @@
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-
-<div class="container">
+    
+<div class="container" style="border: 1px solid #b3cccc; border-top: 3px #80d6ff solid; padding: 30px; margin-bottom: 15px;">
 	<div class="page-content legal privacy privacy-info"> 
-	
-	<h1><b>법적 고지</b></h1>
+	 
+	<h1 align="center"><b>법적 고지</b></h1>
 	<br><br> 
 	    
     <p class="prgr01"><h4><b>DoomFood주식회사(이하"DoomFood"라 함)의 홈페이지를 방문해 주신 여러분을 환영합니다. DoomFood의 홈페이지(이하 "이 사이트"라 함)이용과 관련하여 방문 고객 여러분께서 알아두셔야 할 법적인 제한사항 및 금지사항 등에 대하여 다음과 같이 알려드립니다.</p> </b></h4>
