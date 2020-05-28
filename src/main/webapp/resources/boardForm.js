@@ -110,16 +110,18 @@ $("#btn").click(function() {
 			ch7 = false;
 		}
 	});
-	var ch5 = false; //전화번호검사
+	var ch5 = true; //전화번호검사
 
-
+/*
 		var regPhone = /(02)([0-9]{3,4})([0-9]{4})$/;
 
 		ch5 = regPhone.test($("#qna_phone").val());
 		
 		if(ch5==false){
 			alert('전화번호를 확인해주세요')
-		}
+		}*/
+	
+	ch5=true;
 
 
 	var ch1 = title != ""; //식당 이름

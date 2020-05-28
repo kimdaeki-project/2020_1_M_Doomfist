@@ -51,6 +51,7 @@ public class QnaService {
 	public int qnaJoin(QnaVO qnaVO, MultipartFile[] files,long [] qm_price, String [] qm_menu) throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/qna_images");
+		System.out.println(path);
 		qnaVO.setQna_storekey(qnaDAO.qnaNum());
 		System.out.println(qnaVO.getQna_storekey());
 		int result = qnaDAO.qnaJoin(qnaVO);
