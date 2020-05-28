@@ -68,9 +68,9 @@
 	<div class="container">
 		<div class="row">
 		<div><img src="${pageContext.request.contextPath}/resources/images/memberinfoad.png"> </div> 
-		<hr>
+		<hr style=" border-top: 3px #80d6ff solid;">
 			<form action="./memberList" class="form-inline">
-				<div class="input-group input-group-sm col-xs-2">
+				<div class="input-group input-group-sm col-xs-1">
 					<select class="form-control" id="sel1" name="kind">
 						<option value="mi">ID</option>
 						<option value="mn">NAME</option>
@@ -90,9 +90,10 @@
 				</div>
 			</form>
 		</div>
+		<hr>
 		<div id="result">
 			<table class="table table-hover">
-				<tr>
+				<tr style=" background-color: #e6f5ff;">
 					<td>ID</td>
 					<td>NAME</td>
 					<td>PHONE</td>
@@ -130,7 +131,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td><button class="btn btn-danger" id="del">회원 삭제</button></td>
+					<td><button class="btn btn-danger" id="del" style="width: 100px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/delete.png');"></button></td>
 				</tr>
 
 			</table>
