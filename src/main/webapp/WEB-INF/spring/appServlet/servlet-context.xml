@@ -81,12 +81,17 @@
 		</interceptor>
 		
 		<interceptor>
-			<mapping path="/payment/*"/>
 			<mapping path="/payment/payFirstSelect"/>
-			<mapping path="/payment/payReceipt"/>
+			<!-- <mapping path="/payment/payReceipt"/> -->
 			<mapping path="/payment/paySecondSelect"/>
 			<mapping path="/payment/paySuccess"/>
+			<mapping path="/payment/payFail"/>
 			<beans:ref bean="paymentInterceptor"/>
+		</interceptor>
+		
+		<interceptor>
+			<mapping path="/payment/payReceipt"/>
+			<beans:ref bean="paymentInterceptor2"/>
 		</interceptor>
 		
 		<interceptor>

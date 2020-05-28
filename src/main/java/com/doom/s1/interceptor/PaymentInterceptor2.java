@@ -10,18 +10,20 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import com.doom.s1.member.MemberVO;
 
 @Component
-public class PaymentInterceptor extends HandlerInterceptorAdapter {
+public class PaymentInterceptor2 extends HandlerInterceptorAdapter {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		
 		boolean check = false;
 		
 		MemberVO memberVO = (MemberVO)request.getSession().getAttribute("member");
-		if(memberVO != null) {
+		String id = request.getParameter("id");
+		
+		if(memberVO != null && memberVO.getId().equals(id)) {
 			check = true;
 			
 		}else {
-			request.setAttribute("result", "로그인후 이용가능합니다.");
+			request.setAttribute("result", "본인만 확인 가능합니다.");
 			request.setAttribute("path","../");
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
