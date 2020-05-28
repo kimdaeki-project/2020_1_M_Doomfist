@@ -38,7 +38,7 @@
 			</ul>
 		</div>
 	</div>
-	<div class="container" id="result"	style="width: 65%; font-size: 30px; background-color: #e6f5ff;">
+	<div class="container" id="result"	style="width: 65%; font-size: 20px; background-color: #e6f5ff;">
 		<div class="row" style="min-height: 800px;">
 			<form action="./paySecondInsert" method="post" id="frm">
 				<div align="center">
@@ -59,18 +59,19 @@
 				<div style="overflow: hidden; height: auto;">
 					<c:forEach items="${vo_sm}" var="vo" varStatus="i">
 						<!-- 반복해서 나눌거  -->
-						<div class="col-sm-4" style="float: left;">
+						<div class="col-sm-4" style="float: left; min-width: 195px;">
 							<div class="panel panel-info"
-								style="max-width: 1000px; height: 200px;">
+								style="max-width: 1000px; height: 250px;">
 
 								<input type="hidden" value="${vo.sm_menu}" name="ps_menu">
 								<div class="panel-heading"></div>
-								<div class="panel-body" align="center">
-									<span> ${vo.sm_menu} </span><span>  　　  ${vo.sm_price}원 </span><br>
+								<div class="panel-body" align="center" style="height: 250px; min-height: 270px;">
+									<span>${vo.sm_menu}</span> <br><span style="font-weight: bold;">${vo.sm_price}원 </span>
+									<br><br>
 									<img src="${pageContext.request.contextPath}/resources/images/pay2.png" alt="pay2">								
 									<input type="text" id="menu${i.index}" value="0"
 										name="ps_multi" class="menu btn btn-info" readonly="readonly" size="2" style="font-size: 20px;">
-
+								<br>
 									<!-- 기존 가겨  -->
 									<input type="hidden" id="menus${i.index}"
 										value="${vo.sm_price}"> <br> <input type="button"

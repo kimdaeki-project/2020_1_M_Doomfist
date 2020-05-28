@@ -23,7 +23,7 @@
 
 
 		<div class="panel panel-info"
-			style="text-align: center; font-size: 15px;">
+			style="text-align: center; font-size: 15px; font: normal;">
 			<div class="panel-heading col-sm-1">#</div>
 			<div class="panel-heading col-sm-5">TITLE</div>
 			<div class="panel-heading col-sm-2">작성자</div>
@@ -45,9 +45,7 @@
 				style="width: 100%; overflow: hidden; word-wrap: break-word;">
 				${vo.contents}</div>
 		</div>
-		<div class="panel panel-warning">
-			<div class="panel-heading">${sessionScope.member.id}</div>
-		</div>
+		
 
 		<div></div>
 		<br> <br>
