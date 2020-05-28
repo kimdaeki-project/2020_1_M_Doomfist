@@ -14,7 +14,7 @@
 	
 	<c:import url="./template/boot.jsp"></c:import>
 	<c:import url="./template/style.jsp"></c:import>
-		<c:import url="./template/footerstyle.jsp"></c:import>
+	
 	</head>
 	
 	<body>

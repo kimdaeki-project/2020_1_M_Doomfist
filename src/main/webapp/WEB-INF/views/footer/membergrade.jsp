@@ -11,13 +11,13 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>   
-	<div  class="container" style="border: 1px solid #b3cccc; padding: 30px;">   
+	<div  class="container" style="border: 1px solid #b3cccc; border-top: 3px #80d6ff solid; padding: 30px; margin-bottom: 15px;">         	   
 		<div class="terms ng-scope">
 			<div align="center"><h3><b>둠푸드 회원등급 정책</b></h3></div>   
 			<br><br>
 			<div class="stit"><b>제1조 [목적]</b></div>
 			<br>
-			<div style="margin-left: 30px;">
+			<div style="margin-left: 30px;">   
 				<ul style="list-style: none;">      
 					<li>"둠푸드 회원등급 정책"은 둠푸드 서비스를 이용하는 회원에 대해서 적용되는 내용을 규정함을 그 목적으로
 						합니다. 둠푸드 회원은 본 정책에 의해 등급에 따른 혜택(쿠폰)을 제공받을 수 있으며, 기타 특정 마케팅 활동 참여 시
@@ -139,7 +139,7 @@
 		</div>       
 
 	</div>
-
+ 
 	<c:import url="../template/footer.jsp"></c:import>
 
 </body>
