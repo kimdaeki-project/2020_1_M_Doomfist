@@ -42,6 +42,7 @@
 					<c:when test="${vo.qna_storekey > 0}">
 						처리중
 					</c:when>
+
 					<c:otherwise>
 						${result[i.index]}
 					</c:otherwise>
