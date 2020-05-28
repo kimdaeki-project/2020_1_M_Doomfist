@@ -61,7 +61,7 @@
 	<div class="container">
 		<div class="row">
 			<div><img src="${pageContext.request.contextPath}/resources/images/storelistad.png"> </div> 
-			<hr>
+			<hr style="width: 1110px; border-top: 3px #80d6ff solid;">
 			<form class="form-inline" action="./storeListCheck">
 				<div class="input-group input-group-sm col-xs-2">
 					<select class="form-control" id="sel1" name="kind">
@@ -81,10 +81,11 @@
 					</div>
 				</div>
 			</form>
+			<br>
 
 			<div id="result">
-			<table class="table table-hover">
-				<tr>
+			<table class="table table-hover" >
+				<tr style=" background-color: #e6f5ff;">
 					<td width="100px">식당고유번호<td> <!-- st_key -->
 					<td>식당이름</td> <!-- st_title -->
 					<td width="100px">아이디</td>	<!-- id -->
@@ -128,7 +129,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td> <button class="btn btn-danger" id="del">삭제하기</button>
+					<td> <button class="btn btn-danger" id="del" style="width: 100px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/delete.png');"></button>
 					</td>
 				</tr>
 				

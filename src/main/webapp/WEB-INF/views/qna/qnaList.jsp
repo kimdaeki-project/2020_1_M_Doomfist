@@ -15,8 +15,8 @@
 	<div class="container">
 		<div class="row">
 		<div><img src="${pageContext.request.contextPath}/resources/images/storeappli.png"> </div> 
-			<hr>
-			<form class="col-xs-6" action="./qnaList">
+			<hr style="width: 1110px; border-top: 3px #80d6ff solid;">
+			<form class="form-inline" action="./qnaList">
 					<select class="form-control" id="sel1" name="kind">
 						<option value="bt">식당이름</option>
 						<option value="bc">내용</option>
@@ -33,10 +33,11 @@
 					</div>
 				</div>
 			</form>
+			<br>
 
 
 			<table class="table table-hover">
-				<tr>
+				<tr style=" background-color: #e6f5ff;">
 					<td>신청번호<td> <!-- qna_storekey -->
 					<td>식당이름</td> <!-- qna_title -->
 					<td>아이디</td>	<!-- id -->

@@ -23,7 +23,7 @@
 		<div class="container" style="width:1150px;">
 			<div class="row">
 			<div><img src="${pageContext.request.contextPath}/resources/images/today_2.png"> </div> 
-			<hr>
+			<hr style=" border-top: 3px #80d6ff solid;">
 			
 <!-- 구분선=============================================================================================== -->		
 			

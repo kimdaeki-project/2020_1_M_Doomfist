@@ -82,6 +82,7 @@
 			</a>
 		</div>
 		<div>
+		<br>
 			<div style="display: inline-block;">
 				<h1>
 					<b>${vo.st_name}</b>
@@ -105,12 +106,16 @@
 				<ul class="list"
 					style="list-style-type: none; font-size: large; font: bold;">
 					<li><h1>
-							<b>가게 정보</b>
+							 <img src="${pageContext.request.contextPath}/resources/images/selectinfo.png"> 
 						</h1></li>
-					<li><img alt=""
+						<hr style="width: 800px; border-top: 3px #80d6ff solid;">
+					<li>
+					<br>
+					<img alt=""
 						src="${pageContext.request.contextPath}/resources/images/location.png"
 						width="30px" height="30px"> 식당 주소 : ${vo.st_address} <input
 						type="hidden" id="address" value="${vo.st_address}"></li>
+						<br>
 					<li><img alt=""
 						src="${pageContext.request.contextPath}/resources/images/tel.png"
 						width="30px" height="30px"> ${vo.st_phone}</li>
@@ -127,8 +132,9 @@
 						<ul class="list" style="list-style-type: none; width: 600px;">
 							<br>
 							<li style="align-self: center;"><h1>
-									<b>메뉴 정보</b>
+									<img src="${pageContext.request.contextPath}/resources/images/selectmenu.png"> 
 								</h1></li>
+								<hr style="width: 800px; border-top: 3px #80d6ff solid;">
 							<c:forEach items="${vo_sm}" var="vo">
 								<li><div
 										style="float: left; display: inline-block; width: 100px; overflow: hidden;">
@@ -164,9 +170,10 @@
 		</p>
 
 		<div class="panel panel-default">
-			<div class="panel-heading" align="center">
+			<div align="center">
 				<h2>
-					사용자리뷰
+					<img src="${pageContext.request.contextPath}/resources/images/review.png"> 
+					<hr style="width: 1110px; border-top: 3px #80d6ff solid;">
 					<!-- 티몬체로 추가 -->
 				</h2>
 			</div>
