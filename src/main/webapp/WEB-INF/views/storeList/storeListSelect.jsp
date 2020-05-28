@@ -191,7 +191,7 @@
 								src="${pageContext.request.contextPath}/resources/images/user.png"
 								style="width: 50px; height: 50px;"> <br> ${vor.id}</td>
 							<td>${vor.re_date}<br>
-								<h2>${vor.re_contents}</h2> <br> <c:forEach items="${vof1}"
+								<p>${vor.re_contents}</p><hr> <c:forEach items="${vof1}"
 									var="vof11" varStatus="status">
 									<c:forEach items="${vof11}" var="vof2" varStatus="status2">
 										<c:if test="${vor.re_num eq vof2.re_num}">
@@ -206,12 +206,12 @@
 
 							<td align="right"><span><img alt=""
 									src="${pageContext.request.contextPath}/resources/images/${vor.re_rating}point.png">
-									<br> <c:if test="${vor.re_rating eq 5}">	맛있다</c:if> <c:if
-										test="${vor.re_rating eq 3}">	괜찮다</c:if> <c:if
-										test="${vor.re_rating eq 1}">	별로..</c:if> <br> <c:if
+									<br> <c:if test="${vor.re_rating eq 5}">	맛있다!</c:if> <c:if
+										test="${vor.re_rating eq 3}">	괜찮다.</c:if> <c:if
+										test="${vor.re_rating eq 1}">	별로...</c:if> <br> <c:if
 										test="${sessionScope.member.id eq 'admin' or sessionScope.member.id eq vor.id}">
-									
-										<input type="button" class="btn btn-danger" style="margin-top: 100px;" value="리뷰삭제하기" onclick="location.href='./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}'">
+										<br>
+										<input type="button" class="btn btn-danger" style=" width: 100px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/delete.png');"  onclick="location.href='./storeReviewDelete?st_key=${vo.st_key}&re_num=${vor.re_num}'">
 									
 									</c:if> </span></td>
 						</tr>
@@ -233,7 +233,7 @@
 					test="${not empty sessionScope.member.id and sessionScope.member.id ne 'admin' and sessionScope.member.id ne vo.id
 							and sessionScope.member.id eq scvo.selb_id}">
 					
-					<a href="./storeReviewWrite?st_key=${vo.st_key}"> <input type="button" class="btn btn-info" value="리뷰 작성 하기!">
+					<a href="./storeReviewWrite?st_key=${vo.st_key}"> <input type="button" style=" width: 120px; height: 38px; background-image: url('${pageContext.request.contextPath}/resources/images/review_write.png');" class="btn btn-info" >
 					</a>
 					
 				</c:if>
