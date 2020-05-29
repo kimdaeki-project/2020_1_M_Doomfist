@@ -40,9 +40,9 @@
     </thead>
     <tbody>
       <tr style="text-align: center;">
-        <td>${pa.ps_menu}</td>
-        <td>${pa.ps_count}</td>
-        <td style="color: blue;">${pa.ps_multi} 원</td>
+        <td style="width: 260px;">${pa.ps_menu}</td>
+        <td style="width: 100px;">${pa.ps_count}</td>
+        <td style="color: blue; width: 186px;">${pa.ps_multi} 원</td>
       </tr>
        </tbody>
   </table>
