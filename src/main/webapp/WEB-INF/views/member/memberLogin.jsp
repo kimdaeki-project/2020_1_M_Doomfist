@@ -125,7 +125,7 @@
 	naverLogin.init();-->
 	<script type="text/javascript">
 	$("#naver_id_login").click(function() {
-		alert("네이버로 로그인시 서비스이용에 제한이 있을 수 있습니다.")
+		alert("네이버로 로그인시 서비스이용(맛집신청, 주문결제 등)에 제한이 있을 수 있습니다. ")
 	})
 	
 	function openWin() {
