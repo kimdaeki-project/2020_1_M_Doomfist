@@ -31,18 +31,6 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav">
 
-							<li class="active">
-								<div style="margin-top: 5.5px;" class="dropdown">
-									<a href="${pageContext.request.contextPath}/">
-										<button class="btn" id="drop" type="button"
-
-											style="outline: 0; height: 65px;">
-											&nbsp;<b>HOME</b>
-										</button>
-									</a>
-								</div> <!-- <a href="${pageContext.request.contextPath}/">Home</a> -->
-							</li>
-
 							<li>
 								<div style="margin-top: 7px;" class="dropdown">
 									<a href="${pageContext.request.contextPath}/notice/noticeList">
