@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.doom.s1.qnamenu.QnaMenuDAO">
+ 
+ <insert id="qnaMenuInsert" parameterType="com.doom.s1.qnamenu.QnaMenuVO">
+ 		insert into qnamenu values(qkkey_seq.nextval, #{qna_storekey}, #{qm_menu}, #{qm_price})
+ 	</insert>
+ 	
+ 	<select id="qnaMenuSelect" parameterType="Long" resultType="com.doom.s1.qnamenu.QnaMenuVO">
+ 		SELECT * FROM qnaMenu WHERE qna_storekey=#{qna_storekey}
+ 	</select>
+ 
+ </mapper>

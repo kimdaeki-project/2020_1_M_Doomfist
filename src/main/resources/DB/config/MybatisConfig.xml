@@ -5,9 +5,12 @@
   
 <configuration>
 	<typeAliases>
-		<typeAlias type="java.lang.Long" alias="Long" />
+		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="java.lang.String" alias="String"/>
 		<typeAlias type="java.util.List" alias="List"/>
+		<typeAlias type="com.doom.s1.member.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.doom.s1.notice.NoticeVO" alias="NoticeVO"/>
+		<typeAlias type="com.doom.s1.util.Pager" alias="Pager"/>
 	<!-- 	<typeAlias type="com.iu.s5.notice.NoticeVO" alias="NoticeVO"/>
 		<typeAlias type="com.iu.s5.member.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.iu.s5.member.memberFile.MemberFileVO" alias="MemberFileVO"/>
@@ -15,6 +18,8 @@
 		<typeAlias type="com.iu.s5.memo.MemoVO" alias="MemoVO"/>
 		<typeAlias type="com.iu.s5.qna.QnaVO" alias="QnaVO"/>
 		<typeAlias type="com.iu.s5.util.Pager" alias="Pager"/> -->
+		<typeAlias type="com.doom.s1.payFirst.PayFirstVO" alias="PayFirstVO"/>
+		<typeAlias type="com.doom.s1.paySecond.PaySecondVO" alias="PaySecondVO"/>
 	</typeAliases>
 
 </configuration>

@@ -8,8 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  * Handles requests for the application home page.
@@ -35,5 +37,14 @@ public class HomeController {
 		
 		return "home";
 	}
+	@RequestMapping(value = "/test")
+	public ModelAndView test() {
+		ModelAndView mv = new ModelAndView();
+//		System.out.println("맵테스트");
+		mv.addObject("vo", "캠퍼스타운역"); 
+		mv.setViewName("./test");
+		return mv;
+	}
 	
+		
 }

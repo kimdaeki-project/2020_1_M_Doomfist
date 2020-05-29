@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.doom.s1.qna.qnaFile.QnaFileDAO">
+    	
+  	<insert id="fileInsert" parameterType="com.doom.s1.qna.qnaFile.QnaFileVO">
+  		insert into qnafile values(#{qna_storekey},qfkey_seq.nextval,#{qf_filename},#{qf_oriname})
+  	</insert>
+  	
+  	<select id="qnaFileSelect" parameterType="Long" resultType="com.doom.s1.qna.qnaFile.QnaFileVO">
+  		SELECT * FROM qnaFile WHERE qna_storekey=#{qna_storekey}
+  	</select>
+  	
+  
+  </mapper>
