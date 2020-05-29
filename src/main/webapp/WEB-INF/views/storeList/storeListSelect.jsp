@@ -177,7 +177,7 @@
 			<div align="center">
 				<h2>
 					<img src="${pageContext.request.contextPath}/resources/images/review.png"> 
-					<hr style="width: 1110px; border-top: 3px #80d6ff solid;">
+					<hr style=" border-top: 3px #80d6ff solid;">
 					<!-- 티몬체로 추가 -->
 				</h2>
 			</div>
