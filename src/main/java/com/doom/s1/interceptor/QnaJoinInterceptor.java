@@ -21,6 +21,7 @@ public class QnaJoinInterceptor extends HandlerInterceptorAdapter {
 		if(memberVO != null) {
 			check = true;
 		}else {
+			System.out.println(request.getSession().getAttribute("sessionid"));
 			request.setAttribute("result", "로그인 후 이용해주세요");
 			request.setAttribute("path","../");
 			
