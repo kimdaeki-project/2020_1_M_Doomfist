@@ -31,18 +31,6 @@
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav">
 
-							<li class="active">
-								<div style="margin-top: 5.5px;" class="dropdown">
-									<a href="${pageContext.request.contextPath}/">
-										<button class="btn" id="drop" type="button"
-
-											style="outline: 0; height: 65px;">
-											&nbsp;<b>HOME</b>
-										</button>
-									</a>
-								</div> <!-- <a href="${pageContext.request.contextPath}/">Home</a> -->
-							</li>
-
 							<li>
 								<div style="margin-top: 7px;" class="dropdown">
 									<a href="${pageContext.request.contextPath}/notice/noticeList">
@@ -63,7 +51,7 @@
 										<a href="${pageContext.request.contextPath}/qna/qnaJoin">
 											<button class="btn" id="drop" type="button"
 
-												style="outline: 0; height: 65px;">
+												style="border:0 none; outline:0px; height: 65px;">
 												&nbsp;<b>맛집신청</b>
 											</button>
 										</a>
@@ -71,12 +59,24 @@
 								</li>
 							</c:if>
 
-							<c:if test="${empty member}">
+							<c:if test="${empty member and empty sessionId}">
 								<li>
 									<div style="margin-top: 7px;" class="dropdown">
 
 										<button class="btn notjoin" id="drop" type="button"
-											style="height: 65px;">
+											style="height: 65px; border: 0 none; outline:0px; color: rgb(51,122,183);">
+											&nbsp;<b>맛집신청</b>
+										</button>
+									</div> <!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
+								</li>
+							</c:if>
+							
+							<c:if test="${not empty sessionId}">
+								<li>
+									<div style="margin-top: 7px;" class="dropdown">
+
+										<button class="btn notnaver" id="drop" type="button"
+											style="height: 65px; border: 0 none; outline:0px; color: rgb(51,122,183);">
 											&nbsp;<b>맛집신청</b>
 										</button>
 									</div> <!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
@@ -339,6 +339,12 @@
 	$(".notjoin").click(function() {
 		alert("로그인 후 이용해주세요")
 	})
+	
+	$(".notnaver").click(function() {
+		alert("네이버로 로그인 시 맛집신청은 제한됩니다.")
+	})
+
+
 	
 	
 	</script>

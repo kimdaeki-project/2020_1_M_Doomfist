@@ -94,9 +94,8 @@
 			</form>
 			<!-- <button class="btn btn-danger pull-right" id="re">수량 초기화</button></h2> -->
 			<!-- 리모콘 고정 -->
-			 <div
-				style="position: fixed; top: 73%; right: 5%; height: 150px; background-color: #e6f9ff ">
-				<span><img src="${pageContext.request.contextPath}/resources/images/pay3.png" alt="pay3">	  </span><br>
+			 <div style="position: fixed; top: 43%; right: 5%; height: 150px; background-color: #e6f9ff ;border-top: 3px #80d6ff solid;">
+				<span style="margin-left: 26px;"><img src="${pageContext.request.contextPath}/resources/images/pay3.png" alt="pay3">	  </span><br>
 				<input type="button" id="total2" value="0" name="totalPrice"
 					class="btn btn-info" style="font-size: 20px;"> <input
 					type="hidden" id="total2" value="0" name="totalPrice"> <br>

@@ -21,7 +21,7 @@ public class PaymentInterceptor extends HandlerInterceptorAdapter {
 			check = true;
 			
 		}else {
-			request.setAttribute("result", "로그인후 이용가능합니다.");
+			request.setAttribute("result", "둠푸드 회원으로 로그인이 필요합니다.");
 			request.setAttribute("path","../");
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
