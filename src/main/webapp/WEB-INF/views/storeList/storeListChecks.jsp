@@ -46,7 +46,7 @@
 					<td></td>
 					<td></td>
 					<td></td>
-					<td> <button class="btn btn-danger" id="del">삭제하기</button>
+					<td> <button class="btn btn-danger" id="del" style="width: 100px; height: 40px; background-image: url('${pageContext.request.contextPath}/resources/images/delete.png');"></button>
 					</td>
 				</tr>
 				
