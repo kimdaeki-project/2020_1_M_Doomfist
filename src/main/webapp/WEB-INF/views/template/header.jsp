@@ -76,7 +76,7 @@
 									<div style="margin-top: 7px;" class="dropdown">
 
 										<button class="btn notjoin" id="drop" type="button"
-											style="height: 65px; border: 0 none; outline:0px;">
+											style="height: 65px; border: 0 none; outline:0px; color: rgb(51,122,183);">
 											&nbsp;<b>맛집신청</b>
 										</button>
 									</div> <!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
@@ -88,7 +88,7 @@
 									<div style="margin-top: 7px;" class="dropdown">
 
 										<button class="btn notnaver" id="drop" type="button"
-											style="height: 65px; border: 0 none; outline:0px;">
+											style="height: 65px; border: 0 none; outline:0px; color: rgb(51,122,183);">
 											&nbsp;<b>맛집신청</b>
 										</button>
 									</div> <!-- <a href="${pageContext.request.contextPath}/qna/qnaJoin">맛집신청</a>-->
