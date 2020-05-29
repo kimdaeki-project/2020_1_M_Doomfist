@@ -17,19 +17,8 @@
 	<c:set var="sum" value="${0}" />
 <c:forEach items="${pas}" var="pa" varStatus="i">
 <c:set var="sum" value="${sum+pa.ps_multi}" />
-	<div class="panel panel-body">
-	<%-- ${pa.ps_menu} ${pa.ps_count}개 ${pa.ps_multi}원 <br>  --%>
-	<%-- <div class="btn-group"><!--  버튼식으로 -->
-  <button type="button" class="btn btn-primary">${pa.ps_menu}</button>
-  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">${pa.ps_count}개</a></li>
-    <li><a href="#"> ${pa.ps_multi}원</a></li>
-  </ul>
-</div>  <!--  버튼 종료 --> --%>
-            
+	<div class="panel panel-body" >
+	           
   <table class="table table-hover">
     <thead >
       <tr>
@@ -40,9 +29,9 @@
     </thead>
     <tbody>
       <tr style="text-align: center;">
-        <td>${pa.ps_menu}</td>
-        <td>${pa.ps_count}</td>
-        <td style="color: blue;">${pa.ps_multi} 원</td>
+        <td style="width: 260px;">${pa.ps_menu}</td>
+        <td style="width: 100px;">${pa.ps_count}</td>
+        <td style="color: blue; width: 186px;">${pa.ps_multi} 원</td>
       </tr>
        </tbody>
   </table>

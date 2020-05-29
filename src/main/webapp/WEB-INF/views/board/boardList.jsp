@@ -37,7 +37,7 @@
 		    </div>
 		  </form>
 		</div>
-		<table class="table" style="text-align: center;">
+		<table class="table">
 			<tr style="background-color: #e6f5ff;">
 				<td></td>
 				<td>제목</td>

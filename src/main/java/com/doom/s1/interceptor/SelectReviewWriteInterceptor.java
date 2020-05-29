@@ -28,7 +28,6 @@ public class SelectReviewWriteInterceptor extends HandlerInterceptorAdapter {
 		MemberVO memberVO = (MemberVO) request.getSession().getAttribute("member");
 
 		StoreListVO ar = storeListService.select_id(st_key);
-//		System.out.println("id : "+ (String)ar.get(0).getId());
 		String stid= ar.getId();
 		
 		List<SellCheckVO> sellCheckVOs = storeListService.buyCheck(st_key);
