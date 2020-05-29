@@ -71,7 +71,7 @@ public class StoreListService {
 	public long storeReviewWrite(StoreListVO storeListVO, MultipartFile[] files)throws Exception{
 		
 		String path = servletContext.getRealPath("/resources/review_images");
-//		System.out.println(path);
+		System.out.println(path);
 		
 		//sequence 번호받기
 		storeListVO.setRe_num(storeListDAO.reviewNum());

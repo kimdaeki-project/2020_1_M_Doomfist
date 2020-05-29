@@ -78,7 +78,7 @@
 					<option>야식</option>
 					<option>찜,탕</option>
 					<option>도시락</option>
-					<option>패스트 푸드</option>
+					<option>패스트푸드</option>
 				</select>
 				<div style="display: inline-block; width: 166px; height: 20px;"></div>
 			</div> 
