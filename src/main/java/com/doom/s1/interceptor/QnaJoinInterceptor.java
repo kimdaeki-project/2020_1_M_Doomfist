@@ -14,11 +14,7 @@ public class QnaJoinInterceptor extends HandlerInterceptorAdapter {
 	
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
-		/**/
-		
-		
-		
-		/**/
+
 		boolean check = false;
 		
 		MemberVO memberVO = (MemberVO)request.getSession().getAttribute("member");
@@ -26,7 +22,12 @@ public class QnaJoinInterceptor extends HandlerInterceptorAdapter {
 		if(memberVO != null) {
 			check = true;
 		}else {
+
 			request.setAttribute("result", "둠푸드 회원만 이용가능합니다.");
+
+			System.out.println(request.getSession().getAttribute("sessionid"));
+
+
 			request.setAttribute("path","../");
 			
 			RequestDispatcher view = request.getRequestDispatcher("/WEB-INF/views/common/result.jsp");
