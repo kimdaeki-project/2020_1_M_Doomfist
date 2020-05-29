@@ -17,7 +17,7 @@
 <c:when test="${sessionId != null}">
 <h2> 네이버 아이디 로그인 성공하셨습니다!! </h2>
 <h3>'${sessionId}' 님 환영합니다! </h3>
-<h3><a href="http://localhost:8080/s1/">홈페이지 이용하기</a></h3>
+<h3><a href="http://211.238.142.223:8080/s1/">홈페이지 이용하기</a></h3>
 <h3><a href="logout">로그아웃</a></h3>
 </c:when>
 <c:otherwise>
@@ -115,7 +115,7 @@
 	var naverLogin = new naver.LoginWithNaverId(
 		{
 			clientId: "LguKBDvqrA_EBm7awPdH",
-			callbackUrl: "http://localhost:8080/s1/member/callback",
+			callbackUrl: "http://211.238.142.223:8080/s1/member/callback",
 			isPopup: false, /* 팝업을 통한 연동처리 여부 */
 			loginButton: {color: "green", type: 3, height: 60} /* 로그인 버튼의 타입을 지정 */
 		}
@@ -129,7 +129,7 @@
 	})
 	
 	function openWin() {
-		window.open("http://localhost:8080/s1/member/memberIdFind","아이디찾기","width=470, height=330, toolbar=no, menubar=no, scrollbars=no, resizable=yes") 
+		window.open("http://211.238.142.223:8080/s1/member/memberIdFind","아이디찾기","width=470, height=330, toolbar=no, menubar=no, scrollbars=no, resizable=yes") 
 
 	}
 	</script>

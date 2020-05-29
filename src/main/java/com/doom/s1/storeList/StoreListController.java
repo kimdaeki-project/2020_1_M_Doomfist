@@ -257,7 +257,7 @@ public class StoreListController {
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
 		if (listup>0) {
 			mv.addObject("result", "수정 성공");
-			mv.addObject("path", "http://localhost:8080/s1/storeList/storePageUpdate?st_key=" + st_key);
+			mv.addObject("path", "http://211.238.142.223:8080/s1/storeList/storePageUpdate?st_key=" + st_key);
 			mv.setViewName("common/result");
 		}else {
 			mv.addObject("result", "수정 실패");
@@ -275,7 +275,7 @@ public class StoreListController {
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
 		if (menudel>0) {
 			mv.addObject("result", "삭제 성공");
-			mv.addObject("path", "http://localhost:8080/s1/storeList/storePageUpdate?st_key=" + st_key);
+			mv.addObject("path", "http://211.238.142.223:8080/s1/storeList/storePageUpdate?st_key=" + st_key);
 			mv.setViewName("common/result");
 		}else {
 			mv.addObject("result", "수정 실패");
@@ -307,7 +307,7 @@ public class StoreListController {
 //		long tagup = storeListService.storeTagUpdate(storeTagVO);
 		if (menuup>0) {
 			mv.addObject("result", "수정 성공");
-			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuUpdate?st_key=" + st_key);
+			mv.addObject("path", "http://211.238.142.223:8080/s1/storeList/storeMenuUpdate?st_key=" + st_key);
 			mv.setViewName("common/result");
 		}else {
 			mv.addObject("result", "수정 실패");
@@ -363,7 +363,7 @@ public class StoreListController {
 		
 		if (menuAll) {
 			mv.addObject("result", "수정 성공");
-			mv.addObject("path", "http://localhost:8080/s1/storeList/storeMenuInsert?st_key=" + st_key);
+			mv.addObject("path", "http://211.238.142.223:8080/s1/storeList/storeMenuInsert?st_key=" + st_key);
 			mv.setViewName("common/result");
 		}else {
 			mv.addObject("result", "수정 실패");

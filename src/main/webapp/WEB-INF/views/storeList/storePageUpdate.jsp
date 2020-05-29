@@ -204,7 +204,7 @@
 			</div>
 			<div id="file" align="center"></div>-->
 		<div align="center"> 
-			<a href="http://localhost:8080/s1/storeList/storePage"><button
+			<a href="http://211.238.142.223:8080/s1/storeList/storePage"><button
 					type="button" class="btn btn-default" style="width: 140px; height: 40px;  background-image: url('${pageContext.request.contextPath}/resources/images/list_icon.png')"></button></a>
 					<br><br> 
 		</div>
@@ -217,7 +217,7 @@
 		function openWin() {
 			window
 					.open(
-							"http://localhost:8080/s1/storeList/storeMenuUpdate?st_key=${liststore.st_key}",
+							"http://211.238.142.223:8080/s1/storeList/storeMenuUpdate?st_key=${liststore.st_key}",
 							"메뉴수정",
 							"width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes")
 
@@ -226,7 +226,7 @@
 		function openWin2() {
 			window
 					.open(
-							"http://localhost:8080/s1/storeList/storeMenuInsert?st_key=${liststore.st_key}",
+							"http://211.238.142.223:8080/s1/storeList/storeMenuInsert?st_key=${liststore.st_key}",
 							"메뉴추가",
 							"width=600, height=500, toolbar=no, menubar=no, scrollbars=no, resizable=yes")
 
