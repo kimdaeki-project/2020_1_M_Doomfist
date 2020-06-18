@@ -1,0 +1,131 @@
+--------------------------------------------------------
+--  DDL for Sequence BOARD_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."BOARD_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 52 NOCACHE  NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence BUY_ADDR_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."BUY_ADDR_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 281 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence PAY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."PAY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1541 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence PAYS_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."PAYS_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 2121 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QCKEY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QCKEY_SEQ"  MINVALUE 1 MAXVALUE 1000 INCREMENT BY 1 START WITH 321 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QFKEY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QFKEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 461 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QK_KEY_SEQ					
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QK_KEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QKKEY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QKKEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 601 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QM_KEY_SEQ					
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QM_KEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QNA_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QNA_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 41 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence QNA_STOREKEY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."QNA_STOREKEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 381 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence REFILE_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."REFILE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 261 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence REVIEW_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."REVIEW_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 301 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence SEL_CHECK_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."SEL_CHECK_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 261 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence SMKEY_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."SMKEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 521 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence STFILE_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."STFILE_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 401 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence STKEY_SEQ					
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."STKEY_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 1 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence STR_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."STR_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 21 CACHE 20 NOORDER  NOCYCLE ;
+
+
+--------------------------------------------------------
+--  DDL for Sequence TAG_SEQ
+--------------------------------------------------------
+
+   CREATE SEQUENCE  "USER04"."TAG_SEQ"  MINVALUE 1 MAXVALUE 9999999999999999999999999999 INCREMENT BY 1 START WITH 81 CACHE 20 NOORDER  NOCYCLE ;
